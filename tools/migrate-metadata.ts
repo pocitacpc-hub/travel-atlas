@@ -3,6 +3,7 @@ import { dirname, join } from "node:path";
 import { isDeepStrictEqual } from "node:util";
 import { asOfToday, checkPublic, isRecord, loadCatalog, localPath, parseYaml, readJson, root } from "./atlas-data";
 import { assertSafe, localNames } from "./content-security";
+import { flagSource } from "./flags";
 import { prepareMigration, readProposals, type Proposal, type SavedPlan } from "./metadata-migration";
 import { applyMigration, createBackup } from "./migration-backup";
 import { sourceDirectory, writeLocal } from "./source-files";
@@ -85,7 +86,7 @@ function runMigration(backupDir?: string): void {
   const draft = prepareMigration(source, proposals, prior);
   const preview = buildExport(draft.records, catalog, {
     legacy: false, asOf: asOfToday(),
-    hasFlag: (flag) => existsSync(join(root, "docs", "design", "v2", "assets", "flag-icons", flag))
+    hasFlag: (flag) => existsSync(flagSource(flag))
   });
   const writeReport = (mode: string) => writeLocal(report, reportText(draft, preview, proposals, mode));
   if (preview.errors.length) {

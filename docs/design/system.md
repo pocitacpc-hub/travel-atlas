@@ -3,6 +3,7 @@
 **Stav:** 8. 11. 2026 · popis vybraného vzhledu „Atlas“ podle prototypu v2.
 **Zdroj pravdy:** `docs/design/v2/` – `assets/atlas.css` (tokeny a základní komponenty), `assets/app.js` (sdílené komponenty), stránky `index.html`, `kronika.html`, `statistiky.html`, `cesta.html`. Výpočty a formátování: `docs/design/assets/viz.js`.
 **Účel:** podklad pro implementaci MVP. Když se dokument a prototyp rozejdou, platí prototyp a dokument se opraví.
+**Implementace (fáze D):** web v `src/` (`src/atlas.css`, `src/lib/`, `src/pages/`, `src/styles/`) převzal tokeny, komponenty, texty a URL parametry prototypu. Rozdíly proti prototypu jsou v kapitole 10. Název webu je **Cestovní atlas**.
 
 ---
 
@@ -170,7 +171,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 **Vlajka státu** (`APP.flag(code)` → `<span class="fi fi-cz" aria-hidden="true"></span>`)
 
 - **Zdroj:** knihovna [flag-icons](https://github.com/lipis/flag-icons) (licence MIT), stejně jako v TravelApp (`src/TravelApp.Web/wwwroot/lib/flag-icons`). Třídy `.fi .fi-xx` jsou shodné, takže se vzhled i kód mezi aplikacemi dají přenášet.
-- **Lokální podmnožina:** `v2/assets/flag-icons/` obsahuje jen 15 vlajek z archivu (formát 4 : 3, SVG, celkem asi 173 kB, z toho Španělsko 91 kB a Chorvatsko 41 kB kvůli znakům), zkrácený `flag-icons.css` a `LICENSE`. Nic se nenačítá z CDN.
+- **Lokální podmnožina:** web generuje podmnožinu z npm balíčku `flag-icons` příkazem `npm run assets` do `src/generated/` (rozhodnutí 0013). Prototyp má ruční kopii v `v2/assets/flag-icons/`, ta obsahuje jen 15 vlajek z archivu (formát 4 : 3, SVG, celkem asi 173 kB, z toho Španělsko 91 kB a Chorvatsko 41 kB kvůli znakům), zkrácený `flag-icons.css` a `LICENSE`. Nic se nenačítá z CDN.
 - **Vzhled:** výška = 1 em (velikost se řídí `font-size`), šířka 4/3 em, rádius 2 px, jemný obrys `rgba(30,43,51,.18)`, aby byly vidět i vlajky s bílým okrajem (Polsko, Rakousko, Česko).
 - **Pravidla:**
   - Vlajka je vždy dekorace vedle názvu nebo kódu státu (`aria-hidden="true"`), nikdy nenese informaci sama.
@@ -185,7 +186,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
   | Statistiky | seznam států (místo kódu, kód je malý vedle názvu), tooltipy heatmapy a Celých roků |
   | Detail cesty | nadtitulek, fakt „Stát“, nadpis „Další cesty“ |
 
-- **Nový stát:** zkopírovat `flags/4x3/xx.svg` z flag-icons a přidat řádek `.fi-xx` do `flag-icons.css`. V implementaci to má hlídat export: stát bez vlajky = varování.
+- **Nový stát:** přidat ho do `data/zeme.json`. Vlajku doplní `npm run assets` z balíčku `flag-icons`. Export i generátor hlásí stát bez vlajky.
 
 ---
 
@@ -247,8 +248,18 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 - **Body míst jsou ilustrační.** Souřadnice obcí jsou z obecné znalosti, nejde o ověřený číselník (revize, Z5). Bulharsko a „Varne minde“ bod nemají.
 - **Štítek „kolo“** v `data.js` je odvozený z názvu cesty. Ve webu ho nahradí pole `zamereni` ze zdroje.
 - **Upozornění „Kontrola dat“** (překryv termínů) v detailu cesty slouží k revizi. Ve veřejné verzi se rozpor opraví ve zdroji a validátor exportu ho ohlásí jako varování.
-- **`data.js`** je jednorázově vygenerovaný z exportu. Web bude číst `cesty.json` z exportního skriptu.
+- **`data.js`** je jednorázově vygenerovaný z exportu. Web vkládá `public/data/cesty.json` z exportu při sestavení.
 - **`viz.js` a `app.js`** jsou prototypový kód bez typů a testů.
+
+**Co web ve fázi D udělal jinak:**
+
+- Body míst a Návraty berou jen ověřená místa z `mista.json`. Bez nich je přepínač Státy / Místa skrytý a Návraty mají prázdný stav.
+- Místo štítku „kolo“ se zobrazují chipy z pole `zamereni`. Box „Kontrola dat“ a varování o překryvu v tooltipu nejsou.
+- Detail bez popisu nemá prázdný rámeček. Pole `popis` se zobrazí jako sekce „O cestě“, jakmile bude ve zdroji.
+- Neznámé ID v `cesta.html?id=` ukáže „Cesta nenalezena“, nepřesměruje na poslední cestu.
+- Fakt „Letos“ je „Rok 2026“ s datem dat, aby po přelomu roku netvrdil nepravdu.
+- Hledání v Kronice nerozlišuje diakritiku a prohledává i název státu.
+- Další státy pobytu (`dalsiZeme`) se počítají do navštívených států a na mapě, počet cest u státu zůstává podle hlavního státu (rozhodnutí 0002).
 
 ---
 
@@ -268,7 +279,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
   | `pages` | jednotlivé stránky |
 
 - Chování prototypu je specifikace: stejné výpočty, texty, prázdné stavy a URL parametry.
-- Vlajky: buď ponechat lokální podmnožinu SVG (jako teď), nebo použít npm balíček `flag-icons` a do buildu zahrnout jen státy z dat. Nikdy ne z CDN.
+- Vlajky: npm balíček `flag-icons`, do buildu jen státy z číselníku (rozhodnutí 0013). Nikdy ne z CDN.
 
 **Otevřená rozhodnutí**
 

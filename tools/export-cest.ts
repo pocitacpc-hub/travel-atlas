@@ -2,6 +2,7 @@ import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { asOfToday, checkPublic, date, loadCatalog, localPath, root } from "./atlas-data";
 import { assertSafe, localNames } from "./content-security";
+import { flagSource } from "./flags";
 import { publicDirectory } from "./public-data";
 import { buildExport, compare, readTripHeader } from "./trip-export";
 import { sourceDirectory, writeLocal } from "./source-files";
@@ -67,7 +68,7 @@ async function main() {
   }
   const result = buildExport(records, catalog, {
     legacy, asOf,
-    hasFlag: (flag) => existsSync(join(root, "docs", "design", "v2", "assets", "flag-icons", flag))
+    hasFlag: (flag) => existsSync(flagSource(flag))
   });
   if (!records.length) readErrors.push({ file: "", text: "Zdroj neobsahuje žádný záznam typu cesta." });
   if (readErrors.length || result.errors.length) {

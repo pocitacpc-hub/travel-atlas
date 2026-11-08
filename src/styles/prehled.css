@@ -1,0 +1,57 @@
+/* Přehled */
+.hero { display: grid; grid-template-columns: minmax(0, 7fr) minmax(320px, 4fr); align-items: start; gap: 28px; padding: 28px 0 8px; }
+.map-card { padding: 14px; }
+.map-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 24px; margin-bottom: 6px; }
+.map-card .legend { padding: 6px 4px 2px; }
+.intro h1 { margin: 6px 0 18px; font: 400 52px/1.05 var(--serif); letter-spacing: -.5px; }
+.intro h1 em { color: var(--cz); font-style: italic; }
+.facts { display: grid; grid-template-columns: 1fr 1fr; margin: 0 0 20px; border-top: 1px solid var(--line); }
+.facts div { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.facts div:nth-child(odd) { padding-right: 12px; }
+.facts dt { color: var(--muted); font-size: 13px; }
+.facts dd { margin: 0; font: 400 26px/1.2 var(--serif); }
+.facts dd small { display: block; color: var(--muted); font: 13px var(--sans); }
+.flagrow { display: flex; flex-wrap: wrap; gap: 4px; margin: -4px 0 18px; }
+.flagrow button { padding: 7px; border: 0; border-radius: 8px; background: transparent; font-size: 21px; line-height: 0; cursor: pointer; }
+.flagrow button:hover { background: rgba(30, 43, 51, .07); }
+.flagrow button[aria-pressed="true"] { background: var(--card); box-shadow: inset 0 0 0 2px var(--ink); }
+.country { padding: 18px 18px 10px; }
+.country header { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.country h2 { margin: 0; font: 400 28px/1.1 var(--serif); }
+.country h2 .fi { margin-right: 10px; font-size: 22px; vertical-align: -.02em; }
+.country .meta { margin: 6px 0 10px; color: var(--ink-2); font-size: 14px; }
+.country ul { max-height: 232px; margin: 0; padding: 0; overflow: auto; list-style: none; }
+.country li a { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 9px 0; border-top: 1px solid var(--line); text-decoration: none; }
+.country li a:hover b { text-decoration: underline; }
+.country li b { font-size: 14px; font-weight: 600; }
+.country li span { color: var(--muted); font-size: 13px; }
+.country li span .fi { margin-right: 6px; font-size: 12px; }
+.country li .n { text-align: right; }
+.country .more { margin: 10px 0 0; font-size: 14px; }
+.recent { padding: 36px 0 10px; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.card { position: relative; display: block; min-height: 160px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); text-decoration: none; }
+.card:hover { border-color: var(--ink-2); }
+.card .stamp { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 46px; height: 46px; border: 1.5px dashed var(--ink-2); border-radius: 50%; color: var(--ink-2); font: 600 13px var(--sans); letter-spacing: .06em; transform: rotate(-8deg); }
+.card .cty { color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+.card .cty .fi { margin-right: 6px; font-size: 13px; }
+.card h3 { margin: 6px 56px 14px 0; font: 400 21px/1.2 var(--serif); }
+.card .when { margin-bottom: 8px; color: var(--ink-2); font-size: 14px; }
+.two { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 28px; padding: 30px 0 0; }
+.returns { margin: 8px 0 0; padding: 0; list-style: none; }
+.returns li { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 10px 0; border-top: 1px solid var(--line); }
+.returns .bar { grid-column: 1 / -1; height: 6px; overflow: hidden; border-radius: 3px; background: #efe8da; }
+.returns .bar span { display: block; height: 100%; border-radius: 0 3px 3px 0; background: var(--cz); }
+.returns b { font-weight: 600; }
+.returns small { color: var(--muted); font-size: 13px; }
+
+@media (max-width: 1100px) {
+  .hero, .two { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .intro h1 { font-size: 38px; }
+  .cards { grid-template-columns: none; grid-auto-columns: 78%; grid-auto-flow: column; padding-bottom: 6px; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .card { scroll-snap-align: start; }
+  .map-card { padding: 8px; }
+}

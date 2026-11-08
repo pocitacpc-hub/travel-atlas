@@ -1,6 +1,6 @@
 # Cestovní atlas
 
-Cestovní atlas je osobní archiv uskutečněných cest. Vzniká jako statický web s přehledem, kronikou, statistikami a detailem cesty. První verze obsahuje úvodní stránku ve stylu schváleného prototypu.
+Cestovní atlas je osobní archiv uskutečněných cest. Statický web má Přehled s mapou států, Kroniku po letech, Statistiky a detail cesty. Vzhled vychází ze schváleného prototypu Atlas.
 
 ## Lokální vývoj
 
@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Otevři [lokální Přehled](http://127.0.0.1:5173/travel-atlas/). Celý balík kontrol spustíš přes `npm run check`. Výstup sestavení je v `dist/`.
+Otevři [lokální Přehled](http://127.0.0.1:5173/travel-atlas/). Mapu a vlajky generuje `npm run assets` z balíčků world-atlas a flag-icons. Celý balík kontrol spustíš přes `npm run check`. Výstup sestavení je v `dist/`.
 
 Soukromé Markdowny jsou na Google Drivu. Přísný export čte jejich YAML hlavičky a ukládá ověřený veřejný výstup do `public/data/`. Zkušební režim se starými metadaty používá ignorovanou složku `out/legacy/`.
 

@@ -4,29 +4,67 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Přehled · Cestovní atlas</title>
+  <meta name="description" content="Osobní archiv uskutečněných cest: mapa navštívených států, poslední cesty a přehled po letech.">
+  <link rel="icon" href="/src/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/src/atlas.css">
+  <script type="module" src="/src/pages/prehled.ts"></script>
 </head>
 <body>
   <div class="wrap">
     <header class="top">
-      <a class="brand" href="./">
-        <b>Cestovní atlas</b>
-        <span>Osobní atlas cest</span>
-      </a>
+      <a class="brand" href="./"><b>Cestovní atlas</b><span>Osobní atlas cest</span></a>
       <nav aria-label="Hlavní navigace">
         <a href="./" aria-current="page">Přehled</a>
+        <a href="kronika.html">Kronika</a>
+        <a href="statistiky.html">Statistiky</a>
       </nav>
     </header>
-    <main class="page-head">
-      <h1>Přehled</h1>
-      <section class="panel" aria-labelledby="empty-title">
-        <h2 id="empty-title">Cestovní atlas se připravuje</h2>
-        <p>Přehled cest se zobrazí po zveřejnění archivu.</p>
+    <main id="main">
+      <noscript><p class="empty-note">Atlas zobrazuje data pomocí JavaScriptu. Zapněte ho prosím v prohlížeči.</p></noscript>
+      <section class="hero">
+        <div class="panel map-card">
+          <div class="map-toolbar">
+            <div class="seg" id="layers" role="group" aria-label="Vrstva mapy" hidden>
+              <button type="button" data-layer="countries" aria-pressed="true">Státy</button>
+              <button type="button" data-layer="places" aria-pressed="false">Místa</button>
+            </div>
+            <span class="note" id="mapNote"></span>
+          </div>
+          <div class="map" id="map"></div>
+          <div class="legend" id="legend"></div>
+        </div>
+        <div class="intro">
+          <p class="kicker" id="span"></p>
+          <h1 id="headline">Přehled</h1>
+          <div class="flagrow" id="flagrow" role="group" aria-label="Navštívené státy podle první návštěvy"></div>
+          <dl class="facts" id="facts"></dl>
+          <article class="panel country" id="country" aria-live="polite"></article>
+        </div>
+      </section>
+
+      <section class="recent">
+        <div class="sec-head"><h2 class="sec">Poslední cesty</h2><a class="link" href="kronika.html">Celá kronika →</a></div>
+        <div class="cards" id="recent"></div>
+      </section>
+
+      <section class="two">
+        <div class="panel">
+          <div class="sec-head"><h2 class="sec">Cesty po letech</h2><a class="link" href="statistiky.html#kdy">Kdy cestuji →</a></div>
+          <p class="legend"><span><i class="sw-cz"></i>Česko</span><span><i class="sw-abroad"></i>Zahraničí</span></p>
+          <div id="years"></div>
+          <p class="note" id="yearsNote"></p>
+        </div>
+        <div class="panel">
+          <h2 class="sec">Návraty</h2>
+          <p class="note">Místa navštívená třikrát a vícekrát.</p>
+          <div id="returns"></div>
+        </div>
       </section>
     </main>
     <footer class="foot">
-      <span>Data zatím nejsou zveřejněná.</span>
+      <span>Data k <span data-asof>—</span></span>
       <span>Neznámé údaje se nepočítají jako nula.</span>
+      <a href="statistiky.html#metodika">Jak číst data</a>
     </footer>
   </div>
 </body>

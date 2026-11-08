@@ -4,3 +4,4 @@ out/
 config.local.json
 .env*
 *.local.*
+src/generated/

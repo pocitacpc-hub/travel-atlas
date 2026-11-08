@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Statistiky · Cestovní atlas</title>
+  <meta name="description" content="Kdy cestuji, navštívené státy, délka pobytu a rekordy.">
+  <link rel="icon" href="/src/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/src/atlas.css">
+  <script type="module" src="/src/pages/statistiky.ts"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="./"><b>Cestovní atlas</b><span>Osobní atlas cest</span></a>
+      <nav aria-label="Hlavní navigace">
+        <a href="./">Přehled</a>
+        <a href="kronika.html">Kronika</a>
+        <a href="statistiky.html" aria-current="page">Statistiky</a>
+      </nav>
+    </header>
+    <main id="main">
+      <noscript><p class="empty-note">Atlas zobrazuje data pomocí JavaScriptu. Zapněte ho prosím v prohlížeči.</p></noscript>
+      <section class="page-head">
+        <div>
+          <p class="kicker" id="span"></p>
+          <h1>Statistiky</h1>
+          <p id="lead"></p>
+        </div>
+      </section>
+
+      <div class="stack">
+        <section class="panel" id="kdy">
+          <div class="ph">
+            <div><h2 class="sec">Kdy cestuji</h2><p class="note" id="kdyNote"></p></div>
+            <div class="seg" role="group" aria-label="Pohled">
+              <button type="button" data-view="mesice" aria-pressed="true">Měsíce</button>
+              <button type="button" data-view="roky" aria-pressed="false">Celé roky</button>
+            </div>
+          </div>
+          <div class="views" id="v-mesice">
+            <p class="legend"><span>Počet cest v měsíci:</span><span><i class="q1"></i>1</span><span><i class="q2"></i>2</span><span><i class="q3"></i>3</span><span><i class="q5"></i>4+</span><span>sloupec ? = měsíc neznámý</span></p>
+            <div id="heat"></div>
+          </div>
+          <div class="views" id="v-roky" hidden>
+            <p class="legend"><span><i class="bar sw-cz"></i>Česko</span><span><i class="bar sw-abroad"></i>zahraničí</span><span>pruh = přesný termín</span><span><i class="band"></i>známý jen měsíc</span><span><i class="dot sw-ink"></i>známý jen rok (sloupec ?)</span></p>
+            <div id="yrows"></div>
+          </div>
+          <p class="cov note" id="cov"></p>
+        </section>
+
+        <div class="grid2">
+          <section class="panel" id="staty">
+            <div class="ph"><div><h2 class="sec">Státy</h2><p class="note">Počet cest podle hlavního státu. Rozbalením zobrazíte cesty.</p></div></div>
+            <div id="states"></div>
+          </section>
+          <div class="stack">
+            <section class="panel">
+              <h2 class="sec">Délka pobytu</h2>
+              <p class="note" id="lenNote"></p>
+              <div id="hist"></div>
+            </section>
+            <section class="panel">
+              <h2 class="sec">Rekordy</h2>
+              <p class="note">Spočítáno z cest se známými údaji.</p>
+              <div class="records" id="records"></div>
+            </section>
+          </div>
+        </div>
+
+        <section class="panel method" id="metodika">
+          <h2 class="sec">Jak číst data</h2>
+          <ul>
+            <li>Každá cesta má jeden <b>hlavní stát</b>. Další stát se počítá jen při doloženém pobytu, průjezd se nepočítá.</li>
+            <li><b>Neznámé hodnoty</b> (noci, měsíc, rok) se nikdy nepočítají jako nula. U součtů je uvedeno, z kolika cest vycházejí.</li>
+            <li>Cesty bez známého roku se počítají do států, ale ne do grafů podle let a měsíců.</li>
+            <li>Termín má přesnost: přesné datum, známý měsíc, jen rok, nebo neznámý.</li>
+            <li>Atlas obsahuje jen ukončené cesty určené ke zveřejnění.</li>
+            <li>Sportovní údaje jsou jen z vybraných aktivit Strava 2023–2026, nejde o úplnou historii.</li>
+            <li>Na mapě jsou jen místa s ověřenou polohou, nejvýš s přesností na obec.</li>
+            <li>Státy se kreslí podle dnešních hranic. Mapa: Natural Earth (volné dílo). Vlajky: flag-icons (licence MIT).</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+    <footer class="foot">
+      <span>Data k <span data-asof>—</span></span>
+      <span>Neznámé údaje se nepočítají jako nula.</span>
+      <a href="statistiky.html#metodika">Jak číst data</a>
+    </footer>
+  </div>
+</body>
+</html>

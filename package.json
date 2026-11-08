@@ -7,25 +7,30 @@
     "node": "^22.12.0 || ^24.0.0 || >=26.0.0"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "npm run assets && vite",
+    "build": "npm run assets && vite build",
     "preview": "vite preview",
+    "assets": "tsx tools/build-assets.ts",
     "lint": "tsc --noEmit",
     "test": "vitest run",
     "validate-content": "tsx tools/validate-content.ts",
     "security-lint": "tsx tools/security-lint.ts",
     "export": "tsx tools/export-cest.ts",
     "migrate": "tsx tools/migrate-metadata.ts",
-    "check": "npm run lint && npm run validate-content && npm run security-lint && npm run test && npm run build"
+    "check": "npm run assets && npm run lint && npm run validate-content && npm run security-lint && npm run test && vite build"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@types/topojson-client": "^3.1.5",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
+    "flag-icons": "^7.6.0",
+    "topojson-client": "^3.1.0",
     "tsx": "^4.20.0",
     "typescript": "^5.8.0",
     "vite": "^7.0.0",
     "vitest": "^5.1.0",
+    "world-atlas": "^2.0.2",
     "yaml": "^2.9.1"
   }
 }

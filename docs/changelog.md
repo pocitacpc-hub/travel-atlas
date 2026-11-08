@@ -1,5 +1,13 @@
 # Změny
 
+## 8. 11. 2026 – fáze D (web MVP)
+
+- Přehled, Kronika, Statistiky a detail cesty podle prototypu v2, přepsané do TypeScriptu s testy výpočtů a formátování.
+- Generátor podkladů `npm run assets`: mapa z Natural Earth 1:50m (world-atlas) a podmnožina vlajek flag-icons s licencí.
+- Veřejná data se vkládají do sestavení. Nová cesta nevyžaduje změnu kódu.
+- Kontrola vlajek v exportu používá balíček flag-icons místo prototypové složky.
+- Prototypové prvky odstraněné: ilustrační body, štítek „kolo“ z názvu, box „Kontrola dat“.
+
 ## 8. 11. 2026 – dokončení fáze C
 
 - Po ověřené záloze zapsaná schválená základní migrace 97 YAML hlaviček na Drive a přidaný `_SCHEMA.md`.

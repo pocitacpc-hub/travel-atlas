@@ -4,8 +4,21 @@
     {
       "name": "makety",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["docs/design/serve.mjs", "4317"],
+      "runtimeArgs": [
+        "docs/design/serve.mjs",
+        "4317"
+      ],
       "port": 4317
+    },
+    {
+      "name": "atlas-nahled",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "vite",
+        "preview"
+      ],
+      "port": 4173,
+      "url": "http://127.0.0.1:4173"
     }
   ]
 }

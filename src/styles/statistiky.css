@@ -1,0 +1,80 @@
+/* Statistiky */
+.grid2 { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); align-items: start; gap: 24px; }
+.views[hidden] { display: none; }
+.cov { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 12px 0 0; }
+.legend i.q1, .heat td.q1 { background: var(--q1); }
+.legend i.q2, .heat td.q2 { background: var(--q2); }
+.legend i.q3, .heat td.q3 { background: var(--q3); }
+.legend i.q5, .heat td.q5 { background: var(--q5); }
+.legend i.sw-ink { background: var(--ink-2); }
+
+/* Rok × měsíc */
+.heat-scroll { overflow-x: auto; }
+.heat { width: 100%; min-width: 520px; border-collapse: separate; border-spacing: 3px; font: 12px var(--sans); font-variant-numeric: tabular-nums; table-layout: fixed; }
+.heat th { padding: 0 2px; color: var(--muted); font-weight: 400; }
+.heat th.y { width: 56px; padding-right: 8px; color: var(--ink-2); font: 13px var(--serif); text-align: right; white-space: nowrap; }
+.heat th.q { width: 30px; }
+.heat td { height: 20px; padding: 0; border-radius: 4px; box-shadow: inset 0 0 0 1px var(--line-2); font-size: 11px; font-weight: 700; text-align: center; }
+.heat td.v { box-shadow: none; color: var(--q-ink); }
+.heat td.q5 { color: #fff; }
+.heat td.v:focus-visible { outline: 2px solid var(--ink); }
+.heat td.sep, .heat th.sep { width: 8px; box-shadow: none; }
+.heat tr.unk th { color: var(--ink); }
+
+/* Celé roky */
+.yr-stripe { fill: rgba(30, 43, 51, .035); }
+.yr-month { stroke: #e4dccb; }
+.yr-label { fill: var(--ink-2); font: 13px var(--serif); }
+.yr-label.is-empty { fill: var(--muted); font-style: italic; }
+.yr-bar, .yr-band, .yr-dot { cursor: pointer; }
+.yr-bar:hover, .yr-dot:hover { stroke: var(--ink); stroke-width: 1.5; }
+.yr-band { fill-opacity: .28; stroke-dasharray: 3 2; stroke-width: 1; }
+.yr-band:hover { fill-opacity: .45; }
+
+/* Státy */
+.states { margin: 0; padding: 0; list-style: none; }
+.states > li { border-top: 1px solid var(--line); }
+.states > li:target { background: rgba(0, 137, 123, .06); }
+.states summary { display: grid; grid-template-areas: "c n b k x" ". s s s ."; grid-template-columns: 38px minmax(0, 1.3fr) minmax(0, 2fr) 34px 18px; align-items: center; gap: 2px 12px; padding: 10px 4px; border-radius: 10px; list-style: none; cursor: pointer; }
+.states summary::-webkit-details-marker { display: none; }
+.states summary::after { content: ""; grid-area: x; justify-self: center; width: 8px; height: 8px; margin-top: -4px; border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted); transform: rotate(45deg); transition: transform .15s; }
+.states details[open] summary::after { margin-top: 4px; transform: rotate(-135deg); }
+.states summary:hover { background: rgba(30, 43, 51, .04); }
+.states summary > .fi { grid-area: c; justify-self: start; font-size: 20px; }
+.states .cc { margin-left: 4px; color: var(--muted); font: 600 11px var(--sans); letter-spacing: .08em; }
+.states .nm { grid-area: n; font-weight: 600; }
+.states .sbar { grid-area: b; height: 8px; }
+.states .sbar i { display: block; min-width: 3px; height: 100%; border-radius: 0 4px 4px 0; }
+.states .cnt { grid-area: k; font: 20px var(--serif); text-align: right; }
+.states .sub { grid-area: s; color: var(--muted); font-size: 13px; }
+.strips { margin: 0 0 6px; padding: 0 4px 0 54px; list-style: none; }
+.strips a { display: grid; grid-template-columns: 150px minmax(0, 1fr) auto; gap: 12px; padding: 6px 0; border-top: 1px dashed var(--line); font-size: 14px; text-decoration: none; }
+.strips a:hover b { text-decoration: underline; }
+.strips b small { color: var(--muted); font-weight: 400; }
+.strips .w, .strips .n { color: var(--muted); font-size: 13px; }
+.more { margin: 4px 0 12px 58px; font-size: 14px; }
+
+/* Délka pobytu a rekordy */
+.hist { display: grid; align-items: end; gap: 8px; height: 170px; margin-top: 8px; }
+.hist div { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%; }
+.hist .b { width: 72%; min-height: 2px; border-radius: 4px 4px 0 0; background: var(--cz); }
+.hist .b.unk { background: repeating-linear-gradient(135deg, #bfb4a0 0 3px, transparent 3px 6px); box-shadow: inset 0 0 0 1px #bfb4a0; }
+.hist b { font: 18px var(--serif); }
+.hist small { color: var(--muted); font-size: 12px; }
+.records { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 8px; }
+.rec { display: block; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); text-decoration: none; }
+a.rec:hover { border-color: var(--ink-2); }
+.rec b { display: block; font: 400 28px/1.1 var(--serif); }
+.rec span { display: block; color: var(--ink-2); font-size: 13px; font-weight: 600; }
+.rec small { display: block; margin-top: 2px; color: var(--muted); font-size: 12px; }
+.method ul { margin: 6px 0 0; padding-left: 20px; color: var(--ink-2); }
+.method li { margin: 4px 0; }
+
+@media (max-width: 1100px) { .grid2 { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .states summary { grid-template-columns: 34px minmax(0, 1fr) 54px 30px 14px; gap: 2px 8px; }
+  .strips { padding-left: 4px; }
+  .strips a { grid-template-columns: 1fr auto; }
+  .strips .w { grid-column: 1 / -1; }
+  .more { margin-left: 4px; }
+}

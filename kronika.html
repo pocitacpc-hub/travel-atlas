@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kronika · Cestovní atlas</title>
+  <meta name="description" content="Kronika cest po letech s filtrem podle státu a hledáním.">
+  <link rel="icon" href="/src/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/src/atlas.css">
+  <script type="module" src="/src/pages/kronika.ts"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="./"><b>Cestovní atlas</b><span>Osobní atlas cest</span></a>
+      <nav aria-label="Hlavní navigace">
+        <a href="./">Přehled</a>
+        <a href="kronika.html" aria-current="page">Kronika</a>
+        <a href="statistiky.html">Statistiky</a>
+      </nav>
+    </header>
+    <main id="main">
+      <noscript><p class="empty-note">Atlas zobrazuje data pomocí JavaScriptu. Zapněte ho prosím v prohlížeči.</p></noscript>
+      <section class="page-head">
+        <div>
+          <p class="kicker" id="span"></p>
+          <h1>Kronika cest</h1>
+          <p id="lead"></p>
+        </div>
+        <div class="panel legendbox" aria-label="Legenda">
+          <div class="row"><span><i class="lg-bar sw-cz"></i>Česko</span><span><i class="lg-bar sw-abroad"></i>zahraničí</span><span>délka pruhu = počet nocí</span></div>
+          <div class="row"><span><i class="unkbar"></i>délka neznámá</span><span><i class="lg-bar lg-month"></i>přesné datum neznámé</span></div>
+          <div class="row"><span class="new"><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.8-6.3 3.8 1.7-7L2 9.2l7.1-.6z"/></svg>nová země</span><span>první známá cesta do státu</span></div>
+        </div>
+      </section>
+
+      <div class="panel toolbar" role="search">
+        <div class="filters">
+          <div class="seg" role="group" aria-label="Rozsah">
+            <button type="button" data-scope="all" aria-pressed="true">Vše</button>
+            <button type="button" data-scope="cz" aria-pressed="false">Česko</button>
+            <button type="button" data-scope="abroad" aria-pressed="false">Zahraničí</button>
+          </div>
+          <label>Stát <select id="stat"></select></label>
+          <input type="search" id="q" placeholder="Hledat cestu…" aria-label="Hledat cestu">
+        </div>
+        <span class="note" id="count" aria-live="polite"></span>
+      </div>
+
+      <div class="layout">
+        <nav class="rail" aria-label="Skok na rok"><ol id="rail"></ol></nav>
+        <div id="timeline"></div>
+      </div>
+    </main>
+    <footer class="foot">
+      <span>Data k <span data-asof>—</span></span>
+      <span>Neznámé údaje se nepočítají jako nula.</span>
+      <a href="statistiky.html#metodika">Jak číst data</a>
+    </footer>
+  </div>
+</body>
+</html>

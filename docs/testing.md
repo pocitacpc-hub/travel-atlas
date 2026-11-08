@@ -32,3 +32,24 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - Po zápisu na Drive odpovídalo všech 97 hlaviček schválenému plánu. Bajty jejich těl i pěti dalších souborů souhlasily se zálohou. Nový `_SCHEMA.md` souhlasil s repozitářem.
 - Druhý běh s `--apply` nenašel žádnou změnu. Kontrolní součty všech 103 souborů zůstaly stejné a další záloha nevznikla.
 - Přísný export dal 96 cest, 0 ověřených míst, 0 chyb, 168 varování a jeden vynechaný záznam. Snímek byl obnoven z přísného exportu a testuje trvalá ID. Test odmítnutí dočasného ID používá zkušební hodnotu.
+
+## Fáze D
+
+- `npm run check` nově začíná příkazem `npm run assets`, který vygeneruje mapu a vlajky do `src/generated/`. Bez něj neprojde typová kontrola stránek.
+- `tests/stats.test.ts` ověřuje kontrolní hodnoty nad snímkem z 8. 11. 2026 (15 států, 49 / 47 cest, 349 nocí u 79 cest, medián 3, rozdělení délek, rekordy, prázdné roky 2008 a 2011), oddělení cest bez roku od let, rozklad pohledu Celé roky (28 přesných termínů, 53 měsíců, 15 cest jen s rokem nebo bez roku), další státy pobytu, místa a prázdný archiv.
+- `tests/format.test.ts` ověřuje tvary slov, termíny podle přesnosti včetně přelomu měsíce a roku, zkracování názvů, předložku z/ze a hledání bez diakritiky.
+- `tests/assets.test.ts` ověřuje projekci (rámec 1000 × 823), mapu se všemi státy z číselníku, existenci vlajek a licenci v CSS.
+- `tests/web.test.ts` ověřuje českou kostru čtyř stránek, aktivní položku menu, absenci cizích zdrojů a prototypových prvků a nastavení sestavení.
+
+### Ruční kontrola sestavení
+
+1. `npm run build` a `npm run preview`, otevřít `http://127.0.0.1:4173/travel-atlas/`.
+2. Snímky a přetékání: `node docs/design/tools/cdp-shot.mjs <chrome.exe> <profil> <výstup> 390 prehled=http://127.0.0.1:4173/travel-atlas/ …` pro všechny čtyři stránky na 1440 a 390 px.
+3. Interakce: klik na stát v mapě a ve vlajkách přepne kartu státu a `?stat=`, filtr Chorvatsko v Kronice dá 11 cest, hledání „porec“ 3 cesty, `statistiky.html#stat-HR` otevře Chorvatsko, Celé roky ukážou 28 pruhů, 53 pásů a 15 teček, `cesta.html?id=x` ukáže „Cesta nenalezena“.
+4. Síťové požadavky jdou jen na vlastní adresu webu.
+
+### Ověření při předání (8. 11. 2026, lokálně)
+
+- `npm run check` prošel na Node.js 26.1.0: 6 souborů, 33 testů.
+- Chrome na 1440 a 390 px: Přehled, Kronika (i s filtrem), Statistiky (Měsíce i Celé roky) a detail měly `scrollWidth` rovný šířce okna a žádné chyby JavaScriptu. Interakce z bodu 3 odpovídaly očekávání.
+- Neověřeno: nasazení na Pages a kontrola na veřejné adrese (čeká na sloučení do `main`).

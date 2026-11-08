@@ -21,3 +21,11 @@ Fáze C je hotová. Po schválení vznikla ověřená záloha všech 102 původn
 Přísný export vytvořil `public/data/cesty.json` s 96 jedinečnými trvalými ID a `public/data/mista.json` bez bodů. Kontrolní hodnoty i ostatní veřejná pole souhlasí s fází B. Testovací snímek používá stejná trvalá ID. Úvodní stránka začne data používat ve fázi D.
 
 Martin schválil základní migraci s ponecháním 119 [doplňkových návrhů](../data/migrace/2026-11-navrhy.yaml) k samostatnému rozhodnutí. Přísný export má 0 chyb a 168 přijatých varování. Patří mezi ně chybějící nebo neověřená místa, neúplné termíny, překryv Říma a Rychlebských hor, nesoulad nocí u Murteru a nejisté přiřazení aktivit u Jižní Moravy. Podrobnosti jsou v místním `out/export-report.md` a v [kapitole 6 zadání](changes/2026-11-08-zadani-codex-dalsi-faze.md#6-známé-rozpory-a-mezery-v-datech).
+
+## Fáze D – web MVP
+
+Web má čtyři stránky podle prototypu v2: Přehled (`index.html`), Kronika, Statistiky a detail cesty `cesta.html?id=t-xxxxxx`. Kód je v TypeScriptu bez frameworku: výpočty v `src/lib/stats.ts` a `format.ts`, mapa v `map.ts`, grafy v `charts.ts`, stránky v `src/pages/`. Veřejná data se vkládají do sestavení, mapu a vlajky generuje `npm run assets` do ignorované složky `src/generated/` ([rozhodnutí 0013](decisions/0013-data-a-podklady-webu.md)).
+
+Kontrolní hodnoty na webu sedí s exportem: 15 států, 96 cest (49 po Česku, 47 do zahraničí), 349 nocí známých u 79 cest, čtyři cesty bez roku jsou ve státech a v Kronice ve skupině „?“, ne v letech. Ověřených míst je 0, proto mapa nemá body, přepínač Státy / Místa je skrytý a Návraty ukazují prázdný stav. Prototypové prvky (ilustrační body, štítek „kolo“, box „Kontrola dat“) ve webu nejsou.
+
+Lokálně prošel `npm run check` (33 testů) a kontrola sestavení v Chrome na 1440 a 390 px bez vodorovného posouvání a bez chyb JavaScriptu. Nasazení na Pages a smoke test na veřejné adrese čekají na sloučení větve `web/mvp` do `main`.

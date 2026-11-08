@@ -3,7 +3,10 @@
 | Položka | Hodnota |
 | --- | --- |
 | Repozitář | `C:\Dev\TravelAtlas` · [GitHub](https://github.com/pocitacpc-hub/travel-atlas) |
-| Vstup a konfigurace | `index.html`, `src/`, `vite.config.ts` a `package.json` |
+| Stránky | `index.html` (Přehled), `kronika.html`, `statistiky.html`, `cesta.html?id=…` |
+| Kód webu | `src/lib/` (výpočty, formátování, mapa, grafy), `src/pages/`, `src/styles/`, `src/atlas.css` |
+| Generované podklady | `src/generated/` (mimo Git, `npm run assets`) |
+| Konfigurace | `vite.config.ts`, `package.json`, `tsconfig.json` |
 | Nástroje a testy | `tools/`, `tests/` |
 | Lokální vývoj | [127.0.0.1:5173/travel-atlas/](http://127.0.0.1:5173/travel-atlas/) |
 | Lokální náhled sestavení | [127.0.0.1:4173/travel-atlas/](http://127.0.0.1:4173/travel-atlas/) |
@@ -11,12 +14,13 @@
 
 ## Spuštění a ověření
 
-V kořeni repozitáře spusť `npm ci` a `npm run dev`. Zastav přes Ctrl+C ve stejném terminálu. Restart je zastavení a opětovné spuštění `npm run dev`. Vite hlásí obsazený port a nepřesouvá se automaticky na jiný.
+V kořeni repozitáře spusť `npm ci` a `npm run dev`. Příkaz nejdřív vygeneruje mapu a vlajky (`npm run assets`) a pak spustí Vite. Zastav přes Ctrl+C ve stejném terminálu. Restart je zastavení a opětovné spuštění `npm run dev`. Vite hlásí obsazený port a nepřesouvá se automaticky na jiný.
 
 ```powershell
 npm run test     # Vitest
 npm run check    # TypeScript, obsah, soukromí, testy a sestavení
-npm run build    # statické soubory v dist/
+npm run assets   # mapa a vlajky do src/generated/
+npm run build    # podklady a statické soubory v dist/
 npm run preview  # lokální náhled dist/
 ```
 
@@ -33,7 +37,7 @@ Zkušební režim ukládá JSON s dočasnými ID do `out/legacy/` a report do `o
 
 Pro běžný export po migraci spusť `npm run export`. Ověřená dvojice JSON se uloží do `public/data/`. Lokální seznam jmen pro export a security lint má formát `jmena.local.txt`, jedno jméno na řádek. Prázdné řádky a řádky začínající `#` se ignorují. Bez tohoto souboru proběhnou obecné kontroly citlivých vzorů.
 
-Zdrojové Markdowny, `out/`, místní konfiguraci a seznam jmen drž mimo historii Gitu. Před commitem zkontroluj `git diff --cached -- public/data/` a spusť `npm run check`. Nasazení používá pouze `dist/`. Do dokončení webu ve fázi D obsahuje sestavení úvodní HTML a CSS.
+Zdrojové Markdowny, `out/`, místní konfiguraci a seznam jmen drž mimo historii Gitu. Před commitem zkontroluj `git diff --cached -- public/data/` a spusť `npm run check`. Nasazení používá pouze `dist/`. Veřejná data se do něj vkládají při sestavení, nová cesta proto znamená export, kontrolu a commit bez změny kódu.
 
 ## Migrace metadat
 

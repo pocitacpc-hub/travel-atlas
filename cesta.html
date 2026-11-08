@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cesta · Cestovní atlas</title>
+  <meta name="description" content="Detail cesty v Cestovním atlasu.">
+  <link rel="icon" href="/src/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/src/atlas.css">
+  <script type="module" src="/src/pages/cesta.ts"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="./"><b>Cestovní atlas</b><span>Osobní atlas cest</span></a>
+      <nav aria-label="Hlavní navigace">
+        <a href="./">Přehled</a>
+        <a href="kronika.html" aria-current="page">Kronika</a>
+        <a href="statistiky.html">Statistiky</a>
+      </nav>
+    </header>
+    <main id="main">
+      <noscript><p class="empty-note">Atlas zobrazuje data pomocí JavaScriptu. Zapněte ho prosím v prohlížeči.</p></noscript>
+      <p class="crumbs" id="crumbs"><a href="kronika.html">Kronika</a></p>
+      <div id="trip"></div>
+    </main>
+    <footer class="foot">
+      <span>Data k <span data-asof>—</span></span>
+      <span>Neznámé údaje se nepočítají jako nula.</span>
+      <a href="statistiky.html#metodika">Jak číst data</a>
+    </footer>
+  </div>
+</body>
+</html>
