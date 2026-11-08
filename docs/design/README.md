@@ -19,7 +19,9 @@ Sdílený vzhled: `v2/assets/atlas.css`. Sdílené komponenty (heatmapa, celé r
 
 Ověřeno: desktop 1440 px a mobil 390 px bez přetečení do šířky a bez chyb JavaScriptu. Funkčnost filtrů, přepínačů a odkazů na detail jsem ověřil ručně v prohlížeči.
 
-Co zbývá před implementací: popis vzhledu (`system.md`), a v datech ověřený číselník míst (body jsou zatím ilustrační).
+Popis vzhledu a komponent pro implementaci: [`system.md`](system.md) (tokeny, typografie, rozvržení, navigace a URL, komponenty, pravidla zobrazení dat, přístupnost).
+
+Co zbývá před implementací: v datech ověřený číselník míst (body jsou zatím ilustrační).
 
 ## Původních 5 maket
 
