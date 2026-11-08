@@ -7,6 +7,7 @@
 - Veřejná data se vkládají do sestavení. Nová cesta nevyžaduje změnu kódu.
 - Kontrola vlajek v exportu používá balíček flag-icons místo prototypové složky.
 - Prototypové prvky odstraněné: ilustrační body, štítek „kolo“ z názvu, box „Kontrola dat“.
+- Web nasazený na GitHub Pages a ověřený na veřejné adrese.
 
 ## 8. 11. 2026 – dokončení fáze C
 

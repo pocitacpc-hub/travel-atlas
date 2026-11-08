@@ -28,4 +28,6 @@ Web má čtyři stránky podle prototypu v2: Přehled (`index.html`), Kronika, S
 
 Kontrolní hodnoty na webu sedí s exportem: 15 států, 96 cest (49 po Česku, 47 do zahraničí), 349 nocí známých u 79 cest, čtyři cesty bez roku jsou ve státech a v Kronice ve skupině „?“, ne v letech. Ověřených míst je 0, proto mapa nemá body, přepínač Státy / Místa je skrytý a Návraty ukazují prázdný stav. Prototypové prvky (ilustrační body, štítek „kolo“, box „Kontrola dat“) ve webu nejsou.
 
-Lokálně prošel `npm run check` (33 testů) a kontrola sestavení v Chrome na 1440 a 390 px bez vodorovného posouvání a bez chyb JavaScriptu. Nasazení na Pages a smoke test na veřejné adrese čekají na sloučení větve `web/mvp` do `main`.
+Fáze D je hotová. `npm run check` (33 testů) prošel lokálně i v CI. [Kontrola a nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42518613640) prošly a všechny čtyři stránky na [GitHub Pages](https://pocitacpc-hub.github.io/travel-atlas/) jsou ověřené na 1440 a 390 px bez vodorovného posouvání a bez chyb JavaScriptu.
+
+Otevřené pro Martina: některé veřejné názvy cest obsahují název ubytování nebo zmínku o spolucestujících (např. „Penzion Visalaje“, „kemp Jamaica“, „s přáteli“, „Chata Lucka Heinz“). Případná úprava patří do pole `nazev` ve zdroji a nového exportu, ne do kódu webu.

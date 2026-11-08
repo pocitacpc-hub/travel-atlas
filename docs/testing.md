@@ -52,4 +52,4 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 
 - `npm run check` prošel na Node.js 26.1.0: 6 souborů, 33 testů.
 - Chrome na 1440 a 390 px: Přehled, Kronika (i s filtrem), Statistiky (Měsíce i Celé roky) a detail měly `scrollWidth` rovný šířce okna a žádné chyby JavaScriptu. Interakce z bodu 3 odpovídaly očekávání.
-- Neověřeno: nasazení na Pages a kontrola na veřejné adrese (čeká na sloučení do `main`).
+- Po sloučení do `main` prošly [kontrola i nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42518613640). Na veřejné adrese vrátily všechny čtyři stránky a jejich soubory HTTP 200. V Chrome měly na 1440 i 390 px `scrollWidth` rovný šířce okna a žádné chyby JavaScriptu.
