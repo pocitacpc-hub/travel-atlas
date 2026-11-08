@@ -1,6 +1,27 @@
 # UI návrhy – Cestovní stopa
 
-**Stav:** 8. 11. 2026 · 5 maket úvodní obrazovky k výběru směru. Nejde o produkční kód.
+**Stav:** 8. 11. 2026 · Vybraný směr je rozpracovaný v **prototypu v2** (`v2/`). Původních 5 maket zůstává pro srovnání. Nejde o produkční kód.
+
+## Prototyp v2 (vybraný směr)
+
+Jednotný vzhled podle návrhu 1 – Atlas, klikací stránky propojené odkazy:
+
+| Stránka | Soubor | Obsah |
+|---|---|---|
+| Přehled | `v2/index.html` | Mapa států s detailem státu (`?stat=HR`), souhrn, poslední cesty, cesty po letech, návraty. Přepínač Státy / Místa. |
+| Kronika | `v2/kronika.html` | Všechny cesty po letech, filtr Vše / Česko / Zahraničí, stát (`?stat=IT`) a hledání. Lišta let, odznak „nová země“. |
+| Statistiky | `v2/statistiky.html` | **Kdy cestuji** s přepínačem *Měsíce* (rok × měsíc) / *Celé roky* (`?pohled=roky`), **Státy** s rozbalitelnými cestami, délka pobytu, rekordy, „Jak číst data“. |
+| Detail cesty | `v2/cesta.html?id=c038` | Termín s přesností, noci, stát, místa, výřez mapy, sport, další cesty do státu, předchozí / další cesta. |
+
+**Celé roky:** každý rok je jeden řádek leden–prosinec. Přesný termín je plný pruh podle skutečných dat (délka = noci), cesta se známým jen měsícem je čárkovaný pás přes celý měsíc, cesta se známým jen rokem je tečka ve sloupci „?“. Překrývající se cesty jdou pod sebe, takže jsou vidět i rozpory v datech (Řím × Rychlebské hory 2022). Detail takové cesty ukazuje upozornění „Kontrola dat“. Ve veřejné verzi se to má vyřešit ve zdroji, ne zobrazovat.
+
+Sdílený vzhled: `v2/assets/atlas.css`. Sdílené komponenty (heatmapa, celé roky, státy, délka pobytu, rekordy, výřez mapy): `v2/assets/app.js`. Výpočty statistik: `assets/viz.js`. Náhledy: `nahledy/v2/`.
+
+Ověřeno: desktop 1440 px a mobil 390 px bez přetečení do šířky a bez chyb JavaScriptu. Funkčnost filtrů, přepínačů a odkazů na detail jsem ověřil ručně v prohlížeči.
+
+Co zbývá před implementací: popis vzhledu (`system.md`), a v datech ověřený číselník míst (body jsou zatím ilustrační).
+
+## Původních 5 maket
 
 ## Jak otevřít
 

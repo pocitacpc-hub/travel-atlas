@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Přehled · Cestovní stopa</title>
+<link rel="stylesheet" href="assets/atlas.css">
+<style>
+.hero { display: grid; grid-template-columns: minmax(0, 7fr) minmax(320px, 4fr); gap: 28px; padding: 28px 0 8px; }
+.map-card { padding: 14px; }
+.map-toolbar { display: flex; align-items: center; gap: 12px; justify-content: space-between; margin-bottom: 6px; }
+.map-card .legend { padding: 6px 4px 2px; }
+.intro h1 { font: 400 52px/1.05 var(--serif); margin: 6px 0 18px; letter-spacing: -.5px; }
+.intro h1 em { font-style: italic; color: var(--cz); }
+.facts { display: grid; grid-template-columns: 1fr 1fr; margin: 0 0 20px; border-top: 1px solid var(--line); }
+.facts div { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.facts div:nth-child(odd) { padding-right: 12px; }
+.facts dt { font-size: 13px; color: var(--muted); }
+.facts dd { margin: 0; font: 400 26px/1.2 var(--serif); }
+.facts dd small { font: 13px var(--sans); color: var(--muted); display: block; }
+.country { padding: 18px 18px 10px; }
+.country header { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.country h2 { font: 400 28px/1.1 var(--serif); margin: 0; }
+.country .meta { color: var(--ink-2); font-size: 14px; margin: 6px 0 10px; }
+.country ul { list-style: none; margin: 0; padding: 0; max-height: 232px; overflow: auto; }
+.country li a { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 9px 0; border-top: 1px solid var(--line); text-decoration: none; }
+.country li a:hover b { text-decoration: underline; }
+.country li b { font-weight: 600; font-size: 14px; }
+.country li span { color: var(--muted); font-size: 13px; }
+.country li .n { text-align: right; }
+.country .more { margin: 10px 0 0; font-size: 14px; }
+.recent { padding: 36px 0 10px; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; position: relative; text-decoration: none; display: block; min-height: 160px; }
+.card:hover { border-color: var(--ink-2); }
+.card .stamp { position: absolute; top: 16px; right: 16px; width: 46px; height: 46px; border-radius: 50%; border: 1.5px dashed var(--ink-2); display: grid; place-items: center; font: 600 13px var(--sans); letter-spacing: .06em; color: var(--ink-2); transform: rotate(-8deg); }
+.card .cty { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.card h3 { font: 400 21px/1.2 var(--serif); margin: 6px 56px 14px 0; }
+.card .when { font-size: 14px; color: var(--ink-2); margin-bottom: 8px; }
+.two { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 28px; padding: 30px 0 0; }
+.returns { list-style: none; margin: 8px 0 0; padding: 0; }
+.returns li { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 10px 0; border-top: 1px solid var(--line); }
+.returns .bar { grid-column: 1 / -1; height: 6px; background: #EFE8DA; border-radius: 3px; overflow: hidden; }
+.returns .bar span { display: block; height: 100%; background: var(--cz); border-radius: 0 3px 3px 0; }
+.returns b { font-weight: 600; }
+.returns small { color: var(--muted); font-size: 13px; }
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+@media (max-width: 1100px) {
+  .hero, .two { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .intro h1 { font-size: 38px; }
+  .cards { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 78%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+  .card { scroll-snap-align: start; }
+  .map-card { padding: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header id="top"></header>
+  <main>
+    <section class="hero">
+      <div class="panel map-card">
+        <div class="map-toolbar">
+          <div class="seg" role="group" aria-label="Vrstva mapy">
+            <button type="button" data-layer="countries" aria-pressed="true">Státy</button>
+            <button type="button" data-layer="places" aria-pressed="false">Místa</button>
+          </div>
+          <span class="note" id="mapNote"></span>
+        </div>
+        <div class="map" id="map"></div>
+        <div class="legend" id="legend"></div>
+      </div>
+      <aside class="intro">
+        <p class="kicker" id="span"></p>
+        <h1 id="headline"></h1>
+        <dl class="facts" id="facts"></dl>
+        <article class="panel country" id="country" aria-live="polite"></article>
+      </aside>
+    </section>
+
+    <section class="recent">
+      <div class="sec-head"><h2 class="sec">Poslední cesty</h2><a class="link" href="kronika.html">Celá kronika →</a></div>
+      <div class="cards" id="recent"></div>
+    </section>
+
+    <section class="two">
+      <div class="panel">
+        <div class="sec-head"><h2 class="sec">Cesty po letech</h2><a class="link" href="statistiky.html#kdy">Kdy cestuji →</a></div>
+        <p class="legend"><span><i style="background:var(--cz)"></i>Česko</span><span><i style="background:var(--abroad)"></i>Zahraničí</span></p>
+        <div id="years"></div>
+        <p class="note" id="yearsNote"></p>
+      </div>
+      <div class="panel">
+        <h2 class="sec">Návraty</h2>
+        <p class="note">Místa navštívená třikrát a vícekrát.</p>
+        <ol class="returns" id="returns"></ol>
+      </div>
+    </section>
+  </main>
+  <footer id="foot"></footer>
+</div>
+
+<script src="../assets/data.js"></script>
+<script src="../assets/europe-map.js"></script>
+<script src="../assets/viz.js"></script>
+<script src="assets/app.js"></script>
+<script>
+(function () {
+  APP.shell('Přehled');
+  var F = VZ.fmt, s = VZ.stats(VZ.data.trips), places = VZ.places(VZ.data.trips), css = APP.css;
+  var $ = function (id) { return document.getElementById(id); };
+  var cmap = {};
+  s.countries.forEach(function (c) { cmap[c.code] = c; });
+  var layer = 'countries';
+  var selected = cmap[APP.param('stat')] ? APP.param('stat') : s.countries.filter(function (c) { return c.code !== 'CZ'; })[0].code;
+  var Q = [[21, '21+', '--q5'], [11, '11–20', '--q4'], [6, '6–10', '--q3'], [2, '2–5', '--q2'], [1, '1', '--q1']];
+  function qfill(n) { for (var i = 0; i < Q.length; i++) if (n >= Q[i][0]) return css(Q[i][2]); }
+
+  $('span').textContent = s.minYear + '–' + s.maxYear;
+  $('headline').innerHTML = '<em>' + s.countryCount + '</em> států,<br>' + F.cesty(s.total);
+  $('facts').innerHTML = [
+    ['Do zahraničí', F.cesty(s.abroad), s.abroadCountryCount + ' zahraničních států'],
+    ['Po Česku', F.cesty(s.cz), F.pct(s.cz, s.total) + ' všech cest'],
+    ['Nocí celkem', F.num(s.nightsSum), 'známo u ' + s.nightsKnown + ' z ' + s.total + ' cest'],
+    ['Letos', F.cesty(s.thisYear), 'rok ' + s.currentYear]
+  ].map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '<small>' + f[2] + '</small></dd></div>'; }).join('');
+
+  function drawMap() {
+    var opts = {
+      label: 'Mapa Evropy s navštívenými státy',
+      selected: layer === 'countries' ? selected : null,
+      fill: function (k) { return cmap[k] ? (layer === 'countries' ? qfill(cmap[k].count) : css('--q1')) : null; },
+      onCountry: function (k) {
+        selected = k; drawMap(); drawCountry();
+        history.replaceState(null, '', '?stat=' + k);
+      }
+    };
+    if (layer === 'places') { opts.places = places; opts.placeR = function (p) { return 4 + Math.sqrt(p.trips.length) * 2.2; }; }
+    VZ.renderMap($('map'), s, opts);
+    $('legend').innerHTML = layer === 'countries'
+      ? '<span>Počet cest:</span>' + Q.slice().reverse().map(function (q) { return '<span><i style="background:' + css(q[2]) + '"></i>' + q[1] + '</span>'; }).join('') +
+        '<span><i style="background:' + css('--land') + '"></i>nenavštíveno</span>'
+      : '<span><i class="ring" style="background:var(--ink);border:0;width:10px;height:10px"></i>místo (velikost = počet cest)</span><span><i class="ring"></i>jen oblast</span><span>Bez ověřené polohy na mapě nejsou (např. Bulharsko, „Varne minde“).</span>';
+    $('mapNote').textContent = layer === 'countries' ? 'Klikněte na stát' : 'Ilustrační body · ' + places.length + ' míst';
+  }
+  document.querySelectorAll('.seg button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      layer = b.dataset.layer;
+      document.querySelectorAll('.seg button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      drawMap();
+    });
+  });
+
+  function drawCountry() {
+    var c = cmap[selected];
+    $('country').innerHTML =
+      '<header><h2>' + F.esc(c.name) + '</h2><span class="code">' + c.code + '</span></header>' +
+      '<p class="meta">' + F.cesty(c.count) + ' · ' + APP.yearsSpan(c) + ' · ' + APP.nightsCoverage(c) + '</p>' +
+      '<ul>' + c.trips.map(function (t) {
+        return '<li><a href="' + APP.tripUrl(t) + '"><b>' + F.esc(F.short(t)) + '</b><span class="n">' + (t.noci === null ? '—' : F.noci(t.noci)) + '</span><span>' + F.termin(t) + '</span></a></li>';
+      }).join('') + '</ul>' +
+      '<p class="more"><a class="link" href="kronika.html?stat=' + c.code + '">V kronice</a> · <a class="link" href="statistiky.html#stat-' + c.code + '">Ve statistikách</a></p>';
+  }
+
+  $('recent').innerHTML = s.recent.slice(0, 4).map(function (t) {
+    return '<a class="card" href="' + APP.tripUrl(t) + '"><span class="stamp" aria-hidden="true">' + t.zeme + '</span>' +
+      '<span class="cty">' + VZ.NAMES[t.zeme] + '</span><h3>' + F.esc(F.short(t)) + '</h3>' +
+      '<div class="when">' + F.termin(t) + '</div><span class="chip">' + F.noci(t.noci) + '</span>' +
+      (t.sport ? ' <span class="chip">' + F.num(t.sport.km, 0) + ' km aktivit</span>' : '') + '</a>';
+  }).join('');
+
+  VZ.yearsChart($('years'), s, { height: 210, unknown: true, colors: { cz: css('--cz'), abroad: css('--abroad') } });
+  $('yearsNote').textContent = F.cesty(s.undated) + ' bez známého roku jsou vpravo zvlášť; do let se nezařazují.';
+
+  var ret = places.filter(function (p) { return p.trips.length >= 3; }), maxR = ret[0].trips.length;
+  $('returns').innerHTML = ret.map(function (p) {
+    var ys = p.trips.map(function (t) { return t.rok; }).filter(Boolean);
+    return '<li><b>' + F.esc(p.nazev) + (p.presnost === 'oblast' ? ' <small>(oblast)</small>' : '') + '</b><small>' + F.cesty(p.trips.length) + ' · ' +
+      Math.min.apply(null, ys) + '–' + Math.max.apply(null, ys) + '</small><div class="bar"><span style="width:' + (p.trips.length / maxR * 100).toFixed(1) + '%"></span></div></li>';
+  }).join('');
+
+  drawMap();
+  drawCountry();
+})();
+</script>
+</body>
+</html>

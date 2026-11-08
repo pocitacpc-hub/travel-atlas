@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cesta · Cestovní stopa</title>
+<link rel="stylesheet" href="assets/atlas.css">
+<style>
+.head { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: 14px 0 22px; }
+.head h1 { font: 400 50px/1.05 var(--serif); margin: 6px 0 10px; letter-spacing: -.5px; }
+.head .when { font-size: 18px; color: var(--ink-2); display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.stamp { flex: none; width: 84px; height: 84px; border-radius: 50%; border: 2px dashed var(--ink-2); display: grid; place-items: center; text-align: center; transform: rotate(-8deg); color: var(--ink-2); }
+.stamp b { display: block; font: 600 22px/1 var(--sans); letter-spacing: .06em; }
+.stamp small { display: block; font-size: 11px; margin-top: 2px; }
+.layout { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: 24px; align-items: start; }
+.facts { display: grid; grid-template-columns: 1fr 1fr; margin: 0; }
+.facts div { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.facts div:nth-child(odd) { padding-right: 14px; }
+.facts dt { font-size: 13px; color: var(--muted); }
+.facts dd { margin: 2px 0 0; font: 400 22px/1.25 var(--serif); }
+.facts dd small { display: block; font: 13px var(--sans); color: var(--muted); }
+.facts dd a { text-decoration: none; border-bottom: 1px solid var(--line); }
+.places { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.sport { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 10px; }
+.sport div { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+.sport b { display: block; font: 400 26px/1.1 var(--serif); }
+.sport span { font-size: 13px; color: var(--muted); }
+.empty { border: 1.5px dashed var(--line); border-radius: 14px; padding: 16px; color: var(--muted); font-size: 14px; }
+.warn { border: 1px solid #E8C9A9; background: #FBF1E6; color: #6B3A10; border-radius: 12px; padding: 10px 14px; font-size: 14px; }
+.list { list-style: none; margin: 6px 0 0; padding: 0; }
+.list a { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 9px 0; border-top: 1px solid var(--line); text-decoration: none; }
+.list a:hover b { text-decoration: underline; }
+.list b { font-weight: 600; font-size: 14px; }
+.list span { color: var(--muted); font-size: 13px; }
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+.pager a { display: block; padding: 14px 18px; text-decoration: none; }
+.pager a:hover { border-color: var(--ink-2); }
+.pager small { display: block; color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.pager b { font: 400 20px/1.25 var(--serif); }
+.pager .next { text-align: right; }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .head h1 { font-size: 34px; }
+  .stamp { width: 62px; height: 62px; }
+  .stamp b { font-size: 17px; }
+  .facts dd { font-size: 19px; }
+  .sport b { font-size: 21px; }
+  .pager { grid-template-columns: 1fr; }
+  .pager .next { text-align: left; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header id="top"></header>
+  <main id="main"></main>
+  <footer id="foot"></footer>
+</div>
+
+<script src="../assets/data.js"></script>
+<script src="../assets/europe-map.js"></script>
+<script src="../assets/viz.js"></script>
+<script src="assets/app.js"></script>
+<script>
+(function () {
+  APP.shell('Kronika');
+  var F = VZ.fmt, D = VZ.data, s = VZ.stats(D.trips), css = APP.css;
+  var t = VZ.byId[APP.param('id')] || s.recent[0];
+  // datované cesty se procházejí chronologicky, cesty bez roku mezi sebou
+  var order = t.rok === null ? s.undatedTrips : s.recent.slice().reverse();
+  var i = order.indexOf(t), prev = order[i - 1], next = order[i + 1];
+  var c = s.countries.filter(function (x) { return x.code === t.zeme; })[0];
+  var places = VZ.places(D.trips).filter(function (p) { return p.trips.indexOf(t) >= 0; });
+  var isNew = s.firstTripOfCountry[t.id];
+  var overl = APP.overlaps[t.id];
+  document.title = F.short(t) + ' · Cestovní stopa';
+
+  var precChip = t.presnost === 'den' ? '' : '<span class="chip">' + F.presnost(t.presnost) + '</span>';
+  var yearLink = t.rok ? '<a href="kronika.html#y' + t.rok + '">' + t.rok + '</a>' : '<a href="kronika.html#yunk">rok neznámý</a>';
+  var html =
+    '<p class="crumbs"><a href="kronika.html">Kronika</a> › ' + yearLink + ' › ' + F.esc(F.short(t)) + '</p>' +
+    '<section class="head"><div><p class="kicker">' + VZ.NAMES[t.zeme] + (isNew ? ' · první známá cesta do státu' : '') + '</p>' +
+    '<h1>' + F.esc(F.short(t)) + '</h1><div class="when">' + F.termin(t) + ' ' + precChip + '</div></div>' +
+    '<div class="stamp" aria-hidden="true"><div><b>' + t.zeme + '</b><small>' + (t.rok || '????') + '</small></div></div></section>' +
+    '<div class="layout"><div class="stack">' +
+      '<section class="panel"><dl class="facts">' +
+        '<div><dt>Termín</dt><dd>' + F.termin(t) + '<small>' + F.presnost(t.presnost) + '</small></dd></div>' +
+        '<div><dt>Nocí</dt><dd>' + (t.noci === null ? 'neznámo' : t.noci) + '<small>' + (t.noci === null ? 'délka pobytu není doložená' : F.noci(t.noci)) + '</small></dd></div>' +
+        '<div><dt>Stát</dt><dd><a href="index.html?stat=' + t.zeme + '">' + VZ.NAMES[t.zeme] + '</a><small>' + F.cesty(c.count) + ' celkem · ' + APP.yearsSpan(c) + '</small></dd></div>' +
+        '<div><dt>Místa</dt><dd>' + (places.length ? '<span class="places">' + places.map(function (p) { return '<span class="chip">' + F.esc(p.nazev) + (p.presnost === 'oblast' ? ' (oblast)' : '') + '</span>'; }).join('') + '</span><small>ilustrační přiřazení</small>' : '—<small>místo zatím není v číselníku</small>') + '</dd></div>' +
+      '</dl></section>' +
+      (t.sport ? '<section class="panel"><h2 class="sec">Sport na cestě</h2><p class="note">Zaznamenané aktivity Strava (výběr 2023–2026). Nejde o všechny pohyby během cesty.</p>' +
+        '<div class="sport"><div><b>' + t.sport.aktivit + '</b><span>aktivit</span></div><div><b>' + F.num(t.sport.km, 0) + '</b><span>km</span></div><div><b>' + F.num(t.sport.prevyseni, 0) + '</b><span>m převýšení</span></div></div></section>' : '') +
+      '<section class="empty">Popis, vzpomínky a fotky zatím nejsou. Přibudou s kronikou (etapa 3) z pole <code>verejny_popis</code>.</section>' +
+      (overl ? '<p class="warn"><b>Kontrola dat:</b> termín se v archivu překrývá s cestou ' + overl.map(function (x) { return '<a href="' + APP.tripUrl(x) + '">' + F.esc(F.short(x)) + '</a>'; }).join(', ') + '. Ve veřejné verzi by se to vyřešilo ve zdroji, ne zobrazovalo.</p>' : '') +
+    '</div><div class="stack">' +
+      '<section class="panel"><div class="map" id="mini"></div><p class="legend" style="margin-top:8px"><span><i style="background:' + css('--q3') + '"></i>' + VZ.NAMES[t.zeme] + '</span>' + (places.length ? '<span><i class="ring" style="background:var(--ink);border:0;width:10px;height:10px"></i>místa cesty</span>' : '') + '</p></section>' +
+      '<section class="panel"><h2 class="sec">Další cesty – ' + VZ.NAMES[t.zeme] + '</h2><ul class="list">' +
+        c.trips.filter(function (x) { return x !== t; }).slice(0, 8).map(function (x) {
+          return '<li><a href="' + APP.tripUrl(x) + '"><b>' + F.esc(F.short(x)) + '</b><span>' + (x.noci === null ? '—' : F.noci(x.noci)) + '</span><span>' + F.termin(x) + '</span></a></li>';
+        }).join('') + '</ul>' + (c.count > 9 ? '<p class="note"><a class="link" href="kronika.html?stat=' + t.zeme + '">Všech ' + c.count + ' v kronice →</a></p>' : '') + '</section>' +
+    '</div></div>' +
+    '<nav class="pager" aria-label="Sousední cesty">' +
+      (prev ? '<a class="panel" href="' + APP.tripUrl(prev) + '"><small>← Předchozí</small><b>' + F.esc(F.short(prev)) + '</b></a>' : '<span></span>') +
+      (next ? '<a class="panel next" href="' + APP.tripUrl(next) + '"><small>Další →</small><b>' + F.esc(F.short(next)) + '</b></a>' : '<span></span>') +
+    '</nav>';
+  document.getElementById('main').innerHTML = html;
+
+  VZ.renderMap(document.getElementById('mini'), s, {
+    label: 'Mapa: ' + VZ.NAMES[t.zeme],
+    crop: APP.cropFor(t.zeme, places),
+    fill: function (k) { return k === t.zeme ? css('--q3') : null; },
+    places: places,
+    placeR: function () { return 3.5; }
+  });
+})();
+</script>
+</body>
+</html>

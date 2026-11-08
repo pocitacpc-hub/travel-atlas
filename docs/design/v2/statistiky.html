@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Statistiky · Cestovní stopa</title>
+<link rel="stylesheet" href="assets/atlas.css">
+<style>
+.grid2 { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 24px; align-items: start; }
+.views[hidden] { display: none; }
+.cov { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 12px 0 0; }
+
+/* Rok × měsíc */
+.heat-scroll { overflow-x: auto; }
+.heat { border-collapse: separate; border-spacing: 3px; font: 12px var(--sans); width: 100%; min-width: 520px; table-layout: fixed; font-variant-numeric: tabular-nums; }
+.heat th.y { width: 56px; }
+.heat th.q { width: 30px; }
+.heat th { color: var(--muted); font-weight: 400; padding: 0 2px; }
+.heat th.y { text-align: right; padding-right: 8px; font: 13px var(--serif); color: var(--ink-2); white-space: nowrap; }
+.heat td { height: 20px; border-radius: 4px; box-shadow: inset 0 0 0 1px var(--line-2); padding: 0; text-align: center; font-weight: 700; font-size: 11px; }
+.heat td.v { box-shadow: none; }
+.heat td.v:focus-visible { outline: 2px solid var(--ink); }
+.heat td.sep, .heat th.sep { width: 8px; box-shadow: none; }
+.heat tr.unk th { color: var(--ink); }
+
+/* Celé roky */
+.yr-stripe { fill: rgba(30,43,51,.035); }
+.yr-month { stroke: #E4DCCB; }
+.yr-label { fill: var(--ink-2); font: 13px var(--serif); }
+.yr-label.is-empty { fill: #9AA2A8; }
+.yr-bar, .yr-band, .yr-dot { cursor: pointer; }
+.yr-bar:hover, .yr-dot:hover { stroke: var(--ink); stroke-width: 1.5; }
+.yr-band { fill-opacity: .28; stroke-dasharray: 3 2; stroke-width: 1; }
+.yr-band:hover { fill-opacity: .45; }
+
+/* Státy */
+.states { list-style: none; margin: 0; padding: 0; }
+.states > li { border-top: 1px solid var(--line); }
+.states > li:target { background: rgba(0,137,123,.06); }
+.states summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 38px minmax(0, 1.3fr) minmax(0, 2fr) 34px 18px; grid-template-areas: "c n b k x" ". s s s ."; gap: 2px 12px; align-items: center; padding: 10px 4px; border-radius: 10px; }
+.states summary::-webkit-details-marker { display: none; }
+.states summary::after { content: ""; grid-area: x; width: 8px; height: 8px; border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted); transform: rotate(45deg); justify-self: center; margin-top: -4px; transition: transform .15s; }
+.states details[open] summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.states summary:hover { background: rgba(30,43,51,.04); }
+.states .code { grid-area: c; justify-self: start; }
+.states .nm { grid-area: n; font-weight: 600; }
+.states .sbar { grid-area: b; height: 8px; }
+.states .sbar i { display: block; height: 100%; border-radius: 0 4px 4px 0; min-width: 3px; }
+.states .cnt { grid-area: k; text-align: right; font: 20px var(--serif); }
+.states .sub { grid-area: s; font-size: 13px; color: var(--muted); }
+.strips { list-style: none; margin: 0 0 6px; padding: 0 4px 0 54px; }
+.strips a { display: grid; grid-template-columns: 150px minmax(0, 1fr) auto; gap: 12px; padding: 6px 0; border-top: 1px dashed var(--line); text-decoration: none; font-size: 14px; }
+.strips a:hover b { text-decoration: underline; }
+.strips .w, .strips .n { color: var(--muted); font-size: 13px; }
+.more { margin: 4px 0 12px 58px; font-size: 14px; }
+
+/* Délka pobytu a rekordy */
+.hist { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; align-items: end; height: 170px; margin-top: 8px; }
+.hist div { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 4px; }
+.hist .b { width: 72%; background: var(--cz); border-radius: 4px 4px 0 0; min-height: 2px; }
+.hist .b.unk { background: repeating-linear-gradient(135deg, #BFB4A0 0 3px, transparent 3px 6px); box-shadow: inset 0 0 0 1px #BFB4A0; }
+.hist b { font: 18px var(--serif); }
+.hist small { font-size: 12px; color: var(--muted); }
+.records { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 8px; }
+.rec { border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; background: var(--paper); text-decoration: none; display: block; }
+a.rec:hover { border-color: var(--ink-2); }
+.rec b { display: block; font: 400 28px/1.1 var(--serif); }
+.rec span { display: block; font-size: 13px; color: var(--ink-2); font-weight: 600; }
+.rec small { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.method ul { margin: 6px 0 0; padding-left: 20px; color: var(--ink-2); }
+.method li { margin: 4px 0; }
+@media (max-width: 1100px) { .grid2 { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .states summary { grid-template-columns: 34px minmax(0, 1fr) 54px 30px 14px; gap: 2px 8px; }
+  .strips { padding-left: 4px; }
+  .strips a { grid-template-columns: 1fr auto; }
+  .strips .w { grid-column: 1 / -1; }
+  .more { margin-left: 4px; }
+  .records { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header id="top"></header>
+  <main>
+    <section class="page-head">
+      <div>
+        <p class="kicker" id="span"></p>
+        <h1>Statistiky</h1>
+        <p id="lead"></p>
+      </div>
+    </section>
+
+    <div class="stack">
+      <section class="panel" id="kdy">
+        <div class="ph">
+          <div><h2 class="sec">Kdy cestuji</h2><p class="note" id="kdyNote"></p></div>
+          <div class="seg" role="group" aria-label="Pohled">
+            <button type="button" data-view="mesice" aria-pressed="true">Měsíce</button>
+            <button type="button" data-view="roky" aria-pressed="false">Celé roky</button>
+          </div>
+        </div>
+        <div class="views" id="v-mesice">
+          <p class="legend" id="heatLegend"></p>
+          <div id="heat"></div>
+        </div>
+        <div class="views" id="v-roky" hidden>
+          <p class="legend"><span><i class="bar" style="background:var(--cz)"></i>Česko</span><span><i class="bar" style="background:var(--abroad)"></i>zahraničí</span><span>pruh = přesný termín (délka = noci)</span><span><i class="band"></i>známý jen měsíc</span><span><i class="dot" style="background:var(--ink-2)"></i>známý jen rok (sloupec ?)</span></p>
+          <div id="yrows"></div>
+        </div>
+        <p class="cov note" id="cov"></p>
+      </section>
+
+      <div class="grid2">
+        <section class="panel" id="staty">
+          <div class="ph"><div><h2 class="sec">Státy</h2><p class="note">Počet cest podle hlavní země. Rozbalením zobrazíte cesty.</p></div></div>
+          <div id="states"></div>
+        </section>
+        <div class="stack">
+          <section class="panel">
+            <h2 class="sec">Délka pobytu</h2>
+            <p class="note" id="lenNote"></p>
+            <div id="hist"></div>
+          </section>
+          <section class="panel">
+            <h2 class="sec">Rekordy</h2>
+            <p class="note">Spočítáno z cest se známými údaji.</p>
+            <div class="records" id="records"></div>
+          </section>
+        </div>
+      </div>
+
+      <section class="panel method" id="metodika">
+        <h2 class="sec">Jak číst data</h2>
+        <ul>
+          <li>Každá cesta se počítá k jedné <b>hlavní zemi</b>. Průjezd jiným státem se nepočítá jako návštěva.</li>
+          <li><b>Neznámé hodnoty</b> (noci, měsíc, rok) se nikdy nepočítají jako nula. U součtů je uvedeno, z kolika cest vycházejí.</li>
+          <li>Cesty bez známého roku se počítají do států, ale ne do grafů podle let a měsíců.</li>
+          <li>Termín má přesnost: přesné datum, známý měsíc, jen rok, nebo neznámý.</li>
+          <li>Sportovní údaje jsou jen z vybraných aktivit Strava 2023–2026, nejde o úplnou historii.</li>
+          <li>Státy se počítají podle dnešních hranic. Body míst jsou v prototypu ilustrační.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer id="foot"></footer>
+</div>
+
+<script src="../assets/data.js"></script>
+<script src="../assets/europe-map.js"></script>
+<script src="../assets/viz.js"></script>
+<script src="assets/app.js"></script>
+<script>
+(function () {
+  APP.shell('Statistiky');
+  var F = VZ.fmt, s = VZ.stats(VZ.data.trips), css = APP.css, $ = function (id) { return document.getElementById(id); };
+  $('span').textContent = s.minYear + '–' + s.maxYear;
+  $('lead').textContent = F.cesty(s.total) + ', ' + s.countryCount + ' států, ' + F.num(s.nightsSum) + ' známých nocí. Všechna čísla se počítají z jednotlivých cest.';
+
+  // Kdy cestuji
+  $('kdyNote').textContent = 'Každý řádek je jeden rok. Najetím myší zobrazíte cesty, kliknutím detail.';
+  $('heatLegend').innerHTML = '<span>Počet cest v měsíci:</span>' + [['--q1', '1'], ['--q2', '2'], ['--q3', '3'], ['--q5', '4+']].map(function (q) {
+    return '<span><i style="background:' + css(q[0]) + '"></i>' + q[1] + '</span>';
+  }).join('') + '<span>sloupec ? = měsíc neznámý</span>';
+  APP.heatmap($('heat'), s);
+  var dayKnown = VZ.data.trips.filter(function (t) { return t.presnost === 'den'; }).length;
+  $('cov').innerHTML = '<span>Přesný termín: ' + dayKnown + ' z ' + s.total + '</span><span>Známý měsíc: ' + s.monthsKnown + ' z ' + s.total + '</span><span>Známý rok: ' + (s.total - s.undated) + ' z ' + s.total + '</span>';
+  var rowsDrawn = false;
+  function setView(v) {
+    document.querySelectorAll('[data-view]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.view === v)); });
+    $('v-mesice').hidden = v !== 'mesice';
+    $('v-roky').hidden = v !== 'roky';
+    if (v === 'roky' && !rowsDrawn) { APP.yearRows($('yrows'), s); rowsDrawn = true; }
+  }
+  document.querySelectorAll('[data-view]').forEach(function (b) {
+    b.addEventListener('click', function () { setView(b.dataset.view); history.replaceState(null, '', '?pohled=' + b.dataset.view + location.hash); });
+  });
+  setView(APP.param('pohled') === 'roky' ? 'roky' : 'mesice');
+
+  // Státy
+  APP.statesList($('states'), s);
+  if (location.hash.indexOf('#stat-') === 0) {
+    var li = document.querySelector(location.hash);
+    if (li) li.querySelector('details').open = true;
+  }
+
+  // Délka pobytu
+  $('lenNote').textContent = 'Počet nocí · medián ' + F.noci(s.median) + ', průměr ' + F.num(s.mean, 1) + ' noci (jen ze ' + s.nightsKnown + ' známých délek)';
+  APP.lengthHist($('hist'), s);
+
+  // Rekordy
+  $('records').innerHTML = APP.records(s).map(function (r) {
+    var inner = '<b>' + r[0] + '</b><span>' + r[1] + '</span><small>' + F.esc(r[2]) + '</small>';
+    return r[3] ? '<a class="rec" href="' + r[3] + '">' + inner + '</a>' : '<div class="rec">' + inner + '</div>';
+  }).join('');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+/* Cestovní stopa – prototyp v2: sdílený vzhled „Atlas“. */
+:root {
+  --paper: #F4EFE4; --card: #FBF8F2; --ink: #1E2B33; --ink-2: #44515A; --muted: #5B666E; --line: #DCD3C1; --line-2: #E8E1D3;
+  --land: #E6DFD2; --cz: #00897B; --abroad: #C0682A;
+  --q1: #A8D5CB; --q2: #79BFB2; --q3: #3FA393; --q4: #00897B; --q5: #0A5A51;
+  --serif: Georgia, "Palatino Linotype", "Book Antiqua", serif;
+  --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.5 var(--sans); }
+a { color: inherit; }
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 28px; }
+
+/* hlavička a patička */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0 18px; border-bottom: 1px solid var(--line); }
+.brand { text-decoration: none; display: flex; align-items: baseline; gap: 12px; }
+.brand b { font: italic 600 26px/1 var(--serif); letter-spacing: .2px; }
+.brand span { color: var(--muted); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+.top nav { display: flex; gap: 4px; }
+.top nav a { text-decoration: none; padding: 10px 16px; border-radius: 999px; color: var(--ink-2); font-weight: 500; }
+.top nav a:hover { background: rgba(30,43,51,.06); }
+.top nav a[aria-current="page"] { background: var(--ink); color: var(--paper); }
+.foot { border-top: 1px solid var(--line); margin-top: 40px; padding: 18px 0 40px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+
+/* záhlaví stránky */
+.page-head { padding: 30px 0 18px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px; }
+.page-head h1 { font: 400 46px/1.05 var(--serif); margin: 0; letter-spacing: -.4px; }
+.page-head p { margin: 8px 0 0; color: var(--ink-2); font-size: 17px; max-width: 40em; }
+.kicker { margin: 0; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.crumbs { font-size: 13px; color: var(--muted); margin: 22px 0 0; }
+.crumbs a { color: var(--ink-2); }
+
+/* panely a sekce */
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; min-width: 0; }
+h2.sec { font: 400 28px/1.2 var(--serif); margin: 0 0 6px; }
+.panel h2.sec { font-size: 24px; }
+.ph { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px 20px; margin-bottom: 12px; }
+.ph p { margin: 2px 0 0; }
+.note { font-size: 13px; color: var(--muted); }
+.stack { display: grid; gap: 24px; }
+
+/* ovládací prvky */
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--paper); }
+.seg button { font: 500 14px var(--sans); color: var(--ink-2); border: 0; background: transparent; padding: 8px 16px; min-height: 36px; border-radius: 999px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.filters label { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-2); font-size: 14px; }
+select, input[type="search"] { font: 14px var(--sans); color: var(--ink); background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; min-height: 38px; }
+.chip { display: inline-block; font-size: 12px; padding: 3px 9px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); color: var(--ink-2); white-space: nowrap; }
+.code { font: 600 11px var(--sans); letter-spacing: .08em; border: 1.5px solid var(--ink-2); color: var(--ink-2); border-radius: 5px; padding: 1px 5px; }
+.link { color: var(--cz); font-weight: 600; text-decoration: none; }
+.link:hover { text-decoration: underline; }
+
+/* legenda */
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; font-size: 13px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 14px; height: 14px; border-radius: 4px; vertical-align: -2px; margin-right: 6px; border: 1px solid rgba(30,43,51,.12); }
+.legend i.bar { width: 26px; height: 9px; border-radius: 2px; border: 0; vertical-align: 0; }
+.legend i.band { width: 26px; height: 9px; border-radius: 2px; vertical-align: 0; border: 1px dashed var(--ink-2); background: rgba(30,43,51,.12); }
+.legend i.dot { width: 9px; height: 9px; border-radius: 50%; border: 0; vertical-align: 0; }
+.legend i.ring { border-radius: 50%; background: rgba(30,43,51,.18); border: 1px dashed var(--ink); width: 12px; height: 12px; }
+
+/* mapa */
+.map svg { display: block; width: 100%; height: auto; }
+.vz-land { fill: var(--land); stroke: var(--card); stroke-width: .8; vector-effect: non-scaling-stroke; }
+.vz-visited { stroke: var(--card); stroke-width: .8; vector-effect: non-scaling-stroke; cursor: pointer; }
+.vz-visited:hover, .vz-visited:focus-visible { stroke: var(--ink); stroke-width: 1.6; outline: none; }
+.vz-visited.is-selected { stroke: var(--ink); stroke-width: 2.2; }
+.vz-place { fill: var(--ink); stroke: var(--card); stroke-width: 1.5; vector-effect: non-scaling-stroke; cursor: pointer; }
+.vz-place.is-region { fill: rgba(30,43,51,.18); stroke: var(--ink); stroke-dasharray: 3 2; }
+
+/* grafy */
+.vz-chart { display: block; }
+.vz-grid { stroke: #E4DCCB; stroke-width: 1; }
+.vz-grid.is-base { stroke: #BFB4A0; }
+.vz-tick { fill: var(--muted); font: 11px var(--sans); font-variant-numeric: tabular-nums; }
+.vz-hit { fill: transparent; }
+.vz-hit:hover { fill: rgba(30,43,51,.05); }
+.vz-tip { position: fixed; z-index: 20; pointer-events: none; background: var(--ink); color: var(--paper); font: 13px/1.45 var(--sans); padding: 8px 10px; border-radius: 8px; max-width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,.18); display: none; }
+.vz-tip i { opacity: .75; }
+.vz-tip .warn { color: #F6C99F; }
+
+@media (max-width: 760px) {
+  .wrap { padding: 0 16px; }
+  .top { flex-direction: column; align-items: flex-start; gap: 10px; padding-bottom: 12px; }
+  .top nav { width: 100%; overflow-x: auto; }
+  .brand span { display: none; }
+  .page-head { padding-top: 20px; }
+  .page-head h1 { font-size: 36px; }
+  .panel { padding: 14px; border-radius: 14px; }
+}
