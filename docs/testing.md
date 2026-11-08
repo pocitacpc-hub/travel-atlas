@@ -21,7 +21,7 @@
 - `security-lint` ověřuje ignorování místních souborů, jejich absenci v indexu a citlivé vzory v dekódovaném veřejném JSON. Stejné vzory se kontrolují při exportu před zápisem.
 - Vitest ověřuje kontrolní hodnoty snímku z 8. 11. 2026, izolaci těla Markdownu, přesnost, nulovou a neznámou délku, datum ukončení, vyřazení nepotvrzeného rozpočtu, ověření míst a deterministické řazení.
 
-Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varování a jeden vynechaný záznam. Dva běhy pro 8. 11. 2026 měly shodné kontrolní součty obou JSON souborů i reportu. `npm run check` prošel s devíti testy. Obecné vzory byly zkontrolované na skutečném exportu. Vlastní seznam jmen je volitelný, jeho chování pokrývá test se zkušebním jménem. Veřejná složka s daty zůstává prázdná do schválené migrace.
+Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varování a jeden vynechaný záznam. Dva běhy pro 8. 11. 2026 měly shodné kontrolní součty obou JSON souborů i reportu. `npm run check` prošel s devíti testy. Obecné vzory byly zkontrolované na skutečném exportu. Vlastní seznam jmen je volitelný, jeho chování pokrývá test se zkušebním jménem.
 
 ## Fáze C
 
@@ -29,4 +29,6 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - Přísný náhled souhlasil s kontrolním snímkem fáze B ve všech veřejných polích kromě nových trvalých ID.
 - Testy na syntetických souborech ověřují zálohu i se skrytým souborem a podadresářem, zachování bajtů těla Markdownu, zachování soukromých metadat a existujících ID, kontrolu změny zdroje a druhý běh bez změn.
 - Celý příkaz `--apply` v oddělené testovací kopii odmítl soubor změněný po náhledu. Po obnovení náhledu vytvořil ověřenou zálohu a zapsal změnu. Druhý běh ponechal soubor shodný a další zálohu nevytvořil.
-- Zápis na skutečný Drive a následný přísný export se ověří po schválení.
+- Po zápisu na Drive odpovídalo všech 97 hlaviček schválenému plánu. Bajty jejich těl i pěti dalších souborů souhlasily se zálohou. Nový `_SCHEMA.md` souhlasil s repozitářem.
+- Druhý běh s `--apply` nenašel žádnou změnu. Kontrolní součty všech 103 souborů zůstaly stejné a další záloha nevznikla.
+- Přísný export dal 96 cest, 0 ověřených míst, 0 chyb, 168 varování a jeden vynechaný záznam. Snímek byl obnoven z přísného exportu a testuje trvalá ID. Test odmítnutí dočasného ID používá zkušební hodnotu.

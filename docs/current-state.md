@@ -14,10 +14,10 @@ Kontrolní hodnoty sedí. Česko 49 cest, zahraničí 47, celkem 15 států, 349
 
 Zkušební dvojice JSON je v ignorované složce `out/legacy/`, report v `out/export-report.md`. Veřejný build stále obsahuje úvodní stránku. Report upozornil na překryv Říma a Rychlebských hor, nesoulad nocí u Murteru a nejisté přiřazení Stravy u Jižní Moravy. Zdroj už uvádí název Warnemünde, místo stále nemá ověřené souřadnice. Rozhodnutí o opravách metadat a zápisu na Drive patří do fáze C po výslovném souhlasu Martina.
 
-## Fáze C – návrh migrace
+## Fáze C – migrace metadat
 
-Fáze C je rozpracovaná. Zkouška nanečisto vytvořila `out/migrace-report.md` s přesným rozpisem změn 97 hlaviček. Přísný náhled dal 96 cest a zachoval kontrolní hodnoty fáze B. Obsah všech 102 zdrojových souborů byl po zkoušce shodný.
+Fáze C je hotová. Po schválení vznikla ověřená záloha všech 102 původních souborů mimo Drive. Změnilo se 97 YAML hlaviček přesně podle plánu. Těla Markdownů i zbývajících pět původních souborů jsou bajtově shodné se zálohou. Na Drive přibyl `_SCHEMA.md`. Druhý běh měl nula změn. Umístění zálohy je v místním `out/migrace-zapis.md`.
 
-V [souboru návrhů](../data/migrace/2026-11-navrhy.yaml) čeká 10 termínů, 85 návrhů míst a 24 návrhů zaměření. Pro další státy není doložený další pobyt. Překryv, rozdílný počet nocí, nejistá přiřazení aktivit a další rozpory jsou k rozhodnutí podle [kapitoly 6 zadání](changes/2026-11-08-zadani-codex-dalsi-faze.md#6-známé-rozpory-a-mezery-v-datech).
+Přísný export vytvořil `public/data/cesty.json` s 96 jedinečnými trvalými ID a `public/data/mista.json` bez bodů. Kontrolní hodnoty i ostatní veřejná pole souhlasí s fází B. Testovací snímek používá stejná trvalá ID. Úvodní stránka začne data používat ve fázi D.
 
-Po schválení rozpisu lze vytvořit ověřenou zálohu mimo Drive a zapsat schválené změny. Následuje ověření druhého běhu, přísný export a výměna kontrolního snímku. Umístění `_SCHEMA.md` na Drive vyžaduje souhlas nebo ho provede Martin.
+Martin schválil základní migraci s ponecháním 119 [doplňkových návrhů](../data/migrace/2026-11-navrhy.yaml) k samostatnému rozhodnutí. Přísný export má 0 chyb a 168 přijatých varování. Patří mezi ně chybějící nebo neověřená místa, neúplné termíny, překryv Říma a Rychlebských hor, nesoulad nocí u Murteru a nejisté přiřazení aktivit u Jižní Moravy. Podrobnosti jsou v místním `out/export-report.md` a v [kapitole 6 zadání](changes/2026-11-08-zadani-codex-dalsi-faze.md#6-známé-rozpory-a-mezery-v-datech).

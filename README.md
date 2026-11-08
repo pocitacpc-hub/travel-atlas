@@ -13,7 +13,7 @@ npm run dev
 
 Otevři [lokální Přehled](http://127.0.0.1:5173/travel-atlas/). Celý balík kontrol spustíš přes `npm run check`. Výstup sestavení je v `dist/`.
 
-Soukromé Markdowny jsou na Google Drivu. Zkušební export čte jejich YAML hlavičky a ukládá výstup do ignorované složky `out/legacy/`. Přísný export pro web vyžaduje schválenou migraci metadat.
+Soukromé Markdowny jsou na Google Drivu. Přísný export čte jejich YAML hlavičky a ukládá ověřený veřejný výstup do `public/data/`. Zkušební režim se starými metadaty používá ignorovanou složku `out/legacy/`.
 
 - [Aktuální stav](docs/current-state.md)
 - [Zadání a checklist](docs/00-zadani-a-checklist.md)

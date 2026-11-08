@@ -1,5 +1,10 @@
 # Změny
 
+## 8. 11. 2026 – dokončení fáze C
+
+- Po ověřené záloze zapsaná schválená základní migrace 97 YAML hlaviček na Drive a přidaný `_SCHEMA.md`.
+- Přísný export 96 cest s trvalými ID přidaný do repozitáře. Kontrolní snímek obnovený z tohoto exportu.
+
 ## 8. 11. 2026 – příprava fáze C
 
 - Přidaná zkouška migrace metadat s uloženým plánem a přísným náhledem.

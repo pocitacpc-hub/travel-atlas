@@ -31,11 +31,13 @@ npm run export -- --legacy
 
 Zkušební režim ukládá JSON s dočasnými ID do `out/legacy/` a report do `out/export-report.md`. Datum exportu vychází z časové zóny Europe/Prague. Pro reprodukci ověření použij `--as-of=2026-11-08`. Neúspěšný export skončí nenulovým kódem. Stav posledního běhu ověř v reportu, protože na disku může zůstat starší výstup.
 
-Po schválené migraci spusť přísný `npm run export`. Ověřená dvojice JSON se uloží do `public/data/`. Lokální seznam jmen pro export a security lint má formát `jmena.local.txt`, jedno jméno na řádek. Prázdné řádky a řádky začínající `#` se ignorují. Bez tohoto souboru proběhnou obecné kontroly citlivých vzorů.
+Pro běžný export po migraci spusť `npm run export`. Ověřená dvojice JSON se uloží do `public/data/`. Lokální seznam jmen pro export a security lint má formát `jmena.local.txt`, jedno jméno na řádek. Prázdné řádky a řádky začínající `#` se ignorují. Bez tohoto souboru proběhnou obecné kontroly citlivých vzorů.
 
-Zdrojové Markdowny, `out/`, místní konfiguraci a seznam jmen drž mimo historii Gitu. Před commitem zkontroluj `git diff --cached -- public/data/` a spusť `npm run check`. Nasazení používá pouze `dist/`. Ve fázi B se do sestavení stále kopíruje jen úvodní HTML a CSS.
+Zdrojové Markdowny, `out/`, místní konfiguraci a seznam jmen drž mimo historii Gitu. Před commitem zkontroluj `git diff --cached -- public/data/` a spusť `npm run check`. Nasazení používá pouze `dist/`. Do dokončení webu ve fázi D obsahuje sestavení úvodní HTML a CSS.
 
 ## Migrace metadat
+
+Základní migrace proběhla 8. 11. 2026. Rozpis a umístění zálohy jsou v místním `out/`. Další návrhy vyžadují samostatné potvrzení.
 
 1. Spusť `npm run migrate`. Výchozí zkouška vytvoří `out/migrace-report.md` se změnami před a po pro každý záznam a `out/migrace-plan.local.json` se stabilními navrženými ID a otisky souborů. Přísný náhled se ověří v paměti.
 2. Martin vybere položky v [návrzích](data/migrace/2026-11-navrhy.yaml) změnou `potvrzeno: true`. Každý termín, seznam míst nebo zaměření schvaluje samostatně. Cestu návrh identifikuje názvem a rokem. Návrh termínu musí zachovat rok začátku. Případný další stát doplní jako `zmeny: { dalsi_zeme: [Český název státu] }` pouze při doloženém pobytu. Po změně návrhů znovu spusť zkoušku a nech schválit nový rozpis.

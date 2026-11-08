@@ -21,7 +21,7 @@ const sample = (id: string, overrides: Record<string, unknown> = {}) => ({
 
 describe("Kontrolní export z 8. 11. 2026", () => {
   it("má 96 cest a odpovídá kontrolním hodnotám", () => {
-    const { trips, places } = checkPublic(fixture, placesFixture, catalog, true);
+    const { trips, places } = checkPublic(fixture, placesFixture, catalog);
     const cz = trips.cesty.filter((trip) => trip.zeme === "CZ").length;
     const known = trips.cesty.flatMap((trip) => trip.pocetNoci === null ? [] : [trip.pocetNoci]);
     expect(trips.cesty).toHaveLength(96);
@@ -38,7 +38,9 @@ describe("Kontrolní export z 8. 11. 2026", () => {
   });
 
   it("odmítne dočasná ID v přísném veřejném schématu", () => {
-    expect(() => checkPublic(fixture, placesFixture, catalog)).toThrow(/id.*pattern/u);
+    const { trips, places } = checkPublic(fixture, placesFixture, catalog);
+    const legacy = { ...trips, cesty: [{ ...trips.cesty[0], id: "tmp-0000000000000000" }] };
+    expect(() => checkPublic(legacy, places, catalog)).toThrow(/id.*pattern/u);
   });
 });
 
