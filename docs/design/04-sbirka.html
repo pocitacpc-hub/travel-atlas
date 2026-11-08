@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Návrh 4 – Sbírka zemí · Cestovní stopa</title>
+<style>
+:root {
+  --bg: #F6F4EF; --card: #FFFFFF; --navy: #1B2A4A; --ink: #1B2A4A; --ink-2: #3F4A5E; --muted: #5A6273; --line: #E4E0D6;
+  --tile: #E9E5DB; --accent: #D9621F; --accent-soft: #FBE7DA;
+  --num: "Bahnschrift", "Segoe UI", system-ui, sans-serif;
+  --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --tile-size: 46px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--sans); }
+a { color: inherit; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+.top { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+.brand { display: flex; align-items: center; gap: 10px; font: 700 19px var(--num); text-decoration: none; }
+.brand .logo { width: 34px; height: 34px; border-radius: 10px; background: var(--navy); color: #fff; display: grid; place-items: center; font: 700 14px var(--num); }
+.tabs { display: flex; gap: 6px; background: var(--card); border: 1px solid var(--line); padding: 4px; border-radius: 14px; }
+.tabs a { display: flex; align-items: center; gap: 8px; text-decoration: none; padding: 8px 14px; min-height: 40px; border-radius: 10px; color: var(--ink-2); font-weight: 600; }
+.tabs a[aria-current="page"] { background: var(--navy); color: #fff; }
+.tabs svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 36px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 32px 36px; margin-top: 8px; }
+.big { display: flex; align-items: baseline; gap: 14px; }
+.big b { font: 700 120px/0.9 var(--num); letter-spacing: -3px; }
+.big span { font: 600 26px/1.15 var(--num); }
+.hero p { color: var(--ink-2); font-size: 17px; margin: 14px 0 18px; max-width: 30em; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
+.chip b { color: var(--ink); }
+.chip.hot { background: var(--accent-soft); border-color: #F2C6A8; }
+
+.tiles { position: relative; }
+.tiles .grid { position: relative; width: calc(var(--tile-size) * 8 + 7 * 5px); height: calc(var(--tile-size) * 8 + 7 * 5px); }
+.tile { position: absolute; width: var(--tile-size); height: var(--tile-size); border-radius: 9px; background: var(--tile); color: #6D7280; font: 600 12px var(--num); display: grid; place-items: center; border: 0; padding: 0; }
+.tile.v { background: var(--navy); color: #fff; cursor: pointer; font-size: 14px; }
+.tile.v:hover, .tile.v:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.tile.v sup { position: absolute; top: -7px; right: -7px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--accent); color: #fff; font: 700 11px/20px var(--num); text-align: center; }
+.tiles .cap { font-size: 13px; color: var(--muted); margin-top: 10px; text-align: center; }
+
+section > h2 { font: 700 26px var(--num); margin: 40px 0 6px; }
+section > p.sub { color: var(--muted); margin: 0 0 16px; }
+.stamps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+.stamp { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 14px 16px; text-align: center; transition: box-shadow .15s; }
+.stamp.is-hl { box-shadow: 0 0 0 3px var(--accent); }
+.seal { width: 92px; height: 92px; margin: 0 auto 10px; border-radius: 50%; border: 2.5px solid var(--navy); display: grid; place-items: center; position: relative; transform: rotate(var(--r, -6deg)); }
+.seal::after { content: ""; position: absolute; inset: 5px; border-radius: 50%; border: 1px dashed var(--navy); }
+.seal b { font: 700 28px/1 var(--num); letter-spacing: 1px; }
+.seal small { position: absolute; bottom: 14px; font: 600 10px var(--num); letter-spacing: .08em; }
+.stamp h3 { margin: 0; font: 700 17px var(--num); }
+.stamp .first { color: var(--accent); font-weight: 700; font-size: 13px; color: #A2460F; }
+.stamp .stats { color: var(--muted); font-size: 13px; margin-top: 2px; }
+.stamp.unk .seal { border-style: dashed; }
+
+.two { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 20px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px 22px; }
+.card h2 { font: 700 20px var(--num); margin: 0 0 2px; }
+.card .sub { color: var(--muted); font-size: 13px; margin: 0 0 8px; }
+.records { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.rec { border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.rec b { display: block; font: 700 28px/1.1 var(--num); }
+.rec span { display: block; font-size: 13px; color: var(--ink-2); font-weight: 600; }
+.rec small { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.vz-chart { display: block; }
+.vz-grid { stroke: #ECE8DF; }
+.vz-grid.is-base { stroke: #C9C3B5; }
+.vz-tick { fill: var(--muted); font: 11px var(--num); }
+.step { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; }
+.area { fill: var(--accent-soft); }
+.dot { fill: var(--accent); stroke: #fff; stroke-width: 2; }
+.lbl { fill: var(--ink); font: 700 11px var(--num); }
+.vz-hit { fill: transparent; }
+footer { color: var(--muted); font-size: 13px; padding: 30px 0 48px; }
+.vz-tip { position: fixed; z-index: 20; pointer-events: none; background: var(--navy); color: #fff; font: 13px/1.45 var(--sans); padding: 8px 10px; border-radius: 10px; max-width: 260px; display: none; }
+
+@media (max-width: 1100px) {
+  .stamps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .two { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  :root { --tile-size: 34px; }
+  .wrap { padding: 0 14px; }
+  .top .tabs { position: fixed; left: 8px; right: 8px; bottom: 8px; z-index: 5; justify-content: space-around; box-shadow: 0 6px 24px rgba(27,42,74,.18); }
+  .tabs a { flex-direction: column; gap: 2px; font-size: 11px; padding: 6px 10px; min-height: 48px; justify-content: center; }
+  .hero { grid-template-columns: 1fr; padding: 22px 18px; border-radius: 18px; gap: 20px; }
+  .tiles .grid { margin: 0 auto; }
+  .big b { font-size: 88px; }
+  .stamps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .seal { width: 76px; height: 76px; }
+  .records { grid-template-columns: 1fr 1fr; }
+  footer { padding-bottom: 100px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#"><span class="logo" aria-hidden="true">CS</span>Cestovní stopa</a>
+    <nav class="tabs" aria-label="Hlavní navigace">
+      <a href="#" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Sbírka</a>
+      <a href="#"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></svg>Mapa</a>
+      <a href="#"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>Cesty</a>
+      <a href="#"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Statistiky</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="big"><b id="nCountries"></b><span>států<br>ve sbírce</span></div>
+      <p id="heroText"></p>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="tiles">
+      <div class="grid" id="tiles" role="group" aria-label="Kartogram Evropy: navštívené státy"></div>
+      <div class="cap">Kartogram: každý stát má stejnou dlaždici · číslo = počet cest</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Razítka</h2>
+    <p class="sub">Seřazeno podle první známé návštěvy.</p>
+    <div class="stamps" id="stamps"></div>
+  </section>
+
+  <section class="two" style="margin-top:28px">
+    <div class="card">
+      <h2>Jak přibývaly státy</h2>
+      <p class="sub" id="growthSub"></p>
+      <div id="growth"></div>
+    </div>
+    <div class="card">
+      <h2>Rekordy</h2>
+      <p class="sub">Spočítáno z cest se známými údaji.</p>
+      <div class="records" id="records"></div>
+    </div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/europe-map.js"></script>
+<script src="assets/viz.js"></script>
+<script>
+(function () {
+  var F = VZ.fmt, s = VZ.stats(VZ.data.trips), $ = function (id) { return document.getElementById(id); };
+  var cmap = {};
+  s.countries.forEach(function (c) { cmap[c.code] = c; });
+
+  // ---------- hero ----------
+  $('nCountries').textContent = s.countryCount;
+  var newest = s.firstVisits.filter(function (f) { return f.year === s.maxYear; }).map(function (f) { return f.name; });
+  $('heroText').textContent = s.abroadCountryCount + ' zahraničních a domov. První cesta v archivu je z roku ' + s.minYear +
+    (newest.length ? ', nejnovější přírůstky z roku ' + s.maxYear + ': ' + newest.join(' a ') + '.' : '.');
+  $('chips').innerHTML = [
+    '<span class="chip"><b>' + F.cesty(s.total) + '</b></span>',
+    '<span class="chip"><b>' + F.num(s.nightsSum) + '</b> nocí · známo u ' + s.nightsKnown + ' z ' + s.total + '</span>',
+    '<span class="chip hot"><b>' + s.thisYear + '</b> letos</span>'
+  ].join('');
+
+  // ---------- kartogram (pozice: sloupec, řádek) ----------
+  var POS = { IS: [0, 0], NO: [3, 0], SE: [4, 0], FI: [5, 0], IE: [0, 1], GB: [1, 1], DK: [3, 1], EE: [5, 1],
+    NL: [2, 2], DE: [3, 2], PL: [4, 2], LV: [5, 2], BE: [1, 3], LU: [2, 3], CZ: [3, 3], SK: [4, 3], LT: [5, 3], BY: [6, 3],
+    FR: [1, 4], CH: [2, 4], AT: [3, 4], HU: [4, 4], UA: [5, 4], MD: [6, 4],
+    PT: [0, 5], ES: [1, 5], IT: [2, 5], SI: [3, 5], HR: [4, 5], RS: [5, 5], RO: [6, 5],
+    BA: [4, 6], ME: [5, 6], BG: [6, 6], AL: [4, 7], MK: [5, 7], GR: [6, 7], TR: [7, 7] };
+  $('tiles').innerHTML = Object.keys(POS).map(function (k) {
+    var p = POS[k], c = cmap[k];
+    var st = 'left:calc((var(--tile-size) + 5px) * ' + p[0] + ');top:calc((var(--tile-size) + 5px) * ' + p[1] + ')';
+    return c
+      ? '<button type="button" class="tile v" style="' + st + '" data-code="' + k + '" data-tip aria-label="' + c.name + ', ' + F.cesty(c.count) + '">' + k + '<sup>' + c.count + '</sup></button>'
+      : '<span class="tile" style="' + st + '" aria-hidden="true">' + k + '</span>';
+  }).join('');
+  VZ.bindTips($('tiles'), function (t) {
+    var c = cmap[t.dataset.code];
+    return '<b>' + c.name + '</b><br>' + F.cesty(c.count) + ' · ' + (c.first === null ? 'rok první cesty neznámý' : 'poprvé ' + c.first);
+  });
+  $('tiles').addEventListener('click', function (e) {
+    var t = e.target.closest('[data-code]');
+    if (!t) return;
+    var el = document.querySelector('.stamp[data-code="' + t.dataset.code + '"]');
+    document.querySelectorAll('.stamp.is-hl').forEach(function (x) { x.classList.remove('is-hl'); });
+    el.classList.add('is-hl');
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  // ---------- razítka ----------
+  var rot = [-6, 4, -3, 7, -8, 2, -5, 5, -2, 6, -7, 3, -4, 8, -1];
+  $('stamps').innerHTML = s.firstVisits.map(function (f, i) {
+    var c = cmap[f.code];
+    return '<article class="stamp' + (f.year === null ? ' unk' : '') + '" data-code="' + f.code + '">' +
+      '<div class="seal" style="--r:' + rot[i % rot.length] + 'deg" aria-hidden="true"><b>' + f.code + '</b><small>' + (f.year === null ? '????' : f.year) + '</small></div>' +
+      '<h3>' + c.name + '</h3><div class="first">' + (f.year === null ? 'rok první cesty neznámý' : 'poprvé ' + f.year) + '</div>' +
+      '<div class="stats">' + F.cesty(c.count) + ' · ' + (c.nightsKnown ? F.noci(c.nights) + (c.nightsKnown < c.count ? '*' : '') : 'noci neznámé') + '</div></article>';
+  }).join('');
+
+  // ---------- růst sbírky (schodový graf) ----------
+  var dated = s.firstVisits.filter(function (f) { return f.year !== null; });
+  var undatedC = s.firstVisits.filter(function (f) { return f.year === null; });
+  $('growthSub').textContent = 'Kumulativní počet států podle roku první známé návštěvy' + (undatedC.length ? '; ' + undatedC.map(function (f) { return f.name; }).join(', ') + ' bez roku (+' + undatedC.length + ').' : '.');
+  var byYear = {};
+  dated.forEach(function (f) { (byYear[f.year] = byYear[f.year] || []).push(f.code); });
+  VZ.mountChart($('growth'), function () {
+    var el = $('growth'), W = Math.max(300, el.clientWidth), H = 230, m = { l: 26, r: 16, t: 26, b: 24 };
+    var x = function (y) { return m.l + (y - s.minYear) / (s.maxYear - s.minYear) * (W - m.l - m.r); };
+    var max = s.countryCount, y = function (v) { return H - m.b - v / max * (H - m.t - m.b); };
+    var out = ['<svg class="vz-chart" width="' + W + '" height="' + H + '" role="img" aria-label="Růst počtu navštívených států v čase">'];
+    [0, 5, 10, 15].forEach(function (v) {
+      out.push('<line class="vz-grid' + (v ? '' : ' is-base') + '" x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + y(v) + '" y2="' + y(v) + '"/><text class="vz-tick" x="' + (m.l - 6) + '" y="' + (y(v) + 4) + '" text-anchor="end">' + v + '</text>');
+    });
+    [s.minYear, 2000, 2005, 2010, 2015, 2020, s.maxYear].forEach(function (yr) {
+      out.push('<text class="vz-tick" x="' + x(yr) + '" y="' + (H - 6) + '" text-anchor="middle">' + yr + '</text>');
+    });
+    var cum = 0, d = '', pts = [];
+    for (var yr = s.minYear; yr <= s.maxYear; yr++) {
+      var add = byYear[yr] ? byYear[yr].length : 0;
+      var prev = cum; cum += add;
+      if (yr === s.minYear) d = 'M' + x(yr) + ' ' + y(cum);
+      else if (add) d += 'H' + x(yr) + 'V' + y(cum);
+      if (add) pts.push({ yr: yr, v: cum, codes: byYear[yr], prev: prev });
+    }
+    d += 'H' + x(s.maxYear);
+    out.push('<path class="area" d="' + d + 'V' + y(0) + 'H' + x(s.minYear) + 'Z"/>');
+    out.push('<path class="step" d="' + d + '"/>');
+    // popisky: blízké body (méně než 70 px) se sloučí do jednoho popisku nad posledním bodem shluku
+    var clusters = [];
+    pts.forEach(function (p) {
+      var c = clusters[clusters.length - 1];
+      if (c && x(p.yr) - x(c[c.length - 1].yr) < 70) c.push(p); else clusters.push([p]);
+    });
+    clusters.forEach(function (c) {
+      var last = c[c.length - 1], codes = [].concat.apply([], c.map(function (p) { return p.codes; })).join(' ');
+      var lx = x(last.yr), start = lx < 140;
+      out.push('<text class="lbl" x="' + (start ? x(c[0].yr) : lx + 4) + '" y="' + (y(last.v) - 12) + '" text-anchor="' + (start ? 'start' : 'end') + '">' + codes + '</text>');
+    });
+    pts.forEach(function (p, i) {
+      out.push('<circle class="dot" cx="' + x(p.yr) + '" cy="' + y(p.v) + '" r="5"/>');
+      out.push('<circle class="vz-hit" cx="' + x(p.yr) + '" cy="' + y(p.v) + '" r="14" data-tip data-i="' + i + '"/>');
+    });
+    out.push('</svg>');
+    el.innerHTML = out.join('');
+    el._pts = pts;
+  }, function (t) {
+    var p = $('growth')._pts[+t.dataset.i];
+    return '<b>' + p.yr + '</b>: +' + p.codes.map(function (c) { return VZ.NAMES[c]; }).join(', ') + '<br>celkem ' + p.v + ' států se známým rokem';
+  });
+
+  // ---------- rekordy ----------
+  var abroadTop = s.countries.filter(function (c) { return c.code !== 'CZ'; });
+  var topN = abroadTop[0].count, tops = abroadTop.filter(function (c) { return c.count === topN; }).map(function (c) { return c.name; });
+  var run = 0, best = { len: 0, from: null, to: null };
+  s.years.forEach(function (r) {
+    run = r.total ? run + 1 : 0;
+    if (run > best.len) best = { len: run, from: r.year - run + 1, to: r.year };
+  });
+  var sport = VZ.data.trips.filter(function (t) { return t.sport; }).sort(function (a, b) { return b.sport.km - a.sport.km; })[0];
+  $('records').innerHTML = [
+    [F.noci(s.longest.noci), 'nejdelší pobyt', s.longest.trips.length + '× · naposledy ' + s.longest.trips[0].rok],
+    [s.busiest.count, 'nejvíc cest za rok', s.busiest.years.join(', ')],
+    [s.busiestAbroad.count, 'nejvíc zahraničních za rok', s.busiestAbroad.years.join(', ')],
+    [topN + '×', 'nejčastější zahraniční stát', tops.join(' a ')],
+    [best.len + ' let', 'nepřerušená řada let s cestou', best.from + '–' + best.to],
+    [F.num(sport.sport.km, 0) + ' km', 'nejvíc nahraných km na cestě', F.short(sport) + ' ' + sport.rok + ' (Strava, výběr)']
+  ].map(function (r) { return '<div class="rec"><b>' + r[0] + '</b><span>' + r[1] + '</span><small>' + F.esc(r[2]) + '</small></div>'; }).join('');
+
+  $('foot').textContent = 'Data k ' + VZ.data.dataAsOf.split('-').reverse().map(Number).join('. ') + ' · * noci známé jen u části cest · Rok první návštěvy = nejstarší cesta se známým rokem.';
+})();
+</script>
+</body>
+</html>

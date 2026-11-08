@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Návrh 2 – Přehledový dashboard · Cestovní stopa</title>
+<style>
+:root {
+  --page: #F3F4F6; --panel: #FFFFFF; --line: #E5E7EB; --ink: #111827; --ink-2: #374151; --muted: #5F6673;
+  --side: #1F2937; --side-ink: #E5E7EB; --side-muted: #A3AAB6; --accent: #2a78d6;
+  --cz: #2a78d6; --abroad: #eb6834; --land: #E5E7EB;
+  --q1: #9ec5f4; --q2: #6da7ec; --q3: #3987e5; --q4: #256abf; --q5: #184f95;
+  --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 13px/1.45 var(--sans); }
+a { color: var(--accent); }
+.app { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: 100vh; }
+
+/* boční menu */
+.side { background: var(--side); color: var(--side-ink); padding: 18px 12px; display: flex; flex-direction: column; gap: 4px; position: sticky; top: 0; height: 100vh; }
+.logo { display: flex; align-items: center; gap: 10px; padding: 4px 10px 18px; font-weight: 700; font-size: 15px; }
+.logo svg { color: #6da7ec; }
+.side a { display: flex; align-items: center; gap: 10px; padding: 9px 10px; min-height: 40px; border-radius: 8px; color: var(--side-ink); text-decoration: none; font-weight: 500; }
+.side a:hover { background: rgba(255,255,255,.06); }
+.side a[aria-current="page"] { background: rgba(109,167,236,.18); color: #fff; }
+.side a.is-later { color: var(--side-muted); }
+.side a .tag { margin-left: auto; font-size: 11px; padding: 1px 6px; border-radius: 999px; border: 1px solid #4B5563; color: var(--side-muted); }
+.side .foot { margin-top: auto; padding: 10px; font-size: 12px; color: var(--side-muted); border-top: 1px solid #374151; }
+.ico { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+main { padding: 16px 22px 28px; min-width: 0; }
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 14px; }
+.bar h1 { font-size: 20px; margin: 0 8px 0 0; }
+.seg { display: inline-flex; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 2px; }
+.seg button { border: 0; background: transparent; font: 500 13px var(--sans); color: var(--ink-2); padding: 5px 12px; min-height: 30px; border-radius: 6px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.field { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
+select, input[type="search"] { font: 13px var(--sans); color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px; min-height: 32px; }
+.check { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); cursor: pointer; }
+.check input { width: 16px; height: 16px; accent-color: var(--accent); }
+.pill { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 999px; font-size: 12px; background: #EEF2F7; color: var(--ink-2); border: 1px solid var(--line); white-space: nowrap; }
+.pill.warn { background: #FFF7E6; border-color: #F5D9A6; color: #7A4B00; }
+.reset { border: 0; background: none; color: var(--accent); font: 13px var(--sans); cursor: pointer; padding: 4px; }
+
+.kpis { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin-bottom: 12px; }
+.kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.kpi dt { color: var(--muted); font-size: 12px; }
+.kpi dd { margin: 2px 0 0; font-size: 26px; font-weight: 600; line-height: 1.15; }
+.kpi small { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.grid { display: grid; gap: 12px; margin-bottom: 12px; }
+.g-a { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+.g-b { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; min-width: 0; }
+.panel h2 { font-size: 14px; margin: 0; }
+.ph { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.key { display: flex; gap: 12px; color: var(--ink-2); font-size: 12px; }
+.key i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.note { color: var(--muted); font-size: 12px; margin: 6px 0 0; }
+
+.map svg { display: block; width: 100%; height: auto; }
+.vz-land { fill: var(--land); stroke: #fff; stroke-width: .7; vector-effect: non-scaling-stroke; }
+.vz-visited { stroke: #fff; stroke-width: .7; vector-effect: non-scaling-stroke; cursor: pointer; }
+.vz-visited:hover, .vz-visited:focus-visible { stroke: var(--ink); stroke-width: 1.5; outline: none; }
+.vz-visited.is-selected { stroke: var(--ink); stroke-width: 2; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 5px; }
+
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th { text-align: left; font-weight: 600; color: var(--muted); font-size: 12px; padding: 6px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { padding: 6px 8px; border-bottom: 1px solid #F0F1F3; vertical-align: middle; }
+tr:hover td { background: #F8FAFC; }
+tr.is-selected td { background: #EEF5FD; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+.cbar { display: flex; align-items: center; gap: 8px; }
+.cbar span { display: block; height: 8px; border-radius: 0 4px 4px 0; background: var(--q3); min-width: 2px; }
+.code { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em; padding: 1px 5px; border-radius: 4px; background: #EEF2F7; color: var(--ink-2); margin-right: 6px; }
+.btn-ico { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--line); background: var(--panel); color: var(--ink-2); cursor: pointer; }
+.btn-ico:hover { border-color: var(--accent); color: var(--accent); }
+.scroll { overflow: auto; }
+.g-a > .panel { display: flex; flex-direction: column; }
+.ctable { flex: 1 1 0; min-height: 260px; overflow: auto; }
+.buckets { display: grid; grid-template-columns: auto 1fr auto; gap: 6px 8px; align-items: center; margin-top: 4px; }
+.buckets .b { height: 12px; border-radius: 0 4px 4px 0; background: var(--q3); }
+.buckets .b.unk { background: repeating-linear-gradient(135deg, #C9CED6 0 3px, transparent 3px 6px); border: 1px solid #C9CED6; }
+.buckets span { font-size: 12px; color: var(--ink-2); }
+
+.vz-chart { display: block; }
+.vz-grid { stroke: #EEF0F2; }
+.vz-grid.is-base { stroke: #C9CED6; }
+.vz-tick { fill: var(--muted); font: 11px var(--sans); font-variant-numeric: tabular-nums; }
+.vz-hit { fill: transparent; }
+.vz-hit:hover { fill: rgba(17,24,39,.04); }
+.vz-tip { position: fixed; z-index: 20; pointer-events: none; background: #111827; color: #F9FAFB; font: 12px/1.45 var(--sans); padding: 7px 9px; border-radius: 6px; max-width: 260px; box-shadow: 0 4px 14px rgba(0,0,0,.2); display: none; }
+
+@media (max-width: 1280px) {
+  .kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .g-b { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .g-b > :first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; }
+  .side { position: fixed; top: auto; bottom: 0; left: 0; right: 0; height: auto; flex-direction: row; justify-content: space-around; padding: 4px 6px; z-index: 5; border-top: 1px solid #374151; }
+  .side .logo, .side .foot, .side a.is-later { display: none; }
+  .side a { flex-direction: column; gap: 2px; font-size: 11px; padding: 6px 8px; min-height: 48px; min-width: 64px; justify-content: center; }
+  main { padding: 12px 12px 84px; }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .g-a, .g-b { grid-template-columns: 1fr; }
+  .kpi dd { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-bike" viewBox="0 0 24 24"><circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17l4-8h6l3 8M9.5 9L12 17h-6.5M14 5h3"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2zM4 21V5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+</svg>
+<div class="app">
+  <nav class="side" aria-label="Hlavní navigace">
+    <div class="logo"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Cestovní stopa</div>
+    <a href="#" aria-current="page"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg>Přehled</a>
+    <a href="#"><svg class="ico" aria-hidden="true"><use href="#i-map"/></svg>Mapa</a>
+    <a href="#"><svg class="ico" aria-hidden="true"><use href="#i-list"/></svg>Cesty</a>
+    <a href="#"><svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg>Statistiky</a>
+    <a href="#" class="is-later"><svg class="ico" aria-hidden="true"><use href="#i-bike"/></svg>Sport<span class="tag">etapa 2</span></a>
+    <a href="#" class="is-later"><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg>Kronika<span class="tag">etapa 3</span></a>
+    <div class="foot" id="asof"></div>
+  </nav>
+
+  <main>
+    <div class="bar" role="search">
+      <h1>Přehled</h1>
+      <div class="seg" role="group" aria-label="Rozsah">
+        <button type="button" data-scope="all" aria-pressed="true">Vše</button>
+        <button type="button" data-scope="cz" aria-pressed="false">Česko</button>
+        <button type="button" data-scope="abroad" aria-pressed="false">Zahraničí</button>
+      </div>
+      <label class="field">Od <select id="from"></select></label>
+      <label class="field">Do <select id="to"></select></label>
+      <label class="check"><input type="checkbox" id="sport"> jen se sportovními záznamy</label>
+      <span id="filterNote"></span>
+      <button type="button" class="reset" id="reset">Zrušit filtry</button>
+    </div>
+
+    <dl class="kpis" id="kpis"></dl>
+
+    <div class="grid g-a">
+      <section class="panel">
+        <div class="ph"><h2>Navštívené státy</h2><div class="legend" id="legend"></div></div>
+        <div class="map" id="map"></div>
+      </section>
+      <section class="panel">
+        <div class="ph"><h2>Státy podle počtu cest</h2><span class="note" id="ctNote"></span></div>
+        <div class="ctable"><table id="ctable"></table></div>
+      </section>
+    </div>
+
+    <div class="grid g-b">
+      <section class="panel">
+        <div class="ph"><h2>Cesty po letech</h2><div class="key"><span><i style="background:var(--cz)"></i>Česko</span><span><i style="background:var(--abroad)"></i>Zahraničí</span></div></div>
+        <div id="years"></div>
+      </section>
+      <section class="panel">
+        <div class="ph"><h2>Měsíc začátku</h2></div>
+        <div id="months"></div>
+        <p class="note" id="monthsNote"></p>
+      </section>
+      <section class="panel">
+        <div class="ph"><h2>Délka pobytu</h2></div>
+        <div class="buckets" id="buckets"></div>
+        <p class="note" id="nightsNote"></p>
+      </section>
+    </div>
+
+    <section class="panel">
+      <div class="ph"><h2>Poslední cesty</h2><input type="search" id="q" placeholder="Hledat cestu…" aria-label="Hledat cestu"></div>
+      <div class="scroll"><table id="trips"></table></div>
+      <p class="note" id="tripsNote"></p>
+    </section>
+  </main>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/europe-map.js"></script>
+<script src="assets/viz.js"></script>
+<script>
+(function () {
+  var F = VZ.fmt, all = VZ.data.trips, $ = function (id) { return document.getElementById(id); };
+  var css = function (n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); };
+  var base = VZ.stats(all);
+  var st = { scope: 'all', from: '', to: '', sport: false, q: '', country: null };
+  var Q = [[21, '21+', '--q5'], [11, '11–20', '--q4'], [6, '6–10', '--q3'], [2, '2–5', '--q2'], [1, '1', '--q1']];
+  function qfill(n) { for (var i = 0; i < Q.length; i++) if (n >= Q[i][0]) return css(Q[i][2]); }
+
+  var opts = '<option value="">vše</option>';
+  for (var y = base.minYear; y <= base.maxYear; y++) opts += '<option>' + y + '</option>';
+  $('from').innerHTML = opts; $('to').innerHTML = opts;
+  $('asof').textContent = 'Data k ' + VZ.data.dataAsOf.split('-').reverse().map(Number).join('. ');
+
+  function filtered() {
+    return all.filter(function (t) {
+      if (st.scope === 'cz' && t.zeme !== 'CZ') return false;
+      if (st.scope === 'abroad' && t.zeme === 'CZ') return false;
+      if ((st.from || st.to) && t.rok === null) return false;
+      if (st.from && t.rok < +st.from) return false;
+      if (st.to && t.rok > +st.to) return false;
+      if (st.sport && !t.sport) return false;
+      return true;
+    });
+  }
+
+  function render() {
+    var trips = filtered(), s = VZ.stats(trips);
+    var yearFiltered = st.from || st.to;
+    $('filterNote').innerHTML = yearFiltered && base.undated ? '<span class="pill warn">' + F.cesty(base.undated) + ' bez roku nejsou ve výběru</span>' : '';
+    if (!trips.length) { $('kpis').innerHTML = '<div class="kpi"><dt>Výběr</dt><dd>0</dd><small>Žádná cesta neodpovídá filtrům.</small></div>'; return; }
+
+    $('kpis').innerHTML = [
+      ['Cesty', s.total, s.total === base.total ? 'všechny evidované' : 'z ' + base.total + ' evidovaných'],
+      ['Státy', s.countryCount, s.abroadCountryCount + ' zahraničních'],
+      ['Zahraničí', s.abroad, F.pct(s.abroad, s.total) + ' · Česko ' + s.cz],
+      ['Nocí', F.num(s.nightsSum), 'známo u ' + s.nightsKnown + ' z ' + s.total + ' cest'],
+      ['Letos (' + base.currentYear + ')', s.thisYear, 'z toho ' + trips.filter(function (t) { return t.rok === base.currentYear && t.zeme !== 'CZ'; }).length + ' do zahraničí'],
+      ['Medián délky', s.median === null ? '—' : F.noci(s.median), s.mean === null ? '' : 'průměr ' + F.num(s.mean, 1).replace(/,0$/, '') + ' noci']
+    ].map(function (k) { return '<div class="kpi"><dt>' + k[0] + '</dt><dd>' + k[1] + '</dd><small>' + k[2] + '</small></div>'; }).join('');
+
+    var cmap = {};
+    s.countries.forEach(function (c) { cmap[c.code] = c; });
+    if (st.country && !cmap[st.country]) st.country = null;
+    VZ.renderMap($('map'), s, {
+      selected: st.country,
+      fill: function (k) { return cmap[k] ? qfill(cmap[k].count) : null; },
+      onCountry: function (k) { st.country = st.country === k ? null : k; render(); }
+    });
+    $('legend').innerHTML = Q.slice().reverse().map(function (q) { return '<span><i style="background:' + css(q[2]) + '"></i>' + q[1] + '</span>'; }).join('');
+
+    var maxC = s.countries[0].count;
+    $('ctable').innerHTML = '<thead><tr><th>Stát</th><th>Cesty</th><th class="num">Nocí</th><th class="num">Poprvé</th><th class="num">Naposled</th></tr></thead><tbody>' +
+      s.countries.map(function (c) {
+        return '<tr' + (c.code === st.country ? ' class="is-selected"' : '') + '><td><span class="code">' + c.code + '</span>' + F.esc(c.name) + '</td>' +
+          '<td><div class="cbar"><span style="width:' + Math.max(2, c.count / maxC * 90).toFixed(0) + 'px"></span>' + c.count + '</div></td>' +
+          '<td class="num">' + (c.nightsKnown ? c.nights + (c.nightsKnown < c.count ? ' <span class="note">(' + c.nightsKnown + '/' + c.count + ')</span>' : '') : '—') + '</td>' +
+          '<td class="num">' + (c.first === null ? '—' : c.first) + '</td><td class="num">' + (c.last === null ? '—' : c.last) + '</td></tr>';
+      }).join('') + '</tbody>';
+    $('ctNote').textContent = '(x/y) = noci známé u x z y cest';
+
+    VZ.yearsChart($('years'), s, { height: 190, unknown: !yearFiltered, colors: { cz: css('--cz'), abroad: css('--abroad') } });
+    VZ.monthsChart($('months'), s, { height: 150, color: css('--cz'), short: true });
+    $('monthsNote').textContent = 'Z ' + s.monthsKnown + ' cest se známým měsícem (z ' + s.total + ').';
+    var maxB = Math.max.apply(null, s.buckets.map(function (b) { return b.count; }).concat([s.nightsUnknown]));
+    $('buckets').innerHTML = s.buckets.map(function (b) {
+      return '<span>' + b.label + ' ' + VZ.plural(b.label === '1' ? 1 : b.label === '2' ? 2 : 5, 'noc', 'noci', 'nocí') + '</span><div class="b" style="width:' + (b.count / maxB * 100).toFixed(1) + '%"></div><span>' + b.count + '</span>';
+    }).join('') + '<span>neznámá</span><div class="b unk" style="width:' + (s.nightsUnknown / maxB * 100).toFixed(1) + '%"></div><span>' + s.nightsUnknown + '</span>';
+    $('nightsNote').textContent = 'Medián ' + (s.median === null ? '—' : F.noci(s.median)) + '; cesty s neznámou délkou se do průměru nepočítají.';
+
+    var list = s.recent.concat(s.undatedTrips).filter(function (t) {
+      return (!st.country || t.zeme === st.country) && (!st.q || t.nazev.toLowerCase().indexOf(st.q) >= 0);
+    });
+    $('trips').innerHTML = '<thead><tr><th style="width:44px"><span class="note">Akce</span></th><th>Termín</th><th>Cesta</th><th>Stát</th><th class="num">Nocí</th><th>Přesnost</th><th class="num">Aktivity</th></tr></thead><tbody>' +
+      list.slice(0, 12).map(function (t) {
+        return '<tr><td><button type="button" class="btn-ico" aria-label="Detail cesty ' + F.esc(t.nazev) + '" title="Detail cesty"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg></button></td>' +
+          '<td>' + F.termin(t) + '</td><td>' + F.esc(t.nazev) + '</td><td><span class="code">' + t.zeme + '</span>' + VZ.NAMES[t.zeme] + '</td>' +
+          '<td class="num">' + (t.noci === null ? '—' : t.noci) + '</td><td><span class="pill">' + F.presnost(t.presnost) + '</span></td>' +
+          '<td class="num">' + (t.sport ? F.num(t.sport.km, 0) + ' km' : '—') + '</td></tr>';
+      }).join('') + '</tbody>';
+    $('tripsNote').innerHTML = 'Zobrazeno ' + Math.min(12, list.length) + ' z ' + list.length + (st.country ? ' · stát: ' + VZ.NAMES[st.country] : '') + ' · <a href="#">Všechny cesty v archivu →</a>';
+  }
+
+  document.querySelectorAll('[data-scope]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      st.scope = b.dataset.scope;
+      document.querySelectorAll('[data-scope]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      render();
+    });
+  });
+  $('from').addEventListener('change', function (e) { st.from = e.target.value; render(); });
+  $('to').addEventListener('change', function (e) { st.to = e.target.value; render(); });
+  $('sport').addEventListener('change', function (e) { st.sport = e.target.checked; render(); });
+  $('q').addEventListener('input', function (e) { st.q = e.target.value.trim().toLowerCase(); render(); });
+  $('reset').addEventListener('click', function () {
+    st = { scope: 'all', from: '', to: '', sport: false, q: '', country: null };
+    $('from').value = ''; $('to').value = ''; $('sport').checked = false; $('q').value = '';
+    document.querySelectorAll('[data-scope]').forEach(function (x) { x.setAttribute('aria-pressed', String(x.dataset.scope === 'all')); });
+    render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>

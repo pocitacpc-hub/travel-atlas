@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cestovní stopa – 5 návrhů UI</title>
+<style>
+:root { --bg: #F7F7F5; --card: #fff; --ink: #16181C; --ink-2: #3D424A; --muted: #5E646E; --line: #E3E3DE; --sans: "Segoe UI", system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 var(--sans); }
+main { max-width: 1100px; margin: 0 auto; padding: 36px 24px 56px; }
+h1 { font-size: 30px; margin: 0 0 6px; }
+.lead { color: var(--ink-2); margin: 0 0 26px; max-width: 46em; }
+.list { display: grid; gap: 14px; }
+a.item { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 18px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; text-decoration: none; color: inherit; }
+a.item:hover { border-color: var(--ink-2); }
+.n { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; font: 700 22px var(--sans); color: #fff; }
+h2 { font-size: 19px; margin: 0; }
+p { margin: 4px 0 0; color: var(--ink-2); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.tags span { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); color: var(--muted); }
+.go { color: var(--muted); font-size: 14px; white-space: nowrap; }
+.foot { margin-top: 26px; color: var(--muted); font-size: 13px; }
+@media (max-width: 640px) { a.item { grid-template-columns: 44px minmax(0, 1fr); } .n { width: 44px; height: 44px; } .go { display: none; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Cestovní stopa – 5 návrhů UI</h1>
+  <p class="lead">Úvodní obrazovka v pěti odlišných směrech. Všechna čísla se počítají z reálných veřejných polí archivu (96 cest, stav 8. 11. 2026). Neznámé údaje se nikde nepočítají jako nula. Body míst na mapách jsou ilustrační.</p>
+  <div class="list">
+    <a class="item" href="01-atlas.html"><span class="n" style="background:#00897B">1</span><div><h2>Atlas</h2><p>Mapa jako hlavní vizuál, klidný redakční styl jako tištěný atlas. Klik na stát otevře jeho cesty, přepínač Státy / Místa.</p><div class="tags"><span>map-first</span><span>světlý papír</span><span>serif nadpisy</span></div></div><span class="go">Otevřít →</span></a>
+    <a class="item" href="02-dashboard.html"><span class="n" style="background:#2a78d6">2</span><div><h2>Přehledový dashboard</h2><p>Kompaktní pracovní rozhraní: boční menu, nízké filtry, KPI s pokrytím dat, tabulky s akcemi vlevo. Filtry jsou funkční a všechno se přepočítává.</p><div class="tags"><span>hustota informací</span><span>1920 × 1080</span><span>filtry</span></div></div><span class="go">Otevřít →</span></a>
+    <a class="item" href="03-kronika.html"><span class="n" style="background:#eb6834">3</span><div><h2>Kronika</h2><p>Časová osa rok po roku. Délka pruhu = počet nocí, čárkovaný obrys = neznámá délka, odznak „nová země“ u první známé cesty.</p><div class="tags"><span>příběh</span><span>mobil přirozeně</span><span>prázdné roky viditelné</span></div></div><span class="go">Otevřít →</span></a>
+    <a class="item" href="04-sbirka.html"><span class="n" style="background:#1B2A4A">4</span><div><h2>Sbírka zemí</h2><p>Hravé „sbírání“ států: kartogram Evropy z dlaždic, razítka podle první návštěvy, růst sbírky v čase a rekordy.</p><div class="tags"><span>gamifikace</span><span>bez geodat</span><span>spodní lišta na mobilu</span></div></div><span class="go">Otevřít →</span></a>
+    <a class="item" href="05-noc.html"><span class="n" style="background:#0F1115">5</span><div><h2>Noční data</h2><p>Tmavý datový styl: velká čísla, heatmapa rok × měsíc se sloupcem pro neznámý měsíc, zrcadlový graf Česko / zahraničí, mapa míst.</p><div class="tags"><span>tmavý</span><span>data-art</span><span>heatmapa</span></div></div><span class="go">Otevřít →</span></a>
+  </div>
+  <p class="foot">Makety jsou statické HTML bez závislostí a bez síťových požadavků. Hranice států: Natural Earth 1:50m (public domain). Sdílené výpočty jsou v assets/viz.js.</p>
+</main>
+</body>
+</html>
