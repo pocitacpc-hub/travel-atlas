@@ -38,8 +38,7 @@ export async function readTripHeader(path: string): Promise<Record<string, unkno
   }
 }
 
-function fromLegacy(entry: SourceEntry, warn: (message: string) => void): Record<string, unknown> {
-  const fields = entry.fields;
+export function normalizeLegacy(fields: Record<string, unknown>, warn: (message: string) => void): Record<string, unknown> {
   const dateStart = fields.zacatek ?? null;
   const dateEnd = fields.konec ?? null;
   const monthCode = fields.mesic_konani;
@@ -71,10 +70,8 @@ function fromLegacy(entry: SourceEntry, warn: (message: string) => void): Record
     warn("Chybí stav ve starém formátu. Záznam má vyplněný začátek a konec.");
     status = "probehla";
   }
-  const hash = createHash("sha256").update(entry.file.normalize("NFC")).digest("hex").slice(0, 16);
   return {
     ...fields,
-    id: `tmp-${hash}`,
     stav: fields.stav ?? status,
     zverejnit: fields.zverejnit ?? ((fields.stav ?? status) === "probehla"),
     zacatek: dateStart,
@@ -85,6 +82,11 @@ function fromLegacy(entry: SourceEntry, warn: (message: string) => void): Record
       dateStart !== null || dateEnd !== null ? "den" : month !== null ? "mesic" : year !== null ? "rok" : "neznamy"
     )
   };
+}
+
+function fromLegacy(entry: SourceEntry, warn: (message: string) => void): Record<string, unknown> {
+  const hash = createHash("sha256").update(entry.file.normalize("NFC")).digest("hex").slice(0, 16);
+  return { ...normalizeLegacy(entry.fields, warn), id: `tmp-${hash}` };
 }
 
 function projectPlace(place: Place): Place {

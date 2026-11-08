@@ -35,6 +35,20 @@ Po schválené migraci spusť přísný `npm run export`. Ověřená dvojice JSO
 
 Zdrojové Markdowny, `out/`, místní konfiguraci a seznam jmen drž mimo historii Gitu. Před commitem zkontroluj `git diff --cached -- public/data/` a spusť `npm run check`. Nasazení používá pouze `dist/`. Ve fázi B se do sestavení stále kopíruje jen úvodní HTML a CSS.
 
+## Migrace metadat
+
+1. Spusť `npm run migrate`. Výchozí zkouška vytvoří `out/migrace-report.md` se změnami před a po pro každý záznam a `out/migrace-plan.local.json` se stabilními navrženými ID a otisky souborů. Přísný náhled se ověří v paměti.
+2. Martin vybere položky v [návrzích](data/migrace/2026-11-navrhy.yaml) změnou `potvrzeno: true`. Každý termín, seznam míst nebo zaměření schvaluje samostatně. Cestu návrh identifikuje názvem a rokem. Návrh termínu musí zachovat rok začátku. Případný další stát doplní jako `zmeny: { dalsi_zeme: [Český název státu] }` pouze při doloženém pobytu. Po změně návrhů znovu spusť zkoušku a nech schválit nový rozpis.
+3. Po výslovném souhlasu se zápisem spusť následující příkaz se záložní složkou na místním disku mimo Drive a mimo Git.
+
+```powershell
+npm run migrate -- --apply --backup 'C:\Dev\Zálohy\TravelAtlas'
+```
+
+Skript odmítne změnu zdroje nebo návrhů proti uloženému plánu. Nejdřív vytvoří časovanou kopii celé složky a ověří ji pomocí SHA-256. Potom jednotlivě nahradí YAML hlavičky. Tělo Markdownu si zachová původní bajty. Umístění zálohy a výsledek zápisu jsou v `out/migrace-zapis.md`.
+
+Po zápisu spusť `npm run migrate` a ověř nulu navržených změn. Při přerušení nejdřív zkontroluj zálohu a stav zdroje. Soubor `out/migrace.lock` odstraň pouze tehdy, když migrační proces prokazatelně neběží. Pak připrav nový náhled zbývajících změn. Přísný export, kontroly a výměna testovacího snímku následují po ověření zápisu. `_SCHEMA.md` přidej na Drive jen po schválení.
+
 ## První nasazení
 
 První nasazení už proběhlo. Následující postup je pro opětovné nastavení Pages.

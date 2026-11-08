@@ -1,5 +1,10 @@
 # Změny
 
+## 8. 11. 2026 – příprava fáze C
+
+- Přidaná zkouška migrace metadat s uloženým plánem a přísným náhledem.
+- Připravené návrhy termínů, míst a zaměření ke schválení. Skript před zápisem vyžaduje ověřenou zálohu a shodu s plánem.
+
 ## 8. 11. 2026 – fáze B
 
 - Přidaný datový kontrakt a číselníky 15 států a 61 kandidátů míst.

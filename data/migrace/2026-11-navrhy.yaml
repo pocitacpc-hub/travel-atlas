@@ -1,0 +1,730 @@
+# Návrhy ze zadání a z názvů cest ve veřejném kontrolním snímku.
+# Potvrzuje Martin. Každá položka se schvaluje samostatně.
+# Další státy zatím nemají podklad pro potvrzený pobyt.
+# Přesné termíny z Časové osy
+- nazev: Itálie – Bormio a Alpy na kole
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    zacatek: 2026-08-14
+    konec: 2026-08-21
+- nazev: Chorvatsko – Poreč (kola)
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    zacatek: 2025-03-22
+    konec: 2025-03-30
+- nazev: Chorvatsko – ostrov Vir
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    zacatek: 2025-07-29
+    konec: 2025-08-05
+- nazev: Domažlice – cyklistika (Tour de Kozina)
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    zacatek: 2025-05-24
+    konec: 2025-05-29
+- nazev: Irsko – Dublin
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    zacatek: 2025-05-07
+    konec: 2025-05-10
+- nazev: Slovinsko – Piran, Izola a Bled
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    zacatek: 2026-05-06
+    konec: 2026-05-10
+- nazev: Lednice – cyklovýlet
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    zacatek: 2026-06-12
+    konec: 2026-06-14
+- nazev: Pasohlávky – Apalucha
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    zacatek: 2026-08-28
+    konec: 2026-08-30
+- nazev: Rožnov – Apalucha
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    zacatek: 2025-08-15
+    konec: 2025-08-17
+- nazev: Jižní Morava – víkend
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    zacatek: 2025-09-13
+    konec: 2025-09-14
+
+# Místa z názvů cest. Souřadnice se potvrzují zvlášť.
+- nazev: Alicante a Costa Blanca
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Alicante
+- nazev: Apalucha – cyklovýlet Javorový a Rožnov
+  rok: 2022
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Rožnov pod Radhoštěm
+- nazev: Beskydy – Penzion Visalaje
+  rok: 1996
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Visalaje (Beskydy)
+- nazev: Beskydy – Penzion Visalaje
+  rok: 1998
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Visalaje (Beskydy)
+- nazev: Beskydy – Penzion Visalaje
+  rok: 1999
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Visalaje (Beskydy)
+- nazev: Beskydy – Penzion Visalaje
+  rok: 2002
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Visalaje (Beskydy)
+- nazev: Beskydy – Penzion Visalaje
+  rok: 2003
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Visalaje (Beskydy)
+- nazev: Beskydy – Penzion Visalaje
+  rok: 2004
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Visalaje (Beskydy)
+- nazev: Beskydy – Trojanovice (cyklistika, Strava)
+  rok: 2024
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Trojanovice
+- nazev: Domažlice – cyklistika (Tour de Kozina)
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Domažlice
+- nazev: Horní Bečva – U Juráša
+  rok: 2023
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Horní Bečva
+- nazev: Chorvatsko – Fažana
+  rok: 1999
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Fažana
+- nazev: Chorvatsko – Fažana
+  rok: 2018
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Fažana
+- nazev: Chorvatsko – Murter a Betina
+  rok: 2023
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Murter
+- nazev: Chorvatsko – ostrov Korčula
+  rok: null
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Korčula
+- nazev: Chorvatsko – ostrov Vir
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Vir
+- nazev: Chorvatsko – Poreč (kola)
+  rok: 2024
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Poreč
+- nazev: Chorvatsko – Poreč (kola)
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Poreč
+- nazev: Chorvatsko – Poreč (kola)
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Poreč
+- nazev: Chorvatsko – Pula
+  rok: 1997
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Pula
+- nazev: Chorvatsko – Sveti Filip i Jakov
+  rok: 2022
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Sveti Filip i Jakov
+- nazev: Chorvatsko – Tribunj (kola)
+  rok: 2023
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Tribunj
+- nazev: Irsko – Dublin
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Dublin
+- nazev: Itálie – Alba Adriatica (Abruzzo)
+  rok: 2007
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Alba Adriatica
+- nazev: Itálie – Bormio a Alpy na kole
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Bormio
+- nazev: Itálie – Gargano, Vieste
+  rok: 1996
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Vieste
+- nazev: Itálie – Lido di Jesolo
+  rok: null
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Lido di Jesolo
+- nazev: Itálie – Martinsicuro, Camping Riva Nuova
+  rok: 2003
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Martinsicuro
+- nazev: Itálie – Paestum, komplex La Giara
+  rok: 2004
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Paestum
+- nazev: Itálie – Řím
+  rok: 2022
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Řím
+- nazev: Jaroslavice a Znojmo – jižní Morava
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jaroslavice
+- nazev: Jeseníky – Desný Kout
+  rok: 2021
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jeseníky – Desný Kout s přáteli
+  rok: 2022
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jeseníky – Chata Heinz
+  rok: 2012
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jeseníky – Chata Heinz
+  rok: 2013
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jeseníky – Chata Heinz
+  rok: 2014
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jeseníky – Chata Heinz
+  rok: 2015
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jeseníky – chata Johann
+  rok: 2022
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jeseníky – chata Kosanda, Branná
+  rok: 2022
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jeseníky – Chata Lucka Heinz
+  rok: 2017
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jeseníky – Chata Lucka Heinz
+  rok: 2018
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jeseníky – Chata Lucka Heinz
+  rok: 2020
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jeseníky – Malá Morávka (záznamy Strava)
+  rok: 2023
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+      - Morávka
+- nazev: Jeseníky – Roubenka Ondřejovice
+  rok: 2024
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jeseníky – Roubenka Vyhlídka
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jeseníky
+- nazev: Jizerské hory – cyklovýlet
+  rok: 2023
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jizerské hory
+- nazev: Jižní Morava – Brno a Břeclav
+  rok: 2021
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Břeclav
+      - Brno
+- nazev: Krkonoše – Pec pod Sněžkou
+  rok: 2012
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Pec pod Sněžkou
+- nazev: Lednice – cyklovýlet
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Lednice
+- nazev: Mallorca – Palma a okolí
+  rok: 2024
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Palma
+- nazev: Morávka – Beskydy
+  rok: 2010
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Morávka
+- nazev: Norsko – Oslo
+  rok: 2021
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Oslo
+- nazev: Olomouc – rodinný výlet
+  rok: 2016
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Olomouc
+- nazev: Pasohlávky – Apalucha
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Pasohlávky
+- nazev: Pasohlávky a Lednice
+  rok: 2017
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Lednice
+      - Pasohlávky
+- nazev: Polsko – Jastrzębia Góra a Baltské pobřeží
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Jastrzębia Góra
+- nazev: Portugalsko – Porto, Sintra a Lisabon
+  rok: 2023
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Lisabon
+      - Porto
+      - Sintra
+- nazev: Praha – historická cesta
+  rok: 2001
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Praha
+- nazev: Praha – městský výlet
+  rok: 2018
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Praha
+- nazev: Praha – rodinný výlet
+  rok: 2021
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Praha
+- nazev: Rakousko – Bruck an der Mur a Štýrsko
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Bruck an der Mur
+- nazev: Rožnov – Apalucha
+  rok: 2021
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Rožnov pod Radhoštěm
+- nazev: Rožnov – Apalucha
+  rok: 2023
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Rožnov pod Radhoštěm
+- nazev: Rožnov – Apalucha
+  rok: 2024
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Rožnov pod Radhoštěm
+- nazev: Rožnov – Apalucha
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Rožnov pod Radhoštěm
+- nazev: Rožnov – kemp
+  rok: 2020
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Rožnov pod Radhoštěm
+- nazev: Rožnov pod Radhoštěm
+  rok: 2013
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Rožnov pod Radhoštěm
+- nazev: Rychlebské hory – cyklovýlet s přáteli
+  rok: 2022
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Rychlebské hory
+- nazev: Řecko – Chalkidiki
+  rok: 1998
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Chalkidiki
+- nazev: Řecko – Chalkidiki, Sarti
+  rok: 2009
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Chalkidiki
+      - Sarti
+- nazev: Řecko – Korfu
+  rok: 2000
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Korfu
+- nazev: Slovensko – Babia hora
+  rok: 2023
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Babia hora
+- nazev: Slovensko – Liptovský Mikuláš a Bešeňová
+  rok: 2022
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Liptovský Mikuláš
+- nazev: Slovensko – Malá Fatra
+  rok: 2019
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Malá Fatra
+- nazev: Slovensko – Nitra
+  rok: 2015
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Nitra
+- nazev: Slovensko – Nízké Tatry
+  rok: 2017
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Nízké Tatry
+- nazev: Slovensko – Nízké Tatry
+  rok: 2019
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Nízké Tatry
+- nazev: Slovinsko – Piran, Izola a Bled
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Bled
+      - Izola
+      - Piran
+- nazev: Španělsko – Alcossebre, Camping Playa Tropicana
+  rok: 2001
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Alcossebre
+- nazev: Španělsko – Costa Brava, Palamós (Camp King)
+  rok: 1997
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Palamós
+- nazev: Španělsko – Málaga
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Málaga
+- nazev: Španělsko – Santa Susanna
+  rok: 2005
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Santa Susanna
+- nazev: Velká Británie – Londýn
+  rok: 2019
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Londýn
+- nazev: Vranov nad Dyjí
+  rok: 2014
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Vranov nad Dyjí
+- nazev: Zlín – s přáteli
+  rok: 2016
+  potvrzeno: false
+  zmeny:
+    mista:
+      - Zlín
+
+# Zaměření z názvů cest
+- nazev: Apalucha – cyklovýlet Javorový a Rožnov
+  rok: 2022
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kolo
+- nazev: Beskydy – Trojanovice (cyklistika, Strava)
+  rok: 2024
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kolo
+- nazev: Domažlice – cyklistika (Tour de Kozina)
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kolo
+- nazev: Giro 2023 – cyklovýlet
+  rok: 2023
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kolo
+- nazev: Chata – Dolní Moravice
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - chata
+- nazev: Chorvatsko – Poreč (kola)
+  rok: 2024
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kolo
+- nazev: Chorvatsko – Poreč (kola)
+  rok: 2025
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kolo
+- nazev: Chorvatsko – Poreč (kola)
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kolo
+- nazev: Chorvatsko – Tribunj (kola)
+  rok: 2023
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kolo
+- nazev: Itálie – Bormio a Alpy na kole
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kolo
+- nazev: Itálie – Lido del Sole, kemp Jamaica
+  rok: 2006
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kemp
+- nazev: Jeseníky – Chata Heinz
+  rok: 2012
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - chata
+- nazev: Jeseníky – Chata Heinz
+  rok: 2013
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - chata
+- nazev: Jeseníky – Chata Heinz
+  rok: 2014
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - chata
+- nazev: Jeseníky – Chata Heinz
+  rok: 2015
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - chata
+- nazev: Jeseníky – chata Johann
+  rok: 2022
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - chata
+- nazev: Jeseníky – chata Kosanda, Branná
+  rok: 2022
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - chata
+- nazev: Jeseníky – Chata Lucka Heinz
+  rok: 2017
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - chata
+- nazev: Jeseníky – Chata Lucka Heinz
+  rok: 2018
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - chata
+- nazev: Jeseníky – Chata Lucka Heinz
+  rok: 2020
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - chata
+- nazev: Jizerské hory – cyklovýlet
+  rok: 2023
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kolo
+- nazev: Lednice – cyklovýlet
+  rok: 2026
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kolo
+- nazev: Rožnov – kemp
+  rok: 2020
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kemp
+- nazev: Rychlebské hory – cyklovýlet s přáteli
+  rok: 2022
+  potvrzeno: false
+  zmeny:
+    zamereni:
+      - kolo

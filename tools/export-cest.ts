@@ -1,10 +1,10 @@
-import { randomUUID } from "node:crypto";
-import { existsSync, mkdirSync, readdirSync, realpathSync, renameSync, rmSync, writeFileSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
-import { asOfToday, checkPublic, containsPath, date, isRecord, loadCatalog, localPath, readJson, root } from "./atlas-data";
+import { existsSync, readdirSync } from "node:fs";
+import { join } from "node:path";
+import { asOfToday, checkPublic, date, loadCatalog, localPath, root } from "./atlas-data";
 import { assertSafe, localNames } from "./content-security";
 import { publicDirectory } from "./public-data";
 import { buildExport, compare, readTripHeader } from "./trip-export";
+import { sourceDirectory, writeLocal } from "./source-files";
 
 const reportPath = join(root, "out", "export-report.md");
 type Export = ReturnType<typeof buildExport>;
@@ -21,35 +21,6 @@ function options(args: string[]) {
   asOf ??= today;
   if (!date(asOf) || asOf > today) throw new Error("Datum --as-of musí být platné a nejpozději dnešní.");
   return { legacy, asOf };
-}
-
-function sourceDirectory(): string {
-  let path = process.env.CESTY_ZDROJ;
-  const configPath = join(root, "config.local.json");
-  if (!path && existsSync(configPath)) {
-    const config = readJson(configPath);
-    if (!isRecord(config) || typeof config.CESTY_ZDROJ !== "string") {
-      throw new Error("config.local.json musí mít řetězec CESTY_ZDROJ.");
-    }
-    path = config.CESTY_ZDROJ;
-  }
-  if (!path?.trim()) throw new Error("Nastav CESTY_ZDROJ na složku zdrojových Markdownů mimo Git.");
-  const source = realpathSync(resolve(root, path));
-  const repo = realpathSync(root);
-  if (containsPath(repo, source) || containsPath(source, repo)) throw new Error("Zdroj musí ležet mimo repozitář.");
-  return source;
-}
-
-function writeLocal(path: string, text: string): void {
-  localPath(path);
-  mkdirSync(dirname(path), { recursive: true });
-  const temp = `${path}.${randomUUID()}.tmp`;
-  try {
-    writeFileSync(temp, text, { encoding: "utf8", flag: "wx" });
-    renameSync(temp, path);
-  } finally {
-    rmSync(temp, { force: true });
-  }
 }
 
 const json = (value: unknown) => JSON.stringify(value, null, 2) + "\n";

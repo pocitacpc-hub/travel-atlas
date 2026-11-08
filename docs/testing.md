@@ -22,3 +22,11 @@
 - Vitest ověřuje kontrolní hodnoty snímku z 8. 11. 2026, izolaci těla Markdownu, přesnost, nulovou a neznámou délku, datum ukončení, vyřazení nepotvrzeného rozpočtu, ověření míst a deterministické řazení.
 
 Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varování a jeden vynechaný záznam. Dva běhy pro 8. 11. 2026 měly shodné kontrolní součty obou JSON souborů i reportu. `npm run check` prošel s devíti testy. Obecné vzory byly zkontrolované na skutečném exportu. Vlastní seznam jmen je volitelný, jeho chování pokrývá test se zkušebním jménem. Veřejná složka s daty zůstává prázdná do schválené migrace.
+
+## Fáze C
+
+- Zkouška `npm run migrate` navrhla 97 přepisů a prošla přísnou kontrolou 96 cest. Kontrolní součty všech 102 zdrojových souborů se shodovaly před a po spuštění. Opakovaná zkouška zachovala uložený plán včetně ID.
+- Přísný náhled souhlasil s kontrolním snímkem fáze B ve všech veřejných polích kromě nových trvalých ID.
+- Testy na syntetických souborech ověřují zálohu i se skrytým souborem a podadresářem, zachování bajtů těla Markdownu, zachování soukromých metadat a existujících ID, kontrolu změny zdroje a druhý běh bez změn.
+- Celý příkaz `--apply` v oddělené testovací kopii odmítl soubor změněný po náhledu. Po obnovení náhledu vytvořil ověřenou zálohu a zapsal změnu. Druhý běh ponechal soubor shodný a další zálohu nevytvořil.
+- Zápis na skutečný Drive a následný přísný export se ověří po schválení.

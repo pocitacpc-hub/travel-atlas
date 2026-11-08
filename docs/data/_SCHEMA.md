@@ -1,6 +1,6 @@
 # Metadata cesty
 
-Jeden Markdown představuje jednu cestu. Metadata začínají oddělovačem `---` na prvním řádku a končí samostatným `---`. Export vybírá soubory s `typ: cesta`. Soukromá pole zůstávají ve zdroji. Export vybírá pouze pole z [datového kontraktu](../../schemas/metadata.schema.json) a ze soukromých údajů o aktivitách čte mezní dny jen pro místní varování.
+Jeden Markdown představuje jednu cestu. Metadata začínají oddělovačem `---` na prvním řádku a končí samostatným `---`. Export vybírá soubory s `typ: cesta`. Soukromá pole zůstávají ve zdroji. Export vybírá pouze pole z [datového kontraktu](https://github.com/pocitacpc-hub/travel-atlas/blob/main/schemas/metadata.schema.json) a ze soukromých údajů o aktivitách čte mezní dny jen pro místní varování.
 
 ## Povinná pole
 
@@ -11,7 +11,7 @@ Jeden Markdown představuje jednu cestu. Metadata začínají oddělovačem `---
 | `nazev` | Název, který smí být veřejný. |
 | `stav` | `probehla`, `planovana` nebo `neoverena`. |
 | `zverejnit` | YAML boolean `true` nebo `false`. |
-| `zeme` | Český název hlavního státu z [číselníku](../../data/zeme.json). |
+| `zeme` | Český název hlavního státu z [číselníku](https://github.com/pocitacpc-hub/travel-atlas/blob/main/data/zeme.json). |
 | `zacatek`, `konec` | Kalendářní data `RRRR-MM-DD` nebo `null`. Při přesnosti `den` jsou povinná obě data a konec nesmí být před začátkem. |
 | `presnost_terminu` | `den`, `mesic`, `rok` nebo `neznamy`. |
 | `pocet_noci` | Celé nezáporné číslo nebo `null`. Nula znamená prokazatelně bez noclehu. |
@@ -22,7 +22,7 @@ Při přesnosti `mesic` vyplň rok a měsíc 1 až 12. Při přesnosti `rok` vyp
 ## Volitelná pole
 
 - `dalsi_zeme` obsahuje další potvrzené státy pobytu podle číselníku.
-- `mista` obsahuje názvy nebo aliasy z [číselníku míst](../../data/mista.yaml). Do výstupu jdou pouze ověřená místa ve státech cesty.
+- `mista` obsahuje názvy nebo aliasy z [číselníku míst](https://github.com/pocitacpc-hub/travel-atlas/blob/main/data/mista.yaml). Do výstupu jdou pouze ověřená místa ve státech cesty.
 - `zamereni` je seznam hodnot `kolo`, `turistika`, `more`, `hory`, `mesto`, `chata`, `kemp` nebo `akce`.
 - `verejny_popis` je text určený ke zveřejnění nebo `null`.
 - Souhrn aktivit tvoří společně `strava_pocet_aktivit`, `strava_celkem_km` a `strava_prevyseni_m`. Počet aktivit a metry převýšení jsou celá čísla, kilometry mohou být desetinné. Všechny tři hodnoty jsou nezáporné.
@@ -31,7 +31,7 @@ Při přesnosti `mesic` vyplň rok a měsíc 1 až 12. Při přesnosti `rok` vyp
 
 Cesta potřebuje `stav: probehla` a `zverejnit: true`. U přesného termínu musí konec ležet před datem exportu. Při známém měsíci musí uplynout celý měsíc, při známém roku celý rok. U historické cesty bez data potvrzuje uskutečnění výslovný stav `probehla`. Neznámé datum zůstává `null`.
 
-Veřejný výstup používá ISO kódy států a ID míst. Klíče a strukturu určují schémata [cest](../../schemas/cesty.schema.json) a [míst](../../schemas/mista.schema.json). Výstupy sdílejí `schemaVersion`, `generated: true` a stejné `dataAsOf`.
+Veřejný výstup používá ISO kódy států a ID míst. Klíče a strukturu určují schémata [cest](https://github.com/pocitacpc-hub/travel-atlas/blob/main/schemas/cesty.schema.json) a [míst](https://github.com/pocitacpc-hub/travel-atlas/blob/main/schemas/mista.schema.json). Výstupy sdílejí `schemaVersion`, `generated: true` a stejné `dataAsOf`.
 
 ## Šablona nové cesty
 

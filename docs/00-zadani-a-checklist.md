@@ -6,7 +6,7 @@ Rozsah a podmínky přechodu stanovuje [zadání dalších fází](changes/2026-
 | --- | --- | --- |
 | A – Založení projektu | Hotovo | Kontrola prošla lokálně i v CI. Úvodní stránka běží na Pages a je ověřená i na šířce 390 px. |
 | B – Datový kontrakt a export | Hotovo | Zkušební export z Drivu dal 96 cest a sedí všechny kontrolní hodnoty. Report je mimo Git. |
-| C – Migrace metadat | Nezačato | Schválení Martina, záloha, opakovatelná migrace a přísný export. |
+| C – Migrace metadat | Rozpracováno | Zkouška a přísný náhled hotové. Zbývá schválení, záloha a zápis na Drive, ověření opakovaného běhu a přísný export. |
 | D – Web MVP | Nezačato | Stránky podle prototypu a ověřený web na Pages. |
 | E – Místa | Nezačato | Ověřené položky číselníku míst. |
 | F – Sport | Nezačato | Samostatný export aktivit bez soukromých údajů. |

@@ -15,6 +15,7 @@
     "validate-content": "tsx tools/validate-content.ts",
     "security-lint": "tsx tools/security-lint.ts",
     "export": "tsx tools/export-cest.ts",
+    "migrate": "tsx tools/migrate-metadata.ts",
     "check": "npm run lint && npm run validate-content && npm run security-lint && npm run test && npm run build"
   },
   "devDependencies": {
