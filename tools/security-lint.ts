@@ -1,7 +1,8 @@
 import { execFileSync, spawnSync } from "node:child_process";
-import { fileURLToPath } from "node:url";
+import { root } from "./atlas-data";
+import { assertSafe, localNames } from "./content-security";
+import { readPublicData } from "./public-data";
 
-const root = fileURLToPath(new URL("../", import.meta.url));
 const git = (args: string[]) => execFileSync("git", args, { cwd: root, encoding: "utf8" });
 
 const privateExamples = [
@@ -30,6 +31,12 @@ if (trackedLocalFiles.length > 0) {
   process.exitCode = 1;
 }
 
-if (!process.exitCode) {
-  console.log("Místní konfigurace a reporty jsou mimo index Gitu.");
+try {
+  const publicData = readPublicData();
+  if (publicData) assertSafe(publicData, localNames());
+} catch (error) {
+  console.error(error instanceof Error ? error.message : "Kontrola veřejných dat selhala.");
+  process.exitCode = 1;
 }
+
+if (!process.exitCode) console.log("Kontrola veřejných dat a soukromých souborů prošla.");

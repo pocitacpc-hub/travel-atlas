@@ -1,0 +1,188 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "typ",
+    "id",
+    "nazev",
+    "stav",
+    "zverejnit",
+    "zeme",
+    "zacatek",
+    "konec",
+    "presnost_terminu",
+    "pocet_noci"
+  ],
+  "properties": {
+    "typ": {
+      "const": "cesta"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^t-[a-z0-9]{6}$"
+    },
+    "nazev": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "stav": {
+      "enum": [
+        "probehla",
+        "planovana",
+        "neoverena"
+      ]
+    },
+    "zverejnit": {
+      "type": "boolean"
+    },
+    "zeme": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "zacatek": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "konec": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "presnost_terminu": {
+      "enum": [
+        "den",
+        "mesic",
+        "rok",
+        "neznamy"
+      ]
+    },
+    "pocet_noci": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "rok": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 9999
+    },
+    "mesic": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 12
+    },
+    "dalsi_zeme": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "mista": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "zamereni": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "kolo",
+          "turistika",
+          "more",
+          "hory",
+          "mesto",
+          "chata",
+          "kemp",
+          "akce"
+        ]
+      }
+    },
+    "verejny_popis": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "strava_pocet_aktivit": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "strava_celkem_km": {
+      "type": "number",
+      "minimum": 0
+    },
+    "strava_prevyseni_m": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "zacatek": {
+            "type": "null"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "rok",
+          "mesic"
+        ]
+      }
+    },
+    {
+      "if": {
+        "anyOf": [
+          {
+            "required": [
+              "strava_pocet_aktivit"
+            ]
+          },
+          {
+            "required": [
+              "strava_celkem_km"
+            ]
+          },
+          {
+            "required": [
+              "strava_prevyseni_m"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "required": [
+          "strava_pocet_aktivit",
+          "strava_celkem_km",
+          "strava_prevyseni_m"
+        ]
+      }
+    }
+  ]
+}

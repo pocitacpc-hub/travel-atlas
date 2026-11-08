@@ -20,13 +20,20 @@ npm run build    # statické soubory v dist/
 npm run preview  # lokální náhled dist/
 ```
 
-`npm run export` je ve fázi A připravený vstup pro fázi B. Zatím skončí se zprávou, že export čeká na datový kontrakt.
-
 ## Zdroj dat a bezpečnost
 
-Web nemá databázi. Zdrojové Markdowny jsou v soukromé složce `AI/MD/OsobniSystem/11 Cestování` na Google Drivu. Skutečnou cestu synchronizace ověř až při práci s exportem a nastav ji mimo Git v `config.local.json` nebo přes `CESTY_ZDROJ`. Pro spuštění fáze A zdroj nepotřebuješ.
+Web nemá databázi. Zdrojové Markdowny jsou v soukromé složce `AI/MD/OsobniSystem/11 Cestování` na Google Drivu. Nastav lokální cestu pomocí proměnné `CESTY_ZDROJ` nebo stejnojmenného klíče v `config.local.json`. Přednost má proměnná prostředí. Lokální vývoj webu a CI zdroj nepotřebují.
 
-Zdrojové Markdowny, `out/`, místní konfiguraci a seznam jmen drž mimo historii Gitu. Před commitem zkontroluj `git diff --cached -- public/data/` a spusť `npm run check`. Nasazení používá pouze `dist/`, který ve fázi A obsahuje HTML a CSS úvodní stránky.
+```powershell
+$env:CESTY_ZDROJ = 'G:\Můj disk\AI\MD\OsobniSystem\11 Cestování'
+npm run export -- --legacy
+```
+
+Zkušební režim ukládá JSON s dočasnými ID do `out/legacy/` a report do `out/export-report.md`. Datum exportu vychází z časové zóny Europe/Prague. Pro reprodukci ověření použij `--as-of=2026-11-08`. Neúspěšný export skončí nenulovým kódem. Stav posledního běhu ověř v reportu, protože na disku může zůstat starší výstup.
+
+Po schválené migraci spusť přísný `npm run export`. Ověřená dvojice JSON se uloží do `public/data/`. Lokální seznam jmen pro export a security lint má formát `jmena.local.txt`, jedno jméno na řádek. Prázdné řádky a řádky začínající `#` se ignorují. Bez tohoto souboru proběhnou obecné kontroly citlivých vzorů.
+
+Zdrojové Markdowny, `out/`, místní konfiguraci a seznam jmen drž mimo historii Gitu. Před commitem zkontroluj `git diff --cached -- public/data/` a spusť `npm run check`. Nasazení používá pouze `dist/`. Ve fázi B se do sestavení stále kopíruje jen úvodní HTML a CSS.
 
 ## První nasazení
 

@@ -1,0 +1,77 @@
+[
+  {
+    "nazev": "Rakousko",
+    "iso": "AT",
+    "vlajka": "flags/4x3/at.svg"
+  },
+  {
+    "nazev": "Bulharsko",
+    "iso": "BG",
+    "vlajka": "flags/4x3/bg.svg"
+  },
+  {
+    "nazev": "Česko",
+    "iso": "CZ",
+    "vlajka": "flags/4x3/cz.svg"
+  },
+  {
+    "nazev": "Německo",
+    "iso": "DE",
+    "vlajka": "flags/4x3/de.svg"
+  },
+  {
+    "nazev": "Španělsko",
+    "iso": "ES",
+    "vlajka": "flags/4x3/es.svg"
+  },
+  {
+    "nazev": "Velká Británie",
+    "iso": "GB",
+    "vlajka": "flags/4x3/gb.svg"
+  },
+  {
+    "nazev": "Řecko",
+    "iso": "GR",
+    "vlajka": "flags/4x3/gr.svg"
+  },
+  {
+    "nazev": "Chorvatsko",
+    "iso": "HR",
+    "vlajka": "flags/4x3/hr.svg"
+  },
+  {
+    "nazev": "Irsko",
+    "iso": "IE",
+    "vlajka": "flags/4x3/ie.svg"
+  },
+  {
+    "nazev": "Itálie",
+    "iso": "IT",
+    "vlajka": "flags/4x3/it.svg"
+  },
+  {
+    "nazev": "Norsko",
+    "iso": "NO",
+    "vlajka": "flags/4x3/no.svg"
+  },
+  {
+    "nazev": "Polsko",
+    "iso": "PL",
+    "vlajka": "flags/4x3/pl.svg"
+  },
+  {
+    "nazev": "Portugalsko",
+    "iso": "PT",
+    "vlajka": "flags/4x3/pt.svg"
+  },
+  {
+    "nazev": "Slovinsko",
+    "iso": "SI",
+    "vlajka": "flags/4x3/si.svg"
+  },
+  {
+    "nazev": "Slovensko",
+    "iso": "SK",
+    "vlajka": "flags/4x3/sk.svg"
+  }
+]

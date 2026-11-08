@@ -1,5 +1,11 @@
 # Změny
 
+## 8. 11. 2026 – fáze B
+
+- Přidaný datový kontrakt a číselníky 15 států a 61 kandidátů míst.
+- Export čte YAML hlavičky a sestavuje veřejný JSON jen z povolených polí. Zkušební výstup a report se ukládají do `out/`.
+- Přidané kontroly schématu, přípustných termínů, odkazů na ověřená místa a citlivých vzorů. Kontrolní snímek z exportu obsahuje 96 cest.
+
 ## 8. 11. 2026 – fáze A
 
 - Přidaná úvodní stránka Cestovního atlasu s hlavičkou a patičkou podle návrhu Atlas.

@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generated",
+    "dataAsOf",
+    "cesty"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "generated": {
+      "const": true
+    },
+    "dataAsOf": {
+      "type": "string",
+      "format": "date"
+    },
+    "cesty": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "nazev",
+          "zeme",
+          "dalsiZeme",
+          "zacatek",
+          "konec",
+          "rok",
+          "mesic",
+          "presnostTerminu",
+          "pocetNoci",
+          "mista",
+          "zamereni",
+          "popis",
+          "sport"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^t-[a-z0-9]{6}$"
+          },
+          "nazev": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "zeme": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}$"
+          },
+          "dalsiZeme": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            }
+          },
+          "zacatek": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "konec": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "rok": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 9999
+          },
+          "mesic": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 12
+          },
+          "presnostTerminu": {
+            "enum": [
+              "den",
+              "mesic",
+              "rok",
+              "neznamy"
+            ]
+          },
+          "pocetNoci": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "mista": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            }
+          },
+          "zamereni": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "kolo",
+                "turistika",
+                "more",
+                "hory",
+                "mesto",
+                "chata",
+                "kemp",
+                "akce"
+              ]
+            }
+          },
+          "popis": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sport": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "aktivit",
+                  "km",
+                  "prevyseniM",
+                  "zdroj"
+                ],
+                "properties": {
+                  "aktivit": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "km": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "prevyseniM": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "zdroj": {
+                    "const": "strava-vyber-2023-2026"
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,13 +4,9 @@
 
 `npm run check` provede typovou kontrolu, kontrolu obsahu, security lint, testy Vitest a produkční sestavení. CI používá `npm ci` s lockfilem a Node.js 22.
 
-- `validate-content` odmítne obsah v `public/data/`, dokud nevznikne datové schéma.
-- `security-lint` kontroluje ignorování místních reportů, konfigurace a seznamu jmen a odmítne položky v indexu, které má `.gitignore` vyloučit.
 - Vitest kontroluje strukturu úvodní stránky, základní cestu pro Pages a vypnuté kopírování `public/` ve fázi A.
 - Pro kontrolu sestavení spusť `npm run preview` a otevři `http://127.0.0.1:4173/travel-atlas/`. Zkontroluj Přehled, CSS, aktivní navigaci a rozložení na šířce 390 px.
 - Po ruční aktivaci Pages zopakuj kontrolu na veřejné adrese podle [runbooku](../CODEX-DEV-RUNBOOK.md).
-
-Testy kontrolních hodnot cest a validace schématu přibudou s exportem ve fázi B.
 
 ### Ověření při předání
 
@@ -18,3 +14,11 @@ Testy kontrolních hodnot cest a validace schématu přibudou s exportem ve fáz
 - Náhled produkčního sestavení vrátil HTTP 200 pro stránku i CSS pod `/travel-atlas/`.
 - `npm run check` na Node.js 22 i nasazení prošly v [GitHub Actions](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42511828691).
 - Veřejný Přehled a jeho CSS vrátily HTTP 200. V Chrome měl Přehled při šířce 390 px `scrollWidth` i `clientWidth` 390 px a při načtení se neobjevily chyby JavaScriptu.
+
+## Fáze B
+
+- `validate-content` kontroluje číselníky i dvojici JSON, pokud existuje v `public/data/`. Přísné veřejné schéma odmítá dočasná ID, další pole, neukončené cesty a odkazy na neověřená místa.
+- `security-lint` ověřuje ignorování místních souborů, jejich absenci v indexu a citlivé vzory v dekódovaném veřejném JSON. Stejné vzory se kontrolují při exportu před zápisem.
+- Vitest ověřuje kontrolní hodnoty snímku z 8. 11. 2026, izolaci těla Markdownu, přesnost, nulovou a neznámou délku, datum ukončení, vyřazení nepotvrzeného rozpočtu, ověření míst a deterministické řazení.
+
+Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varování a jeden vynechaný záznam. Dva běhy pro 8. 11. 2026 měly shodné kontrolní součty obou JSON souborů i reportu. `npm run check` prošel s devíti testy. Obecné vzory byly zkontrolované na skutečném exportu. Vlastní seznam jmen je volitelný, jeho chování pokrývá test se zkušebním jménem. Veřejná složka s daty zůstává prázdná do schválené migrace.
