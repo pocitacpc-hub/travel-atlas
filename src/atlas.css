@@ -1,0 +1,73 @@
+:root {
+  --paper: #f4efe4;
+  --card: #fbf8f2;
+  --ink: #1e2b33;
+  --ink-2: #44515a;
+  --muted: #5b666e;
+  --line: #dcd3c1;
+  --serif: Georgia, "Palatino Linotype", "Book Antiqua", serif;
+  --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.5 var(--sans);
+}
+
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 28px; }
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand b { font: italic 600 26px/1 var(--serif); letter-spacing: .2px; }
+.brand span { color: var(--muted); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+
+.top nav { display: flex; gap: 4px; }
+.top nav a { padding: 10px 16px; border-radius: 999px; color: var(--ink-2); font-weight: 500; text-decoration: none; }
+.top nav a[aria-current="page"] { background: var(--ink); color: var(--paper); }
+
+.page-head { padding-top: 30px; }
+.page-head h1 { margin: 0 0 18px; font: 400 46px/1.05 var(--serif); letter-spacing: -.4px; }
+
+.panel { padding: 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
+.panel h2 { margin: 0; font: 400 24px/1.2 var(--serif); }
+.panel p { margin: 8px 0 0; color: var(--ink-2); }
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-top: 40px;
+  padding: 18px 0 40px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .wrap { padding: 0 16px; }
+  .top { flex-direction: column; align-items: flex-start; gap: 10px; padding-bottom: 12px; }
+  .brand span { display: none; }
+  .top a { min-height: 44px; align-items: center; }
+  .page-head { padding-top: 20px; }
+  .page-head h1 { font-size: 36px; }
+  .panel { padding: 14px; border-radius: 14px; }
+}
