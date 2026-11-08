@@ -30,6 +30,8 @@ Zdrojové Markdowny, `out/`, místní konfiguraci a seznam jmen drž mimo histor
 
 ## První nasazení
 
+První nasazení už proběhlo. Následující postup je pro opětovné nastavení Pages.
+
 1. Martin v [nastavení Pages](https://github.com/pocitacpc-hub/travel-atlas/settings/pages) vybere **Build and deployment → Source → GitHub Actions**.
 2. Na kartě [Actions](https://github.com/pocitacpc-hub/travel-atlas/actions/workflows/check-and-pages.yml) vyber **Kontrola a GitHub Pages** a spusť nový běh přes **Run workflow** pro `main`. Běhy vytvořené před zapnutím Pages používají stav ze své původní události.
 3. Po úspěšné kontrole a nasazení otevři [cílový web](https://pocitacpc-hub.github.io/travel-atlas/) a ověř český název, hlavičku, patičku a načtený styl. Na 390 px se stránka nemá vodorovně posouvat.

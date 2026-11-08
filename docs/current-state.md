@@ -4,7 +4,7 @@
 
 Veřejný repozitář obsahuje schválený prototyp v `docs/design/v2/` a samostatnou úvodní stránku s názvem **Cestovní atlas**. Historické návrhy a prototyp používají pracovní název Cestovní stopa.
 
-Node.js, TypeScript, Vite a Vitest mají nastavené příkazy pro vývoj a kontrolu. GitHub Actions spouští kontrolu a po aktivaci Pages umí nasadit sestavení z `main`. Stav CI je v [GitHub Actions](https://github.com/pocitacpc-hub/travel-atlas/actions/workflows/check-and-pages.yml). K uzavření fáze A zbývá první nasazení a kontrola cílového webu po ručním nastavení Pages podle [runbooku](../CODEX-DEV-RUNBOOK.md).
+Fáze A je hotová. GitHub Actions kontroluje změny a nasazuje sestavení z `main`. Úvodní stránka běží na [GitHub Pages](https://pocitacpc-hub.github.io/travel-atlas/). První [kontrola a nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42511828691) prošly a veřejný Přehled byl ověřený i na šířce 390 px.
 
 ## Data
 

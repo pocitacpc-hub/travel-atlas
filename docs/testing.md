@@ -16,4 +16,5 @@ Testy kontrolních hodnot cest a validace schématu přibudou s exportem ve fáz
 
 - `npm ci` a `npm run check` prošly lokálně na Node.js 26.1.0. Vitest provedl dva testy.
 - Náhled produkčního sestavení vrátil HTTP 200 pro stránku i CSS pod `/travel-atlas/`.
-- Výsledek CI na Node.js 22 je v [Actions](https://github.com/pocitacpc-hub/travel-atlas/actions/workflows/check-and-pages.yml). Veřejný web se ověřuje po prvním nasazení.
+- `npm run check` na Node.js 22 i nasazení prošly v [GitHub Actions](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42511828691).
+- Veřejný Přehled a jeho CSS vrátily HTTP 200. V Chrome měl Přehled při šířce 390 px `scrollWidth` i `clientWidth` 390 px a při načtení se neobjevily chyby JavaScriptu.
