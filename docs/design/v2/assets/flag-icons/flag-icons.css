@@ -1,0 +1,22 @@
+/* Vlajky států – podmnožina knihovny flag-icons (https://github.com/lipis/flag-icons, licence MIT, viz LICENSE).
+   Stejné třídy jako v TravelApp: <span class="fi fi-cz" aria-hidden="true"></span>.
+   Obsahuje jen státy z archivu; nový stát = zkopírovat jeho SVG z flags/4x3 a přidat řádek níže. */
+.fi { position: relative; display: inline-block; width: 1.333333em; height: 1em; line-height: 1em; flex: none;
+  background-size: cover; background-position: 50%; background-repeat: no-repeat;
+  border-radius: 2px; box-shadow: 0 0 0 1px rgba(30, 43, 51, .18); vertical-align: -.12em; }
+.fi::before { content: " "; }
+.fi-at { background-image: url(flags/4x3/at.svg); }
+.fi-bg { background-image: url(flags/4x3/bg.svg); }
+.fi-cz { background-image: url(flags/4x3/cz.svg); }
+.fi-de { background-image: url(flags/4x3/de.svg); }
+.fi-es { background-image: url(flags/4x3/es.svg); }
+.fi-gb { background-image: url(flags/4x3/gb.svg); }
+.fi-gr { background-image: url(flags/4x3/gr.svg); }
+.fi-hr { background-image: url(flags/4x3/hr.svg); }
+.fi-ie { background-image: url(flags/4x3/ie.svg); }
+.fi-it { background-image: url(flags/4x3/it.svg); }
+.fi-no { background-image: url(flags/4x3/no.svg); }
+.fi-pl { background-image: url(flags/4x3/pl.svg); }
+.fi-pt { background-image: url(flags/4x3/pt.svg); }
+.fi-si { background-image: url(flags/4x3/si.svg); }
+.fi-sk { background-image: url(flags/4x3/sk.svg); }

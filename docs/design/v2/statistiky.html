@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Statistiky · Cestovní stopa</title>
 <link rel="stylesheet" href="assets/atlas.css">
+<link rel="stylesheet" href="assets/flag-icons/flag-icons.css">
 <style>
 .grid2 { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 24px; align-items: start; }
 .views[hidden] { display: none; }
@@ -42,7 +43,8 @@
 .states summary::after { content: ""; grid-area: x; width: 8px; height: 8px; border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted); transform: rotate(45deg); justify-self: center; margin-top: -4px; transition: transform .15s; }
 .states details[open] summary::after { transform: rotate(-135deg); margin-top: 4px; }
 .states summary:hover { background: rgba(30,43,51,.04); }
-.states .code { grid-area: c; justify-self: start; }
+.states summary > .fi { grid-area: c; font-size: 20px; justify-self: start; }
+.states .cc { font: 600 11px var(--sans); letter-spacing: .08em; color: var(--muted); margin-left: 4px; }
 .states .nm { grid-area: n; font-weight: 600; }
 .states .sbar { grid-area: b; height: 8px; }
 .states .sbar i { display: block; height: 100%; border-radius: 0 4px 4px 0; min-width: 3px; }

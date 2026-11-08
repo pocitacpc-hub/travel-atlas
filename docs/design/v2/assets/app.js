@@ -21,6 +21,8 @@
       '<span>Body míst v prototypu jsou ilustrační.</span><a href="statistiky.html#metodika">Jak číst data</a>';
   }
   function tripUrl(t) { return 'cesta.html?id=' + t.id; }
+  // Vlajka je dekorace – vždy stojí vedle názvu státu, proto aria-hidden.
+  function flag(code) { return '<span class="fi fi-' + String(code).toLowerCase() + '" aria-hidden="true"></span>'; }
   function param(name) { return new URLSearchParams(location.search).get(name); }
   function tripColor(t) { return t.zeme === 'CZ' ? css('--cz') : css('--abroad'); }
   function yearsSpan(c) { return c.first === null ? 'rok neznámý' : c.first === c.last ? String(c.first) : c.first + '–' + c.last; }
@@ -40,7 +42,7 @@
   })();
   function tripTip(t) {
     var o = overlaps[t.id];
-    return '<b>' + F.esc(t.nazev) + '</b><br>' + F.termin(t) + ' · ' + F.noci(t.noci) +
+    return flag(t.zeme) + ' <b>' + F.esc(t.nazev) + '</b><br>' + F.termin(t) + ' · ' + F.noci(t.noci) +
       (t.presnost !== 'den' ? '<br><i>' + F.presnost(t.presnost) + '</i>' : '') +
       (o ? '<br><span class="warn">Termín se překrývá: ' + o.map(function (x) { return F.esc(F.short(x)); }).join(', ') + '</span>' : '');
   }
@@ -72,7 +74,7 @@
     VZ.bindTips(el, function (t) {
       var k = t.dataset.k, p = k.split('-'), tr = groups[k];
       var when = p[0] === '?' ? 'Rok neznámý' : p[1] === '?' ? p[0] + ', měsíc neznámý' : VZ.MONTHS[+p[1] - 1] + ' ' + p[0];
-      return '<b>' + when + '</b> · ' + F.cesty(tr.length) + '<br>' + tr.map(function (x) { return F.esc(x.nazev); }).join('<br>');
+      return '<b>' + when + '</b> · ' + F.cesty(tr.length) + '<br>' + tr.map(function (x) { return flag(x.zeme) + ' ' + F.esc(x.nazev); }).join('<br>');
     });
   }
 
@@ -150,7 +152,7 @@
     var max = s.countries[0].count;
     el.innerHTML = '<ul class="states">' + s.countries.map(function (c) {
       return '<li id="stat-' + c.code + '"><details><summary>' +
-        '<span class="code">' + c.code + '</span><span class="nm">' + F.esc(c.name) + '</span>' +
+        flag(c.code) + '<span class="nm">' + F.esc(c.name) + ' <span class="cc">' + c.code + '</span></span>' +
         '<span class="sbar"><i style="width:' + (c.count / max * 100).toFixed(1) + '%;background:var(' + (c.code === 'CZ' ? '--cz' : '--abroad') + ')"></i></span>' +
         '<span class="cnt">' + c.count + '</span><span class="sub">' + nightsCoverage(c) + ' · ' + yearsSpan(c) + '</span></summary>' +
         '<ol class="strips">' + c.trips.map(function (t) {
@@ -206,7 +208,7 @@
   }
 
   window.APP = {
-    css: css, shell: shell, tripUrl: tripUrl, param: param, tripColor: tripColor, yearsSpan: yearsSpan, nightsCoverage: nightsCoverage,
+    css: css, shell: shell, tripUrl: tripUrl, flag: flag, param: param, tripColor: tripColor, yearsSpan: yearsSpan, nightsCoverage: nightsCoverage,
     tripTip: tripTip, overlaps: overlaps, heatmap: heatmap, yearRows: yearRows, statesList: statesList, lengthHist: lengthHist,
     records: records, cropFor: cropFor, ASOF: ASOF, pad: pad
   };

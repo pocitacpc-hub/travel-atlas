@@ -167,6 +167,26 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 
 **Tooltip** (`.vz-tip`): tmavý (`--ink`) s papírovým textem, max. 280 px, u kurzoru a při fokusu u prvku. Nesmí nést informaci, která není jinde dostupná.
 
+**Vlajka státu** (`APP.flag(code)` → `<span class="fi fi-cz" aria-hidden="true"></span>`)
+
+- **Zdroj:** knihovna [flag-icons](https://github.com/lipis/flag-icons) (licence MIT), stejně jako v TravelApp (`src/TravelApp.Web/wwwroot/lib/flag-icons`). Třídy `.fi .fi-xx` jsou shodné, takže se vzhled i kód mezi aplikacemi dají přenášet.
+- **Lokální podmnožina:** `v2/assets/flag-icons/` obsahuje jen 15 vlajek z archivu (formát 4 : 3, SVG, celkem asi 173 kB, z toho Španělsko 91 kB a Chorvatsko 41 kB kvůli znakům), zkrácený `flag-icons.css` a `LICENSE`. Nic se nenačítá z CDN.
+- **Vzhled:** výška = 1 em (velikost se řídí `font-size`), šířka 4/3 em, rádius 2 px, jemný obrys `rgba(30,43,51,.18)`, aby byly vidět i vlajky s bílým okrajem (Polsko, Rakousko, Česko).
+- **Pravidla:**
+  - Vlajka je vždy dekorace vedle názvu nebo kódu státu (`aria-hidden="true"`), nikdy nenese informaci sama.
+  - Do nativního `<select>` se nedává.
+  - V tmavém tooltipu obrys nevadí.
+- **Kde je:**
+
+  | Stránka | Místa s vlajkou |
+  |---|---|
+  | Přehled | řada vlajek pod hlavním nadpisem (15 tlačítek podle první návštěvy, klik vybere stát, `aria-pressed`), karta státu, karty posledních cest, tooltip mapy |
+  | Kronika | metadata cesty |
+  | Statistiky | seznam států (místo kódu, kód je malý vedle názvu), tooltipy heatmapy a Celých roků |
+  | Detail cesty | nadtitulek, fakt „Stát“, nadpis „Další cesty“ |
+
+- **Nový stát:** zkopírovat `flags/4x3/xx.svg` z flag-icons a přidat řádek `.fi-xx` do `flag-icons.css`. V implementaci to má hlídat export: stát bez vlajky = varování.
+
 ---
 
 ## 7. Grafy a mapa
@@ -248,6 +268,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
   | `pages` | jednotlivé stránky |
 
 - Chování prototypu je specifikace: stejné výpočty, texty, prázdné stavy a URL parametry.
+- Vlajky: buď ponechat lokální podmnožinu SVG (jako teď), nebo použít npm balíček `flag-icons` a do buildu zahrnout jen státy z dat. Nikdy ne z CDN.
 
 **Otevřená rozhodnutí**
 

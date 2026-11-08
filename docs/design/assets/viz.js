@@ -213,7 +213,7 @@
       var v = el._vz;
       if (t.dataset.code) {
         var c = v.cs[t.dataset.code];
-        return '<b>' + esc(c.name) + '</b><br>' + fmt.cesty(c.count) + ' · ' + (c.first !== null ? 'poprvé ' + c.first : 'rok první cesty neznámý') +
+        return (v.opts.flag ? v.opts.flag(c.code) + ' ' : '') + '<b>' + esc(c.name) + '</b><br>' + fmt.cesty(c.count) + ' · ' + (c.first !== null ? 'poprvé ' + c.first : 'rok první cesty neznámý') +
           '<br>' + (c.nightsKnown ? fmt.noci(c.nights) + ' (známo u ' + c.nightsKnown + ' z ' + c.count + ')' : 'noci neznámé');
       }
       var p = v.opts.places[+t.dataset.place];

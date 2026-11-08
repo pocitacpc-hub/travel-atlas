@@ -5,9 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cesta · Cestovní stopa</title>
 <link rel="stylesheet" href="assets/atlas.css">
+<link rel="stylesheet" href="assets/flag-icons/flag-icons.css">
 <style>
 .head { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: 14px 0 22px; }
 .head h1 { font: 400 50px/1.05 var(--serif); margin: 6px 0 10px; letter-spacing: -.5px; }
+.head .kicker .fi { font-size: 14px; margin-right: 8px; vertical-align: -.15em; }
+.facts dd .fi { font-size: 18px; margin-right: 8px; vertical-align: -.05em; }
+h2.sec .fi { font-size: 20px; margin-right: 8px; vertical-align: -.02em; }
 .head .when { font-size: 18px; color: var(--ink-2); display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .stamp { flex: none; width: 84px; height: 84px; border-radius: 50%; border: 2px dashed var(--ink-2); display: grid; place-items: center; text-align: center; transform: rotate(-8deg); color: var(--ink-2); }
 .stamp b { display: block; font: 600 22px/1 var(--sans); letter-spacing: .06em; }
@@ -79,14 +83,14 @@
   var yearLink = t.rok ? '<a href="kronika.html#y' + t.rok + '">' + t.rok + '</a>' : '<a href="kronika.html#yunk">rok neznámý</a>';
   var html =
     '<p class="crumbs"><a href="kronika.html">Kronika</a> › ' + yearLink + ' › ' + F.esc(F.short(t)) + '</p>' +
-    '<section class="head"><div><p class="kicker">' + VZ.NAMES[t.zeme] + (isNew ? ' · první známá cesta do státu' : '') + '</p>' +
+    '<section class="head"><div><p class="kicker">' + APP.flag(t.zeme) + VZ.NAMES[t.zeme] + (isNew ? ' · první známá cesta do státu' : '') + '</p>' +
     '<h1>' + F.esc(F.short(t)) + '</h1><div class="when">' + F.termin(t) + ' ' + precChip + '</div></div>' +
     '<div class="stamp" aria-hidden="true"><div><b>' + t.zeme + '</b><small>' + (t.rok || '????') + '</small></div></div></section>' +
     '<div class="layout"><div class="stack">' +
       '<section class="panel"><dl class="facts">' +
         '<div><dt>Termín</dt><dd>' + F.termin(t) + '<small>' + F.presnost(t.presnost) + '</small></dd></div>' +
         '<div><dt>Nocí</dt><dd>' + (t.noci === null ? 'neznámo' : t.noci) + '<small>' + (t.noci === null ? 'délka pobytu není doložená' : F.noci(t.noci)) + '</small></dd></div>' +
-        '<div><dt>Stát</dt><dd><a href="index.html?stat=' + t.zeme + '">' + VZ.NAMES[t.zeme] + '</a><small>' + F.cesty(c.count) + ' celkem · ' + APP.yearsSpan(c) + '</small></dd></div>' +
+        '<div><dt>Stát</dt><dd>' + APP.flag(t.zeme) + '<a href="index.html?stat=' + t.zeme + '">' + VZ.NAMES[t.zeme] + '</a><small>' + F.cesty(c.count) + ' celkem · ' + APP.yearsSpan(c) + '</small></dd></div>' +
         '<div><dt>Místa</dt><dd>' + (places.length ? '<span class="places">' + places.map(function (p) { return '<span class="chip">' + F.esc(p.nazev) + (p.presnost === 'oblast' ? ' (oblast)' : '') + '</span>'; }).join('') + '</span><small>ilustrační přiřazení</small>' : '—<small>místo zatím není v číselníku</small>') + '</dd></div>' +
       '</dl></section>' +
       (t.sport ? '<section class="panel"><h2 class="sec">Sport na cestě</h2><p class="note">Zaznamenané aktivity Strava (výběr 2023–2026). Nejde o všechny pohyby během cesty.</p>' +
@@ -95,10 +99,10 @@
       (overl ? '<p class="warn"><b>Kontrola dat:</b> termín se v archivu překrývá s cestou ' + overl.map(function (x) { return '<a href="' + APP.tripUrl(x) + '">' + F.esc(F.short(x)) + '</a>'; }).join(', ') + '. Ve veřejné verzi by se to vyřešilo ve zdroji, ne zobrazovalo.</p>' : '') +
     '</div><div class="stack">' +
       '<section class="panel"><div class="map" id="mini"></div><p class="legend" style="margin-top:8px"><span><i style="background:' + css('--q3') + '"></i>' + VZ.NAMES[t.zeme] + '</span>' + (places.length ? '<span><i class="ring" style="background:var(--ink);border:0;width:10px;height:10px"></i>místa cesty</span>' : '') + '</p></section>' +
-      '<section class="panel"><h2 class="sec">Další cesty – ' + VZ.NAMES[t.zeme] + '</h2><ul class="list">' +
+      '<section class="panel"><h2 class="sec">' + APP.flag(t.zeme) + 'Další cesty – ' + VZ.NAMES[t.zeme] + '</h2><ul class="list">' +
         c.trips.filter(function (x) { return x !== t; }).slice(0, 8).map(function (x) {
           return '<li><a href="' + APP.tripUrl(x) + '"><b>' + F.esc(F.short(x)) + '</b><span>' + (x.noci === null ? '—' : F.noci(x.noci)) + '</span><span>' + F.termin(x) + '</span></a></li>';
-        }).join('') + '</ul>' + (c.count > 9 ? '<p class="note"><a class="link" href="kronika.html?stat=' + t.zeme + '">Všech ' + c.count + ' v kronice →</a></p>' : '') + '</section>' +
+        }).join('') + '</ul>' + (c.count === 1 ? '<p class="note">Do tohoto státu je v archivu zatím jen tato cesta.</p>' : '') + (c.count > 9 ? '<p class="note"><a class="link" href="kronika.html?stat=' + t.zeme + '">Všech ' + c.count + ' v kronice →</a></p>' : '') + '</section>' +
     '</div></div>' +
     '<nav class="pager" aria-label="Sousední cesty">' +
       (prev ? '<a class="panel" href="' + APP.tripUrl(prev) + '"><small>← Předchozí</small><b>' + F.esc(F.short(prev)) + '</b></a>' : '<span></span>') +

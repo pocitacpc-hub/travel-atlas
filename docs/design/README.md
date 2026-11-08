@@ -15,6 +15,8 @@ Jednotný vzhled podle návrhu 1 – Atlas, klikací stránky propojené odkazy:
 
 **Celé roky:** každý rok je jeden řádek leden–prosinec. Přesný termín je plný pruh podle skutečných dat (délka = noci), cesta se známým jen měsícem je čárkovaný pás přes celý měsíc, cesta se známým jen rokem je tečka ve sloupci „?“. Překrývající se cesty jdou pod sebe, takže jsou vidět i rozpory v datech (Řím × Rychlebské hory 2022). Detail takové cesty ukazuje upozornění „Kontrola dat“. Ve veřejné verzi se to má vyřešit ve zdroji, ne zobrazovat.
 
+**Vlajky států** jsou stejně jako v TravelApp z knihovny flag-icons (MIT), uložené lokálně jen pro 15 států z archivu (`v2/assets/flag-icons/`). Na Přehledu je pod nadpisem řada vlajek, kterou jde vybrat stát; další vlajky jsou v kartách, seznamech, tooltipech a v detailu cesty.
+
 Sdílený vzhled: `v2/assets/atlas.css`. Sdílené komponenty (heatmapa, celé roky, státy, délka pobytu, rekordy, výřez mapy): `v2/assets/app.js`. Výpočty statistik: `assets/viz.js`. Náhledy: `nahledy/v2/`.
 
 Ověřeno: desktop 1440 px a mobil 390 px bez přetečení do šířky a bez chyb JavaScriptu. Funkčnost filtrů, přepínačů a odkazů na detail jsem ověřil ručně v prohlížeči.
