@@ -80,3 +80,4 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - `tests/migration.test.ts` ověřuje zápis popisu do YAML, zachování těla a soukromých polí, druhý běh bez změn, export popisu a odmítnutí HTML, prázdného textu i přepisu jiného existujícího popisu.
 - Před zápisem prošlo všech 26 textů schématem a security lintem. Zkouška migrace měla 26 změn pouze v `verejny_popis`, po zápisu druhý běh 0 změn. Porovnání se zálohou: 26 souborů se liší jen přidaným `verejny_popis`, těla jsou bajtově shodná.
 - Po exportu prošel `npm run check` (8 souborů, 42 testů). Náhled sestavení zobrazil panel „O cestě“ u Osla (2 odstavce, tučně i kurzíva), Puly a Polska na 1440 px. Na 390 px nic vodorovně nepřetéká, v konzoli nebyly chyby.
+- Na GitHub Pages po nasazení: Oslo má panel „O cestě“ se 2 odstavci, 5× tučně a 4× kurzívou, Polsko má shrnutí bez vodorovného posouvání, Dublin bez shrnutí panel nezobrazí. V konzoli nebyly chyby.
