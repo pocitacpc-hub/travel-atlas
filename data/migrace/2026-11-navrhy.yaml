@@ -816,35 +816,61 @@
 - nazev: Polsko – Jastrzębia Góra a Baltské pobřeží
   rok: 2026
   potvrzeno: true
-  nahrazuje: Týden u **Baltu** se základnou v **Jastrzębie Górze**. Výlety na poloostrov **Hel**, do **Gdaňsku** a **Gdyně** a celodenní pěší výlet do **Słowińského národního parku** za pohyblivými dunami.
+  nahrazuje: |-
+    Týden u **Baltu** se základnou v **Jastrzębie Górze**.
+
+    - **Gdyně:** celý den pěšky po městě a nábřeží.
+    - **Hel:** výlet na konec poloostrova.
+    - **Gdaňsk:** procházka městem, 4,3 km.
+    - **Słowiński národní park:** 16,4 km pěšky z **Łeby** k pohyblivým dunám a zpět.
+    - Večerní a ranní procházky po pobřeží v Jastrzębie Górze.
   zmeny:
     verejny_popis: |-
       Týden u **Baltu** se základnou v **Jastrzębie Górze**.
 
-      - **Gdyně:** celý den pěšky po městě a nábřeží.
-      - **Hel:** výlet na konec poloostrova.
-      - **Gdaňsk:** procházka městem, 4,3 km.
+      - **Cestou tam:** gotické město **Toruň**.
+      - **Gdyně, Orłowo a Sopot:** celý den pěšky po pobřeží, v Gdyni muzejní torpédoborec *ORP Błyskawica*.
+      - **Hel:** výlet na konec poloostrova a do *Fokaria* s tuleni.
+      - **Gdaňsk:** procházka městem (4,3 km) a *Muzeum druhé světové války*.
       - **Słowiński národní park:** 16,4 km pěšky z **Łeby** k pohyblivým dunám a zpět.
-      - Večerní a ranní procházky po pobřeží v Jastrzębie Górze.
+      - **Cestou zpět:** hrad **Malbork**.
+
+      K tomu večerní a ranní procházky po pobřeží v Jastrzębie Górze.
 - nazev: Španělsko – Málaga
   rok: 2025
   potvrzeno: true
-  nahrazuje: Podzimní prodloužený víkend v **Málaze**. Tři dny pěšky po centru a okolí, dohromady kolem *40 km*.
+  nahrazuje: "Podzimní prodloužený víkend v **Málaze**. Tři dny pěšky po centru a okolí, dohromady kolem *40 km* podle Časové osy, a jeden večerní běh: 4,0 km, tempo 6:48/km, tep 138."
   zmeny:
-    verejny_popis: "Podzimní prodloužený víkend v **Málaze**. Tři dny pěšky po centru a okolí, dohromady kolem *40 km* podle Časové osy, a jeden večerní běh: 4,0 km, tempo 6:48/km, tep 138."
+    verejny_popis: |-
+      Podzimní prodloužený víkend v **Málaze**, tři dny pěšky po městě, dohromady kolem *40 km* podle Časové osy.
+
+      - **Historické centrum:** *katedrála*, maurská pevnost **Alcazaba**, hrad **Gibralfaro** nad městem a *římské divadlo*.
+      - **Po stopách Picassa:** jeho rodný dům a *Museo Picasso Málaga*.
+      - **Plaza de Toros:** prohlídka historické býčí arény.
+      - **La Rosaleda:** stadion místního fotbalového klubu.
+
+      Jeden večer ještě běh: 4,0 km, tempo 6:48/km, tep 138.
 - nazev: Alicante a Costa Blanca
   rok: 2026
   potvrzeno: true
-  nahrazuje: Podzimní prázdniny v **Alicante**. Procházky městem a turistický výlet do hor u **Finestratu**.
+  nahrazuje: |-
+    Podzimní prázdniny v **Alicante**, hlavně pěšky.
+
+    - **1. den:** dlouhá procházka městem (12,4 km, 254 m stoupání) a večerní 6,6 km.
+    - **2. den:** turistický výlet u **Finestratu**, 14,3 km a 278 m stoupání.
+    - **3. den:** 6,5 km po Alicante a večerní procházka 5,9 km.
+
+    Celkem 45,7 km pěšky.
   zmeny:
     verejny_popis: |-
-      Podzimní prázdniny v **Alicante**, hlavně pěšky.
+      Podzimní prázdniny v **Alicante**, skoro všechno pěšky: za tři dny 45,7 km.
 
-      - **1. den:** dlouhá procházka městem (12,4 km, 254 m stoupání) a večerní 6,6 km.
-      - **2. den:** turistický výlet u **Finestratu**, 14,3 km a 278 m stoupání.
-      - **3. den:** 6,5 km po Alicante a večerní procházka 5,9 km.
+      - **Alicante:** hrad **Castillo de Santa Bárbara** nad městem, park *Parque de la Ereta*, stará čtvrť **Santa Cruz** a tržnice *Mercado Central*.
+      - **Pobřeží:** k majáku **Faro de Cabo de las Huertas** a dál přes zátoky *Cala Palmera*, *Cala Cantalar* a *Cala dels Jueus*.
+      - **Villajoyosa:** barevné historické domky, promenáda a pláž *Playa Centro*.
+      - **Finestrat:** turistický výlet, 14,3 km a 278 m stoupání.
 
-      Celkem 45,7 km pěšky.
+      Na závěr večerní **Halloween**.
 - nazev: Chata – Dolní Moravice
   rok: 2026
   potvrzeno: true
@@ -1145,3 +1171,25 @@
   potvrzeno: true
   zmeny:
     verejny_popis: "Březnový víkend v **Beskydech** na **Horní Bečvě** se dvěma krátkými túrami: 3,9 km u Horní Bečvy a 2,3 km nad **Ostravicí**."
+# Shrnutí podle Martinových doplnění 9. 11. 2026
+- nazev: Irsko – Dublin
+  rok: 2025
+  potvrzeno: true
+  zmeny:
+    verejny_popis: |-
+      Tři noci v **Dublinu**. Hlavní atrakcí byl **Guinness Storehouse**.
+
+      - **Centrum:** *Grafton Street*, *Temple Bar*, park *St Stephen's Green* a **Trinity College** s knihovnou a *Book of Kells*.
+      - **Kolem řeky Liffey:** mosty *Samuel Beckett Bridge* a *Ha'penny Bridge*, *Spire of Dublin* a nákupy v *Ilac Centre*.
+      - **Phoenix Park:** výlet do parku a do **Dublin Zoo**.
+- nazev: Velká Británie – Londýn
+  rok: 2019
+  potvrzeno: true
+  zmeny:
+    verejny_popis: |-
+      Pět lednových nocí v **Londýně**.
+
+      - **Muzea a parky:** *Madame Tussauds*, **Hyde Park**, *Science Museum* a trhy v **Camden Town**.
+      - **Greenwich a fotbal:** *National Maritime Museum* v **Greenwichi**, poté zápas **Watford – Burnley** na stadionu *Vicarage Road* ve **Watfordu**.
+      - **Centrum:** *British Museum*, **Covent Garden**, **Soho** a **Chinatown**, hračkářství *Hamleys*. Večer **Trafalgar Square**, **Buckinghamský palác**, *Westminster Abbey*, parlament a **Big Ben**.
+      - **Podél Temže:** *SEA LIFE London*, **London Bridge**, **Tower Bridge** a stará hospoda *Ye Olde Mitre*.

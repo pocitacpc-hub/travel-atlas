@@ -1,5 +1,10 @@
 # Změny
 
+## 9. 11. 2026 – shrnutí podle Martinových doplnění
+
+- Málaga, Alicante a Polsko mají shrnutí s místy, která Martin potvrdil. Dublin a Londýn mají shrnutí poprvé. Shrnutí má 35 cest.
+- Soubory Alicante a Londýn na Drivu přeuložil editor, který převádí Markdown, a rozbil jim YAML hlavičku. Se souhlasem Martina byly obnoveny ze zálohy a poškozené verze zůstaly uložené ve složce záloh.
+
 ## 9. 11. 2026 – podrobnější shrnutí se Stravou
 
 - 22 shrnutí má podrobnější verzi s čísly ze Stravy (km, stoupání, čas, rychlost, tep, u wattmetru watty) a seznamem jízd po dnech. 7 cest dostalo shrnutí poprvé, celkem jich má 33.

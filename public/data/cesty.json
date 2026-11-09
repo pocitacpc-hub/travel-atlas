@@ -113,7 +113,7 @@
         "dublin"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Tři noci v **Dublinu**. Hlavní atrakcí byl **Guinness Storehouse**.\n\n- **Centrum:** *Grafton Street*, *Temple Bar*, park *St Stephen's Green* a **Trinity College** s knihovnou a *Book of Kells*.\n- **Kolem řeky Liffey:** mosty *Samuel Beckett Bridge* a *Ha'penny Bridge*, *Spire of Dublin* a nákupy v *Ilac Centre*.\n- **Phoenix Park:** výlet do parku a do **Dublin Zoo**.",
       "sport": null
     },
     {
@@ -172,7 +172,7 @@
         "londyn"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Pět lednových nocí v **Londýně**.\n\n- **Muzea a parky:** *Madame Tussauds*, **Hyde Park**, *Science Museum* a trhy v **Camden Town**.\n- **Greenwich a fotbal:** *National Maritime Museum* v **Greenwichi**, poté zápas **Watford – Burnley** na stadionu *Vicarage Road* ve **Watfordu**.\n- **Centrum:** *British Museum*, **Covent Garden**, **Soho** a **Chinatown**, hračkářství *Hamleys*. Večer **Trafalgar Square**, **Buckinghamský palác**, *Westminster Abbey*, parlament a **Big Ben**.\n- **Podél Temže:** *SEA LIFE London*, **London Bridge**, **Tower Bridge** a stará hospoda *Ye Olde Mitre*.",
       "sport": null
     },
     {
@@ -928,7 +928,7 @@
         "malaga"
       ],
       "zamereni": [],
-      "popis": "Podzimní prodloužený víkend v **Málaze**. Tři dny pěšky po centru a okolí, dohromady kolem *40 km* podle Časové osy, a jeden večerní běh: 4,0 km, tempo 6:48/km, tep 138.",
+      "popis": "Podzimní prodloužený víkend v **Málaze**, tři dny pěšky po městě, dohromady kolem *40 km* podle Časové osy.\n\n- **Historické centrum:** *katedrála*, maurská pevnost **Alcazaba**, hrad **Gibralfaro** nad městem a *římské divadlo*.\n- **Po stopách Picassa:** jeho rodný dům a *Museo Picasso Málaga*.\n- **Plaza de Toros:** prohlídka historické býčí arény.\n- **La Rosaleda:** stadion místního fotbalového klubu.\n\nJeden večer ještě běh: 4,0 km, tempo 6:48/km, tep 138.",
       "sport": {
         "aktivit": 1,
         "km": 4,
@@ -1281,7 +1281,7 @@
         "alicante"
       ],
       "zamereni": [],
-      "popis": "Podzimní prázdniny v **Alicante**, hlavně pěšky.\n\n- **1. den:** dlouhá procházka městem (12,4 km, 254 m stoupání) a večerní 6,6 km.\n- **2. den:** turistický výlet u **Finestratu**, 14,3 km a 278 m stoupání.\n- **3. den:** 6,5 km po Alicante a večerní procházka 5,9 km.\n\nCelkem 45,7 km pěšky.",
+      "popis": "Podzimní prázdniny v **Alicante**, skoro všechno pěšky: za tři dny 45,7 km.\n\n- **Alicante:** hrad **Castillo de Santa Bárbara** nad městem, park *Parque de la Ereta*, stará čtvrť **Santa Cruz** a tržnice *Mercado Central*.\n- **Pobřeží:** k majáku **Faro de Cabo de las Huertas** a dál přes zátoky *Cala Palmera*, *Cala Cantalar* a *Cala dels Jueus*.\n- **Villajoyosa:** barevné historické domky, promenáda a pláž *Playa Centro*.\n- **Finestrat:** turistický výlet, 14,3 km a 278 m stoupání.\n\nNa závěr večerní **Halloween**.",
       "sport": {
         "aktivit": 5,
         "km": 45.6,
@@ -1751,7 +1751,7 @@
         "jastrzebia"
       ],
       "zamereni": [],
-      "popis": "Týden u **Baltu** se základnou v **Jastrzębie Górze**.\n\n- **Gdyně:** celý den pěšky po městě a nábřeží.\n- **Hel:** výlet na konec poloostrova.\n- **Gdaňsk:** procházka městem, 4,3 km.\n- **Słowiński národní park:** 16,4 km pěšky z **Łeby** k pohyblivým dunám a zpět.\n- Večerní a ranní procházky po pobřeží v Jastrzębie Górze.",
+      "popis": "Týden u **Baltu** se základnou v **Jastrzębie Górze**.\n\n- **Cestou tam:** gotické město **Toruň**.\n- **Gdyně, Orłowo a Sopot:** celý den pěšky po pobřeží, v Gdyni muzejní torpédoborec *ORP Błyskawica*.\n- **Hel:** výlet na konec poloostrova a do *Fokaria* s tuleni.\n- **Gdaňsk:** procházka městem (4,3 km) a *Muzeum druhé světové války*.\n- **Słowiński národní park:** 16,4 km pěšky z **Łeby** k pohyblivým dunám a zpět.\n- **Cestou zpět:** hrad **Malbork**.\n\nK tomu večerní a ranní procházky po pobřeží v Jastrzębie Górze.",
       "sport": {
         "aktivit": 7,
         "km": 52.2,

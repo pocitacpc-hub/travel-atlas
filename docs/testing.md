@@ -89,3 +89,9 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - Export změnil jen 29 hodnot `popis`, všechny shodné se schválenými texty. `npm run check` prošel (8 souborů, 42 testů).
 - Náhled: Poreč 2026 má 7 jízd s tepem a watty, Babí hora nové shrnutí, Oslo beze změny. Nejdelší texty (Poreč, Bormio) na 390 px bez vodorovného posouvání, konzole bez chyb.
 - Na GitHub Pages po nasazení: Bormio má 5 jízd a souhrn 433 km, 10 489 m, tep 136, 149 W; nové shrnutí Hustopečí má 2 jízdy. Bez vodorovného posouvání, konzole bez chyb.
+
+## Shrnutí podle Martinových doplnění (9. 11. 2026)
+
+- Migrace se zastavila na neplatné YAML hlavičce Alicante a Londýna (editor slil řádky hlavičky a escapoval znaky). Před obnovou se soubory s poškozenou hlavičkou ověřeně zkopírovaly stranou. Londýn se obnovil ze zálohy, Alicante ze zálohy s popisem zapsaným stejnou funkcí migrace. Tělo Alicante je bajtově shodné se zálohou.
+- Zkouška migrace pak měla 5 změn jen v `verejny_popis` a druhý běh 0 změn. Porovnání se zálohou: 3 popisy nahrazeny, 2 doplněny, ostatní soubory beze změny.
+- Export změnil 5 hodnot `popis`, všechny shodné se schválenými texty. `npm run check` prošel (8 souborů, 42 testů). V náhledu má Londýn 4 odrážky, Dublin a Polsko (6 odrážek) se vykreslily bez chyb.
