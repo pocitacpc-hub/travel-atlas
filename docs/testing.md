@@ -67,3 +67,9 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - `npm run check` prošel: 6 souborů, 34 testů.
 - Chrome na 1440 a 390 px: všechny čtyři stránky bez vodorovného posouvání a bez chyb JavaScriptu. Přehled ukazuje rozsah 1994–2026, vrstva Místa 68 bodů (6 oblastí), Návraty šest míst.
 - Po sloučení do `main` prošly [kontrola i nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42572251985). Veřejné stránky vrátily HTTP 200 se stejnými soubory jako lokální sestavení. V Chrome na 1440 i 390 px bez vodorovného posouvání a bez chyb JavaScriptu.
+
+## Přiblížení státu (9. 11. 2026)
+
+- `tests/map.test.ts` ověřuje výřez státu (poměr stran mapy, obsah státu, nevyjede z mapy pro CZ, PT, NO, IE, SI, GR), rozmístění popisků bez překryvu a mimo výřez a popisky osy let.
+- Ruční kontrola v sestavení: klik na Itálii přiblíží mapu (16 popisků), klik na Rakousko v přiblížení přepne stát, vlajka Řecka přiblíží Řecko, Esc i „← Celá Evropa“ vrátí celou mapu s choroplethem a fokus na vybraný stát. `?stat=CZ` a `?stat=HR` otevřou přiblížení rovnou. Chrome na 1440 a 390 px bez vodorovného posouvání a bez chyb JavaScriptu.
+- `npm run check` prošel: 7 souborů, 37 testů.

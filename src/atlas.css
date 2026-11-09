@@ -91,6 +91,8 @@ select, input[type="search"] { min-height: 38px; padding: 7px 14px; border: 1px 
 .vz-visited.is-selected { stroke: var(--ink); stroke-width: 2.2; }
 .vz-place { fill: var(--ink); stroke: var(--card); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
 .vz-place.is-region { fill: rgba(30, 43, 51, .18); stroke: var(--ink); stroke-dasharray: 3 2; }
+.vz-labels { fill: var(--ink); font-family: var(--sans); font-weight: 600; paint-order: stroke; stroke: var(--card); stroke-linejoin: round; pointer-events: none; transition: opacity .2s; }
+.is-zooming .vz-labels { opacity: 0; }
 
 /* grafy */
 .vz-chart { display: block; }

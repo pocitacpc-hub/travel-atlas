@@ -103,7 +103,7 @@ Hlavní navigace má 3 položky: **Přehled · Kronika · Statistiky**. Detail c
 
 | Stránka | Soubor | Parametry a kotvy |
 |---|---|---|
-| Přehled | `index.html` | `?stat=HR` vybraný stát |
+| Přehled | `index.html` | `?stat=HR` vybraný a přiblížený stát |
 | Kronika | `kronika.html` | `?stat=IT` filtr státu · `#y2023` rok · `#yunk` cesty bez roku |
 | Statistiky | `statistiky.html` | `?pohled=mesice` nebo `?pohled=roky` · `#kdy` · `#staty` · `#stat-HR` (otevře stát) · `#metodika` |
 | Detail cesty | `cesta.html?id=c038` | `id` = stabilní ID cesty |
@@ -133,6 +133,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 **Mapa a státy**
 
 - **Mapa států** (`VZ.renderMap`): SVG ze statických hranic. Navštívené státy jsou zbarvené podle počtu cest, nenavštívené mají `--land`. Najetí nebo fokus ukáže tooltip a obrys v `--ink`, vybraný stát má obrys 2,2 px. Klik nebo Enter vybere stát.
+- **Přiblížení státu** (Přehled): klik na stát v mapě nebo na jeho vlajku mapu plynule (0,45 s, bez animace při `prefers-reduced-motion`) přiblíží na stát. Výřez drží poměr stran celé mapy. Stát má výplň `--q2`, ostatní navštívené `--q1`, zobrazí se všechna ověřená místa s popisky (bez překryvu, důležitější místo má přednost). Body i písmo mají v přiblížení stálou velikost na obrazovce. Tlačítko „← Celá Evropa“ nebo klávesa Esc vrátí celou mapu. Klik na jiný stát v přiblížení přepne na něj.
 - **Karta státu** (Přehled): název, kód, „11 cest · 1996–2026 · 82 nocí (známo u 9 z 11)“, posuvný seznam cest s odkazy na detail a odkazy „V kronice“ a „Ve statistikách“.
 - **Seznam států** (`APP.statesList`): `<details>` pro každý stát. Řádek má kód, název, pruh (Česko tyrkys, ostatní okr), počet a podřádek s nocemi a pokrytím a rozsahem let. Po rozbalení se ukážou cesty a odkazy „Na mapě“ a „V kronice“.
 
@@ -203,7 +204,8 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
   - Lambertova azimutální stejnoplochá projekce se středem 10° v. d. a 49° s. š., rámec 1000 × 823.
   - Mapa nemá podkladové dlaždice.
   - Tahy čar mají `vector-effect: non-scaling-stroke`.
-  - Velikost bodu místa: r = 4 + 2,2 · √(počet cest). Oblast se kreslí jako čárkovaný kroužek s 18% výplní.
+  - Velikost bodu místa: r = 4 + 2,2 · √(počet cest) v jednotkách mapy, v přiblížení 3,5 + 1,5 · √(počet cest) v pixelech. Oblast se kreslí jako čárkovaný kroužek s 18% výplní.
+  - Popisky os let: první rok a každý pátý rok, pátý rok bližší než tři roky za prvním se vynechá.
   - Do státu se počítá jen hlavní země cesty. Průjezd se nezobrazuje.
 
 ---

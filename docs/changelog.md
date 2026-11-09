@@ -1,5 +1,10 @@
 # Změny
 
+## 9. 11. 2026 – přiblížení státu na mapě
+
+- Klik na stát v mapě nebo na vlajku přiblíží mapu na stát a ukáže ověřená místa s popisky. Zpět vede tlačítko „← Celá Evropa“ nebo Esc, odkaz `?stat=XX` otevře přiblížení rovnou.
+- Opravené překrývání popisků 1994 a 1995 na ose grafu Cesty po letech.
+
 ## 9. 11. 2026 – fáze E (místa)
 
 - Číselník 73 míst ověřený proti Wikidatům. Souřadnice a identifikátor jsou z Wikidat, přesnost nejvýš na úroveň obce.

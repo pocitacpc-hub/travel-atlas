@@ -5,7 +5,7 @@ import { yearsChart } from "../lib/charts";
 import { dataAsOf, stats as s, visits } from "../lib/data";
 import { $, flag, param, shell, tripName, tripUrl } from "../lib/dom";
 import { cesty, dateCz, esc, noci, num, pct, plural, termin, zN } from "../lib/format";
-import { renderMap, toMapPlace, type MapPlace } from "../lib/map";
+import { cropFor, MAP_ASPECT, renderMap, toMapPlace, type MapPlace } from "../lib/map";
 import type { CountryStat } from "../lib/stats";
 import { emptyArchive, focusChips, nightsCoverage, tripListItem, yearsSpan } from "../lib/ui";
 
@@ -25,6 +25,8 @@ if (!s.total) {
     ? requested
     : (visited.find((c) => c.code !== "CZ") ?? visited[0]!).code;
   let layer: "countries" | "places" = "countries";
+  // Přiblížený stát: klik na stát v mapě nebo na vlajku. Odkaz ?stat=XX otevře rovnou přiblížení.
+  let zoom: string | null = requested && byCode.has(requested) ? requested : null;
 
   const countryTip = (c: CountryStat) =>
     `${flag(c.code)} <b>${esc(c.name)}</b><br>${cesty(c.count)} · ${c.first !== null ? `poprvé ${c.first}` : "rok první cesty neznámý"}<br>` +
@@ -43,43 +45,71 @@ if (!s.total) {
 
   const select = (code: string) => {
     selected = code;
+    zoom = code;
     drawMap();
     drawCountry();
     drawFlags();
     history.replaceState(null, "", `?stat=${encodeURIComponent(code)}`);
   };
 
+  const zoomOut = () => {
+    if (!zoom) return;
+    zoom = null;
+    drawMap();
+    history.replaceState(null, "", location.pathname);
+    $("map").querySelector<SVGElement>(`[data-code="${selected}"]`)?.focus({ preventScroll: true });
+  };
+  $("zoomOut").addEventListener("click", zoomOut);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && zoom) zoomOut();
+  });
+
   function drawMap(): void {
-    const onPlaces = layer === "places";
-    renderMap($("map"), {
-      label: onPlaces ? "Mapa ověřených míst" : "Mapa Evropy s navštívenými státy",
-      selected: onPlaces ? null : selected,
+    const mapEl = $("map");
+    const zoomed = zoom !== null;
+    const onPlaces = zoomed || layer === "places";
+    const inCountry = zoomed ? places.filter((p) => p.place.zeme === zoom) : [];
+    const crop = zoomed ? cropFor([zoom!], inCountry, MAP_ASPECT, 150) : undefined;
+    // V přiblížení mají body stálou velikost na obrazovce (v pixelech), v celé Evropě velikost podle mapy.
+    const unitsPerPx = crop ? crop[2] / Math.max(1, mapEl.clientWidth || 600) : 1;
+    renderMap(mapEl, {
+      label: zoomed ? `Mapa: ${byCode.get(zoom!)!.name} a ověřená místa` : onPlaces ? "Mapa ověřených míst" : "Mapa Evropy s navštívenými státy",
+      selected: zoomed ? zoom : onPlaces ? null : selected,
       fill: (code) => {
         const c = byCode.get(code);
         if (!c || (!c.count && !c.also.length)) return null;
+        if (zoomed) return code === zoom ? "--q2" : "--q1";
         return onPlaces ? "--q1" : qvar(c.count);
       },
       countryLabel: (code) => `${byCode.get(code)!.name}, ${cesty(byCode.get(code)!.count)}`,
       countryTip: (code) => countryTip(byCode.get(code)!),
       places: onPlaces ? places : [],
-      placeR: (p) => 4 + Math.sqrt(p.trips.length) * 2.2,
+      crop,
+      labels: zoomed,
+      animate: true,
+      placeR: (p) => (zoomed ? (3.5 + Math.sqrt(p.trips.length) * 1.5) * unitsPerPx : 4 + Math.sqrt(p.trips.length) * 2.2),
       placeTip: (p) => {
         const ys = p.trips.map((t) => (t.rok === null ? "?" : String(t.rok)));
         return `<b>${esc(p.place.nazev)}</b>${p.place.presnost === "oblast" ? " <i>(oblast)</i>" : ""}<br>${cesty(p.trips.length)}: ${ys.slice(0, 4).join(", ")}${ys.length > 4 ? " …" : ""}`;
       },
       onCountry: select
     });
-    $("legend").innerHTML = onPlaces
+    $("layers").hidden = zoomed || !places.length;
+    $("zoomOut").hidden = !zoomed;
+    $("legend").innerHTML = zoomed
+      ? `<span><i style="background:var(--q2)"></i>${esc(byCode.get(zoom!)!.name)}</span><span><i class="pin"></i>místo (velikost = počet cest)</span><span><i class="ring"></i>jen oblast</span>`
+      : onPlaces
       ? '<span><i class="pin"></i>místo (velikost = počet cest)</span><span><i class="ring"></i>jen oblast</span><span>Na mapě jsou jen místa s ověřenou polohou.</span>'
       : "<span>Počet cest:</span>" + Q.slice().reverse().map(([, label, v]) => `<span><i style="background:var(${v})"></i>${label}</span>`).join("") +
         '<span><i style="background:var(--land)"></i>nenavštíveno</span>';
-    $("mapNote").textContent = onPlaces ? `Ověřená místa: ${places.length}` : "Klikněte na stát";
+    $("mapNote").textContent = zoomed
+      ? (inCountry.length ? `Ověřená místa: ${inCountry.length}` : "Ve státě zatím nejsou ověřená místa")
+      : onPlaces ? `Ověřená místa: ${places.length}` : "Klikněte na stát";
   }
 
   // Přepínač vrstev má smysl až s ověřenými místy (fáze E).
   if (places.length) {
     const layers = $("layers");
-    layers.hidden = false;
     for (const b of layers.querySelectorAll<HTMLButtonElement>("button")) {
       b.addEventListener("click", () => {
         layer = b.dataset.layer === "places" ? "places" : "countries";

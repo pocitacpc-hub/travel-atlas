@@ -7,6 +7,10 @@ import type { Stats, YearStat } from "./stats";
 
 const niceMax = (v: number) => (v <= 5 ? 5 : v <= 10 ? 10 : Math.ceil(v / 5) * 5);
 
+/** Popisek osy let: první rok a každý pátý, ale pátý rok těsně za prvním se vynechá (1994, 2000, 2005 …). */
+export const yearTick = (year: number, minYear: number | null) =>
+  year === minYear || (year % 5 === 0 && (minYear === null || year - minYear >= 3));
+
 /** Sloupec se zaobleným horním koncem a rovnou základnou. */
 function roundTop(x: number, y: number, w: number, h: number, r: number): string {
   const q = Math.min(r, w / 2, h);
@@ -58,7 +62,7 @@ export function yearsChart(el: HTMLElement, s: Stats, height = 210): void {
       // 2px mezera v barvě povrchu mezi segmenty.
       if (r.abroad) out.push(`<path class="vz-bar is-abroad" d="${roundTop(x, y0 - hc - ha - (r.cz ? 2 : 0), bw, ha, 4)}"/>`);
       out.push(`<rect class="vz-hit" x="${m.l + idx * slot}" y="${m.t}" width="${slot}" height="${H - m.t - m.b}" data-tip data-i="${i}"/>`);
-      const label = r.year === null ? "?" : r.year % 5 === 0 || r.year === s.minYear ? String(r.year) : "";
+      const label = r.year === null ? "?" : yearTick(r.year, s.minYear) ? String(r.year) : "";
       if (label) out.push(`<text class="vz-tick" x="${x + bw / 2}" y="${H - 6}" text-anchor="middle">${label}</text>`);
     });
     out.push("</svg>");
