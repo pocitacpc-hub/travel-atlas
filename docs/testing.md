@@ -88,3 +88,4 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - Před zápisem prošlo 29 textů schématem a security lintem. Zkouška migrace měla 29 změn jen v `verejny_popis`. Po zápisu druhý běh 0 změn. Porovnání se zálohou: 22 popisů nahrazeno přesně z původního textu, 7 doplněno, ostatní soubory beze změny, těla bajtově shodná.
 - Export změnil jen 29 hodnot `popis`, všechny shodné se schválenými texty. `npm run check` prošel (8 souborů, 42 testů).
 - Náhled: Poreč 2026 má 7 jízd s tepem a watty, Babí hora nové shrnutí, Oslo beze změny. Nejdelší texty (Poreč, Bormio) na 390 px bez vodorovného posouvání, konzole bez chyb.
+- Na GitHub Pages po nasazení: Bormio má 5 jízd a souhrn 433 km, 10 489 m, tep 136, 149 W; nové shrnutí Hustopečí má 2 jízdy. Bez vodorovného posouvání, konzole bez chyb.
