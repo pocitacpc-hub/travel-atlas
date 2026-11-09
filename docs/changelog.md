@@ -1,5 +1,10 @@
 # Změny
 
+## 9. 11. 2026 – nová místa z potvrzených shrnutí
+
+- Číselník má deset nových ověřených obcí: Toruň, Gdyně, Sopoty, Hel, Gdaňsk, Łeba, Malbork, Villajoyosa, Finestrat a Watford. Cabo de las Huertas je alias Alicante.
+- Polsko má na mapě 8 míst, Alicante 3, Londýn 2. Export má 78 míst.
+
 ## 9. 11. 2026 – shrnutí podle Martinových doplnění
 
 - Málaga, Alicante a Polsko mají shrnutí s místy, která Martin potvrdil. Dublin a Londýn mají shrnutí poprvé. Shrnutí má 35 cest.

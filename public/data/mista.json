@@ -148,6 +148,42 @@
       "presnost": "obec"
     },
     {
+      "id": "finestrat",
+      "nazev": "Finestrat",
+      "zeme": "ES",
+      "oblast": null,
+      "lat": 38.567,
+      "lon": -0.213,
+      "presnost": "obec"
+    },
+    {
+      "id": "gdansk",
+      "nazev": "Gdaňsk",
+      "zeme": "PL",
+      "oblast": null,
+      "lat": 54.348,
+      "lon": 18.654,
+      "presnost": "obec"
+    },
+    {
+      "id": "gdynia",
+      "nazev": "Gdyně",
+      "zeme": "PL",
+      "oblast": null,
+      "lat": 54.518,
+      "lon": 18.54,
+      "presnost": "obec"
+    },
+    {
+      "id": "hel",
+      "nazev": "Hel",
+      "zeme": "PL",
+      "oblast": null,
+      "lat": 54.617,
+      "lon": 18.783,
+      "presnost": "obec"
+    },
+    {
       "id": "horni-becva",
       "nazev": "Horní Bečva",
       "zeme": "CZ",
@@ -220,6 +256,15 @@
       "presnost": "obec"
     },
     {
+      "id": "leba",
+      "nazev": "Łeba",
+      "zeme": "PL",
+      "oblast": null,
+      "lat": 54.758,
+      "lon": 17.554,
+      "presnost": "obec"
+    },
+    {
       "id": "lednice",
       "nazev": "Lednice",
       "zeme": "CZ",
@@ -289,6 +334,15 @@
       "oblast": null,
       "lat": 36.717,
       "lon": -4.417,
+      "presnost": "obec"
+    },
+    {
+      "id": "malbork",
+      "nazev": "Malbork",
+      "zeme": "PL",
+      "oblast": null,
+      "lat": 54.028,
+      "lon": 19.044,
       "presnost": "obec"
     },
     {
@@ -508,12 +562,30 @@
       "presnost": "oblast"
     },
     {
+      "id": "sopot",
+      "nazev": "Sopoty",
+      "zeme": "PL",
+      "oblast": null,
+      "lat": 54.442,
+      "lon": 18.548,
+      "presnost": "obec"
+    },
+    {
       "id": "sv-filip",
       "nazev": "Sveti Filip i Jakov",
       "zeme": "HR",
       "oblast": null,
       "lat": 43.961,
       "lon": 15.425,
+      "presnost": "obec"
+    },
+    {
+      "id": "torun",
+      "nazev": "Toruň",
+      "zeme": "PL",
+      "oblast": null,
+      "lat": 53.017,
+      "lon": 18.617,
       "presnost": "obec"
     },
     {
@@ -580,6 +652,15 @@
       "presnost": "obec"
     },
     {
+      "id": "villajoyosa",
+      "nazev": "Villajoyosa",
+      "zeme": "ES",
+      "oblast": null,
+      "lat": 38.505,
+      "lon": -0.233,
+      "presnost": "obec"
+    },
+    {
       "id": "vir",
       "nazev": "Vir",
       "zeme": "HR",
@@ -604,6 +685,15 @@
       "oblast": null,
       "lat": 48.895,
       "lon": 15.813,
+      "presnost": "obec"
+    },
+    {
+      "id": "watford",
+      "nazev": "Watford",
+      "zeme": "GB",
+      "oblast": null,
+      "lat": 51.655,
+      "lon": -0.396,
       "presnost": "obec"
     },
     {

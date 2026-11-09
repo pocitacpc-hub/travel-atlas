@@ -241,3 +241,22 @@ Těchto 6 cest zůstane na mapě bez bodu. Jejich místo není v číselníku ne
 5. Pak kontrolní druhý běh, `npm run export`, `npm run check`, kontrola webu na 1440 a 390 px, nasazení a dokumentace.
 
 Návrhy přesných termínů (10) a zaměření (24) v témže souboru do fáze E nepatří a zůstávají otevřené.
+
+## Doplnění 9. 11. 2026 večer
+
+Martin potvrdil místa ve shrnutích Polska, Alicante a Londýna. Deset obcí se ověřilo stejně jako ve fázi E jedním dotazem SPARQL (přesný název, stát, souřadnice). Vždy se vybrala položka samotné obce, ne stejnojmenná řeka, nádraží nebo vesnice jinde.
+
+| Místo | Stát | Wikidata | Šířka | Délka | Cesta |
+| --- | --- | --- | --- | --- | --- |
+| Toruň | PL | Q47554 | 53.017 | 18.617 | Polsko 2026 |
+| Gdyně | PL | Q385 | 54.518 | 18.540 | Polsko 2026 |
+| Sopoty | PL | Q92689 | 54.442 | 18.548 | Polsko 2026 |
+| Hel | PL | Q848973 | 54.617 | 18.783 | Polsko 2026 |
+| Gdaňsk | PL | Q1792 | 54.348 | 18.654 | Polsko 2026 |
+| Łeba | PL | Q345339 | 54.758 | 17.554 | Polsko 2026 |
+| Malbork | PL | Q146820 | 54.028 | 19.044 | Polsko 2026 |
+| Villajoyosa | ES | Q935589 | 38.505 | -0.233 | Alicante 2026 |
+| Finestrat | ES | Q1646107 | 38.567 | -0.213 | Alicante 2026 |
+| Watford | GB | Q2598 | 51.655 | -0.396 | Londýn 2019 |
+
+Cabo de las Huertas leží v obci Alicante, a proto je v číselníku jako alias Alicante, ne jako samostatný bod. Orłowo (Gdyně) a Greenwich (Londýn) jsou části obcí, které už na mapě jsou.

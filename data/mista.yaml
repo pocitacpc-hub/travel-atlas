@@ -1,5 +1,6 @@
 # Číselník míst. Souřadnice a identifikátor jsou z Wikidat, přesnost nejvýš na úroveň obce nebo její části.
 # Ověřeno a schváleno Martinem 9. 11. 2026, podklad: docs/analysis/2026-11-09-overeni-mist.md.
+# Deset míst z potvrzených shrnutí (Polsko, Alicante, Londýn) doplněno 9. 11. 2026 stejným ověřením.
 - id: alba
   nazev: Alba Adriatica
   aliasy: []
@@ -23,7 +24,8 @@
   wikidata: Q2832200
 - id: alicante
   nazev: Alicante
-  aliasy: []
+  aliasy:
+    - Cabo de las Huertas
   zeme: ES
   oblast: null
   lat: 38.345
@@ -161,6 +163,48 @@
   presnost: obec
   overeno: true
   wikidata: Q1024726
+- id: finestrat
+  nazev: Finestrat
+  aliasy: []
+  zeme: ES
+  oblast: null
+  lat: 38.567
+  lon: -0.213
+  presnost: obec
+  overeno: true
+  wikidata: Q1646107
+- id: gdansk
+  nazev: Gdaňsk
+  aliasy:
+    - Gdańsk
+  zeme: PL
+  oblast: null
+  lat: 54.348
+  lon: 18.654
+  presnost: obec
+  overeno: true
+  wikidata: Q1792
+- id: gdynia
+  nazev: Gdyně
+  aliasy:
+    - Gdynia
+  zeme: PL
+  oblast: null
+  lat: 54.518
+  lon: 18.54
+  presnost: obec
+  overeno: true
+  wikidata: Q385
+- id: hel
+  nazev: Hel
+  aliasy: []
+  zeme: PL
+  oblast: null
+  lat: 54.617
+  lon: 18.783
+  presnost: obec
+  overeno: true
+  wikidata: Q848973
 - id: horni-becva
   nazev: Horní Bečva
   aliasy: []
@@ -271,6 +315,17 @@
   presnost: obec
   overeno: true
   wikidata: Q1512019
+- id: leba
+  nazev: Łeba
+  aliasy:
+    - Leba
+  zeme: PL
+  oblast: null
+  lat: 54.758
+  lon: 17.554
+  presnost: obec
+  overeno: true
+  wikidata: Q345339
 - id: lednice
   nazev: Lednice
   aliasy: []
@@ -352,6 +407,16 @@
   presnost: obec
   overeno: true
   wikidata: Q8851
+- id: malbork
+  nazev: Malbork
+  aliasy: []
+  zeme: PL
+  oblast: null
+  lat: 54.028
+  lon: 19.044
+  presnost: obec
+  overeno: true
+  wikidata: Q146820
 - id: martinsicuro
   nazev: Martinsicuro
   aliasy: []
@@ -613,6 +678,17 @@
   presnost: oblast
   overeno: true
   wikidata: Q189395
+- id: sopot
+  nazev: Sopoty
+  aliasy:
+    - Sopot
+  zeme: PL
+  oblast: null
+  lat: 54.442
+  lon: 18.548
+  presnost: obec
+  overeno: true
+  wikidata: Q92689
 - id: sv-filip
   nazev: Sveti Filip i Jakov
   aliasy: []
@@ -623,6 +699,17 @@
   presnost: obec
   overeno: true
   wikidata: Q1014083
+- id: torun
+  nazev: Toruň
+  aliasy:
+    - Toruń
+  zeme: PL
+  oblast: null
+  lat: 53.017
+  lon: 18.617
+  presnost: obec
+  overeno: true
+  wikidata: Q47554
 - id: tribunj
   nazev: Tribunj
   aliasy: []
@@ -693,6 +780,17 @@
   presnost: obec
   overeno: true
   wikidata: Q51967
+- id: villajoyosa
+  nazev: Villajoyosa
+  aliasy:
+    - La Vila Joiosa
+  zeme: ES
+  oblast: null
+  lat: 38.505
+  lon: -0.233
+  presnost: obec
+  overeno: true
+  wikidata: Q935589
 - id: vir
   nazev: Vir
   aliasy: []
@@ -724,6 +822,16 @@
   presnost: obec
   overeno: true
   wikidata: Q585050
+- id: watford
+  nazev: Watford
+  aliasy: []
+  zeme: GB
+  oblast: null
+  lat: 51.655
+  lon: -0.396
+  presnost: obec
+  overeno: true
+  wikidata: Q2598
 - id: zlin
   nazev: Zlín
   aliasy: []
