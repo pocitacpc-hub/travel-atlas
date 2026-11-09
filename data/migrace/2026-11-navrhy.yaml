@@ -767,3 +767,137 @@
   zmeny:
     zamereni:
       - kolo
+# Veřejná shrnutí cest schválená Martinem 9. 11. 2026
+- nazev: Norsko – Oslo
+  rok: 2021
+  potvrzeno: true
+  zmeny:
+    verejny_popis: |-
+      Prodloužený víkend v **Oslu** ve znamení muzeí. Na poloostrově **Bygdøy** nás nejvíc bavilo *Norsk Folkemuseum*, *Námořní muzeum* a polární loď *Fram*, Kon-Tiki ušlo a vikingské lodě nás nezaujaly.
+
+      Výborné bylo i *Technické muzeum* a výhled ze skokanského můstku na **Holmenkollenu**. K tomu pevnost **Akershus**, opera a **Vigelandův park**.
+- nazev: Mallorca – Palma a okolí
+  rok: 2024
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Mezi svátky na **Mallorce** se základnou v **Palmě**. Jeden den v horách u **Sólleru**, druhý ve **Valldemosse**, k tomu túra u **Deià**. Za čtyři dny jsme ušli přes *50 km*.
+- nazev: Portugalsko – Porto, Sintra a Lisabon
+  rok: 2023
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Týden v Portugalsku od severu k jihu. Nejdřív **Porto**, pak romantická **Sintra** a nakonec **Lisabon**. Hodně jsme chodili pěšky, v Sintře a Lisabonu i na delší okruhy.
+- nazev: Slovinsko – Piran, Izola a Bled
+  rok: 2026
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Jarní roadtrip do **Slovinska**, cestou túra u rakouského **Badenu**. Na pobřeží **Piran**, **Izola** a **Koper** s procházkami a během podél moře, pak túra kolem **Bledu** a v okolí **Gorje**.
+- nazev: Polsko – Jastrzębia Góra a Baltské pobřeží
+  rok: 2026
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Týden u **Baltu** se základnou v **Jastrzębie Górze**. Výlety na poloostrov **Hel**, do **Gdaňsku** a **Gdyně** a celodenní pěší výlet do **Słowińského národního parku** za pohyblivými dunami.
+- nazev: Španělsko – Málaga
+  rok: 2025
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Podzimní prodloužený víkend v **Málaze**. Tři dny pěšky po centru a okolí, dohromady kolem *40 km*.
+- nazev: Alicante a Costa Blanca
+  rok: 2026
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Podzimní prázdniny v **Alicante**. Procházky městem a turistický výlet do hor u **Finestratu**.
+- nazev: Chata – Dolní Moravice
+  rok: 2026
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Víkend na chatě v **Dolní Moravici**, v sobotu pěší výlet po **Jeseníkách**.
+- nazev: Chorvatsko – Sveti Filip i Jakov
+  rok: 2022
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Jedenáct nocí u moře v **Sveti Filip i Jakov** nedaleko Biogradu, s výletem na ostrov **Pašman**. Cesta autem přes Rakousko.
+- nazev: Chorvatsko – Pula
+  rok: 1997
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Letní **tábor** v Pule na Istrii.
+- nazev: Španělsko – Costa Brava, Palamós (Camp King)
+  rok: 1997
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Dovolená **pod stanem** na Costa Bravě v **Palamósu**.
+- nazev: Chorvatsko – Poreč (kola)
+  rok: 2026
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Jarní cyklistický týden v **Istrii**. Sedm dní na silničním kole z **Poreče**, většinou přes *100 km* denně.
+- nazev: Chorvatsko – Poreč (kola)
+  rok: 2025
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Jarní cyklistický týden v **Istrii**. Sedm vyjížděk na silničním kole z **Poreče**, nejdelší *115 km*.
+- nazev: Chorvatsko – Poreč (kola)
+  rok: 2024
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Jarní cyklistický týden v **Istrii**. Sedm vyjížděk na silničním kole z **Poreče**, nejdelší okruh měl *161 km*.
+- nazev: Chorvatsko – Tribunj (kola)
+  rok: 2023
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Jarní cyklistický týden v **Dalmácii**. Sedm vyjížděk na silničním kole z **Tribunje**, nejdelší *134 km*.
+- nazev: Chorvatsko – ostrov Vir
+  rok: 2025
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Letní týden na ostrově **Vir** s gravelem. Pět vyjížděk dlouhých 32 až 71 km a jeden běh.
+- nazev: Chorvatsko – Murter a Betina
+  rok: 2023
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Léto na **Murteru** v Betině. Šest vyjížděk na horském kole a běh.
+- nazev: Jizerské hory – cyklovýlet
+  rok: 2023
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Cyklovýlet do **Jizerských hor** z **Kořenova**. Pět vyjížděk na horském kole (nejdelší *87 km*), jedna na silničním a pěší túra.
+- nazev: Lednice – cyklovýlet
+  rok: 2026
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Tři dlouhé vyjížďky kolem **Lednice**, dvě na gravelu a jedna na silničním kole, každá přes *100 km*.
+- nazev: Itálie – Bormio a Alpy na kole
+  rok: 2026
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Týden v Alpách na silničním kole. Čtyři okruhy z **Laasu** v Jižním Tyrolsku a jeden z **Bormia**, každý 71 až 102 km.
+- nazev: Domažlice – cyklistika (Tour de Kozina)
+  rok: 2025
+  potvrzeno: true
+  zmeny:
+    verejny_popis: "**Tour de Kozina** na Domažlicku. Čtyři vyjížďky na horském kole a jedna *115 km* na silničním, start vždy v **Babylonu**."
+- nazev: Giro 2023 – cyklovýlet
+  rok: 2023
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Tři vyjížďky na horském kole v **Beskydech** z **Trojanovic**, dlouhé 42 až 71 km.
+- nazev: Beskydy – Trojanovice (cyklistika, Strava)
+  rok: 2024
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Dvě vyjížďky na horském kole v **Beskydech** z **Trojanovic**, 52 a 71 km.
+- nazev: Jaroslavice a Znojmo – jižní Morava
+  rok: 2026
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Cyklistický víkend na **Znojemsku** z **Jaroslavic**. Tři vyjížďky na silničním kole (40 až 83 km) a pěší výlet.
+- nazev: Rakousko – Bruck an der Mur a Štýrsko
+  rok: 2025
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Turistika v rakouských horách. Dvacetikilometrová túra u **Neuberg an der Mürz** a výlet z **Puchbergu am Schneeberg**.
+- nazev: Jeseníky – Malá Morávka (záznamy Strava)
+  rok: 2023
+  potvrzeno: true
+  zmeny:
+    verejny_popis: Dva dny pěší turistiky v **Jeseníkách** u **Malé Morávky**.

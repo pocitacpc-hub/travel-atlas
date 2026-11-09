@@ -1,5 +1,11 @@
 # Změny
 
+## 9. 11. 2026 – shrnutí cest
+
+- Detail cesty zobrazí veřejné shrnutí z pole `verejny_popis` s formátováním (odstavce, odrážky, tučně, kurzíva).
+- Kontrakt omezuje popis na 1500 znaků bez HTML, security lint odmítne odkazy. Migrace umí zapsat schválený popis.
+- Martin schválil 26 shrnutí. Migrace je zapsala na Drive se zálohou a export je přenesl do `public/data/cesty.json`.
+
 ## 9. 11. 2026 – přiblížení státu na mapě
 
 - Klik na stát v mapě nebo na vlajku přiblíží mapu na stát a ukáže ověřená místa s popisky. Zpět vede tlačítko „← Celá Evropa“ nebo Esc, odkaz `?stat=XX` otevře přiblížení rovnou.

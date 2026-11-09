@@ -73,3 +73,10 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - `tests/map.test.ts` ověřuje výřez státu (poměr stran mapy, obsah státu, nevyjede z mapy pro CZ, PT, NO, IE, SI, GR), rozmístění popisků bez překryvu a mimo výřez a popisky osy let.
 - Ruční kontrola v sestavení: klik na Itálii přiblíží mapu (16 popisků), klik na Rakousko v přiblížení přepne stát, vlajka Řecka přiblíží Řecko, Esc i „← Celá Evropa“ vrátí celou mapu s choroplethem a fokus na vybraný stát. `?stat=CZ` a `?stat=HR` otevřou přiblížení rovnou. Chrome na 1440 a 390 px bez vodorovného posouvání a bez chyb JavaScriptu.
 - `npm run check` prošel: 7 souborů, 37 testů.
+
+## Shrnutí cest (9. 11. 2026)
+
+- `tests/text.test.ts` ověřuje převod popisu na HTML (odstavce, odrážky, tučně, kurzíva), escapování HTML, perex a pravidlo lintu pro odkazy.
+- `tests/migration.test.ts` ověřuje zápis popisu do YAML, zachování těla a soukromých polí, druhý běh bez změn, export popisu a odmítnutí HTML, prázdného textu i přepisu jiného existujícího popisu.
+- Před zápisem prošlo všech 26 textů schématem a security lintem. Zkouška migrace měla 26 změn pouze v `verejny_popis`, po zápisu druhý běh 0 změn. Porovnání se zálohou: 26 souborů se liší jen přidaným `verejny_popis`, těla jsou bajtově shodná.
+- Po exportu prošel `npm run check` (8 souborů, 42 testů). Náhled sestavení zobrazil panel „O cestě“ u Osla (2 odstavce, tučně i kurzíva), Puly a Polska na 1440 px. Na 390 px nic vodorovně nepřetéká, v konzoli nebyly chyby.

@@ -140,4 +140,25 @@ describe("Migrace metadat", () => {
       expect(() => prepareMigration(source, readProposals([dated], catalog))).toThrow(/liší od již vyplněného/u);
     });
   });
+
+  it("zapíše veřejný popis s formátováním a nepřepíše jiný existující popis", () => {
+    withSource((source) => {
+      const text = "Týden u moře, **Toruň** cestou.\n\n- *perník*\n- maják";
+      const popis = { nazev: "Španělsko – Alcossebre", rok: 2025, potvrzeno: true, zmeny: { verejny_popis: text } };
+      const draft = prepareMigration(source, readProposals([popis], catalog));
+      expect(draft.plan.entries[0]?.changes.verejny_popis).toBe(text);
+      applyMigration(source, draft.plan.entries, draft.updates);
+      const migrated = splitHeader(readFileSync(join(source, "cesta.md")))!;
+      expect(parseYaml(migrated.yaml)).toMatchObject({ verejny_popis: text, finance: { mena: "CZK" } });
+      expect(migrated.body.equals(body)).toBe(true);
+      expect(prepareMigration(source, readProposals([popis], catalog)).updates.size).toBe(0);
+      const exported = buildExport(prepareMigration(source, []).records, catalog, { legacy: false, asOf: "2026-11-08", hasFlag: () => true });
+      expect(exported.trips.cesty[0]?.popis).toBe(text);
+
+      const other = { ...popis, zmeny: { verejny_popis: "Jiný text." } };
+      expect(() => prepareMigration(source, readProposals([other], catalog))).toThrow(/liší od již vyplněného popisu/u);
+      expect(() => readProposals([{ ...popis, zmeny: { verejny_popis: "<b>ne</b>" } }], catalog)).toThrow(/Neplatný/u);
+      expect(() => readProposals([{ ...popis, zmeny: { verejny_popis: " " } }], catalog)).toThrow(/Neplatný/u);
+    });
+  });
 });

@@ -126,7 +126,9 @@
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "maxLength": 1500,
+      "pattern": "^[^<>]*\\S[^<>]*$"
     },
     "strava_pocet_aktivit": {
       "type": "integer",

@@ -38,7 +38,7 @@
         "piran"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Jarní roadtrip do **Slovinska**, cestou túra u rakouského **Badenu**. Na pobřeží **Piran**, **Izola** a **Koper** s procházkami a během podél moře, pak túra kolem **Bledu** a v okolí **Gorje**.",
       "sport": {
         "aktivit": 11,
         "km": 70.6,
@@ -131,7 +131,7 @@
         "porec"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Jarní cyklistický týden v **Istrii**. Sedm vyjížděk na silničním kole z **Poreče**, nejdelší okruh měl *161 km*.",
       "sport": {
         "aktivit": 7,
         "km": 754.4,
@@ -190,7 +190,7 @@
         "mala-moravka"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Dva dny pěší turistiky v **Jeseníkách** u **Malé Morávky**.",
       "sport": {
         "aktivit": 2,
         "km": 11.5,
@@ -249,7 +249,7 @@
         "palma"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Mezi svátky na **Mallorce** se základnou v **Palmě**. Jeden den v horách u **Sólleru**, druhý ve **Valldemosse**, k tomu túra u **Deià**. Za čtyři dny jsme ušli přes *50 km*.",
       "sport": {
         "aktivit": 3,
         "km": 30.8,
@@ -308,7 +308,7 @@
         "tribunj"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Jarní cyklistický týden v **Dalmácii**. Sedm vyjížděk na silničním kole z **Tribunje**, nejdelší *134 km*.",
       "sport": {
         "aktivit": 7,
         "km": 663.6,
@@ -427,7 +427,7 @@
         "oslo"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Prodloužený víkend v **Oslu** ve znamení muzeí. Na poloostrově **Bygdøy** nás nejvíc bavilo *Norsk Folkemuseum*, *Námořní muzeum* a polární loď *Fram*, Kon-Tiki ušlo a vikingské lodě nás nezaujaly.\n\nVýborné bylo i *Technické muzeum* a výhled ze skokanského můstku na **Holmenkollenu**. K tomu pevnost **Akershus**, opera a **Vigelandův park**.",
       "sport": null
     },
     {
@@ -517,7 +517,7 @@
         "trojanovice"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Dvě vyjížďky na horském kole v **Beskydech** z **Trojanovic**, 52 a 71 km.",
       "sport": {
         "aktivit": 2,
         "km": 123.3,
@@ -612,7 +612,7 @@
         "sv-filip"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Jedenáct nocí u moře v **Sveti Filip i Jakov** nedaleko Biogradu, s výletem na ostrov **Pašman**. Cesta autem přes Rakousko.",
       "sport": null
     },
     {
@@ -630,7 +630,7 @@
         "pula"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Letní **tábor** v Pule na Istrii.",
       "sport": null
     },
     {
@@ -792,7 +792,7 @@
         "lednice"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Tři dlouhé vyjížďky kolem **Lednice**, dvě na gravelu a jedna na silničním kole, každá přes *100 km*.",
       "sport": {
         "aktivit": 3,
         "km": 311.8,
@@ -905,7 +905,7 @@
         "porec"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Jarní cyklistický týden v **Istrii**. Sedm dní na silničním kole z **Poreče**, většinou přes *100 km* denně.",
       "sport": {
         "aktivit": 7,
         "km": 710.4,
@@ -928,7 +928,7 @@
         "malaga"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Podzimní prodloužený víkend v **Málaze**. Tři dny pěšky po centru a okolí, dohromady kolem *40 km*.",
       "sport": {
         "aktivit": 1,
         "km": 4,
@@ -951,7 +951,7 @@
         "porec"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Jarní cyklistický týden v **Istrii**. Sedm vyjížděk na silničním kole z **Poreče**, nejdelší *115 km*.",
       "sport": {
         "aktivit": 7,
         "km": 624.8,
@@ -972,7 +972,7 @@
       "pocetNoci": 3,
       "mista": [],
       "zamereni": [],
-      "popis": null,
+      "popis": "Tři vyjížďky na horském kole v **Beskydech** z **Trojanovic**, dlouhé 42 až 71 km.",
       "sport": {
         "aktivit": 3,
         "km": 174.8,
@@ -1049,7 +1049,7 @@
         "vir"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Letní týden na ostrově **Vir** s gravelem. Pět vyjížděk dlouhých 32 až 71 km a jeden běh.",
       "sport": {
         "aktivit": 6,
         "km": 279.2,
@@ -1144,7 +1144,7 @@
         "bruck"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Turistika v rakouských horách. Dvacetikilometrová túra u **Neuberg an der Mürz** a výlet z **Puchbergu am Schneeberg**.",
       "sport": {
         "aktivit": 2,
         "km": 30.9,
@@ -1240,7 +1240,7 @@
         "bormio"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Týden v Alpách na silničním kole. Čtyři okruhy z **Laasu** v Jižním Tyrolsku a jeden z **Bormia**, každý 71 až 102 km.",
       "sport": {
         "aktivit": 5,
         "km": 433.4,
@@ -1281,7 +1281,7 @@
         "alicante"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Podzimní prázdniny v **Alicante**. Procházky městem a turistický výlet do hor u **Finestratu**.",
       "sport": {
         "aktivit": 5,
         "km": 45.6,
@@ -1374,7 +1374,7 @@
         "dolni-moravice"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Víkend na chatě v **Dolní Moravici**, v sobotu pěší výlet po **Jeseníkách**.",
       "sport": null
     },
     {
@@ -1446,7 +1446,7 @@
         "palamos"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Dovolená **pod stanem** na Costa Bravě v **Palamósu**.",
       "sport": null
     },
     {
@@ -1627,7 +1627,7 @@
         "sintra"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Týden v Portugalsku od severu k jihu. Nejdřív **Porto**, pak romantická **Sintra** a nakonec **Lisabon**. Hodně jsme chodili pěšky, v Sintře a Lisabonu i na delší okruhy.",
       "sport": {
         "aktivit": 7,
         "km": 61.2,
@@ -1669,7 +1669,7 @@
         "jaroslavice"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Cyklistický víkend na **Znojemsku** z **Jaroslavic**. Tři vyjížďky na silničním kole (40 až 83 km) a pěší výlet.",
       "sport": {
         "aktivit": 4,
         "km": 189.2,
@@ -1728,7 +1728,7 @@
         "domazlice"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "**Tour de Kozina** na Domažlicku. Čtyři vyjížďky na horském kole a jedna *115 km* na silničním, start vždy v **Babylonu**.",
       "sport": {
         "aktivit": 5,
         "km": 305.5,
@@ -1751,7 +1751,7 @@
         "jastrzebia"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Týden u **Baltu** se základnou v **Jastrzębie Górze**. Výlety na poloostrov **Hel**, do **Gdaňsku** a **Gdyně** a celodenní pěší výlet do **Słowińského národního parku** za pohyblivými dunami.",
       "sport": {
         "aktivit": 7,
         "km": 52.2,
@@ -1792,7 +1792,7 @@
         "jizerske"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Cyklovýlet do **Jizerských hor** z **Kořenova**. Pět vyjížděk na horském kole (nejdelší *87 km*), jedna na silničním a pěší túra.",
       "sport": {
         "aktivit": 7,
         "km": 375.7,
@@ -1815,7 +1815,7 @@
         "murter"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Léto na **Murteru** v Betině. Šest vyjížděk na horském kole a běh.",
       "sport": {
         "aktivit": 7,
         "km": 124.9,

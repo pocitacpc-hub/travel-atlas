@@ -7,7 +7,7 @@ import { type Catalog, type Focus, date, isRecord, normalizeName, parseYaml } fr
 import { compare, normalizeLegacy } from "./trip-export";
 
 const idPattern = /^t-[a-z0-9]{6}$/u;
-const fields = ["id", "stav", "zverejnit", "presnost_terminu", "rok", "mesic", "pocet_noci", "mista", "zamereni", "dalsi_zeme", "zacatek", "konec"] as const;
+const fields = ["id", "stav", "zverejnit", "presnost_terminu", "rok", "mesic", "pocet_noci", "mista", "zamereni", "dalsi_zeme", "zacatek", "konec", "verejny_popis"] as const;
 const coarseTermKeys = ["rok", "mesic", "presnost_terminu", "pocet_noci"];
 const focusTags: Focus[] = ["kolo", "turistika", "more", "hory", "mesto", "chata", "kemp", "akce"];
 type Fields = Record<string, unknown>;
@@ -71,6 +71,9 @@ function stringList(value: unknown): value is string[] {
 const isCoarseTerm = (zmeny: Fields) => Object.hasOwn(zmeny, "presnost_terminu");
 const category = ({ zmeny }: Proposal) =>
   Object.hasOwn(zmeny, "zacatek") || isCoarseTerm(zmeny) ? "termin" : Object.keys(zmeny)[0]!;
+/** Veřejný popis: neprázdný text do 1500 znaků, bez HTML (formátování jen **tučně**, *kurzíva*, odrážky). */
+const validPublicText = (value: unknown): value is string =>
+  typeof value === "string" && value.trim().length > 0 && value.length <= 1500 && !/[<>]/u.test(value);
 const year = (value: unknown) => typeof value === "number" && Number.isInteger(value) && value >= 1 && value <= 9999;
 
 // Termín bez přesných dnů: rok a měsíc (přesnost mesic), nebo jen rok (přesnost rok), volitelně počet nocí.
@@ -104,7 +107,8 @@ export function readProposals(value: unknown, catalog: Catalog): Proposal[] {
       || (kind === "dalsi_zeme" && values.every((name) => catalog.countriesByName.has(normalizeName(name))))
       || (kind === "zamereni" && values.every((tag) => focusTags.includes(tag as Focus)))
     );
-    if (!validDates && !validList && !validCoarseTerm(zmeny)) throw invalid();
+    const validPopis = keysOfChanges.length === 1 && kind === "verejny_popis" && validPublicText(values);
+    if (!validDates && !validList && !validCoarseTerm(zmeny) && !validPopis) throw invalid();
     const proposal = { nazev: row.nazev, rok: row.rok, potvrzeno: row.potvrzeno, zmeny };
     const key = `${tripKey(row.nazev, row.rok)}:${category(proposal)}`;
     if (keys.has(key)) throw invalid();
@@ -186,6 +190,14 @@ function applyProposal(next: Fields, proposal: Proposal): void {
     }
     Object.assign(next, { rok, mesic, presnost_terminu });
     if (pocet_noci !== undefined) next.pocet_noci = pocet_noci;
+  } else if (kind === "verejny_popis") {
+    const text = proposal.zmeny.verejny_popis;
+    if (!validPublicText(text)) throw new Error("Návrh popisu není platný text.");
+    const current = next.verejny_popis;
+    if (current !== undefined && current !== null && current !== text) {
+      throw new Error("Návrh popisu se liší od již vyplněného popisu.");
+    }
+    next.verejny_popis = text;
   } else if (kind === "termin") {
     const { zacatek, konec } = proposal.zmeny;
     if (!date(zacatek) || !date(konec)) throw new Error("Návrh termínu musí obsahovat platná data.");

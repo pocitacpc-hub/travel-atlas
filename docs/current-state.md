@@ -39,3 +39,9 @@ Otevřené pro Martina: některé veřejné názvy cest obsahují název ubytov�
 Migrace 9. 11. 2026 zapsala místa do 89 YAML hlaviček na Drivu. Před zápisem vznikla ověřená záloha (umístění v místním `out/migrace-zapis.md`), druhý běh měl nula změn a těla souborů se nezměnila. Přísný export má 96 cest, 90 s místem a 68 míst. Bez místa zůstává šest cest (Bulharsko, Giro 2023, Camping Delle Rose, Lido del Sole, Jižní Morava 2025, Warnemünde).
 
 Ve zdroji mezitím přibyly změny mimo tuto fázi: Korčula má nový soubor a název s ubytováním, rozpočet Itálie 2020 má stav `zrusena` (kontrakt ho nově zná) a Alicante má místa Villajoyosa a Cabo de las Huertas, která v číselníku nejsou. Body v Česku se na celoevropské mapě překrývají, podrobnější výřez je námět na další etapu. Fáze E je hotová. [Kontrola a nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42572251985) prošly a web na Pages je ověřený na 1440 i 390 px.
+
+## Shrnutí cest
+
+Detail cesty ukazuje v panelu „O cestě“ veřejné shrnutí z pole `verejny_popis` ve zdroji. Podporuje odstavce, odrážky, tučné písmo a kurzívu, bez HTML a odkazů, do 1500 znaků ([rozhodnutí 0006](decisions/0006-verejny-popis.md)). Martin schválil 26 shrnutí sestavených z poznámek, Časové osy a druhů aktivit ze Stravy, bez jmen, ubytování, financí a názvů aktivit.
+
+Migrace 9. 11. 2026 zapsala shrnutí do 26 YAML hlaviček na Drivu. Před zápisem vznikla ověřená záloha (poslední zápis je uveden v místním `out/migrace-zapis.md`, starší zálohy zůstávají ve stejné složce záloh). Druhý běh měl nula změn. Porovnání se zálohou ukázalo, že se těla souborů nezměnila a v hlavičkách přibylo jen pole `verejny_popis`. Export změnil v `public/data/cesty.json` jen 26 hodnot `popis`. Ostatní cesty shrnutí zatím nemají, další texty lze doplnit stejným postupem.

@@ -136,7 +136,9 @@
             "type": [
               "string",
               "null"
-            ]
+            ],
+            "maxLength": 1500,
+            "pattern": "^[^<>]*\\S[^<>]*$"
           },
           "sport": {
             "anyOf": [

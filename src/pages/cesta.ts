@@ -6,6 +6,7 @@ import { $, flag, param, shell, tripName, tripUrl } from "../lib/dom";
 import { cesty, esc, noci, num, presnost, termin } from "../lib/format";
 import { cropFor, hasMapShape, renderMap, toMapPlace } from "../lib/map";
 import type { Trip } from "../lib/model";
+import { popisHtml } from "../lib/text";
 import { focusChips, tripListItem, yearsSpan } from "../lib/ui";
 
 shell();
@@ -54,6 +55,7 @@ function renderTrip(t: Trip): void {
     `<h1>${esc(name)}</h1><div class="when">${termin(t)}${precisionChip}${t.zamereni.length ? ` ${focusChips(t)}` : ""}</div></div>` +
     `<div class="stamp" aria-hidden="true"><div><b>${esc(t.zeme)}</b><small>${t.rok ?? "????"}</small></div></div></section>` +
     '<div class="layout"><div class="stack">' +
+      (t.popis ? `<section class="panel popis"><h2 class="sec">O cestě</h2>${popisHtml(t.popis)}</section>` : "") +
       '<section class="panel"><dl class="facts">' +
         `<div><dt>Termín</dt><dd>${termin(t)}<small>${presnost(t.presnostTerminu)}</small></dd></div>` +
         `<div><dt>Nocí</dt><dd>${t.pocetNoci === null ? "neznámo" : t.pocetNoci}<small>${t.pocetNoci === null ? "délka pobytu není doložená" : noci(t.pocetNoci)}</small></dd></div>` +
@@ -65,7 +67,6 @@ function renderTrip(t: Trip): void {
           `<div class="sport"><div><b>${t.sport.aktivit}</b><span>aktivit</span></div><div><b>${num(t.sport.km)}</b><span>km</span></div>` +
           `<div><b>${num(t.sport.prevyseniM)}</b><span>m převýšení</span></div></div></section>`
         : "") +
-      (t.popis ? `<section class="panel popis"><h2 class="sec">O cestě</h2>${t.popis.split(/\n{2,}/u).map((p) => `<p>${esc(p.trim())}</p>`).join("")}</section>` : "") +
     '</div><div class="stack">' +
       (states.some(hasMapShape)
         ? '<section class="panel"><div class="map" id="mini"></div><p class="legend">' +

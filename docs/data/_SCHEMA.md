@@ -24,7 +24,7 @@ Při přesnosti `mesic` vyplň rok a měsíc 1 až 12. Při přesnosti `rok` vyp
 - `dalsi_zeme` obsahuje další potvrzené státy pobytu podle číselníku.
 - `mista` obsahuje názvy nebo aliasy z [číselníku míst](https://github.com/pocitacpc-hub/travel-atlas/blob/main/data/mista.yaml). Do výstupu jdou pouze ověřená místa ve státech cesty.
 - `zamereni` je seznam hodnot `kolo`, `turistika`, `more`, `hory`, `mesto`, `chata`, `kemp` nebo `akce`.
-- `verejny_popis` je text určený ke zveřejnění nebo `null`.
+- `verejny_popis` je krátké shrnutí určené ke zveřejnění (do 1500 znaků) nebo `null`. Podporuje odstavce, odrážky „- “, `**tučně**` a `*kurzívu*`, bez HTML a odkazů.
 - Souhrn aktivit tvoří společně `strava_pocet_aktivit`, `strava_celkem_km` a `strava_prevyseni_m`. Počet aktivit a metry převýšení jsou celá čísla, kilometry mohou být desetinné. Všechny tři hodnoty jsou nezáporné.
 
 ## Kdy se cesta zveřejní

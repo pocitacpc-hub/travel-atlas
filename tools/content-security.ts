@@ -8,7 +8,8 @@ const rules: [string, RegExp][] = [
   ["měna", /(?<!\p{L})(?:CZK|Kč)(?!\p{L})/iu],
   ["adresa", /\bCalle\s/iu],
   ["číslo letu", /\b[A-Z]{2}\d{3,4}\b/u],
-  ["účastníci", /pocet_ucastniku/iu]
+  ["účastníci", /pocet_ucastniku/iu],
+  ["odkaz", /https?:\/\/|\bwww\./iu]
 ];
 
 export function localNames(): string[] {

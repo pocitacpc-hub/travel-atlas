@@ -257,7 +257,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 
 - Body míst a Návraty berou jen ověřená místa z `mista.json`. Bez nich je přepínač Státy / Místa skrytý a Návraty mají prázdný stav.
 - Místo štítku „kolo“ se zobrazují chipy z pole `zamereni`. Box „Kontrola dat“ a varování o překryvu v tooltipu nejsou.
-- Detail bez popisu nemá prázdný rámeček. Pole `popis` se zobrazí jako sekce „O cestě“, jakmile bude ve zdroji.
+- Detail bez popisu nemá prázdný rámeček. Pole `popis` se zobrazí jako první panel „O cestě“: text 16 px, místa **tučně** v `--ink`, kurzíva serifem, odstavce a odrážky.
 - Neznámé ID v `cesta.html?id=` ukáže „Cesta nenalezena“, nepřesměruje na poslední cestu.
 - Fakt „Letos“ je „Rok 2026“ s datem dat, aby po přelomu roku netvrdil nepravdu.
 - Hledání v Kronice nerozlišuje diakritiku a prohledává i název státu.

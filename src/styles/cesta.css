@@ -21,7 +21,11 @@ h2.sec .fi { margin-right: 8px; font-size: 20px; vertical-align: -.02em; }
 .sport div { padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
 .sport b { display: block; font: 400 26px/1.1 var(--serif); }
 .sport span { color: var(--muted); font-size: 13px; }
-.popis p { margin: 8px 0 0; color: var(--ink-2); }
+.popis p, .popis ul { max-width: 46em; margin: 10px 0 0; color: var(--ink-2); font-size: 16px; line-height: 1.6; }
+.popis ul { padding-left: 22px; }
+.popis li { margin: 4px 0; }
+.popis strong { color: var(--ink); font-weight: 600; }
+.popis em { font-family: var(--serif); font-style: italic; }
 .legend { margin-top: 8px; }
 .list { margin: 6px 0 0; padding: 0; list-style: none; }
 .list a { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 9px 0; border-top: 1px solid var(--line); text-decoration: none; }
