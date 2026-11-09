@@ -82,11 +82,13 @@ describe("Export cest", () => {
       sample("t-000006", { rok: 2025, mesic: null, presnost_terminu: "rok" }),
       sample("t-000007", { stav: "planovana" }),
       sample("t-000008", { zverejnit: false }),
-      sample("t-000009", { rok: null, mesic: null, presnost_terminu: "neznamy" })
+      sample("t-000009", { rok: null, mesic: null, presnost_terminu: "neznamy" }),
+      sample("t-000010", { stav: "zrusena", zverejnit: false })
     ];
     const result = buildExport(sources, catalog, options);
     expect(result.errors).toEqual([]);
     expect(result.trips.cesty.map((trip) => trip.id)).toEqual(["t-000001", "t-000003", "t-000006", "t-000009"]);
+    expect(result.skipped).toContainEqual({ file: "t-000010.md", text: "stav zrusena" });
   });
 
   it("čte pouze hlavičku, povolené součty a ověřená místa podle aliasů", async () => {
@@ -103,11 +105,18 @@ describe("Export cest", () => {
       const parsed = await readTripHeader(file);
       expect(parsed).not.toBeNull();
       const source = { file: "test.md", fields: parsed! };
-      const first = buildExport([source], catalog, options);
+      // Test nezávisí na tom, zda je Alcossebre v číselníku už ověřené.
+      const candidate = catalog.placesById.get("alcossebre")!;
+      const unverified = { ...candidate, overeno: false };
+      const unverifiedCatalog = {
+        ...catalog,
+        placesById: new Map(catalog.placesById).set(unverified.id, unverified),
+        placesByName: new Map(catalog.placesByName).set("alcoceber", unverified)
+      };
+      const first = buildExport([source], unverifiedCatalog, options);
       expect(first.warnings.some(({ text }) => text.includes("čeká na ověření"))).toBe(true);
       expect(first.places.mista).toEqual([]);
 
-      const candidate = catalog.placesById.get("alcossebre")!;
       const verified = { ...candidate, overeno: true };
       const adjustedCatalog = {
         ...catalog,

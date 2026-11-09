@@ -9,7 +9,7 @@ Jeden Markdown představuje jednu cestu. Metadata začínají oddělovačem `---
 | `typ` | `cesta` |
 | `id` | Náhodné a jedinečné `t-` a šest malých znaků z `[a-z0-9]`. Po přidělení ho neměň. |
 | `nazev` | Název, který smí být veřejný. |
-| `stav` | `probehla`, `planovana` nebo `neoverena`. |
+| `stav` | `probehla`, `planovana`, `neoverena` nebo `zrusena` (cesta se nekonala). |
 | `zverejnit` | YAML boolean `true` nebo `false`. |
 | `zeme` | Český název hlavního státu z [číselníku](https://github.com/pocitacpc-hub/travel-atlas/blob/main/data/zeme.json). |
 | `zacatek`, `konec` | Kalendářní data `RRRR-MM-DD` nebo `null`. Při přesnosti `den` jsou povinná obě data a konec nesmí být před začátkem. |

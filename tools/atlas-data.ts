@@ -33,7 +33,7 @@ export interface Metadata {
   typ: "cesta";
   id: string;
   nazev: string;
-  stav: "probehla" | "planovana" | "neoverena";
+  stav: "probehla" | "planovana" | "neoverena" | "zrusena";
   zverejnit: boolean;
   zeme: string;
   zacatek: string | null;
@@ -70,7 +70,7 @@ export interface Place {
   lon: number;
   presnost: "obec" | "oblast";
 }
-interface Candidate extends Place { aliasy: string[]; overeno: boolean }
+interface Candidate extends Place { aliasy: string[]; overeno: boolean; wikidata?: string }
 interface Country { nazev: string; iso: string; vlajka: string }
 interface Envelope { schemaVersion: 1; generated: true; dataAsOf: string }
 export interface TripsFile extends Envelope { cesty: Trip[] }

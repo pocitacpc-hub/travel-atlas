@@ -62,6 +62,10 @@
       },
       "overeno": {
         "type": "boolean"
+      },
+      "wikidata": {
+        "type": "string",
+        "pattern": "^Q[1-9][0-9]*$"
       }
     }
   }

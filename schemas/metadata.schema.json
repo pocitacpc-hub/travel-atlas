@@ -31,7 +31,8 @@
       "enum": [
         "probehla",
         "planovana",
-        "neoverena"
+        "neoverena",
+        "zrusena"
       ]
     },
     "zverejnit": {

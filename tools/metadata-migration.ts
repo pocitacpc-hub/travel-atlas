@@ -7,7 +7,8 @@ import { type Catalog, type Focus, date, isRecord, normalizeName, parseYaml } fr
 import { compare, normalizeLegacy } from "./trip-export";
 
 const idPattern = /^t-[a-z0-9]{6}$/u;
-const fields = ["id", "stav", "zverejnit", "presnost_terminu", "rok", "mesic", "mista", "zamereni", "dalsi_zeme", "zacatek", "konec"] as const;
+const fields = ["id", "stav", "zverejnit", "presnost_terminu", "rok", "mesic", "pocet_noci", "mista", "zamereni", "dalsi_zeme", "zacatek", "konec"] as const;
+const coarseTermKeys = ["rok", "mesic", "presnost_terminu", "pocet_noci"];
 const focusTags: Focus[] = ["kolo", "turistika", "more", "hory", "mesto", "chata", "kemp", "akce"];
 type Fields = Record<string, unknown>;
 
@@ -67,7 +68,21 @@ function stringList(value: unknown): value is string[] {
     && new Set(value).size === value.length;
 }
 
-const category = ({ zmeny }: Proposal) => Object.hasOwn(zmeny, "zacatek") ? "termin" : Object.keys(zmeny)[0]!;
+const isCoarseTerm = (zmeny: Fields) => Object.hasOwn(zmeny, "presnost_terminu");
+const category = ({ zmeny }: Proposal) =>
+  Object.hasOwn(zmeny, "zacatek") || isCoarseTerm(zmeny) ? "termin" : Object.keys(zmeny)[0]!;
+const year = (value: unknown) => typeof value === "number" && Number.isInteger(value) && value >= 1 && value <= 9999;
+
+// Termín bez přesných dnů: rok a měsíc (přesnost mesic), nebo jen rok (přesnost rok), volitelně počet nocí.
+function validCoarseTerm(zmeny: Fields): boolean {
+  const keys = Object.keys(zmeny);
+  if (!isCoarseTerm(zmeny) || !keys.every((key) => coarseTermKeys.includes(key)) || !year(zmeny.rok)) return false;
+  const nights = zmeny.pocet_noci;
+  if (nights !== undefined && !(typeof nights === "number" && Number.isInteger(nights) && nights >= 0)) return false;
+  const month = zmeny.mesic;
+  if (zmeny.presnost_terminu === "mesic") return typeof month === "number" && Number.isInteger(month) && month >= 1 && month <= 12;
+  return zmeny.presnost_terminu === "rok" && (month === undefined || month === null);
+}
 const tripKey = (name: unknown, year: unknown) => JSON.stringify([name, year ?? null]);
 
 export function readProposals(value: unknown, catalog: Catalog): Proposal[] {
@@ -89,7 +104,7 @@ export function readProposals(value: unknown, catalog: Catalog): Proposal[] {
       || (kind === "dalsi_zeme" && values.every((name) => catalog.countriesByName.has(normalizeName(name))))
       || (kind === "zamereni" && values.every((tag) => focusTags.includes(tag as Focus)))
     );
-    if (!validDates && !validList) throw invalid();
+    if (!validDates && !validList && !validCoarseTerm(zmeny)) throw invalid();
     const proposal = { nazev: row.nazev, rok: row.rok, potvrzeno: row.potvrzeno, zmeny };
     const key = `${tripKey(row.nazev, row.rok)}:${category(proposal)}`;
     if (keys.has(key)) throw invalid();
@@ -160,7 +175,18 @@ function initialFields(original: Fields, warn: (message: string) => void): Field
 
 function applyProposal(next: Fields, proposal: Proposal): void {
   const kind = category(proposal);
-  if (kind === "termin") {
+  if (kind === "termin" && isCoarseTerm(proposal.zmeny)) {
+    const { rok, mesic = null, presnost_terminu, pocet_noci } = proposal.zmeny;
+    if (next.zacatek !== null || next.konec !== null) throw new Error("Návrh termínu bez dnů nesmí přepsat přesné dny.");
+    if ((next.rok !== null && next.rok !== rok) || (next.mesic !== null && next.mesic !== mesic)) {
+      throw new Error("Návrh termínu se liší od již vyplněného roku nebo měsíce.");
+    }
+    if (pocet_noci !== undefined && next.pocet_noci !== null && next.pocet_noci !== undefined && next.pocet_noci !== pocet_noci) {
+      throw new Error("Návrh počtu nocí se liší od již vyplněného.");
+    }
+    Object.assign(next, { rok, mesic, presnost_terminu });
+    if (pocet_noci !== undefined) next.pocet_noci = pocet_noci;
+  } else if (kind === "termin") {
     const { zacatek, konec } = proposal.zmeny;
     if (!date(zacatek) || !date(konec)) throw new Error("Návrh termínu musí obsahovat platná data.");
     if ((next.zacatek !== null && next.zacatek !== zacatek) || (next.konec !== null && next.konec !== konec)) {

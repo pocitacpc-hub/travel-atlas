@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generated": true,
-  "dataAsOf": "2026-11-08",
+  "dataAsOf": "2026-11-09",
   "cesty": [
     {
       "id": "t-026h7h",
@@ -14,7 +14,9 @@
       "mesic": 9,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "vaclavov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -30,7 +32,11 @@
       "mesic": 5,
       "presnostTerminu": "mesic",
       "pocetNoci": 4,
-      "mista": [],
+      "mista": [
+        "bled",
+        "izola",
+        "piran"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -51,7 +57,9 @@
       "mesic": 7,
       "presnostTerminu": "mesic",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "santa-susanna"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -67,7 +75,9 @@
       "mesic": 10,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "kouty-nad-desnou"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -99,7 +109,9 @@
       "mesic": 5,
       "presnostTerminu": "mesic",
       "pocetNoci": 3,
-      "mista": [],
+      "mista": [
+        "dublin"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -115,7 +127,9 @@
       "mesic": 3,
       "presnostTerminu": "mesic",
       "pocetNoci": 8,
-      "mista": [],
+      "mista": [
+        "porec"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -136,7 +150,9 @@
       "mesic": null,
       "presnostTerminu": "neznamy",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "jesolo"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -152,7 +168,9 @@
       "mesic": 1,
       "presnostTerminu": "den",
       "pocetNoci": 5,
-      "mista": [],
+      "mista": [
+        "londyn"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -168,7 +186,9 @@
       "mesic": 11,
       "presnostTerminu": "mesic",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "mala-moravka"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -189,7 +209,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "roznov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -205,7 +227,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "ca-savio"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -221,7 +245,9 @@
       "mesic": 12,
       "presnostTerminu": "den",
       "pocetNoci": 3,
-      "mista": [],
+      "mista": [
+        "palma"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -242,7 +268,9 @@
       "mesic": 5,
       "presnostTerminu": "den",
       "pocetNoci": 4,
-      "mista": [],
+      "mista": [
+        "rim"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -258,7 +286,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 1,
-      "mista": [],
+      "mista": [
+        "zlin"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -274,7 +304,9 @@
       "mesic": 3,
       "presnostTerminu": "mesic",
       "pocetNoci": 8,
-      "mista": [],
+      "mista": [
+        "tribunj"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -295,7 +327,9 @@
       "mesic": 3,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "horni-becva"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -316,7 +350,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "pasohlavky"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -332,7 +368,10 @@
       "mesic": 7,
       "presnostTerminu": "den",
       "pocetNoci": 10,
-      "mista": [],
+      "mista": [
+        "chalkidiki",
+        "sarti"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -348,7 +387,9 @@
       "mesic": 5,
       "presnostTerminu": "den",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "lipova-lazne"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -364,7 +405,9 @@
       "mesic": 9,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "vaclavov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -380,7 +423,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "oslo"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -396,7 +441,9 @@
       "mesic": 7,
       "presnostTerminu": "mesic",
       "pocetNoci": 3,
-      "mista": [],
+      "mista": [
+        "myto-pod-dumbierom"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -412,7 +459,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "myto-pod-dumbierom"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -428,7 +477,9 @@
       "mesic": 6,
       "presnostTerminu": "mesic",
       "pocetNoci": 1,
-      "mista": [],
+      "mista": [
+        "roznov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -444,7 +495,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "fazana"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -460,7 +513,9 @@
       "mesic": 9,
       "presnostTerminu": "mesic",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "trojanovice"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -481,7 +536,9 @@
       "mesic": 5,
       "presnostTerminu": "den",
       "pocetNoci": 4,
-      "mista": [],
+      "mista": [
+        "vapenna"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -497,7 +554,9 @@
       "mesic": null,
       "presnostTerminu": "rok",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "chalkidiki"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -513,7 +572,9 @@
       "mesic": null,
       "presnostTerminu": "rok",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "korfu"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -529,7 +590,9 @@
       "mesic": null,
       "presnostTerminu": "rok",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "visalaje"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -545,7 +608,9 @@
       "mesic": 7,
       "presnostTerminu": "den",
       "pocetNoci": 11,
-      "mista": [],
+      "mista": [
+        "sv-filip"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -561,7 +626,9 @@
       "mesic": null,
       "presnostTerminu": "rok",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "pula"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -577,7 +644,9 @@
       "mesic": 7,
       "presnostTerminu": "den",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "visalaje"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -593,7 +662,9 @@
       "mesic": 2,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "branna"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -609,7 +680,9 @@
       "mesic": 5,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "kouty-nad-desnou"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -625,7 +698,9 @@
       "mesic": null,
       "presnostTerminu": "rok",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "praha"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -641,7 +716,9 @@
       "mesic": null,
       "presnostTerminu": "rok",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "visalaje"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -657,7 +734,9 @@
       "mesic": null,
       "presnostTerminu": "rok",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "pec"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -673,7 +752,9 @@
       "mesic": 10,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "vaclavov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -689,7 +770,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "nitra"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -705,7 +788,9 @@
       "mesic": 6,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "lednice"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -726,7 +811,9 @@
       "mesic": 9,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "vaclavov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -742,7 +829,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "moravka"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -758,7 +847,9 @@
       "mesic": 6,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "babia-hora"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -774,7 +865,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 1,
-      "mista": [],
+      "mista": [
+        "roznov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -790,7 +883,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "roznov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -806,7 +901,9 @@
       "mesic": 3,
       "presnostTerminu": "den",
       "pocetNoci": 8,
-      "mista": [],
+      "mista": [
+        "porec"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -827,7 +924,9 @@
       "mesic": 11,
       "presnostTerminu": "den",
       "pocetNoci": 4,
-      "mista": [],
+      "mista": [
+        "malaga"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -848,7 +947,9 @@
       "mesic": 3,
       "presnostTerminu": "mesic",
       "pocetNoci": 8,
-      "mista": [],
+      "mista": [
+        "porec"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -890,7 +991,9 @@
       "mesic": 11,
       "presnostTerminu": "den",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "vaclavov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -906,7 +1009,9 @@
       "mesic": 5,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "mala-fatra"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -922,7 +1027,9 @@
       "mesic": 9,
       "presnostTerminu": "mesic",
       "pocetNoci": 1,
-      "mista": [],
+      "mista": [
+        "praha"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -938,7 +1045,9 @@
       "mesic": 7,
       "presnostTerminu": "mesic",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "vir"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -959,7 +1068,9 @@
       "mesic": 7,
       "presnostTerminu": "den",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "visalaje"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -975,7 +1086,9 @@
       "mesic": 7,
       "presnostTerminu": "den",
       "pocetNoci": 9,
-      "mista": [],
+      "mista": [
+        "alba"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -991,7 +1104,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 4,
-      "mista": [],
+      "mista": [
+        "vranov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1007,7 +1122,9 @@
       "mesic": 7,
       "presnostTerminu": "den",
       "pocetNoci": 3,
-      "mista": [],
+      "mista": [
+        "liptovsky"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1023,7 +1140,9 @@
       "mesic": 7,
       "presnostTerminu": "den",
       "pocetNoci": 1,
-      "mista": [],
+      "mista": [
+        "bruck"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -1044,7 +1163,9 @@
       "mesic": 9,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "vaclavov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1060,7 +1181,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "roznov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1076,7 +1199,10 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "lednice",
+        "pasohlavky"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1092,7 +1218,9 @@
       "mesic": 6,
       "presnostTerminu": "den",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "visalaje"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1108,7 +1236,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "bormio"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -1129,7 +1259,9 @@
       "mesic": 8,
       "presnostTerminu": "den",
       "pocetNoci": 13,
-      "mista": [],
+      "mista": [
+        "paestum"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1145,7 +1277,9 @@
       "mesic": 10,
       "presnostTerminu": "den",
       "pocetNoci": 4,
-      "mista": [],
+      "mista": [
+        "alicante"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -1182,7 +1316,9 @@
       "mesic": 7,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "roznov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1198,7 +1334,9 @@
       "mesic": null,
       "presnostTerminu": "rok",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "visalaje"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1214,7 +1352,9 @@
       "mesic": 5,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "ondrejovice"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1230,7 +1370,9 @@
       "mesic": 6,
       "presnostTerminu": "den",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "dolni-moravice"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1246,7 +1388,9 @@
       "mesic": 6,
       "presnostTerminu": "den",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "velka-kras"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1262,7 +1406,9 @@
       "mesic": 9,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "vaclavov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1278,7 +1424,9 @@
       "mesic": 7,
       "presnostTerminu": "mesic",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "martinsicuro"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1294,7 +1442,9 @@
       "mesic": null,
       "presnostTerminu": "rok",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "palamos"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1326,7 +1476,9 @@
       "mesic": null,
       "presnostTerminu": "rok",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "vieste"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1342,7 +1494,9 @@
       "mesic": 8,
       "presnostTerminu": "den",
       "pocetNoci": 13,
-      "mista": [],
+      "mista": [
+        "martinsicuro"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1358,7 +1512,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 3,
-      "mista": [],
+      "mista": [
+        "praha"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1381,16 +1537,18 @@
     },
     {
       "id": "t-upj9rl",
-      "nazev": "Chorvatsko – ostrov Korčula",
+      "nazev": "Chorvatsko – ostrov Korčula, Vela Luka (hotel Adria)",
       "zeme": "HR",
       "dalsiZeme": [],
       "zacatek": null,
       "konec": null,
-      "rok": null,
-      "mesic": null,
-      "presnostTerminu": "neznamy",
-      "pocetNoci": null,
-      "mista": [],
+      "rok": 1994,
+      "mesic": 7,
+      "presnostTerminu": "mesic",
+      "pocetNoci": 10,
+      "mista": [
+        "vela-luka"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1406,7 +1564,9 @@
       "mesic": 5,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "kouty-nad-desnou"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1422,7 +1582,9 @@
       "mesic": 7,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "olomouc"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1459,7 +1621,11 @@
       "mesic": 9,
       "presnostTerminu": "den",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "lisboa",
+        "porto",
+        "sintra"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -1480,7 +1646,10 @@
       "mesic": 5,
       "presnostTerminu": "mesic",
       "pocetNoci": 1,
-      "mista": [],
+      "mista": [
+        "breclav",
+        "brno"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1496,7 +1665,9 @@
       "mesic": 7,
       "presnostTerminu": "den",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "jaroslavice"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -1517,7 +1688,9 @@
       "mesic": null,
       "presnostTerminu": "rok",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "fazana"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1533,7 +1706,9 @@
       "mesic": 8,
       "presnostTerminu": "den",
       "pocetNoci": 13,
-      "mista": [],
+      "mista": [
+        "alcossebre"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1549,7 +1724,9 @@
       "mesic": 5,
       "presnostTerminu": "mesic",
       "pocetNoci": 5,
-      "mista": [],
+      "mista": [
+        "domazlice"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -1570,7 +1747,9 @@
       "mesic": 7,
       "presnostTerminu": "den",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "jastrzebia"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -1591,7 +1770,9 @@
       "mesic": null,
       "presnostTerminu": "neznamy",
       "pocetNoci": null,
-      "mista": [],
+      "mista": [
+        "sirava"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null
@@ -1607,7 +1788,9 @@
       "mesic": 5,
       "presnostTerminu": "mesic",
       "pocetNoci": 6,
-      "mista": [],
+      "mista": [
+        "jizerske"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -1628,7 +1811,9 @@
       "mesic": 7,
       "presnostTerminu": "den",
       "pocetNoci": 8,
-      "mista": [],
+      "mista": [
+        "murter"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": {
@@ -1649,7 +1834,9 @@
       "mesic": 8,
       "presnostTerminu": "mesic",
       "pocetNoci": 2,
-      "mista": [],
+      "mista": [
+        "roznov"
+      ],
       "zamereni": [],
       "popis": null,
       "sport": null

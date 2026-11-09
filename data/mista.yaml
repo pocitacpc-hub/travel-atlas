@@ -1,59 +1,76 @@
-# Kandidáti z prototypu. Souřadnice jsou ilustrační do ručního ověření.
+# Číselník míst. Souřadnice a identifikátor jsou z Wikidat, přesnost nejvýš na úroveň obce nebo její části.
+# Ověřeno a schváleno Martinem 9. 11. 2026, podklad: docs/analysis/2026-11-09-overeni-mist.md.
 - id: alba
   nazev: Alba Adriatica
   aliasy: []
   zeme: IT
   oblast: null
-  lat: 42.83
-  lon: 13.93
+  lat: 42.833
+  lon: 13.917
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q51417
 - id: alcossebre
   nazev: Alcossebre
   aliasy:
     - Alcoceber
   zeme: ES
   oblast: null
-  lat: 40.25
-  lon: 0.28
+  lat: 40.245
+  lon: 0.277
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q2832200
 - id: alicante
   nazev: Alicante
   aliasy: []
   zeme: ES
   oblast: null
   lat: 38.345
-  lon: -0.481
+  lon: -0.483
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q11959
 - id: babia-hora
   nazev: Babia hora
   aliasy: []
   zeme: SK
   oblast: null
-  lat: 49.573
+  lat: 49.57
   lon: 19.53
   presnost: oblast
-  overeno: false
+  overeno: true
+  wikidata: Q595780
 - id: bled
   nazev: Bled
   aliasy: []
   zeme: SI
   oblast: null
-  lat: 46.369
-  lon: 14.114
+  lat: 46.368
+  lon: 14.115
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q202852
 - id: bormio
   nazev: Bormio
   aliasy: []
   zeme: IT
   oblast: null
-  lat: 46.468
-  lon: 10.37
+  lat: 46.469
+  lon: 10.372
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q40516
+- id: branna
+  nazev: Branná
+  aliasy: []
+  zeme: CZ
+  oblast: null
+  lat: 50.153
+  lon: 17.012
+  presnost: obec
+  overeno: true
+  wikidata: Q898791
 - id: breclav
   nazev: Břeclav
   aliasy: []
@@ -62,7 +79,8 @@
   lat: 48.759
   lon: 16.882
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q581478
 - id: brno
   nazev: Brno
   aliasy: []
@@ -71,70 +89,98 @@
   lat: 49.195
   lon: 16.608
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q14960
 - id: bruck
   nazev: Bruck an der Mur
   aliasy: []
   zeme: AT
   oblast: null
-  lat: 47.41
-  lon: 15.27
+  lat: 47.411
+  lon: 15.269
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q259893
+- id: ca-savio
+  nazev: Ca' Savio
+  aliasy: []
+  zeme: IT
+  oblast: null
+  lat: 45.454
+  lon: 12.457
+  presnost: obec
+  overeno: true
+  wikidata: Q18503017
 - id: cavallino
   nazev: Cavallino-Treporti
   aliasy: []
   zeme: IT
   oblast: null
-  lat: 45.46
-  lon: 12.48
+  lat: 45.454
+  lon: 12.454
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q47995
+- id: dolni-moravice
+  nazev: Dolní Moravice
+  aliasy: []
+  zeme: CZ
+  oblast: null
+  lat: 49.977
+  lon: 17.322
+  presnost: obec
+  overeno: true
+  wikidata: Q1236151
 - id: domazlice
   nazev: Domažlice
   aliasy: []
   zeme: CZ
   oblast: null
-  lat: 49.44
+  lat: 49.441
   lon: 12.93
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q986068
 - id: dublin
   nazev: Dublin
   aliasy: []
   zeme: IE
   oblast: null
-  lat: 53.349
+  lat: 53.35
   lon: -6.26
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q1761
 - id: fazana
   nazev: Fažana
   aliasy: []
   zeme: HR
   oblast: null
-  lat: 44.927
-  lon: 13.803
+  lat: 44.928
+  lon: 13.804
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q1024726
 - id: horni-becva
   nazev: Horní Bečva
   aliasy: []
   zeme: CZ
   oblast: null
-  lat: 49.43
-  lon: 18.29
+  lat: 49.432
+  lon: 18.289
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q2232658
 - id: chalkidiki
   nazev: Chalkidiki
   aliasy: []
   zeme: GR
   oblast: null
-  lat: 40.3
+  lat: 40.58
   lon: 23.5
   presnost: oblast
-  overeno: false
+  overeno: true
+  wikidata: Q204728
 - id: izola
   nazev: Izola
   aliasy: []
@@ -143,70 +189,88 @@
   lat: 45.539
   lon: 13.66
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q15877
 - id: jaroslavice
   nazev: Jaroslavice
   aliasy: []
   zeme: CZ
   oblast: null
-  lat: 48.758
+  lat: 48.757
   lon: 16.233
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q787877
 - id: jastrzebia
   nazev: Jastrzębia Góra
   aliasy: []
   zeme: PL
   oblast: null
-  lat: 54.83
-  lon: 18.3
+  lat: 54.831
+  lon: 18.313
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q1021252
 - id: jeseniky
   nazev: Jeseníky
   aliasy: []
   zeme: CZ
   oblast: null
   lat: 50.08
-  lon: 17.2
+  lon: 17.17
   presnost: oblast
-  overeno: false
+  overeno: true
+  wikidata: Q280987
 - id: jesolo
   nazev: Lido di Jesolo
   aliasy: []
   zeme: IT
   oblast: null
-  lat: 45.5
-  lon: 12.64
+  lat: 45.502
+  lon: 12.633
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q6543738
 - id: jizerske
   nazev: Jizerské hory
   aliasy: []
   zeme: CZ
   oblast: null
-  lat: 50.82
+  lat: 50.83
   lon: 15.25
   presnost: oblast
-  overeno: false
+  overeno: true
+  wikidata: Q1345416
 - id: korcula
   nazev: Korčula
   aliasy: []
   zeme: HR
   oblast: null
-  lat: 42.96
-  lon: 17.14
+  lat: 42.95
+  lon: 16.9
   presnost: oblast
-  overeno: false
+  overeno: true
+  wikidata: Q13288
 - id: korfu
   nazev: Korfu
   aliasy: []
   zeme: GR
   oblast: null
-  lat: 39.62
-  lon: 19.92
+  lat: 39.6
+  lon: 19.87
   presnost: oblast
-  overeno: false
+  overeno: true
+  wikidata: Q121378
+- id: kouty-nad-desnou
+  nazev: Kouty nad Desnou
+  aliasy: []
+  zeme: CZ
+  oblast: null
+  lat: 50.1
+  lon: 17.107
+  presnost: obec
+  overeno: true
+  wikidata: Q1512019
 - id: lednice
   nazev: Lednice
   aliasy: []
@@ -215,26 +279,39 @@
   lat: 48.8
   lon: 16.803
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q1017320
+- id: lipova-lazne
+  nazev: Lipová-lázně
+  aliasy: []
+  zeme: CZ
+  oblast: null
+  lat: 50.228
+  lon: 17.14
+  presnost: obec
+  overeno: true
+  wikidata: Q1025170
 - id: liptovsky
   nazev: Liptovský Mikuláš
   aliasy: []
   zeme: SK
   oblast: null
-  lat: 49.083
-  lon: 19.612
+  lat: 49.081
+  lon: 19.618
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q272040
 - id: lisboa
   nazev: Lisabon
   aliasy:
     - Lisboa
   zeme: PT
   oblast: null
-  lat: 38.722
+  lat: 38.708
   lon: -9.139
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q597
 - id: londyn
   nazev: Londýn
   aliasy: []
@@ -243,70 +320,98 @@
   lat: 51.507
   lon: -0.128
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q84
 - id: mala-fatra
   nazev: Malá Fatra
   aliasy: []
   zeme: SK
   oblast: null
-  lat: 49.2
-  lon: 19.05
+  lat: 49.19
+  lon: 19.03
   presnost: oblast
-  overeno: false
+  overeno: true
+  wikidata: Q523671
+- id: mala-moravka
+  nazev: Malá Morávka
+  aliasy: []
+  zeme: CZ
+  oblast: null
+  lat: 50.021
+  lon: 17.312
+  presnost: obec
+  overeno: true
+  wikidata: Q268409
 - id: malaga
   nazev: Málaga
   aliasy: []
   zeme: ES
   oblast: null
-  lat: 36.721
-  lon: -4.421
+  lat: 36.717
+  lon: -4.417
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q8851
 - id: martinsicuro
   nazev: Martinsicuro
   aliasy: []
   zeme: IT
   oblast: null
   lat: 42.885
-  lon: 13.915
+  lon: 13.916
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q51452
 - id: moravka
   nazev: Morávka
   aliasy: []
   zeme: CZ
   oblast: null
-  lat: 49.6
-  lon: 18.52
+  lat: 49.596
+  lon: 18.525
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q1691438
 - id: murter
   nazev: Murter
   aliasy: []
   zeme: HR
   oblast: null
   lat: 43.82
-  lon: 15.59
+  lon: 15.592
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q3503912
+- id: myto-pod-dumbierom
+  nazev: Mýto pod Ďumbierom
+  aliasy: []
+  zeme: SK
+  oblast: null
+  lat: 48.854
+  lon: 19.633
+  presnost: obec
+  overeno: true
+  wikidata: Q1074354
 - id: nitra
   nazev: Nitra
   aliasy: []
   zeme: SK
   oblast: null
-  lat: 48.307
+  lat: 48.315
   lon: 18.087
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q26397
 - id: nizke-tatry
   nazev: Nízké Tatry
   aliasy: []
   zeme: SK
   oblast: null
-  lat: 48.93
-  lon: 19.6
+  lat: 48.95
+  lon: 19.5
   presnost: oblast
-  overeno: false
+  overeno: true
+  wikidata: Q558893
 - id: olomouc
   nazev: Olomouc
   aliasy: []
@@ -315,70 +420,88 @@
   lat: 49.594
   lon: 17.251
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q81137
+- id: ondrejovice
+  nazev: Ondřejovice
+  aliasy: []
+  zeme: CZ
+  oblast: null
+  lat: 50.257
+  lon: 17.349
+  presnost: obec
+  overeno: true
+  wikidata: Q11798301
 - id: oslo
   nazev: Oslo
   aliasy: []
   zeme: NO
   oblast: null
-  lat: 59.914
-  lon: 10.752
+  lat: 59.913
+  lon: 10.739
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q585
 - id: paestum
   nazev: Paestum
   aliasy: []
   zeme: IT
   oblast: null
-  lat: 40.42
-  lon: 15.005
+  lat: 40.406
+  lon: 15.002
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q16896941
 - id: palamos
   nazev: Palamós
   aliasy: []
   zeme: ES
   oblast: null
-  lat: 41.846
-  lon: 3.13
+  lat: 41.848
+  lon: 3.129
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q23994224
 - id: palma
   nazev: Palma
   aliasy: []
   zeme: ES
   oblast: null
-  lat: 39.57
+  lat: 39.567
   lon: 2.65
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q8826
 - id: pasohlavky
   nazev: Pasohlávky
   aliasy: []
   zeme: CZ
   oblast: null
-  lat: 48.902
-  lon: 16.553
+  lat: 48.903
+  lon: 16.544
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q965616
 - id: pec
   nazev: Pec pod Sněžkou
   aliasy: []
   zeme: CZ
   oblast: null
-  lat: 50.692
+  lat: 50.694
   lon: 15.733
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q1641742
 - id: piran
   nazev: Piran
   aliasy: []
   zeme: SI
   oblast: null
-  lat: 45.528
-  lon: 13.568
+  lat: 45.527
+  lon: 13.569
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q1382
 - id: porec
   nazev: Poreč
   aliasy: []
@@ -387,7 +510,8 @@
   lat: 45.227
   lon: 13.595
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q5323
 - id: porto
   nazev: Porto
   aliasy: []
@@ -396,159 +520,217 @@
   lat: 41.15
   lon: -8.611
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q36433
 - id: praha
   nazev: Praha
   aliasy: []
   zeme: CZ
   oblast: null
-  lat: 50.075
-  lon: 14.437
+  lat: 50.087
+  lon: 14.421
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q1085
 - id: pula
   nazev: Pula
   aliasy: []
   zeme: HR
   oblast: null
-  lat: 44.866
-  lon: 13.85
+  lat: 44.87
+  lon: 13.846
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q4656
 - id: rim
   nazev: Řím
   aliasy: []
   zeme: IT
   oblast: null
-  lat: 41.902
-  lon: 12.496
+  lat: 41.893
+  lon: 12.483
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q220
 - id: roznov
   nazev: Rožnov pod Radhoštěm
   aliasy:
     - Rožnov
   zeme: CZ
   oblast: null
-  lat: 49.458
+  lat: 49.459
   lon: 18.143
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q1008696
 - id: rychleby
   nazev: Rychlebské hory
   aliasy: []
   zeme: CZ
   oblast: null
-  lat: 50.33
-  lon: 17.06
+  lat: 50.25
+  lon: 17
   presnost: oblast
-  overeno: false
+  overeno: true
+  wikidata: Q1935661
 - id: santa-susanna
   nazev: Santa Susanna
   aliasy: []
   zeme: ES
   oblast: null
-  lat: 41.636
-  lon: 2.711
+  lat: 41.637
+  lon: 2.708
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q12587
 - id: sarti
   nazev: Sarti
   aliasy: []
   zeme: GR
   oblast: null
-  lat: 40.09
-  lon: 23.98
+  lat: 40.097
+  lon: 23.979
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q750762
 - id: sintra
   nazev: Sintra
   aliasy: []
   zeme: PT
   oblast: null
-  lat: 38.8
-  lon: -9.38
+  lat: 38.798
+  lon: -9.388
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q33716124
 - id: sirava
   nazev: Zemplínská Šírava
   aliasy: []
   zeme: SK
   oblast: null
-  lat: 48.8
-  lon: 21.95
+  lat: 48.78
+  lon: 22.04
   presnost: oblast
-  overeno: false
+  overeno: true
+  wikidata: Q189395
 - id: sv-filip
   nazev: Sveti Filip i Jakov
   aliasy: []
   zeme: HR
   oblast: null
-  lat: 43.965
-  lon: 15.43
+  lat: 43.961
+  lon: 15.425
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q1014083
 - id: tribunj
   nazev: Tribunj
   aliasy: []
   zeme: HR
   oblast: null
-  lat: 43.753
-  lon: 15.748
+  lat: 43.756
+  lon: 15.746
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q607058
 - id: trojanovice
   nazev: Trojanovice
   aliasy: []
   zeme: CZ
   oblast: null
   lat: 49.52
-  lon: 18.23
+  lon: 18.238
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q973536
+- id: vaclavov
+  nazev: Václavov u Bruntálu
+  aliasy: []
+  zeme: CZ
+  oblast: null
+  lat: 49.975
+  lon: 17.376
+  presnost: obec
+  overeno: true
+  wikidata: Q2353719
+- id: vapenna
+  nazev: Vápenná
+  aliasy: []
+  zeme: CZ
+  oblast: null
+  lat: 50.283
+  lon: 17.098
+  presnost: obec
+  overeno: true
+  wikidata: Q775829
+- id: vela-luka
+  nazev: Vela Luka
+  aliasy: []
+  zeme: HR
+  oblast: null
+  lat: 42.961
+  lon: 16.719
+  presnost: obec
+  overeno: true
+  wikidata: Q994341
+- id: velka-kras
+  nazev: Velká Kraš
+  aliasy: []
+  zeme: CZ
+  oblast: null
+  lat: 50.363
+  lon: 17.146
+  presnost: obec
+  overeno: true
+  wikidata: Q1017294
 - id: vieste
   nazev: Vieste
   aliasy: []
   zeme: IT
   oblast: null
-  lat: 41.882
-  lon: 16.176
+  lat: 41.883
+  lon: 16.167
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q51967
 - id: vir
   nazev: Vir
   aliasy: []
   zeme: HR
   oblast: null
   lat: 44.3
-  lon: 15.08
+  lon: 15.09
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q426522
 - id: visalaje
   nazev: Visalaje (Beskydy)
   aliasy:
     - Visalaje
   zeme: CZ
   oblast: null
-  lat: 49.52
-  lon: 18.43
+  lat: 49.519
+  lon: 18.527
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q11903432
 - id: vranov
   nazev: Vranov nad Dyjí
   aliasy: []
   zeme: CZ
   oblast: null
-  lat: 48.893
-  lon: 15.811
+  lat: 48.895
+  lon: 15.813
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q585050
 - id: zlin
   nazev: Zlín
   aliasy: []
   zeme: CZ
   oblast: null
-  lat: 49.226
+  lat: 49.233
   lon: 17.667
   presnost: obec
-  overeno: false
+  overeno: true
+  wikidata: Q171018

@@ -1,5 +1,13 @@
 # Změny
 
+## 9. 11. 2026 – fáze E (místa)
+
+- Číselník 73 míst ověřený proti Wikidatům. Souřadnice a identifikátor jsou z Wikidat, přesnost nejvýš na úroveň obce.
+- Martin schválil přiřazení míst k 90 cestám. Migrace je zapsala do YAML hlaviček na Drivu se zálohou, druhý běh měl nula změn.
+- Migrace umí doplnit rok, měsíc a počet nocí cestě bez přesných dnů. Korčula je nově červenec 1994, 10 nocí.
+- Kontrakt metadat zná stav `zrusena` pro cestu, která se nekonala.
+- Export obsahuje 68 ověřených míst. Mapa na Přehledu má vrstvu Místa a Návraty.
+
 ## 8. 11. 2026 – fáze D (web MVP)
 
 - Přehled, Kronika, Statistiky a detail cesty podle prototypu v2, přepsané do TypeScriptu s testy výpočtů a formátování.

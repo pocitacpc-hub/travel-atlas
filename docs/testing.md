@@ -53,3 +53,17 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - `npm run check` prošel na Node.js 26.1.0: 6 souborů, 33 testů.
 - Chrome na 1440 a 390 px: Přehled, Kronika (i s filtrem), Statistiky (Měsíce i Celé roky) a detail měly `scrollWidth` rovný šířce okna a žádné chyby JavaScriptu. Interakce z bodu 3 odpovídaly očekávání.
 - Po sloučení do `main` prošly [kontrola i nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42518613640). Na veřejné adrese vrátily všechny čtyři stránky a jejich soubory HTTP 200. V Chrome měly na 1440 i 390 px `scrollWidth` rovný šířce okna a žádné chyby JavaScriptu.
+
+## Fáze E
+
+- `tests/migration.test.ts` nově ověřuje doplnění roku, měsíce a nocí cestě bez data a odmítnutí neplatného měsíce, přesnosti `rok` s měsícem, přesnosti `den`, záporných nocí a přepisu již vyplněného roku.
+- `tests/export.test.ts` ověřuje, že cesta se stavem `zrusena` se nezveřejní. Testy neověřeného místa používají vlastní kopii číselníku, takže nezávisí na stavu `data/mista.yaml`.
+- `validate-content` kontroluje, že každé veřejné místo je v číselníku ověřené a shoduje se s ním.
+
+### Ověření při předání (9. 11. 2026, lokálně)
+
+- Zkouška migrace: 89 navržených změn, přísný náhled 96 cest. Zápis vytvořil ověřenou zálohu a přepsal 89 hlaviček. Druhý běh měl nula změn. Těla všech Markdownů a soubory bez hlavičky jsou bajtově shodné se zálohou.
+- Přísný export: 96 cest, 90 s místem, 68 ověřených míst. Proti předchozímu exportu se kromě míst změnila jen Korčula (rok, měsíc, přesnost, noci, název ze zdroje).
+- `npm run check` prošel: 6 souborů, 34 testů.
+- Chrome na 1440 a 390 px: všechny čtyři stránky bez vodorovného posouvání a bez chyb JavaScriptu. Přehled ukazuje rozsah 1994–2026, vrstva Místa 68 bodů (6 oblastí), Návraty šest míst.
+- Neověřeno: nasazení na Pages.

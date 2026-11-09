@@ -41,7 +41,7 @@ Zdrojové Markdowny, `out/`, místní konfiguraci a seznam jmen drž mimo histor
 
 ## Migrace metadat
 
-Základní migrace proběhla 8. 11. 2026. Rozpis a umístění zálohy jsou v místním `out/`. Další návrhy vyžadují samostatné potvrzení.
+Základní migrace proběhla 8. 11. 2026, zápis míst 9. 11. 2026. Rozpis a umístění poslední zálohy jsou v místním `out/`. Další návrhy vyžadují samostatné potvrzení. Návrh termínu umí buď přesné dny (`zacatek`, `konec`), nebo termín bez dnů (`rok`, `mesic`, `presnost_terminu` a volitelně `pocet_noci`).
 
 1. Spusť `npm run migrate`. Výchozí zkouška vytvoří `out/migrace-report.md` se změnami před a po pro každý záznam a `out/migrace-plan.local.json` se stabilními navrženými ID a otisky souborů. Přísný náhled se ověří v paměti.
 2. Martin vybere položky v [návrzích](data/migrace/2026-11-navrhy.yaml) změnou `potvrzeno: true`. Každý termín, seznam míst nebo zaměření schvaluje samostatně. Cestu návrh identifikuje názvem a rokem. Návrh termínu musí zachovat rok začátku. Případný další stát doplní jako `zmeny: { dalsi_zeme: [Český název státu] }` pouze při doloženém pobytu. Po změně návrhů znovu spusť zkoušku a nech schválit nový rozpis.

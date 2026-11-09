@@ -1,6 +1,619 @@
 {
   "schemaVersion": 1,
   "generated": true,
-  "dataAsOf": "2026-11-08",
-  "mista": []
+  "dataAsOf": "2026-11-09",
+  "mista": [
+    {
+      "id": "alba",
+      "nazev": "Alba Adriatica",
+      "zeme": "IT",
+      "oblast": null,
+      "lat": 42.833,
+      "lon": 13.917,
+      "presnost": "obec"
+    },
+    {
+      "id": "alcossebre",
+      "nazev": "Alcossebre",
+      "zeme": "ES",
+      "oblast": null,
+      "lat": 40.245,
+      "lon": 0.277,
+      "presnost": "obec"
+    },
+    {
+      "id": "alicante",
+      "nazev": "Alicante",
+      "zeme": "ES",
+      "oblast": null,
+      "lat": 38.345,
+      "lon": -0.483,
+      "presnost": "obec"
+    },
+    {
+      "id": "babia-hora",
+      "nazev": "Babia hora",
+      "zeme": "SK",
+      "oblast": null,
+      "lat": 49.57,
+      "lon": 19.53,
+      "presnost": "oblast"
+    },
+    {
+      "id": "bled",
+      "nazev": "Bled",
+      "zeme": "SI",
+      "oblast": null,
+      "lat": 46.368,
+      "lon": 14.115,
+      "presnost": "obec"
+    },
+    {
+      "id": "bormio",
+      "nazev": "Bormio",
+      "zeme": "IT",
+      "oblast": null,
+      "lat": 46.469,
+      "lon": 10.372,
+      "presnost": "obec"
+    },
+    {
+      "id": "branna",
+      "nazev": "Branná",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 50.153,
+      "lon": 17.012,
+      "presnost": "obec"
+    },
+    {
+      "id": "breclav",
+      "nazev": "Břeclav",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 48.759,
+      "lon": 16.882,
+      "presnost": "obec"
+    },
+    {
+      "id": "brno",
+      "nazev": "Brno",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 49.195,
+      "lon": 16.608,
+      "presnost": "obec"
+    },
+    {
+      "id": "bruck",
+      "nazev": "Bruck an der Mur",
+      "zeme": "AT",
+      "oblast": null,
+      "lat": 47.411,
+      "lon": 15.269,
+      "presnost": "obec"
+    },
+    {
+      "id": "ca-savio",
+      "nazev": "Ca' Savio",
+      "zeme": "IT",
+      "oblast": null,
+      "lat": 45.454,
+      "lon": 12.457,
+      "presnost": "obec"
+    },
+    {
+      "id": "chalkidiki",
+      "nazev": "Chalkidiki",
+      "zeme": "GR",
+      "oblast": null,
+      "lat": 40.58,
+      "lon": 23.5,
+      "presnost": "oblast"
+    },
+    {
+      "id": "dolni-moravice",
+      "nazev": "Dolní Moravice",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 49.977,
+      "lon": 17.322,
+      "presnost": "obec"
+    },
+    {
+      "id": "domazlice",
+      "nazev": "Domažlice",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 49.441,
+      "lon": 12.93,
+      "presnost": "obec"
+    },
+    {
+      "id": "dublin",
+      "nazev": "Dublin",
+      "zeme": "IE",
+      "oblast": null,
+      "lat": 53.35,
+      "lon": -6.26,
+      "presnost": "obec"
+    },
+    {
+      "id": "fazana",
+      "nazev": "Fažana",
+      "zeme": "HR",
+      "oblast": null,
+      "lat": 44.928,
+      "lon": 13.804,
+      "presnost": "obec"
+    },
+    {
+      "id": "horni-becva",
+      "nazev": "Horní Bečva",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 49.432,
+      "lon": 18.289,
+      "presnost": "obec"
+    },
+    {
+      "id": "izola",
+      "nazev": "Izola",
+      "zeme": "SI",
+      "oblast": null,
+      "lat": 45.539,
+      "lon": 13.66,
+      "presnost": "obec"
+    },
+    {
+      "id": "jaroslavice",
+      "nazev": "Jaroslavice",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 48.757,
+      "lon": 16.233,
+      "presnost": "obec"
+    },
+    {
+      "id": "jastrzebia",
+      "nazev": "Jastrzębia Góra",
+      "zeme": "PL",
+      "oblast": null,
+      "lat": 54.831,
+      "lon": 18.313,
+      "presnost": "obec"
+    },
+    {
+      "id": "jesolo",
+      "nazev": "Lido di Jesolo",
+      "zeme": "IT",
+      "oblast": null,
+      "lat": 45.502,
+      "lon": 12.633,
+      "presnost": "obec"
+    },
+    {
+      "id": "jizerske",
+      "nazev": "Jizerské hory",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 50.83,
+      "lon": 15.25,
+      "presnost": "oblast"
+    },
+    {
+      "id": "korfu",
+      "nazev": "Korfu",
+      "zeme": "GR",
+      "oblast": null,
+      "lat": 39.6,
+      "lon": 19.87,
+      "presnost": "oblast"
+    },
+    {
+      "id": "kouty-nad-desnou",
+      "nazev": "Kouty nad Desnou",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 50.1,
+      "lon": 17.107,
+      "presnost": "obec"
+    },
+    {
+      "id": "lednice",
+      "nazev": "Lednice",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 48.8,
+      "lon": 16.803,
+      "presnost": "obec"
+    },
+    {
+      "id": "lipova-lazne",
+      "nazev": "Lipová-lázně",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 50.228,
+      "lon": 17.14,
+      "presnost": "obec"
+    },
+    {
+      "id": "liptovsky",
+      "nazev": "Liptovský Mikuláš",
+      "zeme": "SK",
+      "oblast": null,
+      "lat": 49.081,
+      "lon": 19.618,
+      "presnost": "obec"
+    },
+    {
+      "id": "lisboa",
+      "nazev": "Lisabon",
+      "zeme": "PT",
+      "oblast": null,
+      "lat": 38.708,
+      "lon": -9.139,
+      "presnost": "obec"
+    },
+    {
+      "id": "londyn",
+      "nazev": "Londýn",
+      "zeme": "GB",
+      "oblast": null,
+      "lat": 51.507,
+      "lon": -0.128,
+      "presnost": "obec"
+    },
+    {
+      "id": "mala-fatra",
+      "nazev": "Malá Fatra",
+      "zeme": "SK",
+      "oblast": null,
+      "lat": 49.19,
+      "lon": 19.03,
+      "presnost": "oblast"
+    },
+    {
+      "id": "mala-moravka",
+      "nazev": "Malá Morávka",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 50.021,
+      "lon": 17.312,
+      "presnost": "obec"
+    },
+    {
+      "id": "malaga",
+      "nazev": "Málaga",
+      "zeme": "ES",
+      "oblast": null,
+      "lat": 36.717,
+      "lon": -4.417,
+      "presnost": "obec"
+    },
+    {
+      "id": "martinsicuro",
+      "nazev": "Martinsicuro",
+      "zeme": "IT",
+      "oblast": null,
+      "lat": 42.885,
+      "lon": 13.916,
+      "presnost": "obec"
+    },
+    {
+      "id": "moravka",
+      "nazev": "Morávka",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 49.596,
+      "lon": 18.525,
+      "presnost": "obec"
+    },
+    {
+      "id": "murter",
+      "nazev": "Murter",
+      "zeme": "HR",
+      "oblast": null,
+      "lat": 43.82,
+      "lon": 15.592,
+      "presnost": "obec"
+    },
+    {
+      "id": "myto-pod-dumbierom",
+      "nazev": "Mýto pod Ďumbierom",
+      "zeme": "SK",
+      "oblast": null,
+      "lat": 48.854,
+      "lon": 19.633,
+      "presnost": "obec"
+    },
+    {
+      "id": "nitra",
+      "nazev": "Nitra",
+      "zeme": "SK",
+      "oblast": null,
+      "lat": 48.315,
+      "lon": 18.087,
+      "presnost": "obec"
+    },
+    {
+      "id": "olomouc",
+      "nazev": "Olomouc",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 49.594,
+      "lon": 17.251,
+      "presnost": "obec"
+    },
+    {
+      "id": "ondrejovice",
+      "nazev": "Ondřejovice",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 50.257,
+      "lon": 17.349,
+      "presnost": "obec"
+    },
+    {
+      "id": "oslo",
+      "nazev": "Oslo",
+      "zeme": "NO",
+      "oblast": null,
+      "lat": 59.913,
+      "lon": 10.739,
+      "presnost": "obec"
+    },
+    {
+      "id": "paestum",
+      "nazev": "Paestum",
+      "zeme": "IT",
+      "oblast": null,
+      "lat": 40.406,
+      "lon": 15.002,
+      "presnost": "obec"
+    },
+    {
+      "id": "palamos",
+      "nazev": "Palamós",
+      "zeme": "ES",
+      "oblast": null,
+      "lat": 41.848,
+      "lon": 3.129,
+      "presnost": "obec"
+    },
+    {
+      "id": "palma",
+      "nazev": "Palma",
+      "zeme": "ES",
+      "oblast": null,
+      "lat": 39.567,
+      "lon": 2.65,
+      "presnost": "obec"
+    },
+    {
+      "id": "pasohlavky",
+      "nazev": "Pasohlávky",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 48.903,
+      "lon": 16.544,
+      "presnost": "obec"
+    },
+    {
+      "id": "pec",
+      "nazev": "Pec pod Sněžkou",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 50.694,
+      "lon": 15.733,
+      "presnost": "obec"
+    },
+    {
+      "id": "piran",
+      "nazev": "Piran",
+      "zeme": "SI",
+      "oblast": null,
+      "lat": 45.527,
+      "lon": 13.569,
+      "presnost": "obec"
+    },
+    {
+      "id": "porec",
+      "nazev": "Poreč",
+      "zeme": "HR",
+      "oblast": null,
+      "lat": 45.227,
+      "lon": 13.595,
+      "presnost": "obec"
+    },
+    {
+      "id": "porto",
+      "nazev": "Porto",
+      "zeme": "PT",
+      "oblast": null,
+      "lat": 41.15,
+      "lon": -8.611,
+      "presnost": "obec"
+    },
+    {
+      "id": "praha",
+      "nazev": "Praha",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 50.087,
+      "lon": 14.421,
+      "presnost": "obec"
+    },
+    {
+      "id": "pula",
+      "nazev": "Pula",
+      "zeme": "HR",
+      "oblast": null,
+      "lat": 44.87,
+      "lon": 13.846,
+      "presnost": "obec"
+    },
+    {
+      "id": "rim",
+      "nazev": "Řím",
+      "zeme": "IT",
+      "oblast": null,
+      "lat": 41.893,
+      "lon": 12.483,
+      "presnost": "obec"
+    },
+    {
+      "id": "roznov",
+      "nazev": "Rožnov pod Radhoštěm",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 49.459,
+      "lon": 18.143,
+      "presnost": "obec"
+    },
+    {
+      "id": "santa-susanna",
+      "nazev": "Santa Susanna",
+      "zeme": "ES",
+      "oblast": null,
+      "lat": 41.637,
+      "lon": 2.708,
+      "presnost": "obec"
+    },
+    {
+      "id": "sarti",
+      "nazev": "Sarti",
+      "zeme": "GR",
+      "oblast": null,
+      "lat": 40.097,
+      "lon": 23.979,
+      "presnost": "obec"
+    },
+    {
+      "id": "sintra",
+      "nazev": "Sintra",
+      "zeme": "PT",
+      "oblast": null,
+      "lat": 38.798,
+      "lon": -9.388,
+      "presnost": "obec"
+    },
+    {
+      "id": "sirava",
+      "nazev": "Zemplínská Šírava",
+      "zeme": "SK",
+      "oblast": null,
+      "lat": 48.78,
+      "lon": 22.04,
+      "presnost": "oblast"
+    },
+    {
+      "id": "sv-filip",
+      "nazev": "Sveti Filip i Jakov",
+      "zeme": "HR",
+      "oblast": null,
+      "lat": 43.961,
+      "lon": 15.425,
+      "presnost": "obec"
+    },
+    {
+      "id": "tribunj",
+      "nazev": "Tribunj",
+      "zeme": "HR",
+      "oblast": null,
+      "lat": 43.756,
+      "lon": 15.746,
+      "presnost": "obec"
+    },
+    {
+      "id": "trojanovice",
+      "nazev": "Trojanovice",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 49.52,
+      "lon": 18.238,
+      "presnost": "obec"
+    },
+    {
+      "id": "vaclavov",
+      "nazev": "Václavov u Bruntálu",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 49.975,
+      "lon": 17.376,
+      "presnost": "obec"
+    },
+    {
+      "id": "vapenna",
+      "nazev": "Vápenná",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 50.283,
+      "lon": 17.098,
+      "presnost": "obec"
+    },
+    {
+      "id": "vela-luka",
+      "nazev": "Vela Luka",
+      "zeme": "HR",
+      "oblast": null,
+      "lat": 42.961,
+      "lon": 16.719,
+      "presnost": "obec"
+    },
+    {
+      "id": "velka-kras",
+      "nazev": "Velká Kraš",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 50.363,
+      "lon": 17.146,
+      "presnost": "obec"
+    },
+    {
+      "id": "vieste",
+      "nazev": "Vieste",
+      "zeme": "IT",
+      "oblast": null,
+      "lat": 41.883,
+      "lon": 16.167,
+      "presnost": "obec"
+    },
+    {
+      "id": "vir",
+      "nazev": "Vir",
+      "zeme": "HR",
+      "oblast": null,
+      "lat": 44.3,
+      "lon": 15.09,
+      "presnost": "obec"
+    },
+    {
+      "id": "visalaje",
+      "nazev": "Visalaje (Beskydy)",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 49.519,
+      "lon": 18.527,
+      "presnost": "obec"
+    },
+    {
+      "id": "vranov",
+      "nazev": "Vranov nad Dyjí",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 48.895,
+      "lon": 15.813,
+      "presnost": "obec"
+    },
+    {
+      "id": "zlin",
+      "nazev": "Zlín",
+      "zeme": "CZ",
+      "oblast": null,
+      "lat": 49.233,
+      "lon": 17.667,
+      "presnost": "obec"
+    }
+  ]
 }

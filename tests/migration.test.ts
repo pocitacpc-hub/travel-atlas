@@ -8,6 +8,13 @@ import { prepareMigration, readProposals, splitHeader, type Proposal } from "../
 import { buildExport } from "../tools/trip-export";
 
 const catalog = loadCatalog();
+// Testy nezávisí na tom, zda je Alcossebre v číselníku už ověřené.
+const alcossebre = { ...catalog.placesById.get("alcossebre")!, overeno: false };
+const unverifiedCatalog = {
+  ...catalog,
+  placesById: new Map(catalog.placesById).set("alcossebre", alcossebre),
+  placesByName: new Map([...catalog.placesByName].map(([name, place]) => [name, place.id === "alcossebre" ? alcossebre : place]))
+};
 const body = Buffer.concat([Buffer.from("## Poznámka\r\n---\r\n  konec"), Buffer.from([255, 0, 13, 10])]);
 const oldHeader = "\uFEFF---\r\n"
   + "typ: cesta\r\nnazev: Španělsko – Alcossebre\r\nzeme: Španělsko\r\nrok: 2025\r\n"
@@ -58,7 +65,7 @@ describe("Migrace metadat", () => {
         { ...pending, potvrzeno: true, zmeny: { mista: ["Alcossebre"] } }
       ], catalog);
       const draft = prepareMigration(source, proposals);
-      const preview = buildExport(draft.records, catalog, { legacy: false, asOf: "2026-11-08", hasFlag: () => true });
+      const preview = buildExport(draft.records, unverifiedCatalog, { legacy: false, asOf: "2026-11-08", hasFlag: () => true });
       expect(preview.errors).toEqual([]);
       expect(preview.trips.cesty[0]).toMatchObject({
         zacatek: "2025-05-03", konec: "2025-05-05", presnostTerminu: "den", pocetNoci: 2, mista: []
@@ -106,6 +113,31 @@ describe("Migrace metadat", () => {
       expect(() => readProposals([approved, approved], catalog)).toThrow(/duplicitní/u);
       writeFileSync(join(source, "druha.md"), withId);
       expect(() => prepareMigration(source, [])).toThrow(/Duplicitní existující ID/u);
+    });
+  });
+
+  it("doplní rok, měsíc a noci cestě bez data a odmítne přepis přesných dnů", () => {
+    withSource((source) => {
+      const undated = "---\ntyp: cesta\nid: t-und001\nnazev: Chorvatsko – ostrov Korčula\nstav: probehla\nzverejnit: true\n"
+        + "zeme: Chorvatsko\nzacatek: null\nkonec: null\npresnost_terminu: neznamy\nrok: null\nmesic: null\npocet_noci: null\nmista: []\nzamereni: []\n---\nTělo\n";
+      writeFileSync(join(source, "cesta.md"), undated);
+      const term = { nazev: "Chorvatsko – ostrov Korčula", rok: null, potvrzeno: true,
+        zmeny: { rok: 1994, mesic: 7, presnost_terminu: "mesic", pocet_noci: 10 } };
+      const draft = prepareMigration(source, readProposals([term], catalog));
+      expect(draft.plan.entries[0]?.changes).toEqual({ presnost_terminu: "mesic", rok: 1994, mesic: 7, pocet_noci: 10 });
+      const exported = buildExport(draft.records, catalog, { legacy: false, asOf: "2026-11-08", hasFlag: () => true });
+      expect(exported.errors).toEqual([]);
+      expect(exported.trips.cesty[0]).toMatchObject({ rok: 1994, mesic: 7, presnostTerminu: "mesic", pocetNoci: 10 });
+
+      const invalid = (zmeny: Record<string, unknown>) => () => readProposals([{ ...term, zmeny }], catalog);
+      expect(invalid({ rok: 1994, mesic: 13, presnost_terminu: "mesic" })).toThrow(/Neplatný/u);
+      expect(invalid({ rok: 1994, mesic: 7, presnost_terminu: "rok" })).toThrow(/Neplatný/u);
+      expect(invalid({ rok: 1994, presnost_terminu: "den" })).toThrow(/Neplatný/u);
+      expect(invalid({ rok: 1994, mesic: 7, presnost_terminu: "mesic", pocet_noci: -1 })).toThrow(/Neplatný/u);
+
+      writeFileSync(join(source, "cesta.md"), original);
+      const dated = { ...term, nazev: "Španělsko – Alcossebre", rok: 2025, zmeny: { rok: 2024, mesic: 7, presnost_terminu: "mesic" } };
+      expect(() => prepareMigration(source, readProposals([dated], catalog))).toThrow(/liší od již vyplněného/u);
     });
   });
 });
