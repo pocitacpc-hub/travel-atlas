@@ -7,6 +7,7 @@
 - Migrace umí doplnit rok, měsíc a počet nocí cestě bez přesných dnů. Korčula je nově červenec 1994, 10 nocí.
 - Kontrakt metadat zná stav `zrusena` pro cestu, která se nekonala.
 - Export obsahuje 68 ověřených míst. Mapa na Přehledu má vrstvu Místa a Návraty.
+- Web nasazený na GitHub Pages a ověřený na veřejné adrese.
 
 ## 8. 11. 2026 – fáze D (web MVP)
 

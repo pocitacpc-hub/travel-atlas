@@ -66,4 +66,4 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - Přísný export: 96 cest, 90 s místem, 68 ověřených míst. Proti předchozímu exportu se kromě míst změnila jen Korčula (rok, měsíc, přesnost, noci, název ze zdroje).
 - `npm run check` prošel: 6 souborů, 34 testů.
 - Chrome na 1440 a 390 px: všechny čtyři stránky bez vodorovného posouvání a bez chyb JavaScriptu. Přehled ukazuje rozsah 1994–2026, vrstva Místa 68 bodů (6 oblastí), Návraty šest míst.
-- Neověřeno: nasazení na Pages.
+- Po sloučení do `main` prošly [kontrola i nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42572251985). Veřejné stránky vrátily HTTP 200 se stejnými soubory jako lokální sestavení. V Chrome na 1440 i 390 px bez vodorovného posouvání a bez chyb JavaScriptu.
