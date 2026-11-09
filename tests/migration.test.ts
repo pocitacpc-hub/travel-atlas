@@ -159,6 +159,18 @@ describe("Migrace metadat", () => {
       expect(() => prepareMigration(source, readProposals([other], catalog))).toThrow(/liší od již vyplněného popisu/u);
       expect(() => readProposals([{ ...popis, zmeny: { verejny_popis: "<b>ne</b>" } }], catalog)).toThrow(/Neplatný/u);
       expect(() => readProposals([{ ...popis, zmeny: { verejny_popis: " " } }], catalog)).toThrow(/Neplatný/u);
+
+      // Náhrada jen při přesné shodě s nahrazovaným textem; druhý běh je bez změn.
+      const wrongBase = { ...other, nahrazuje: "Úplně jiný starý text." };
+      expect(() => prepareMigration(source, readProposals([wrongBase], catalog))).toThrow(/liší od již vyplněného popisu/u);
+      const replace = { ...other, nahrazuje: text };
+      const replaced = prepareMigration(source, readProposals([replace], catalog));
+      expect(replaced.plan.entries[0]?.changes.verejny_popis).toBe("Jiný text.");
+      applyMigration(source, replaced.plan.entries, replaced.updates);
+      expect(prepareMigration(source, readProposals([replace], catalog)).updates.size).toBe(0);
+      expect(splitHeader(readFileSync(join(source, "cesta.md")))!.body.equals(body)).toBe(true);
+      expect(() => readProposals([{ ...replace, nahrazuje: "Jiný text." }], catalog)).toThrow(/Neplatný/u);
+      expect(() => readProposals([{ ...pending, potvrzeno: true, nahrazuje: text }], catalog)).toThrow(/Neplatný/u);
     });
   });
 });

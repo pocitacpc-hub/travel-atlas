@@ -81,3 +81,10 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - Před zápisem prošlo všech 26 textů schématem a security lintem. Zkouška migrace měla 26 změn pouze v `verejny_popis`, po zápisu druhý běh 0 změn. Porovnání se zálohou: 26 souborů se liší jen přidaným `verejny_popis`, těla jsou bajtově shodná.
 - Po exportu prošel `npm run check` (8 souborů, 42 testů). Náhled sestavení zobrazil panel „O cestě“ u Osla (2 odstavce, tučně i kurzíva), Puly a Polska na 1440 px. Na 390 px nic vodorovně nepřetéká, v konzoli nebyly chyby.
 - Na GitHub Pages po nasazení: Oslo má panel „O cestě“ se 2 odstavci, 5× tučně a 4× kurzívou, Polsko má shrnutí bez vodorovného posouvání, Dublin bez shrnutí panel nezobrazí. V konzoli nebyly chyby.
+
+## Podrobnější shrnutí se Stravou (9. 11. 2026)
+
+- `tests/migration.test.ts` ověřuje náhradu popisu: bez přesné shody `nahrazuje` skončí chybou, s ní přepíše text, druhý běh je bez změn a tělo souboru zůstane shodné. Odmítne `nahrazuje` u jiného druhu návrhu i shodné se zapisovaným textem.
+- Před zápisem prošlo 29 textů schématem a security lintem. Zkouška migrace měla 29 změn jen v `verejny_popis`. Po zápisu druhý běh 0 změn. Porovnání se zálohou: 22 popisů nahrazeno přesně z původního textu, 7 doplněno, ostatní soubory beze změny, těla bajtově shodná.
+- Export změnil jen 29 hodnot `popis`, všechny shodné se schválenými texty. `npm run check` prošel (8 souborů, 42 testů).
+- Náhled: Poreč 2026 má 7 jízd s tepem a watty, Babí hora nové shrnutí, Oslo beze změny. Nejdelší texty (Poreč, Bormio) na 390 px bez vodorovného posouvání, konzole bez chyb.

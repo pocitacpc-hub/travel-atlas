@@ -1,5 +1,11 @@
 # Změny
 
+## 9. 11. 2026 – podrobnější shrnutí se Stravou
+
+- 22 shrnutí má podrobnější verzi s čísly ze Stravy (km, stoupání, čas, rychlost, tep, u wattmetru watty) a seznamem jízd po dnech. 7 cest dostalo shrnutí poprvé, celkem jich má 33.
+- Migrace umí nahradit už zapsaný popis, jen když návrh v poli `nahrazuje` přesně uvádí dosavadní text.
+- Rozhodnutí 0006 určuje, které sportovní údaje smí do veřejného textu.
+
 ## 9. 11. 2026 – shrnutí cest
 
 - Detail cesty zobrazí veřejné shrnutí z pole `verejny_popis` s formátováním (odstavce, odrážky, tučně, kurzíva).

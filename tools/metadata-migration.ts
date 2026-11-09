@@ -19,6 +19,8 @@ export interface Proposal {
   rok: number | null;
   potvrzeno: boolean;
   zmeny: Fields;
+  /** Jen u veřejného popisu: dříve schválený text, který smí návrh nahradit. */
+  nahrazuje?: string;
 }
 
 interface Header {
@@ -93,7 +95,8 @@ export function readProposals(value: unknown, catalog: Catalog): Proposal[] {
   const keys = new Set<string>();
   return value.map((row: unknown, index) => {
     const invalid = () => new Error(`Neplatný nebo duplicitní návrh č. ${index + 1}.`);
-    if (!isRecord(row) || Object.keys(row).length !== 4 || typeof row.nazev !== "string" || !row.nazev.trim()
+    const replaces = isRecord(row) && Object.hasOwn(row, "nahrazuje");
+    if (!isRecord(row) || Object.keys(row).length !== (replaces ? 5 : 4) || typeof row.nazev !== "string" || !row.nazev.trim()
       || !(row.rok === null || (typeof row.rok === "number" && Number.isInteger(row.rok) && row.rok >= 1 && row.rok <= 9999))
       || typeof row.potvrzeno !== "boolean" || !isRecord(row.zmeny)) throw invalid();
     const { zmeny } = row;
@@ -109,7 +112,9 @@ export function readProposals(value: unknown, catalog: Catalog): Proposal[] {
     );
     const validPopis = keysOfChanges.length === 1 && kind === "verejny_popis" && validPublicText(values);
     if (!validDates && !validList && !validCoarseTerm(zmeny) && !validPopis) throw invalid();
-    const proposal = { nazev: row.nazev, rok: row.rok, potvrzeno: row.potvrzeno, zmeny };
+    if (replaces && (!validPopis || !validPublicText(row.nahrazuje) || row.nahrazuje === values)) throw invalid();
+    const proposal: Proposal = { nazev: row.nazev, rok: row.rok, potvrzeno: row.potvrzeno, zmeny };
+    if (replaces) proposal.nahrazuje = row.nahrazuje as string;
     const key = `${tripKey(row.nazev, row.rok)}:${category(proposal)}`;
     if (keys.has(key)) throw invalid();
     keys.add(key);
@@ -194,7 +199,8 @@ function applyProposal(next: Fields, proposal: Proposal): void {
     const text = proposal.zmeny.verejny_popis;
     if (!validPublicText(text)) throw new Error("Návrh popisu není platný text.");
     const current = next.verejny_popis;
-    if (current !== undefined && current !== null && current !== text) {
+    // Jiný existující popis lze nahradit jen návrhem, který přesně uvádí nahrazovaný text.
+    if (current !== undefined && current !== null && current !== text && current !== proposal.nahrazuje) {
       throw new Error("Návrh popisu se liší od již vyplněného popisu.");
     }
     next.verejny_popis = text;
