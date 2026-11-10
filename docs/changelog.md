@@ -1,5 +1,10 @@
 # Změny
 
+## 10. 11. 2026 – barevné návrhy úvodní stránky
+
+- V `docs/design/barvy/` je 10 variant barev a písma nad skutečným obsahem Přehledu a rozcestník se živými náhledy. Web se nemění.
+- Generátor návrhů kontroluje kontrast a čitelnost barev pro barvoslepé. Statický server maket umí obrázky JPEG.
+
 ## 9. 11. 2026 – nová místa z potvrzených shrnutí
 
 - Číselník má deset nových ověřených obcí: Toruň, Gdyně, Sopoty, Hel, Gdaňsk, Łeba, Malbork, Villajoyosa, Finestrat a Watford. Cabo de las Huertas je alias Alicante.

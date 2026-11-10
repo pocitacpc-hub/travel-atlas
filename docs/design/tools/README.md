@@ -19,6 +19,20 @@ node docs/design/tools/gen-assets.js <export.md> <pracovni-slozka>\node_modules 
 - **Data:** z interního exportu vezme jen veřejná pole cest a vyřadí neověřený rozpočet.
 - **Místa:** seznam míst ve skriptu je **ilustrační** (souřadnice obcí z obecné znalosti). Pro web se smí použít jen jako kandidáti do číselníku míst s příznakem `overeno: false`.
 
+## gen-barvy.mjs a dump-dom.mjs
+
+Barevné návrhy úvodní stránky v `../barvy/` (popis v `../README.md`).
+
+```powershell
+npm run build                     # a spustit vite preview (konfigurace „atlas-nahled“)
+node docs/design/tools/dump-dom.mjs "C:\Program Files\Google\Chrome\Application\chrome.exe" <profil> http://127.0.0.1:4173/travel-atlas/ <prehled-dom.html>
+node docs/design/tools/gen-barvy.mjs <prehled-dom.html>          # zapíše stránky a vypíše kontrolu barev
+node docs/design/tools/gen-barvy.mjs x --jen-kontrola            # jen kontrola barev
+```
+
+- `dump-dom.mjs` uloží vykreslený `.wrap` Přehledu (veřejná data webu, mapa jako SVG).
+- `gen-barvy.mjs` obsahuje definice návrhů. Kontroluje kontrast WCAG a rozlišitelnost páru Česko / zahraničí (ΔE v Lab po simulaci protanopie, deuteranopie a tritanopie podle Machada 2009).
+
 ## cdp-shot.mjs
 
 Snímky stránek s emulací zařízení přes Chrome DevTools Protocol, bez závislostí (Node 22+). U každé stránky vypíše `scrollWidth` a `clientWidth` (přetékání do šířky) a chyby JavaScriptu.

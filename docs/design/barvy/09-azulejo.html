@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Azulejo · barevný návrh · Cestovní atlas</title>
+  <meta name="description" content="Portugalské kachličky: kobaltová na bílé, citronově žlutý detail a dlaždicový vzor.">
+  <link rel="stylesheet" href="../v2/assets/flag-icons/flag-icons.css">
+  <link rel="stylesheet" href="assets/zaklad.css">
+  <style>
+/* Azulejo: Portugalské kachličky: kobaltová na bílé, citronově žlutý detail a dlaždicový vzor.
+   Písmo: Century + Candara. */
+:root {
+  --paper: #F5F7FB;
+  --card: #FFFFFF;
+  --ink: #142240;
+  --ink-2: #33436A;
+  --muted: #55617E;
+  --line: #D2DAEA;
+  --line-2: #E3E8F2;
+  --land: #E4E8F0;
+  --cz: #1F4FA0;
+  --cz-text: #1F4FA0;
+  --abroad: #C27310;
+  --q1: #CAD8F0;
+  --q2: #95B1E0;
+  --q3: #5682C8;
+  --q4: #1F4FA0;
+  --q5: #12326B;
+  --q-ink: #0A1E44;
+  --hover: rgba(20, 34, 64, .05);
+  --track: #E6EBF4;
+  --grid: #E3E8F2;
+  --grid-base: #B3BFD6;
+  --nav-on-bg: #1F4FA0;
+  --nav-on-fg: #FFFFFF;
+  --stamp: #1F4FA0;
+  --kicker: var(--cz-text);
+  --serif: Century, "Century Schoolbook", "Bookman Old Style", Georgia, serif;
+  --sans: Candara, "Segoe UI", system-ui, sans-serif;
+  --brand-weight: 400;
+  --r-panel: 10px;
+  --r-card: 10px;
+  --foto-r: 10px;
+  --foto-h: 210px;
+  --foto-pos: 50% 30%;
+}
+:root { --tile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Cpath d='M16 3 29 16 16 29 3 16Z' fill='none' stroke='%231f4fa0' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='5.5' fill='%231f4fa0'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23e2b13c'/%3E%3Cpath d='M0 0h7v2H2v5H0zM32 0h-7v2h5v5h2zM0 32h7v-2H2v-5H0zM32 32h-7v-2h5v-5h2z' fill='%231f4fa0'/%3E%3C/svg%3E"); }
+body { font-size: 16px; }
+.top { position: relative; border-bottom: 0; padding-bottom: 30px; }
+.top::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 16px; background: var(--tile) 0 0 / 16px 16px; opacity: .9; }
+.brand b { font-size: 28px; }
+.card .stamp { border: 2px solid var(--stamp); box-shadow: inset 0 0 0 3px var(--card), inset 0 0 0 4px #E2B13C; }
+[data-foto="pruh"] .foto { padding: 8px; background: var(--tile) 0 0 / 16px 16px; }
+[data-foto="pruh"] .foto img { border-radius: 4px; }
+[data-foto="pruh"] .foto figcaption { left: 22px; bottom: 18px; }
+  </style>
+</head>
+<body data-foto="pruh" data-obr="2" data-pismo="Century + Candara">
+  <script src="assets/prehled.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noční oceán · barevný návrh · Cestovní atlas</title>
+  <meta name="description" content="Tmavý vzhled: noční moře, tyrkysové světlo a teplý písek. Může být i základem tmavého režimu.">
+  <link rel="stylesheet" href="../v2/assets/flag-icons/flag-icons.css">
+  <link rel="stylesheet" href="assets/zaklad.css">
+  <style>
+/* Noční oceán: Tmavý vzhled: noční moře, tyrkysové světlo a teplý písek. Může být i základem tmavého režimu.
+   Písmo: Cambria + Segoe UI. */
+:root {
+  --paper: #0D1A24;
+  --card: #13232F;
+  --ink: #E6EDF1;
+  --ink-2: #B8C7D1;
+  --muted: #8FA2AF;
+  --line: #253A4A;
+  --line-2: #1C3040;
+  --land: #1F3443;
+  --cz: #3CBFAE;
+  --cz-text: #5ED3C3;
+  --abroad: #E9A55B;
+  --q1: #1F4E56;
+  --q2: #237370;
+  --q3: #2D9A8E;
+  --q4: #3CBFAE;
+  --q5: #8FE5D8;
+  --q-ink: #08201C;
+  --hover: rgba(255, 255, 255, .06);
+  --track: #1E3241;
+  --grid: #20374A;
+  --grid-base: #3B566B;
+  --mark-ring: rgba(255, 255, 255, .14);
+  --flag-ring: rgba(255, 255, 255, .22);
+  --tip-shadow: 0 6px 20px rgba(0, 0, 0, .5);
+  --accent: var(--cz-text);
+  --serif: Cambria, "Sitka Text", Georgia, serif;
+  --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+html { color-scheme: dark; }
+[data-foto="zahlavi"] .top .foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13, 26, 36, .78) 0%, rgba(13, 26, 36, .2) 45%, rgba(13, 26, 36, .55) 80%, var(--paper) 100%); }
+[data-foto="zahlavi"] .top .foto figcaption { z-index: 1; }
+.top .brand b, .top nav a { color: #fff; }
+.top .brand span { color: rgba(255, 255, 255, .8); }
+  </style>
+</head>
+<body data-foto="zahlavi" data-obr="2" data-pismo="Cambria + Segoe UI">
+  <script src="assets/prehled.js"></script>
+</body>
+</html>

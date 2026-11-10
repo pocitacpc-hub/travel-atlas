@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Barevné návrhy · Cestovní atlas</title>
+  <style>
+:root { --bg: #EEEEEC; --fg: #1B1B1B; --mut: #5F5F5F; --card: #FFF; --line: #DDDDD8; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 "Segoe UI", system-ui, sans-serif; }
+.wrap { max-width: 1500px; margin: 0 auto; padding: 28px 28px 48px; }
+h1 { margin: 0; font-size: 28px; font-weight: 600; }
+.lead { max-width: 60em; margin: 6px 0 24px; color: var(--mut); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 20px; }
+.nv { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: inherit; text-decoration: none; }
+.nv:hover { border-color: #888; box-shadow: 0 6px 20px rgba(0, 0, 0, .08); }
+.shot { position: relative; aspect-ratio: 1440 / 900; overflow: hidden; border-bottom: 1px solid var(--line); }
+.shot iframe { position: absolute; top: 0; left: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; pointer-events: none; }
+.txt { padding: 12px 16px 14px; }
+.txt h2 { margin: 0 0 4px; font-size: 18px; font-weight: 600; }
+.txt h2 span { color: var(--mut); font-weight: 400; }
+.txt p { margin: 0 0 8px; }
+.sw { display: flex; gap: 0; }
+.sw i { flex: 1; height: 16px; }
+.sw i:first-child { border-radius: 4px 0 0 4px; } .sw i:last-child { border-radius: 0 4px 4px 0; }
+.meta { color: var(--mut); font-size: 13px; }
+@media (max-width: 760px) { .wrap { padding: 20px 16px 40px; } .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Barevné návrhy úvodní stránky</h1>
+    <p class="lead">Všechny návrhy mají stejný obsah a rozložení jako dnešní Přehled. Mění se jen barvy, písma, tvary a malá fotka. Klikněte na návrh; v něm se dá přepínat šipkami ← →.</p>
+    <div class="grid">
+    <a class="nv" href="00-soucasny.html">
+      <div class="shot"><iframe src="00-soucasny.html" title="Náhled: Současný stav" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="txt">
+        <h2><span>00</span> Současný stav</h2>
+        <p>Dnešní vzhled Atlas pro srovnání: teplý papír, tyrkys a okr, Georgia.</p>
+        <p class="sw"><i style="background:#F4EFE4" title="--paper"></i><i style="background:#FBF8F2" title="--card"></i><i style="background:#1E2B33" title="--ink"></i><i style="background:#00897B" title="--cz"></i><i style="background:#C0682A" title="--abroad"></i><i style="background:#A8D5CB" title="--q1"></i><i style="background:#79BFB2" title="--q2"></i><i style="background:#3FA393" title="--q3"></i><i style="background:#00897B" title="--q4"></i><i style="background:#0A5A51" title="--q5"></i><i style="background:#E6DFD2" title="--land"></i></p>
+        <p class="meta">Písmo: Georgia + Segoe UI</p>
+      </div>
+    </a>
+    <a class="nv" href="01-atlantik.html">
+      <div class="shot"><iframe src="01-atlantik.html" title="Náhled: Atlantik" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="txt">
+        <h2><span>01</span> Atlantik</h2>
+        <p>Barvy z fotky útesů: hluboká oceánská modrá, pískovec a světlý písek.</p>
+        <p class="sw"><i style="background:#F5F2EA" title="--paper"></i><i style="background:#FCFBF7" title="--card"></i><i style="background:#0F2A3A" title="--ink"></i><i style="background:#1D6E9E" title="--cz"></i><i style="background:#C2703A" title="--abroad"></i><i style="background:#C2DAE7" title="--q1"></i><i style="background:#8DBBD5" title="--q2"></i><i style="background:#4D93BD" title="--q3"></i><i style="background:#1D6E9E" title="--q4"></i><i style="background:#0D4466" title="--q5"></i><i style="background:#E5E0D4" title="--land"></i></p>
+        <p class="meta">Písmo: Sitka + Segoe UI Variable · fotka: pruh pod hlavičkou</p>
+      </div>
+    </a>
+    <a class="nv" href="02-stezka.html">
+      <div class="shot"><iframe src="02-stezka.html" title="Náhled: Pobřežní stezka" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="txt">
+        <h2><span>02</span> Pobřežní stezka</h2>
+        <p>Šalvějová zeleň porostu nad útesy, písek a mořská modrá pro zahraničí.</p>
+        <p class="sw"><i style="background:#F1F1E8" title="--paper"></i><i style="background:#FAFAF4" title="--card"></i><i style="background:#1E2A21" title="--ink"></i><i style="background:#4A7B3B" title="--cz"></i><i style="background:#2D78A8" title="--abroad"></i><i style="background:#D0E1C3" title="--q1"></i><i style="background:#A7C793" title="--q2"></i><i style="background:#76A564" title="--q3"></i><i style="background:#4A7B3B" title="--q4"></i><i style="background:#2B4F22" title="--q5"></i><i style="background:#E1E1D3" title="--land"></i></p>
+        <p class="meta">Písmo: Constantia + Corbel · fotka: nad nadpisem</p>
+      </div>
+    </a>
+    <a class="nv" href="03-terakota.html">
+      <div class="shot"><iframe src="03-terakota.html" title="Náhled: Terakota" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="txt">
+        <h2><span>03</span> Terakota</h2>
+        <p>Teplý západ slunce: pálená hlína, krémový papír a tmavý petrolej.</p>
+        <p class="sw"><i style="background:#F7EFE5" title="--paper"></i><i style="background:#FFF9F2" title="--card"></i><i style="background:#2B1E18" title="--ink"></i><i style="background:#2E7A72" title="--cz"></i><i style="background:#B8502C" title="--abroad"></i><i style="background:#F3CDB6" title="--q1"></i><i style="background:#E5A07D" title="--q2"></i><i style="background:#D07550" title="--q3"></i><i style="background:#B8502C" title="--q4"></i><i style="background:#7C3118" title="--q5"></i><i style="background:#EBE0D3" title="--land"></i></p>
+        <p class="meta">Písmo: Palatino + Segoe UI · fotka: kruhový výřez</p>
+      </div>
+    </a>
+    <a class="nv" href="04-namorni-mapa.html">
+      <div class="shot"><iframe src="04-namorni-mapa.html" title="Náhled: Námořní mapa" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="txt">
+        <h2><span>04</span> Námořní mapa</h2>
+        <p>Navigační mapa: modrobílé moře, okrová pevnina, signální oranžová a technické písmo.</p>
+        <p class="sw"><i style="background:#EDF2F3" title="--paper"></i><i style="background:#F6FAFB" title="--card"></i><i style="background:#13263A" title="--ink"></i><i style="background:#2A6CA3" title="--cz"></i><i style="background:#D2611C" title="--abroad"></i><i style="background:#C3D9EA" title="--q1"></i><i style="background:#8FBBDB" title="--q2"></i><i style="background:#5594C4" title="--q3"></i><i style="background:#2A6CA3" title="--q4"></i><i style="background:#163F66" title="--q5"></i><i style="background:#EBE3C9" title="--land"></i></p>
+        <p class="meta">Písmo: Bahnschrift + Segoe UI Variable · fotka: pruh pod hlavičkou</p>
+      </div>
+    </a>
+    <a class="nv" href="05-nocni-ocean.html">
+      <div class="shot"><iframe src="05-nocni-ocean.html" title="Náhled: Noční oceán" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="txt">
+        <h2><span>05</span> Noční oceán</h2>
+        <p>Tmavý vzhled: noční moře, tyrkysové světlo a teplý písek. Může být i základem tmavého režimu.</p>
+        <p class="sw"><i style="background:#0D1A24" title="--paper"></i><i style="background:#13232F" title="--card"></i><i style="background:#E6EDF1" title="--ink"></i><i style="background:#3CBFAE" title="--cz"></i><i style="background:#E9A55B" title="--abroad"></i><i style="background:#1F4E56" title="--q1"></i><i style="background:#237370" title="--q2"></i><i style="background:#2D9A8E" title="--q3"></i><i style="background:#3CBFAE" title="--q4"></i><i style="background:#8FE5D8" title="--q5"></i><i style="background:#1F3443" title="--land"></i></p>
+        <p class="meta">Písmo: Cambria + Segoe UI · fotka: pozadí hlavičky</p>
+      </div>
+    </a>
+    <a class="nv" href="06-denik.html">
+      <div class="shot"><iframe src="06-denik.html" title="Náhled: Cestovní deník" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="txt">
+        <h2><span>06</span> Cestovní deník</h2>
+        <p>Zápisník z cest: krémový papír, inkoustová modrá, rezavé razítko a ručně psané poznámky.</p>
+        <p class="sw"><i style="background:#F2EADB" title="--paper"></i><i style="background:#FBF6EB" title="--card"></i><i style="background:#2E2419" title="--ink"></i><i style="background:#2D5C88" title="--cz"></i><i style="background:#B5613A" title="--abroad"></i><i style="background:#C9D5E2" title="--q1"></i><i style="background:#9AB2CB" title="--q2"></i><i style="background:#6288AE" title="--q3"></i><i style="background:#2D5C88" title="--q4"></i><i style="background:#1B3A57" title="--q5"></i><i style="background:#E7DCC6" title="--land"></i></p>
+        <p class="meta">Písmo: Garamond + Segoe UI + Ink Free · fotka: polaroid</p>
+      </div>
+    </a>
+    <a class="nv" href="07-plakat.html">
+      <div class="shot"><iframe src="07-plakat.html" title="Náhled: Cestovní plakát" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="txt">
+        <h2><span>07</span> Cestovní plakát</h2>
+        <p>Retro plakát: syté barvy, tlustá kontura, verzálky a výrazné slunečné žluté akcenty.</p>
+        <p class="sw"><i style="background:#F5EEDF" title="--paper"></i><i style="background:#FFFAF0" title="--card"></i><i style="background:#1A2238" title="--ink"></i><i style="background:#1E5FA8" title="--cz"></i><i style="background:#D45A22" title="--abroad"></i><i style="background:#C5D7EE" title="--q1"></i><i style="background:#8FB3E0" title="--q2"></i><i style="background:#4F86C6" title="--q3"></i><i style="background:#1E5FA8" title="--q4"></i><i style="background:#123D70" title="--q5"></i><i style="background:#E9E0CC" title="--land"></i></p>
+        <p class="meta">Písmo: Gill Sans MT · fotka: pruh pod hlavičkou</p>
+      </div>
+    </a>
+    <a class="nv" href="08-minimal.html">
+      <div class="shot"><iframe src="08-minimal.html" title="Náhled: Čistý minimal" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="txt">
+        <h2><span>08</span> Čistý minimal</h2>
+        <p>Bílé plochy, jedno písmo bez patek, kobaltová a oranžová, jemné stíny místo papíru.</p>
+        <p class="sw"><i style="background:#F3F4F6" title="--paper"></i><i style="background:#FFFFFF" title="--card"></i><i style="background:#111418" title="--ink"></i><i style="background:#2A58C2" title="--cz"></i><i style="background:#DE6410" title="--abroad"></i><i style="background:#D2DDF6" title="--q1"></i><i style="background:#A3BAEC" title="--q2"></i><i style="background:#6A8EDC" title="--q3"></i><i style="background:#2A58C2" title="--q4"></i><i style="background:#183888" title="--q5"></i><i style="background:#E5E8EC" title="--land"></i></p>
+        <p class="meta">Písmo: Segoe UI Variable · fotka: nad nadpisem</p>
+      </div>
+    </a>
+    <a class="nv" href="09-azulejo.html">
+      <div class="shot"><iframe src="09-azulejo.html" title="Náhled: Azulejo" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="txt">
+        <h2><span>09</span> Azulejo</h2>
+        <p>Portugalské kachličky: kobaltová na bílé, citronově žlutý detail a dlaždicový vzor.</p>
+        <p class="sw"><i style="background:#F5F7FB" title="--paper"></i><i style="background:#FFFFFF" title="--card"></i><i style="background:#142240" title="--ink"></i><i style="background:#1F4FA0" title="--cz"></i><i style="background:#C27310" title="--abroad"></i><i style="background:#CAD8F0" title="--q1"></i><i style="background:#95B1E0" title="--q2"></i><i style="background:#5682C8" title="--q3"></i><i style="background:#1F4FA0" title="--q4"></i><i style="background:#12326B" title="--q5"></i><i style="background:#E4E8F0" title="--land"></i></p>
+        <p class="meta">Písmo: Century + Candara · fotka: pruh pod hlavičkou</p>
+      </div>
+    </a>
+    <a class="nv" href="10-mlha.html">
+      <div class="shot"><iframe src="10-mlha.html" title="Náhled: Mlha nad útesy" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="txt">
+        <h2><span>10</span> Mlha nad útesy</h2>
+        <p>Tlumené ranní barvy: šedomodrá, mořská zeleň a prašná hlína, lehké písmo a měkké stíny.</p>
+        <p class="sw"><i style="background:#ECEFEF" title="--paper"></i><i style="background:#F8F9F9" title="--card"></i><i style="background:#23303A" title="--ink"></i><i style="background:#40858A" title="--cz"></i><i style="background:#B26D4E" title="--abroad"></i><i style="background:#C6DCDC" title="--q1"></i><i style="background:#9AC1C2" title="--q2"></i><i style="background:#69A1A4" title="--q3"></i><i style="background:#40858A" title="--q4"></i><i style="background:#275658" title="--q5"></i><i style="background:#DEE3E2" title="--land"></i></p>
+        <p class="meta">Písmo: Candara Light + Segoe UI Variable · fotka: nad nadpisem</p>
+      </div>
+    </a>
+    </div>
+  </main>
+  <script>
+    function fit() { document.querySelectorAll('.shot').forEach(function (s) { s.firstElementChild.style.transform = 'scale(' + s.clientWidth / 1440 + ')'; }); }
+    addEventListener('resize', fit); fit();
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mlha nad útesy · barevný návrh · Cestovní atlas</title>
+  <meta name="description" content="Tlumené ranní barvy: šedomodrá, mořská zeleň a prašná hlína, lehké písmo a měkké stíny.">
+  <link rel="stylesheet" href="../v2/assets/flag-icons/flag-icons.css">
+  <link rel="stylesheet" href="assets/zaklad.css">
+  <style>
+/* Mlha nad útesy: Tlumené ranní barvy: šedomodrá, mořská zeleň a prašná hlína, lehké písmo a měkké stíny.
+   Písmo: Candara Light + Segoe UI Variable. */
+:root {
+  --paper: #ECEFEF;
+  --card: #F8F9F9;
+  --ink: #23303A;
+  --ink-2: #44525C;
+  --muted: #5A6770;
+  --line: #D2D9DB;
+  --line-2: #E1E6E7;
+  --land: #DEE3E2;
+  --cz: #40858A;
+  --cz-text: #33706F;
+  --abroad: #B26D4E;
+  --q1: #C6DCDC;
+  --q2: #9AC1C2;
+  --q3: #69A1A4;
+  --q4: #40858A;
+  --q5: #275658;
+  --q-ink: #0F2A2B;
+  --hover: rgba(35, 48, 58, .05);
+  --track: #E1E6E7;
+  --grid: #E0E5E6;
+  --grid-base: #B6C0C3;
+  --serif: "Candara Light", Candara, "Segoe UI", sans-serif;
+  --sans: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --brand-font: Candara, "Segoe UI", sans-serif;
+  --brand-style: normal;
+  --brand-weight: 400;
+  --h-weight: 300;
+  --h-track: -.5px;
+  --r-panel: 22px;
+  --r-card: 20px;
+  --foto-r: 22px;
+  --foto-filter: saturate(.8) brightness(1.04);
+  --shadow: 0 1px 3px rgba(35, 48, 58, .06), 0 8px 24px rgba(35, 48, 58, .05);
+  --shadow-hover: 0 2px 6px rgba(35, 48, 58, .08), 0 12px 30px rgba(35, 48, 58, .08);
+}
+.panel, .card { border-color: transparent; }
+.card:hover { border-color: transparent; }
+.brand b { font-size: 26px; letter-spacing: .02em; }
+.intro h1 { font-size: 60px; }
+.intro h1 em { font-style: normal; font-weight: 400; }
+.facts dd { font-size: 30px; }
+[data-foto="uvod"] .foto { -webkit-mask-image: linear-gradient(#000 55%, transparent); mask-image: linear-gradient(#000 55%, transparent); background: none; }
+[data-foto="uvod"] .foto figcaption { top: 10px; bottom: auto; }
+  </style>
+</head>
+<body data-foto="uvod" data-obr="2" data-pismo="Candara Light + Segoe UI Variable">
+  <script src="assets/prehled.js"></script>
+</body>
+</html>
