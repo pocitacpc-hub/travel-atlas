@@ -87,3 +87,5 @@ Další úpravy z 10. 11. 2026:
 - **Na webu nejsou kódy států:** nejsou v kartě státu ani v seznamu států. V Kronice je vlajka před názvem cesty.
 - **Telefon:** Poslední cesty jako kompaktní seznam. V nainstalované aplikaci je navigace dole s ikonami.
 - **Deníkové detaily:** textura papíru, páska na fotce, razítko „CA“ jako logo, rekordy jako razítka a jemné animace.
+
+[Kontrola a nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42765924293) prošly a úpravy jsou na Pages ověřené. Spodní lištu v nainstalované aplikaci ověří Martin na telefonu.
