@@ -1,5 +1,11 @@
 # Změny
 
+## 10. 11. 2026 – úpravy Přehledu podle připomínek
+
+- Přehled: bez textu „Klikněte na stát“, fotka bez rámečku a větší, vlajky podle počtu cest, tři fakta v jednom řádku (bez „Rok 2026“), pravý sloupec zarovnaný s mapou, seznam v kartě státu odsazený od posuvníku.
+- Panel Návraty je pryč. Grafy Cesty po letech a Noci po letech se součtem nad sloupci jsou vedle sebe ve Statistikách nad „Kdy cestuji“, Přehled končí Posledními cestami.
+- Patička a box „Jak číst data“ ve Statistikách jsou pryč. Obsah je široký až 1480 px.
+
 ## 10. 11. 2026 – vzhled „Cestovní deník“
 
 - Web je přemalovaný podle vybraného návrhu 06: krémový papír, inkoustová modrá, rez, Palatino a ručně psaný nadtitulek. Favicon má nové barvy.

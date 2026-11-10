@@ -2,14 +2,13 @@
 import "../generated/vlajky.css";
 import "../styles/cesta.css";
 import { countryName, placeById, stats as s, tripById } from "../lib/data";
-import { $, flag, param, shell, tripName, tripUrl } from "../lib/dom";
+import { $, flag, param, tripName, tripUrl } from "../lib/dom";
 import { cesty, esc, noci, num, presnost, termin } from "../lib/format";
 import { cropFor, hasMapShape, renderMap, toMapPlace } from "../lib/map";
 import type { Trip } from "../lib/model";
 import { popisHtml } from "../lib/text";
 import { focusChips, tripListItem, yearsSpan } from "../lib/ui";
 
-shell();
 
 const id = param("id");
 const t = id ? tripById.get(id) : undefined;

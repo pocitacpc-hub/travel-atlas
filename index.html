@@ -35,10 +35,12 @@
           <div class="legend" id="legend"></div>
         </div>
         <div class="intro">
-          <figure class="polaroid"><img src="/src/img/pobrezi.jpg" width="480" height="270" alt="Skalnaté útesy nad oceánem s malou písečnou pláží"></figure>
-          <p class="kicker" id="span"></p>
-          <h1 id="headline">Přehled</h1>
-          <div class="flagrow" id="flagrow" role="group" aria-label="Navštívené státy podle první návštěvy"></div>
+          <div class="intro-top">
+            <figure class="foto"><img src="/src/img/pobrezi.jpg" width="480" height="270" alt="Skalnaté útesy nad oceánem s malou písečnou pláží"></figure>
+            <p class="kicker" id="span"></p>
+            <h1 id="headline">Přehled</h1>
+          </div>
+          <div class="flagrow" id="flagrow" role="group" aria-label="Navštívené státy podle počtu cest"></div>
           <dl class="facts" id="facts"></dl>
           <article class="panel country" id="country" aria-live="polite"></article>
         </div>
@@ -48,26 +50,7 @@
         <div class="sec-head"><h2 class="sec">Poslední cesty</h2><a class="link" href="kronika.html">Celá kronika →</a></div>
         <div class="cards" id="recent"></div>
       </section>
-
-      <section class="two">
-        <div class="panel">
-          <div class="sec-head"><h2 class="sec">Cesty po letech</h2><a class="link" href="statistiky.html#kdy">Kdy cestuji →</a></div>
-          <p class="legend"><span><i class="sw-cz"></i>Česko</span><span><i class="sw-abroad"></i>Zahraničí</span></p>
-          <div id="years"></div>
-          <p class="note" id="yearsNote"></p>
-        </div>
-        <div class="panel">
-          <h2 class="sec">Návraty</h2>
-          <p class="note">Místa navštívená třikrát a vícekrát.</p>
-          <div id="returns"></div>
-        </div>
-      </section>
     </main>
-    <footer class="foot">
-      <span>Data k <span data-asof>—</span></span>
-      <span>Neznámé údaje se nepočítají jako nula.</span>
-      <a href="statistiky.html#metodika">Jak číst data</a>
-    </footer>
   </div>
 </body>
 </html>

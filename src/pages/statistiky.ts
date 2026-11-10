@@ -1,20 +1,29 @@
-// Statistiky: Kdy cestuji (Měsíce / Celé roky), Státy, Délka pobytu, Rekordy. Jak číst data je statický text v HTML.
+// Statistiky: Cesty a noci po letech, Kdy cestuji (Měsíce / Celé roky), Státy, Délka pobytu, Rekordy.
 import "../generated/vlajky.css";
 import "../styles/statistiky.css";
-import { heatmap, lengthHist, yearRows } from "../lib/charts";
+import { heatmap, lengthHist, yearRows, yearsChart } from "../lib/charts";
 import { countryName, stats as s } from "../lib/data";
-import { $, flag, param, shell, tripName, tripUrl } from "../lib/dom";
+import { $, flag, param, tripName, tripUrl } from "../lib/dom";
 import { cesty, esc, noci, num, plural, termin, zN } from "../lib/format";
 import { longestRun } from "../lib/stats";
 import { emptyArchive, nightsCell, nightsCoverage, staty, yearsSpan } from "../lib/ui";
 
-shell();
 
 if (!s.total) {
   emptyArchive($("main"));
 } else {
   $("span").textContent = s.minYear !== null ? `${s.minYear}–${s.maxYear}` : "";
   $("lead").textContent = `${cesty(s.total)}, ${staty(s.countryCount)}, ${num(s.nightsSum)} známých nocí. Všechna čísla se počítají z jednotlivých cest.`;
+
+  // ---------- Cesty a noci po letech ----------
+  yearsChart($("years"), s, "trips");
+  $("yearsNote").textContent = s.undated
+    ? `Cesty bez známého roku (${s.undated}) jsou vpravo zvlášť a do let se nezařazují.`
+    : "Všechny cesty mají známý rok.";
+  yearsChart($("nights"), s, "nights");
+  $("nightsNote").textContent = s.nightsUnknown
+    ? `Počet nocí je známý u ${s.nightsKnown} ${zN(s.total)} cest, ostatní se nesčítají.`
+    : "Počet nocí je známý u všech cest.";
 
   // ---------- Kdy cestuji ----------
   heatmap($("heat"), s);

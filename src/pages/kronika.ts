@@ -2,13 +2,12 @@
 import "../generated/vlajky.css";
 import "../styles/kronika.css";
 import { countryName, dataAsOf, stats as base, trips as all } from "../lib/data";
-import { $, flag, param, shell, sideClass, tripName, tripUrl } from "../lib/dom";
+import { $, flag, param, sideClass, tripName, tripUrl } from "../lib/dom";
 import { cesty, esc, MONTHS, MONTHS_SHORT, noci, num, plural, searchable, termin, zN } from "../lib/format";
 import type { Trip } from "../lib/model";
 import { computeStats, type YearStat } from "../lib/stats";
 import { emptyArchive, focusChips } from "../lib/ui";
 
-shell();
 
 const STAR = '<svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.8-6.3 3.8 1.7-7L2 9.2l7.1-.6z"/></svg>';
 const MAX_UNITS = 13;

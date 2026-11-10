@@ -1,4 +1,7 @@
 /* Statistiky */
+/* Cesty a noci po letech vedle sebe, nad Kdy cestuji */
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.chart-scroll { overflow-x: auto; }
 .grid2 { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); align-items: start; gap: 24px; }
 .views[hidden] { display: none; }
 .cov { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 12px 0 0; }
@@ -70,7 +73,7 @@ a.rec:hover { border-color: var(--ink-2); }
 .method ul { margin: 6px 0 0; padding-left: 20px; color: var(--ink-2); }
 .method li { margin: 4px 0; }
 
-@media (max-width: 1100px) { .grid2 { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) { .grid2, .two { grid-template-columns: 1fr; } }
 @media (max-width: 640px) {
   .states summary { grid-template-columns: 34px minmax(0, 1fr) 54px 30px 14px; gap: 2px 8px; }
   .strips { padding-left: 4px; }

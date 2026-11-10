@@ -18,7 +18,6 @@ describe("Stránky webu", () => {
       expect(html).toContain(`<script type="module" src="/src/pages/${page.module}.ts"></script>`);
       const current = [...html.matchAll(/<a href="[^"]+" aria-current="page">([^<]+)<\/a>/gu)].map((m) => m[1]);
       expect(current).toEqual([page.nav]);
-      expect(html).toMatch(/<footer[\s\S]*Neznámé údaje se nepočítají jako nula\.[\s\S]*<\/footer>/u);
       // Bez CDN a cizích zdrojů.
       expect(html).not.toMatch(/(?:src|href)="https?:/u);
     });

@@ -5,27 +5,31 @@
 .map-card .legend { padding: 6px 4px 2px; }
 .zoom-out { min-height: 36px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--ink); font: 600 14px var(--sans); cursor: pointer; }
 .zoom-out:hover { border-color: var(--ink-2); }
-.intro h1 { margin: 6px 0 18px; font: 400 56px/1.05 var(--serif); letter-spacing: -.5px; }
+
+/* Pravý sloupec má výšku mapy: karta státu se natáhne a její seznam se posouvá uvnitř. */
+.intro { display: flex; flex-direction: column; align-self: stretch; min-width: 0; container-type: inline-size; }
+.intro-top { display: flow-root; }
+/* Nadpis a fotka se zmenšují se šířkou sloupce, aby se nadpis vešel vedle fotky. */
+.intro h1 { margin: 6px 0 18px; font: 400 clamp(36px, 11.5cqi, 56px)/1.05 var(--serif); letter-spacing: -.5px; }
 .intro h1 em { color: var(--accent); font-style: italic; }
-.facts { display: grid; grid-template-columns: 1fr 1fr; margin: 0 0 20px; border-top: 1px solid var(--line); }
-.facts div { padding: 12px 0; border-bottom: 1px solid var(--line); }
-.facts div:nth-child(odd) { padding-right: 12px; }
-.facts dt { color: var(--muted); font-size: 13px; }
-.facts dd { margin: 0; font: 400 26px/1.2 var(--serif); }
-.facts dd small { display: block; color: var(--muted); font: 13px var(--sans); }
-/* fotka jako polaroid vedle nadpisu, vlajky pod ní přes celou šířku sloupce */
-.polaroid { float: right; width: 170px; margin: 2px 4px 14px 18px; padding: 8px 8px 24px; background: var(--photo-frame); box-shadow: 0 6px 18px rgba(40, 30, 20, .18); transform: rotate(3deg); }
-.polaroid img { display: block; width: 100%; height: 118px; object-fit: cover; }
-.flagrow { clear: both; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; margin: -4px 0 18px; }
+/* fotka vedle nadpisu, bez rámečku */
+.foto { float: right; width: min(210px, 40%); margin: 4px 4px 14px 18px; overflow: hidden; border-radius: 4px; box-shadow: 0 6px 18px rgba(40, 30, 20, .18); transform: rotate(3deg); }
+.foto img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+.flagrow { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; margin: -4px 0 18px; }
 .flagrow button { display: grid; place-items: center; padding: 7px; border: 0; border-radius: 8px; background: transparent; font-size: 21px; line-height: 0; cursor: pointer; }
 .flagrow button:hover { background: var(--hover); }
 .flagrow button[aria-pressed="true"] { background: var(--card); box-shadow: inset 0 0 0 2px var(--ink); }
-.country { padding: 18px 18px 10px; }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0 0 20px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.facts div { padding: 12px 10px 12px 0; }
+.facts dt { color: var(--muted); font-size: 13px; }
+.facts dd { margin: 0; font: 400 26px/1.2 var(--serif); }
+.facts dd small { display: block; color: var(--muted); font: 13px var(--sans); }
+.country { display: flex; flex: 1 1 auto; flex-direction: column; min-height: 0; padding: 18px 18px 10px; }
 .country header { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
 .country h2 { margin: 0; font: 400 28px/1.1 var(--serif); }
 .country h2 .fi { margin-right: 10px; font-size: 22px; vertical-align: -.02em; }
 .country .meta { margin: 6px 0 10px; color: var(--ink-2); font-size: 14px; }
-.country ul { max-height: 232px; margin: 0; padding: 0; overflow: auto; list-style: none; }
+.country ul { flex: 1 1 0; min-height: 140px; margin: 0; padding: 0 12px 0 0; overflow: auto; list-style: none; }
 .country li a { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 9px 0; border-top: 1px solid var(--line); text-decoration: none; }
 .country li a:hover b { text-decoration: underline; }
 .country li b { font-size: 14px; font-weight: 600; }
@@ -33,6 +37,7 @@
 .country li span .fi { margin-right: 6px; font-size: 12px; }
 .country li .n { text-align: right; }
 .country .more { margin: 10px 0 0; font-size: 14px; }
+
 .recent { padding: 36px 0 10px; }
 .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
 .card { position: relative; display: block; min-height: 160px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); text-decoration: none; }
@@ -41,23 +46,19 @@
 .card .cty { display: block; margin-right: 48px; color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
 .card h3 { margin: 6px 56px 14px 0; font: 400 21px/1.2 var(--serif); }
 .card .when { margin-bottom: 8px; color: var(--ink-2); font-size: 14px; }
-.two { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 28px; padding: 30px 0 0; }
-.returns { margin: 8px 0 0; padding: 0; list-style: none; }
-.returns li { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 10px 0; border-top: 1px solid var(--line); }
-.returns .bar { grid-column: 1 / -1; height: 6px; overflow: hidden; border-radius: 3px; background: var(--track); }
-.returns .bar span { display: block; height: 100%; border-radius: 0 3px 3px 0; background: var(--cz); }
-.returns b { font-weight: 600; }
-.returns small { color: var(--muted); font-size: 13px; }
+
 
 @media (max-width: 1100px) {
-  .hero, .two { grid-template-columns: 1fr; }
+  .hero { grid-template-columns: 1fr; }
+  .intro { display: block; }
+  .country ul { flex: none; max-height: 232px; }
   .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
-  .intro h1 { font-size: 38px; }
-  .polaroid { width: 128px; margin-left: 12px; }
-  .polaroid img { height: 88px; }
+  .foto { margin-left: 12px; }
   .flagrow button { padding: 6px 2px; }
+  .facts dd { font-size: 22px; }
+  .facts dd small { font-size: 12px; }
   .cards { grid-template-columns: none; grid-auto-columns: 78%; grid-auto-flow: column; padding-bottom: 6px; overflow-x: auto; scroll-snap-type: x mandatory; }
   .card { scroll-snap-align: start; }
   .map-card { padding: 8px; }

@@ -56,4 +56,14 @@ Večer 9. 11. 2026 přibylo do číselníku deset ověřených obcí z potvrzen�
 
 10. 11. 2026 Martin vybral z [barevných návrhů](design/README.md#barevné-návrhy-10-11-2026) návrh 06 Cestovní deník a upravil ho: písmo Palatino z návrhu 03, fotka bez popisku, vlajky přes celou šířku sloupce a na kartách posledních cest vlajka místo kroužku s kódem. Web je podle něj přemalovaný na všech čtyřech stránkách: krémový papír, inkoustová modrá pro Česko a mapu, rez pro zahraničí, ručně psaný nadtitulek (Ink Free). Rozložení a chování se nezměnily. Barvy, které byly ve stylech stránek napevno, jsou teď proměnné v `src/atlas.css` ([popis vzhledu](design/system.md)).
 
-Přehled má malou fotku z cest jako polaroid (`src/img/pobrezi.jpg`, 480 × 270 px, bez metadat). Ověřeno lokálně v sestavení. Na Pages se změna dostane až po pushnutí do `main`.
+Přehled má malou fotku z cest (`src/img/pobrezi.jpg`, 480 × 270 px, bez metadat).
+
+Podle Martinových připomínek z 10. 11. 2026:
+
+- Na Přehledu nemá mapa text „Klikněte na stát“. Fotka je bez bílého rámečku a o něco větší. Vlajky jsou seřazené podle počtu cest.
+- Fakta jsou tři v jednom řádku, fakt „Rok 2026“ s datem dat zmizel. Pravý sloupec má výšku mapy a seznam cest v kartě státu je odsazený od posuvníku.
+- Panel Návraty zmizel. Grafy Cesty po letech a Noci po letech se součtem nad každým sloupcem jsou vedle sebe ve Statistikách nad „Kdy cestuji“. Přehled končí Posledními cestami.
+- Patička zmizela ze všech stránek a ze Statistik i box „Jak číst data“. Datum dat se na webu teď nikde nezobrazuje.
+- Obsah je na desktopu široký až 1480 px místo 1320 px.
+
+Ověřeno lokálně v sestavení. Na Pages se změny dostanou až po pushnutí do `main`.

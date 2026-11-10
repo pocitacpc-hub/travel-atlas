@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { readJson } from "../tools/atlas-data";
-import { yearLines } from "../src/lib/charts";
+import { yearLines, yearTotals } from "../src/lib/charts";
 import type { Country, Trip, TripsFile } from "../src/lib/model";
 import { computeStats, longestRun, placeVisits } from "../src/lib/stats";
 
@@ -61,6 +61,19 @@ describe("Statistiky nad kontrolním exportem z 8. 11. 2026", () => {
     expect(items.filter((i) => i.kind === "mesic")).toHaveLength(53);
     expect(lines.reduce((a, l) => a + l.qs.length, 0)).toBe(15);
     expect(lines.at(-1)).toMatchObject({ label: "rok ?" });
+  });
+
+  it("sčítá cesty a noci po letech, neznámé noci nepočítá jako nulu", () => {
+    const trips = yearTotals(s, "trips");
+    const nights = yearTotals(s, "nights");
+    expect(trips).toHaveLength(s.years.length + 1); // + sloupec „?“ pro cesty bez roku
+    expect(trips.reduce((a, r) => a + r.total, 0)).toBe(96);
+    expect(nights.reduce((a, r) => a + r.total, 0)).toBe(349);
+    expect(nights.reduce((a, r) => a + r.nightsKnown, 0)).toBe(79);
+    for (const r of nights) expect(r.total).toBe(r.cz + r.abroad);
+    const t = computeStats([trip("a", { pocetNoci: 3 }), trip("b", { zeme: "IT", pocetNoci: 5 }), trip("c")], name, "2026-11-08");
+    expect(yearTotals(t, "nights")[0]).toMatchObject({ year: 2025, trips: 3, cz: 3, abroad: 5, total: 8, nightsKnown: 2 });
+    expect(yearTotals(t, "trips")[0]).toMatchObject({ cz: 2, abroad: 1, total: 3, nights: 8 });
   });
 });
 

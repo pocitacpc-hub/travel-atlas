@@ -1,6 +1,6 @@
 // Pomocné funkce pro DOM: prvky, URL, vlajky, tooltip a překreslení grafů při změně šířky.
-import { dateCz, esc, shortName } from "./format";
-import { countryName, dataAsOf } from "./data";
+import { esc, shortName } from "./format";
+import { countryName } from "./data";
 import type { Trip } from "./model";
 
 export function $<T extends HTMLElement = HTMLElement>(id: string): T {
@@ -17,10 +17,6 @@ export const sideClass = (t: Trip) => (t.zeme === "CZ" ? "is-cz" : "is-abroad");
 /** Vlajka je dekorace vedle názvu státu, proto aria-hidden. Kód je ověřené ISO alfa-2. */
 export const flag = (code: string) => `<span class="fi fi-${esc(code.toLowerCase())}" aria-hidden="true"></span>`;
 
-/** Doplní datum dat do patičky (statická kostra je v HTML). */
-export function shell(): void {
-  for (const el of document.querySelectorAll<HTMLElement>("[data-asof]")) el.textContent = dateCz(dataAsOf);
-}
 
 // ---------- tooltip ----------
 let tipEl: HTMLDivElement | null = null;

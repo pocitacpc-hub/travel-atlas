@@ -1,15 +1,12 @@
-// Přehled: mapa států, řada vlajek, fakta, karta vybraného státu, poslední cesty, graf po letech a Návraty.
+// Přehled: mapa států, řada vlajek, fakta, karta vybraného státu a poslední cesty. Grafy po letech jsou ve Statistikách.
 import "../generated/vlajky.css";
 import "../styles/prehled.css";
-import { yearsChart } from "../lib/charts";
-import { dataAsOf, stats as s, visits } from "../lib/data";
-import { $, flag, param, shell, tripName, tripUrl } from "../lib/dom";
-import { cesty, dateCz, esc, noci, num, pct, plural, termin, zN } from "../lib/format";
+import { stats as s, visits } from "../lib/data";
+import { $, flag, param, tripName, tripUrl } from "../lib/dom";
+import { cesty, esc, noci, num, pct, plural, termin, zN } from "../lib/format";
 import { cropFor, MAP_ASPECT, renderMap, toMapPlace, type MapPlace } from "../lib/map";
 import type { CountryStat } from "../lib/stats";
 import { emptyArchive, focusChips, nightsCoverage, tripListItem, yearsSpan } from "../lib/ui";
-
-shell();
 
 if (!s.total) {
   emptyArchive($("main"));
@@ -35,12 +32,11 @@ if (!s.total) {
 
   $("span").textContent = s.minYear !== null ? `${s.minYear}–${s.maxYear}` : "";
   $("headline").innerHTML = `<em>${s.countryCount}</em> ${plural(s.countryCount, "stát", "státy", "států")},<br>${cesty(s.total)}`;
-  const abroadStates = `${s.abroadCountryCount} ${plural(s.abroadCountryCount, "zahraniční stát", "zahraniční státy", "zahraničních států")}`;
+  const abroadStates = `${s.abroadCountryCount} zahr. ${plural(s.abroadCountryCount, "stát", "státy", "států")}`;
   $("facts").innerHTML = [
     ["Do zahraničí", cesty(s.abroad), abroadStates],
     ["Po Česku", cesty(s.cz), `${pct(s.cz, s.total)} všech cest`],
-    ["Nocí celkem", num(s.nightsSum), `známo u ${s.nightsKnown} ${zN(s.total)} cest`],
-    [`Rok ${s.currentYear}`, cesty(s.thisYear), `data k ${dateCz(dataAsOf)}`]
+    ["Nocí celkem", num(s.nightsSum), `známo u ${s.nightsKnown} ${zN(s.total)} cest`]
   ].map(([dt, dd, small]) => `<div><dt>${dt}</dt><dd>${dd}<small>${small}</small></dd></div>`).join("");
 
   const select = (code: string) => {
@@ -104,7 +100,7 @@ if (!s.total) {
         '<span><i style="background:var(--land)"></i>nenavštíveno</span>';
     $("mapNote").textContent = zoomed
       ? (inCountry.length ? `Ověřená místa: ${inCountry.length}` : "Ve státě zatím nejsou ověřená místa")
-      : onPlaces ? `Ověřená místa: ${places.length}` : "Klikněte na stát";
+      : onPlaces ? `Ověřená místa: ${places.length}` : "";
   }
 
   // Přepínač vrstev má smysl až s ověřenými místy (fáze E).
@@ -128,8 +124,9 @@ if (!s.total) {
       `<p class="more"><a class="link" href="kronika.html?stat=${c.code}">V kronice</a> · <a class="link" href="statistiky.html#stat-${c.code}">Ve statistikách</a></p>`;
   }
 
+  // Vlajky podle počtu cest, při shodě podle první návštěvy.
   function drawFlags(): void {
-    const order = visited.slice().sort((a, b) =>
+    const order = visited.slice().sort((a, b) => b.count - a.count ||
       (a.first === null ? 1 : 0) - (b.first === null ? 1 : 0) || (a.first ?? 0) - (b.first ?? 0) || a.name.localeCompare(b.name, "cs"));
     $("flagrow").innerHTML = order.map((c) =>
       `<button type="button" data-code="${c.code}" aria-pressed="${c.code === selected}" aria-label="${esc(`${c.name}, ${cesty(c.count)}`)}" ` +
@@ -147,25 +144,6 @@ if (!s.total) {
     (t.sport ? ` <span class="chip">${num(t.sport.km)} km aktivit</span>` : "") +
     (t.zamereni.length ? ` ${focusChips(t)}` : "") + "</a>").join("");
 
-  yearsChart($("years"), s);
-  $("yearsNote").textContent = s.undated
-    ? `Cesty bez známého roku (${s.undated}) jsou vpravo zvlášť a do let se nezařazují.`
-    : "Všechny cesty mají známý rok.";
-
-  const returns = visits.filter((v) => v.trips.length >= 3);
-  if (returns.length) {
-    const max = returns[0]!.trips.length;
-    $("returns").innerHTML = `<ol class="returns">${returns.map((v) => {
-      const ys = v.trips.flatMap((t) => (t.rok === null ? [] : [t.rok]));
-      const span = ys.length ? ` · ${Math.min(...ys)}–${Math.max(...ys)}` : "";
-      return `<li><b>${esc(v.place.nazev)}${v.place.presnost === "oblast" ? " <small>(oblast)</small>" : ""}</b><small>${cesty(v.trips.length)}${span}</small>` +
-        `<div class="bar" aria-hidden="true"><span style="width:${((v.trips.length / max) * 100).toFixed(1)}%"></span></div></li>`;
-    }).join("")}</ol>`;
-  } else {
-    $("returns").innerHTML = `<p class="empty-note">${visits.length
-      ? "Žádné ověřené místo zatím nemá tři a více cest."
-      : "Místa se ukážou po ověření jejich polohy v číselníku míst. Do té doby cesty na mapě nemají body."}</p>`;
-  }
 
   drawMap();
   drawCountry();

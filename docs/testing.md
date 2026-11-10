@@ -107,3 +107,8 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - Kontrola barev: `node docs/design/tools/gen-barvy.mjs x --jen-kontrola`. Text aspoň 4,5 : 1, datové barvy a zvýrazněné číslo aspoň 3 : 1, pár Česko / zahraničí rozlišitelný při protanopii i deuteranopii. Čísla v heatmapě na `q3` mají 4,8 : 1.
 - Ve stylech stránek nesmí zůstat barva napevno: `grep -rnE "#[0-9a-fA-F]{3,6}\b|rgba?\(" src/styles src/lib src/pages` najde jen stín polaroidu.
 - Ověření při předání (lokálně): `npm run check` prošel (8 souborů, 42 testů). V náhledu sestavení měly Přehled, Kronika, Statistiky (Měsíce i Celé roky) a detail cesty na 1440 i 390 px `scrollWidth` rovný šířce okna a žádné chyby JavaScriptu. Na snímcích sedí barvy, Palatino, ručně psaný nadtitulek, polaroid, vlajky v 8 sloupcích a vlajka vpravo na kartách cest.
+
+## Úpravy Přehledu podle připomínek (10. 11. 2026)
+
+- `tests/stats.test.ts` ověřuje součty grafů po letech: cesty dají 96, noci 349 ze 79 cest se známým počtem nocí, neznámé noci se nepočítají jako nula.
+- Ověření při předání (lokálně): `npm run check` prošel (8 souborů, 43 testů). Přehled na 1920, 1440, 1280, 1200, 1120 a 390 px a Kronika, Statistiky a detail na 1440 a 390 px bez vodorovného posouvání a bez chyb JavaScriptu. Po přesunu grafů po letech do Statistik znovu ověřen Přehled a Statistiky (Měsíce i Celé roky) na 1440 a 390 px. Na snímcích končí mapa a karta státu na stejné výšce (1440 a 1920 px) a nadpis se vejde vedle fotky na všech šířkách.

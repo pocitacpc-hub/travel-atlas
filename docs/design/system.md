@@ -45,12 +45,11 @@ Všechny barvy jsou CSS proměnné v `:root`. Kód používá role, nikdy přím
 | `--q1` … `--q5` | `#C9D5E2`, `#9AB2CB`, `#6288AE`, `#2D5C88`, `#1B3A57` | sekvenční škála (počet cest), světlá → tmavá |
 | `--accent` | `#A5532F` | zvýrazněné číslo v hlavním nadpisu (4,5 : 1 na papíře) |
 | `--kicker` | `#9A4A28` | ručně psaný nadtitulek (5,2 : 1 na papíře) |
-| `--photo-frame` | `#FFFDF8` | rámeček fotky (polaroid) |
 
 - **Pár Česko / zahraničí:** kontrast vůči kartě 6,5 a 4,1 : 1. Rozlišitelnost ΔE v Lab (CIE76) po simulaci podle Machada 2009: běžně 74, protanopie 59, deuteranopie 73, tritanopie 77. Ověřuje `node docs/design/tools/gen-barvy.mjs x --jen-kontrola`.
 - **Text nikdy ve `--cz` ani `--abroad`.** Pro odkazy je `--cz-text`. Datové barvy jsou jen pro značky (pruhy, plochy, body). Výjimkou je velký text nad 24 px, například zvýrazněné číslo v hlavním nadpisu (`--accent`).
 - **Sekvenční škála:** choropleth státu má třídy 1 (`q1`), 2–5 (`q2`), 6–10 (`q3`), 11–20 (`q4`) a 21+ (`q5`). Heatmapa rok × měsíc používá 1, 2, 3 a 4+ jako `q1`, `q2`, `q3` a `q5`. Čísla v buňkách jsou na `q1`–`q3` v barvě `--q-ink` `#08182A` (4,8–12,0 : 1) a na `q5` v `--q5-ink` bílé (11,7 : 1).
-- **Pomocné tokeny** (dřív napevno v CSS): `--hover` (podklad při najetí), `--shade` a `--shade-2` (průsvitné výplně legendy a oblastí), `--stripe` (střídavé řádky Celých roků), `--cz-tint` (zvýrazněný stát ve Statistikách), `--track` (podklad pruhů Návratů), `--grid` a `--grid-base` (mřížka a základna grafů, šrafování neznámé délky), `--flag-ring` (obrys vlajek, používá ho i generovaný `vlajky.css`) a `--tip-shadow`. Styly stránek nemají žádnou barvu napevno kromě stínu polaroidu.
+- **Pomocné tokeny** (dřív napevno v CSS): `--hover` (podklad při najetí), `--shade` a `--shade-2` (průsvitné výplně legendy a oblastí), `--stripe` (střídavé řádky Celých roků), `--cz-tint` (zvýrazněný stát ve Statistikách), `--grid` a `--grid-base` (mřížka a základna grafů, šrafování neznámé délky), `--flag-ring` (obrys vlajek, používá ho i generovaný `vlajky.css`) a `--tip-shadow`. Styly stránek nemají žádnou barvu napevno kromě stínu fotky.
 - **Upozornění (kontrola dat):** pozadí `#FBF1E6`, okraj `#E8C9A9`, text `#6B3A10` (8,4 : 1). Používá se jen v prototypu, viz kapitola 10.
 - **Tmavý režim** zatím není. Až přibude, dostane vlastní stupně stejných rolí ověřené proti tmavému povrchu a zapne se automaticky přes `prefers-color-scheme`. Nebude to jen převrácení barev.
 
@@ -66,7 +65,7 @@ Všechny barvy jsou CSS proměnné v `:root`. Kód používá role, nikdy přím
 
 | Prvek | Velikost (desktop / mobil) | Písmo |
 |---|---|---|
-| Hlavní nadpis Přehledu („15 států, 96 cest“) | 56 / 38 px | serif 400, číslo kurzívou v `--accent` |
+| Hlavní nadpis Přehledu („15 států, 96 cest“) | 11,5 % šířky pravého sloupce, 36–56 px (`clamp`, jednotka `cqi`) | serif 400, číslo kurzívou v `--accent` |
 | Nadpis detailu cesty | 50 / 34 px | serif 400 |
 | Nadpis stránky (`.page-head h1`) | 46 / 36 px | serif 400 |
 | Rok v Kronice | 44 / 32 px | serif 400 |
@@ -85,7 +84,7 @@ Všechny barvy jsou CSS proměnné v `:root`. Kód používá role, nikdy přím
 
 ## 4. Rozvržení
 
-- **Kontejner:** maximálně 1320 px, boční okraje 28 px, na mobilu 16 px.
+- **Kontejner:** maximálně 1480 px (od 10. 11. 2026, dřív 1320), boční okraje 28 px, na mobilu 16 px. Pod obsahem je odsazení 48 px, patička není.
 - **Mezery:** 24–28 px mezi bloky (`.stack` 24 px), vnitřní odsazení panelu 20 px (mobil 14 px).
 - **Rádiusy:** panel 18 px (mobil 14), karta 16, kulaté ovládání (přepínač, chip, vyhledávání) 999, kód státu 5, konce pruhů 2–6 px.
 - **Okraje:** 1 px `--line`. Stín má jen tooltip.
@@ -110,7 +109,7 @@ Hlavní navigace má 3 položky: **Přehled · Kronika · Statistiky**. Detail c
 |---|---|---|
 | Přehled | `index.html` | `?stat=HR` vybraný a přiblížený stát |
 | Kronika | `kronika.html` | `?stat=IT` filtr státu · `#y2023` rok · `#yunk` cesty bez roku |
-| Statistiky | `statistiky.html` | `?pohled=mesice` nebo `?pohled=roky` · `#kdy` · `#staty` · `#stat-HR` (otevře stát) · `#metodika` |
+| Statistiky | `statistiky.html` | `?pohled=mesice` nebo `?pohled=roky` · `#po-letech` · `#kdy` · `#staty` · `#stat-HR` (otevře stát) |
 | Detail cesty | `cesta.html?id=c038` | `id` = stabilní ID cesty |
 
 - Výběr státu a pohledu se zapisuje do URL (`history.replaceState`), takže odkaz jde sdílet.
@@ -125,7 +124,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 **Kostra**
 
 - **Hlavička** (`APP.shell`): logotyp „Cestovní atlas“ serifovou kurzívou s podtitulkem „osobní atlas cest“ (na mobilu skrytý) a navigace jako kulatá tlačítka. Aktivní položka je tmavá (`aria-current="page"`).
-- **Patička** (`APP.shell`): „Data k 8. 11. 2026“, „Neznámé údaje se nepočítají jako nula.“ a odkaz „Jak číst data“.
+- **Patička** není (Martin, 10. 11. 2026). Datum dat, věta o neznámých údajích a box „Jak číst data“ ve Statistikách se nezobrazují. Pokrytí neznámých hodnot zůstává u jednotlivých čísel („známo u 80 z 96 cest“).
 - **Záhlaví stránky** (`.page-head`): nadtitulek (rozsah let), H1, úvodní věta spočítaná z dat, volitelně legenda vpravo.
 - **Panel** (`.panel`): karta na `--card` s okrajem `--line`. Záhlaví panelu (`.ph`) má nadpis a ovládání nebo legendu.
 
@@ -139,13 +138,15 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 
 - **Mapa států** (`VZ.renderMap`): SVG ze statických hranic. Navštívené státy jsou zbarvené podle počtu cest, nenavštívené mají `--land`. Najetí nebo fokus ukáže tooltip a obrys v `--ink`, vybraný stát má obrys 2,2 px. Klik nebo Enter vybere stát.
 - **Přiblížení státu** (Přehled): klik na stát v mapě nebo na jeho vlajku mapu plynule (0,45 s, bez animace při `prefers-reduced-motion`) přiblíží na stát. Výřez drží poměr stran celé mapy. Stát má výplň `--q2`, ostatní navštívené `--q1`, zobrazí se všechna ověřená místa s popisky (bez překryvu, důležitější místo má přednost). Body i písmo mají v přiblížení stálou velikost na obrazovce. Tlačítko „← Celá Evropa“ nebo klávesa Esc vrátí celou mapu. Klik na jiný stát v přiblížení přepne na něj.
-- **Karta státu** (Přehled): název, kód, „11 cest · 1996–2026 · 82 nocí (známo u 9 z 11)“, posuvný seznam cest s odkazy na detail a odkazy „V kronice“ a „Ve statistikách“.
+- **Karta státu** (Přehled): název, kód, „11 cest · 1996–2026 · 82 nocí (známo u 9 z 11)“, posuvný seznam cest s odkazy na detail a odkazy „V kronice“ a „Ve statistikách“. Pravý sloupec má na desktopu výšku mapy: karta se natáhne a seznam se posouvá uvnitř (aspoň 140 px, vpravo 12 px od posuvníku). Pod 1100 px má seznam nejvýš 232 px.
 - **Seznam států** (`APP.statesList`): `<details>` pro každý stát. Řádek má kód, název, pruh (Česko tyrkys, ostatní okr), počet a podřádek s nocemi a pokrytím a rozsahem let. Po rozbalení se ukážou cesty a odkazy „Na mapě“ a „V kronice“.
 
 **Cesty**
 
 - **Karta cesty** (Přehled, Poslední cesty): stát verzálkami (bez vlajky), název serifem, termín, chipy (noci, km aktivit) a vlajka státu vpravo nahoře (26 px). Kroužek s kódem státu na kartě není. Celá karta je odkaz.
-- **Fotka** (Přehled): polaroid vpravo vedle nadtitulku a nadpisu, rámeček `--photo-frame`, pootočený o 3°, bez popisku. Soubor `src/img/pobrezi.jpg` (480 × 270 px, bez metadat) zpracuje Vite při sestavení. Řada vlajek pod fotkou začíná až pod ní.
+- **Fotka** (Přehled): vpravo vedle nadtitulku a nadpisu, bez rámečku a bez popisku, poměr 16 : 10, šířka `min(210px, 40 %)` sloupce, rádius 4 px, stín, pootočená o 3°. Soubor `src/img/pobrezi.jpg` (480 × 270 px, bez metadat) zpracuje Vite při sestavení. Řada vlajek začíná až pod fotkou.
+- **Fakta** (Přehled): tři údaje v jednom řádku – Do zahraničí („14 zahr. států“), Po Česku (podíl všech cest) a Nocí celkem (pokrytí).
+- **Cesty po letech a Noci po letech** (Statistiky, první blok nad „Kdy cestuji“, kotva `#po-letech`): dva stejně široké panely vedle sebe, pod 1100 px pod sebou. Skládané sloupce Česko / zahraničí, nad sloupcem součet. Noci se sčítají jen z cest se známým počtem nocí, rok s cestami bez známých nocí má nad osou „?“. Cesty bez roku jsou v posledním sloupci „?“. Pod 560 px se graf posouvá uvnitř panelu. Přehled končí Posledními cestami, grafy po letech ani panel Návraty na něm nejsou.
 - **Řádek cesty v Kronice** (`.trip`): měsíc, pruh ve stopě o pevné šířce 13 nocí × jednotka (15 px, mobil 9 px), název, metadata a případně odznak „nová země“.
   - Pruh: Česko tyrkys, zahraničí okr, cesta se známým jen měsícem s průhledností 55 %, neznámá délka jako čárkovaný obrys.
 - **Rok v Kronice** (`.year`): rok serifem, souhrn („9 cest · 5 do zahraničí, 38 nocí“) a seznam cest. Prázdný rok je zúžený řádek „bez záznamu v archivu“ (jen bez filtru). Cesty bez roku mají vlastní skupinu „?“.
@@ -188,7 +189,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 
   | Stránka | Místa s vlajkou |
   |---|---|
-  | Přehled | řada vlajek pod hlavním nadpisem (15 tlačítek podle první návštěvy v mřížce 8 sloupců přes celou šířku sloupce, klik vybere stát, `aria-pressed`), karta státu, karty posledních cest (vpravo nahoře), tooltip mapy |
+  | Přehled | řada vlajek pod hlavním nadpisem (15 tlačítek podle počtu cest, při shodě podle první návštěvy, v mřížce 8 sloupců přes celou šířku sloupce, klik vybere stát, `aria-pressed`), karta státu, karty posledních cest (vpravo nahoře), tooltip mapy |
   | Kronika | metadata cesty |
   | Statistiky | seznam států (místo kódu, kód je malý vedle názvu), tooltipy heatmapy a Celých roků |
   | Detail cesty | nadtitulek, fakt „Stát“, nadpis „Další cesty“ |
@@ -261,11 +262,11 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 
 **Co web ve fázi D udělal jinak:**
 
-- Body míst a Návraty berou jen ověřená místa z `mista.json`. Bez nich je přepínač Státy / Místa skrytý a Návraty mají prázdný stav.
+- Body míst berou jen ověřená místa z `mista.json`. Bez nich je přepínač Státy / Místa skrytý.
 - Místo štítku „kolo“ se zobrazují chipy z pole `zamereni`. Box „Kontrola dat“ a varování o překryvu v tooltipu nejsou.
 - Detail bez popisu nemá prázdný rámeček. Pole `popis` se zobrazí jako první panel „O cestě“: text 16 px, místa **tučně** v `--ink`, kurzíva serifem, odstavce a odrážky.
 - Neznámé ID v `cesta.html?id=` ukáže „Cesta nenalezena“, nepřesměruje na poslední cestu.
-- Fakt „Letos“ je „Rok 2026“ s datem dat, aby po přelomu roku netvrdil nepravdu.
+- Fakt „Letos“ (později „Rok 2026“ s datem dat) na Přehledu od 10. 11. 2026 není.
 - Hledání v Kronice nerozlišuje diakritiku a prohledává i název státu.
 - Další státy pobytu (`dalsiZeme`) se počítají do navštívených států a na mapě, počet cest u státu zůstává podle hlavního státu (rozhodnutí 0002).
 

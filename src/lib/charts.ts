@@ -23,26 +23,39 @@ export function tripTip(t: Trip, countryName: (code: string) => string): string 
     (t.presnostTerminu !== "den" ? `<br><i>${presnost(t.presnostTerminu)}</i>` : "");
 }
 
-// ---------- Cesty po letech (Česko / zahraničí, skládané) ----------
-interface YearRow { year: number | null; total: number; cz: number; abroad: number; nights: number; nightsKnown: number }
+// ---------- Cesty a noci po letech (Česko / zahraničí, skládané, nad sloupcem součet) ----------
+export type YearMetric = "trips" | "nights";
+interface YearRow { year: number | null; trips: number; cz: number; abroad: number; total: number; nights: number; nightsKnown: number }
 
-export function yearsChart(el: HTMLElement, s: Stats, height = 210): void {
-  const rows: YearRow[] = s.years.slice();
-  if (s.undated) {
-    const cz = s.undatedTrips.filter((t) => t.zeme === "CZ").length;
-    rows.push({ year: null, total: s.undated, cz, abroad: s.undated - cz, nights: 0, nightsKnown: 0 });
-  }
+/** Řádky grafu po letech. Noci se sčítají jen z cest se známým počtem nocí, neznámé se nepočítají jako nula. */
+export function yearTotals(s: Stats, metric: YearMetric): YearRow[] {
+  const groups: { year: number | null; trips: Trip[] }[] = s.years.map((y) => ({ year: y.year, trips: y.trips }));
+  if (s.undated) groups.push({ year: null, trips: s.undatedTrips });
+  return groups.map(({ year, trips }) => {
+    const known = trips.filter((t) => t.pocetNoci !== null);
+    const sum = (list: Trip[]) => (metric === "trips" ? list.length : list.reduce((n, t) => n + (t.pocetNoci ?? 0), 0));
+    const cz = sum((metric === "trips" ? trips : known).filter((t) => t.zeme === "CZ"));
+    const abroad = sum((metric === "trips" ? trips : known).filter((t) => t.zeme !== "CZ"));
+    return { year, trips: trips.length, cz, abroad, total: cz + abroad, nights: known.reduce((n, t) => n + t.pocetNoci!, 0), nightsKnown: known.length };
+  });
+}
+
+export function yearsChart(el: HTMLElement, s: Stats, metric: YearMetric = "trips", height = 220): void {
+  const rows = yearTotals(s, metric);
   const draw = () => {
-    const W = Math.max(280, el.clientWidth);
+    // Pod 560 px se graf posouvá uvnitř boxu, aby se čísla nad sloupci nepřekrývala.
+    const W = Math.max(560, el.clientWidth);
     const H = height;
-    const m = { l: 26, r: 6, t: 10, b: 22 };
+    const m = { l: 28, r: 6, t: 22, b: 22 };
     const slots = rows.length + (s.undated ? 1 : 0);
     const slot = (W - m.l - m.r) / Math.max(1, slots);
     const bw = Math.max(3, Math.min(18, slot * 0.68));
-    const max = niceMax(Math.max(1, ...rows.map((r) => r.total)));
+    let max = niceMax(Math.max(1, ...rows.map((r) => r.total)));
+    if (max % 2) max += 5; // prostřední čára osy má být celé číslo
     const y0 = H - m.b;
     const scale = (H - m.t - m.b) / max;
-    const out = [`<svg class="vz-chart" width="${W}" height="${H}" role="img" aria-label="Počet cest po letech, Česko a zahraničí">`];
+    const what = metric === "trips" ? "cest" : "nocí";
+    const out = [`<svg class="vz-chart" width="${W}" height="${H}" role="img" aria-label="Počet ${what} po letech, Česko a zahraničí">`];
     for (const v of [0, max / 2, max]) {
       const y = y0 - v * scale;
       out.push(`<line class="vz-grid${v === 0 ? " is-base" : ""}" x1="${m.l}" x2="${W - m.r}" y1="${y}" y2="${y}"/>`,
@@ -60,7 +73,11 @@ export function yearsChart(el: HTMLElement, s: Stats, height = 210): void {
           : `<path class="vz-bar is-cz" d="${roundTop(x, y0 - hc, bw, hc, 4)}"/>`);
       }
       // 2px mezera v barvě povrchu mezi segmenty.
-      if (r.abroad) out.push(`<path class="vz-bar is-abroad" d="${roundTop(x, y0 - hc - ha - (r.cz ? 2 : 0), bw, ha, 4)}"/>`);
+      const top = y0 - hc - ha - (r.cz && r.abroad ? 2 : 0);
+      if (r.abroad) out.push(`<path class="vz-bar is-abroad" d="${roundTop(x, top, bw, ha, 4)}"/>`);
+      // Součet nad sloupcem. Rok s cestami, ale bez známých nocí, má „?“, ne nulu.
+      const value = r.total ? String(r.total) : r.trips && metric === "nights" ? (r.nightsKnown ? "0" : "?") : "";
+      if (value) out.push(`<text class="vz-val${value === "?" ? " is-unknown" : ""}" x="${x + bw / 2}" y="${(r.total ? top : y0) - 4}" text-anchor="middle">${value}</text>`);
       out.push(`<rect class="vz-hit" x="${m.l + idx * slot}" y="${m.t}" width="${slot}" height="${H - m.t - m.b}" data-tip data-i="${i}"/>`);
       const label = r.year === null ? "?" : yearTick(r.year, s.minYear) ? String(r.year) : "";
       if (label) out.push(`<text class="vz-tick" x="${x + bw / 2}" y="${H - 6}" text-anchor="middle">${label}</text>`);
@@ -72,9 +89,12 @@ export function yearsChart(el: HTMLElement, s: Stats, height = 210): void {
   bindTips(el, (t) => {
     const r = rows[Number(t.dataset.i)]!;
     const head = r.year === null ? "Rok neznámý" : String(r.year);
-    if (!r.total) return `<b>${head}</b><br>bez záznamu`;
-    return `<b>${head}</b> · ${cesty(r.total)}<br>Česko ${r.cz} · zahraničí ${r.abroad}` +
-      (r.year === null ? "" : `<br>${r.nightsKnown ? `${noci(r.nights)} (známo u ${r.nightsKnown} ${zN(r.total)})` : "noci neznámé"}`);
+    if (!r.trips) return `<b>${head}</b><br>bez záznamu`;
+    const nightsLine = r.nightsKnown ? `${noci(r.nights)} (známo u ${r.nightsKnown} ${zN(r.trips)})` : "noci neznámé";
+    if (metric === "nights") {
+      return `<b>${head}</b> · ${cesty(r.trips)}<br>${nightsLine}` + (r.nightsKnown ? `<br>Česko ${r.cz} · zahraničí ${r.abroad}` : "");
+    }
+    return `<b>${head}</b> · ${cesty(r.total)}<br>Česko ${r.cz} · zahraničí ${r.abroad}` + (r.year === null ? "" : `<br>${nightsLine}`);
   });
 }
 
