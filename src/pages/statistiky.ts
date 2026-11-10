@@ -8,6 +8,9 @@ import { cesty, esc, noci, num, plural, termin, zN } from "../lib/format";
 import { longestRun } from "../lib/stats";
 import { initTripDialog } from "../lib/tripDialog";
 import { emptyArchive, nightsCell, nightsCoverage, staty, yearsSpan } from "../lib/ui";
+import { registerServiceWorker } from "../lib/pwa";
+
+registerServiceWorker();
 
 
 initTripDialog();

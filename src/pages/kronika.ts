@@ -9,6 +9,9 @@ import { computeStats, type YearStat } from "../lib/stats";
 import { popisPerex } from "../lib/text";
 import { initTripDialog } from "../lib/tripDialog";
 import { emptyArchive, focusChips } from "../lib/ui";
+import { registerServiceWorker } from "../lib/pwa";
+
+registerServiceWorker();
 
 
 const STAR = '<svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.8-6.3 3.8 1.7-7L2 9.2l7.1-.6z"/></svg>';

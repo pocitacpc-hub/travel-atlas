@@ -5,6 +5,9 @@ import "../styles/trip.css";
 import { tripById } from "../lib/data";
 import { $, param, tripName } from "../lib/dom";
 import { drawTripMap, tripDetailHtml, tripNotFoundHtml } from "../lib/trip";
+import { registerServiceWorker } from "../lib/pwa";
+
+registerServiceWorker();
 
 const id = param("id");
 const t = id ? tripById.get(id) : undefined;

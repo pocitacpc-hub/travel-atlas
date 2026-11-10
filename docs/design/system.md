@@ -116,6 +116,10 @@ Hlavní navigace má 3 položky: **Přehled · Kronika · Statistiky**. Detail c
 - Výběr státu a pohledu se zapisuje do URL (`history.replaceState`), takže odkaz jde sdílet.
 - Na GitHub Pages fungují samostatné HTML stránky s parametry bez potíží s chybou 404. ID v adrese musí být stabilní ID ze zdroje (viz revize, Z1), ne pořadí ani název souboru.
 - **Náhled při sdílení** (Open Graph, od 10. 11. 2026): každá stránka má `og:title`, `og:description`, `og:image` (`src/img/sdileni.jpg`, 1200 × 630 px, bez metadat) a `twitter:card`. Při sestavení plugin ve `vite.config.ts` doplní `og:url` a z adresy obrázku udělá absolutní adresu na GitHub Pages, protože sociální sítě relativní adresy neberou.
+- **Instalace jako aplikace (PWA, od 10. 11. 2026):** plugin `tools/pwa.ts` při sestavení zapíše `manifest.webmanifest` (název „Cestovní atlas“, krátce „Atlas“, `display: standalone`, barva `#f2eadb`, zkratky Kronika a Statistiky), ikony z `src/pwa/` (192 a 512 px, 512 px maskable s razítkem v bezpečné zóně, `apple-touch-icon` 180 px) a `sw.js`. Do stránek doplní odkazy na manifest a ikonu pro iPhone. Meta značky `theme-color` a `apple-mobile-web-app-*` jsou přímo v HTML.
+  - **Android (Chrome):** nabídka „Nainstalovat aplikaci“ nebo „Přidat na plochu“. **iPhone (Safari):** Sdílet → Přidat na plochu. Atlas se pak otevírá bez lišty prohlížeče. Zpět v okně cesty i tlačítko „← Zpět“ na stránce cesty fungují i bez ní.
+  - **Offline:** service worker při instalaci uloží stránky, skripty, styly, vlajky a ikony (asi 490 kB). Písma a obrázek pro sdílení uloží až při použití. Stránky bere nejdřív ze sítě, bez připojení z mezipaměti i s parametry (`?cesta=`, `?stat=`). Ostatní soubory mají otisk obsahu v názvu, proto je bere nejdřív z mezipaměti a hlavičku `Vary` přitom ignoruje (Vite načítá skripty s `crossorigin`). Nová verze se aktivuje po zavření všech oken atlasu. Do té doby se při připojení stejně načítají aktuální stránky.
+  - Registraci dělá `src/lib/pwa.ts`, a to jen v sestavení. Vývojový server service worker nemá.
 
 ---
 

@@ -1,6 +1,7 @@
 import { basename } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig, type Plugin } from "vite";
+import { pwa } from "./tools/pwa";
 
 const page = (file: string) => fileURLToPath(new URL(file, import.meta.url));
 const BASE = "/travel-atlas/";
@@ -36,7 +37,7 @@ function openGraph(): Plugin {
 
 export default defineConfig({
   base: BASE,
-  plugins: [openGraph()],
+  plugins: [openGraph(), pwa(BASE)],
   // Veřejná data se vkládají do sestavení importem ze src/lib/data.ts. Adresář public/ se nekopíruje.
   publicDir: false,
   // Licence flag-icons (/*! … */) musí zůstat ve výsledném CSS.

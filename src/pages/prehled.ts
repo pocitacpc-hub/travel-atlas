@@ -8,6 +8,9 @@ import { cropFor, MAP_ASPECT, renderMap, toMapPlace, type MapPlace } from "../li
 import type { CountryStat } from "../lib/stats";
 import { initTripDialog } from "../lib/tripDialog";
 import { emptyArchive, focusChips, nightsCoverage, tripListItem, yearsSpan } from "../lib/ui";
+import { registerServiceWorker } from "../lib/pwa";
+
+registerServiceWorker();
 
 initTripDialog();
 

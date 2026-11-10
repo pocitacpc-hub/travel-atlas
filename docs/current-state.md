@@ -75,3 +75,7 @@ Další úpravy z 10. 11. 2026:
 - Kronika ukazuje u 35 cest s popisem jeho první větu a má přepínač „Jen s popisem“.
 - Písma: nejdřív systémové Palatino a Ink Free, jinde lokální podmnožiny TeX Gyre Pagella a Patrick Hand (`src/fonts/`).
 - Odkaz sdílený na sociálních sítích má náhled s fotkou (Open Graph). Hlavička nemá podtitulek „Osobní atlas cest“.
+
+## Instalace jako aplikace (PWA)
+
+10. 11. 2026: Atlas jde nainstalovat na Android (Chrome) i iPhone (Safari → Sdílet → Přidat na plochu). Má manifest, ikony a service worker, takže se otevírá bez lišty prohlížeče a archiv funguje i bez připojení. Podrobnosti jsou v [popisu vzhledu](design/system.md) a v `tools/pwa.ts`. Na telefonu instalaci ručně ověří Martin.

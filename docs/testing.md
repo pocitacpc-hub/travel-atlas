@@ -121,3 +121,10 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - `dist/*.html` mají absolutní `og:image` a `og:url` na GitHub Pages.
 - `npm run check` prošel (9 souborů, 44 testů). Všechny stránky, okno a stránka „Cesta nenalezena“ na 1440 i 390 px bez vodorovného posouvání a bez chyb JavaScriptu.
 - Po pushnutí do `main` prošly [kontrola i nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42759562130). Na veřejné adrese vrátily všechny čtyři stránky HTTP 200. `og:image` je absolutní a obrázek (1200 × 630, 159 kB) i pět souborů písem vrací HTTP 200. V Chrome na 1440 i 390 px byly Přehled, Kronika, Statistiky, detail cesty a plovoucí okno (`?cesta=`) bez vodorovného posouvání a bez chyb JavaScriptu.
+
+## PWA (10. 11. 2026)
+
+- `tests/pwa.test.ts` ověřuje manifest (název, `standalone`, rozsah, ikony 192, 512 a maskable, existence souborů), seznam souborů pro offline bez duplicit a bez písem a že service worker zůstává na vlastní doméně.
+- Instalovatelnost: Chrome přes DevTools Protocol (`Page.getAppManifest`, `Page.getInstallabilityErrors`) hlásí 0 chyb manifestu a 0 překážek instalace. Service worker je aktivní a uloží 28 souborů.
+- Offline: po načtení webu se zastavil server náhledu. Kronika s oknem cesty (`?cesta=`) a mapou, Statistiky (Měsíce, Celé roky, grafy po letech), samostatná stránka cesty a Přehled s `?stat=HR` se načetly ze service workeru i se styly. První pokus odhalil neshodu kvůli hlavičce `Vary`, opraveno přes `ignoreVary`.
+- Neověřeno automaticky: instalace na skutečném telefonu (Android, iPhone). Postup je v `docs/design/system.md`, kapitola 5.

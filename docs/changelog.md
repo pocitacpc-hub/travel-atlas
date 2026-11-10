@@ -1,5 +1,10 @@
 # Změny
 
+## 10. 11. 2026 – instalace jako aplikace (PWA)
+
+- Manifest, ikony pro Android a iPhone a service worker. Atlas jde přidat na plochu a otevírá se jako aplikace.
+- Archiv funguje i offline: stránky, okno cesty i mapy se načtou z mezipaměti.
+
 ## 10. 11. 2026 – plovoucí okno cesty, písma a sdílení
 
 - Detail cesty se otevírá v plovoucím okně s „← Zpět“ a křížkem, zavírá se i Esc, klikem mimo okno a tlačítkem Zpět. Detail je zkrácený jen na cestu (bez dalších cest a předchozí / další) a má vlajku místo kroužku s kódem. Samostatná stránka má tlačítko „← Zpět“.
