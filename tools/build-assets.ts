@@ -93,7 +93,7 @@ export function flagCss(codes: string[], license: string, version: string): stri
   return `/*! flag-icons ${version} – podmnožina pro Cestovní atlas. https://github.com/lipis/flag-icons\n${notice}\n*/\n` +
     `.fi { position: relative; display: inline-block; flex: none; width: 1.333333em; height: 1em; line-height: 1em;\n` +
     `  background-size: cover; background-position: 50%; background-repeat: no-repeat;\n` +
-    `  border-radius: 2px; box-shadow: 0 0 0 1px rgba(30, 43, 51, .18); vertical-align: -.12em; }\n` +
+    `  border-radius: 2px; box-shadow: 0 0 0 1px var(--flag-ring, rgba(46, 36, 25, .18)); vertical-align: -.12em; }\n` +
     `.fi::before { content: " "; }\n${rules.join("\n")}\n`;
 }
 

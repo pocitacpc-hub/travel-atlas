@@ -1,6 +1,6 @@
 # Cestovní atlas
 
-Cestovní atlas je osobní archiv uskutečněných cest. Statický web má Přehled s mapou států, Kroniku po letech, Statistiky a detail cesty. Vzhled vychází ze schváleného prototypu Atlas.
+Cestovní atlas je osobní archiv uskutečněných cest. Statický web má Přehled s mapou států, Kroniku po letech, Statistiky a detail cesty. Rozložení vychází ze schváleného prototypu Atlas, barvy a písmo z vybraného návrhu „Cestovní deník“ ([popis vzhledu](docs/design/system.md)).
 
 ## Lokální vývoj
 

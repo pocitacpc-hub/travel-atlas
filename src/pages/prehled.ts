@@ -141,8 +141,8 @@ if (!s.total) {
   });
 
   $("recent").innerHTML = s.recent.slice(0, 4).map((t) =>
-    `<a class="card" href="${tripUrl(t)}"><span class="stamp" aria-hidden="true">${esc(t.zeme)}</span>` +
-    `<span class="cty">${flag(t.zeme)}${esc(byCode.get(t.zeme)?.name ?? t.zeme)}</span><h3>${esc(tripName(t))}</h3>` +
+    `<a class="card" href="${tripUrl(t)}">${flag(t.zeme)}` +
+    `<span class="cty">${esc(byCode.get(t.zeme)?.name ?? t.zeme)}</span><h3>${esc(tripName(t))}</h3>` +
     `<div class="when">${termin(t)}</div><span class="chip">${noci(t.pocetNoci)}</span>` +
     (t.sport ? ` <span class="chip">${num(t.sport.km)} km aktivit</span>` : "") +
     (t.zamereni.length ? ` ${focusChips(t)}` : "") + "</a>").join("");

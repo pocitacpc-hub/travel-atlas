@@ -1,9 +1,16 @@
 # Změny
 
+## 10. 11. 2026 – vzhled „Cestovní deník“
+
+- Web je přemalovaný podle vybraného návrhu 06: krémový papír, inkoustová modrá, rez, Palatino a ručně psaný nadtitulek. Favicon má nové barvy.
+- Přehled má fotku z cest jako polaroid. Vlajky pod nadpisem jdou přes celou šířku sloupce a karty posledních cest mají vlajku vpravo místo kroužku s kódem státu.
+- Barvy dříve zapsané ve stylech stránek a v generátoru vlajek jsou CSS proměnné.
+
 ## 10. 11. 2026 – barevné návrhy úvodní stránky
 
 - V `docs/design/barvy/` je 10 variant barev a písma nad skutečným obsahem Přehledu a rozcestník se živými náhledy. Web se nemění.
 - Generátor návrhů kontroluje kontrast a čitelnost barev pro barvoslepé. Statický server maket umí obrázky JPEG.
+- Vybraný návrh 06 Cestovní deník je upravený: písmo Palatino, fotka bez popisku, vlajky přes celou šířku sloupce a na kartách cest vlajka místo kroužku s kódem.
 
 ## 9. 11. 2026 – nová místa z potvrzených shrnutí
 

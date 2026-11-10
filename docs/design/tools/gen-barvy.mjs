@@ -92,24 +92,26 @@ const NAVRHY = [
 .top .brand span { color: rgba(255, 255, 255, .8); }`,
   },
   {
-    file: '06-denik.html', name: 'Cestovní deník', idea: 'Zápisník z cest: krémový papír, inkoustová modrá, rezavé razítko a ručně psané poznámky.',
-    fonts: 'Garamond + Segoe UI + Ink Free', foto: 'polaroid', obr: 1,
+    file: '06-denik.html', name: 'Cestovní deník', idea: 'Zápisník z cest: krémový papír, inkoustová modrá, rezavé akcenty, ručně psaný nadtitulek a fotka jako polaroid.',
+    fonts: 'Palatino + Segoe UI + Ink Free', foto: 'polaroid', obr: 1,
     t: {
       paper: '#F2EADB', card: '#FBF6EB', ink: '#2E2419', 'ink-2': '#4E4133', muted: '#6B5D4C', line: '#DCCDB4', 'line-2': '#E9DFCB', land: '#E7DCC6',
-      cz: '#2D5C88', 'cz-text': '#2A5781', abroad: '#B5613A', q1: '#C9D5E2', q2: '#9AB2CB', q3: '#6288AE', q4: '#2D5C88', q5: '#1B3A57', 'q-ink': '#0E2235',
+      cz: '#2D5C88', 'cz-text': '#2A5781', abroad: '#B5613A', q1: '#C9D5E2', q2: '#9AB2CB', q3: '#6288AE', q4: '#2D5C88', q5: '#1B3A57', 'q-ink': '#08182A',
       hover: 'rgba(46, 36, 25, .06)', track: '#E8DECB', grid: '#E2D6C1', 'grid-base': '#BBAA8E',
-      accent: '#A5532F', stamp: '#9A4A28', kicker: '#9A4A28',
-      serif: 'Garamond, "EB Garamond", "Sitka Text", Georgia, serif', sans: SANS,
-      'brand-font': 'Garamond, Georgia, serif', 'brand-weight': '400',
+      accent: '#A5532F', kicker: '#9A4A28',
+      serif: '"Palatino Linotype", "Book Antiqua", Palatino, serif', sans: SANS,
     },
-    css: `.brand b { font-size: 32px; }
-.intro h1 { font-size: 60px; }
-.facts dd { font-size: 30px; }
-.card h3 { font-size: 24px; }
-h2.sec { font-size: 32px; } .panel h2.sec { font-size: 27px; }
+    css: `.intro h1 { font-size: 56px; }
 .kicker { font: 19px/1.3 "Ink Free", "Segoe Print", cursive; letter-spacing: 0; text-transform: none; }
-.card .stamp { border: 2px solid var(--stamp); box-shadow: inset 0 0 0 2px var(--card), inset 0 0 0 3px var(--stamp); }
-[data-foto="polaroid"] .foto figcaption { font: 14px/1.15 "Ink Free", "Segoe Print", cursive; }`,
+/* fotka bez popisku */
+.foto figcaption { display: none; }
+[data-foto="polaroid"] .foto { padding-bottom: 24px; }
+/* vlajky pod fotkou přes celou šířku sloupce */
+.flagrow { clear: both; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; }
+.flagrow button { display: grid; place-items: center; }
+/* karty posledních cest: vlajka vpravo nahoře místo razítka s kódem */
+.card .stamp { display: none; }
+.card .cty .fi { position: absolute; top: 18px; right: 18px; margin: 0; font-size: 26px; }`,
   },
   {
     file: '07-plakat.html', name: 'Cestovní plakát', idea: 'Retro plakát: syté barvy, tlustá kontura, verzálky a výrazné slunečné žluté akcenty.',

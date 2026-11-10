@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cestovní deník · barevný návrh · Cestovní atlas</title>
-  <meta name="description" content="Zápisník z cest: krémový papír, inkoustová modrá, rezavé razítko a ručně psané poznámky.">
+  <meta name="description" content="Zápisník z cest: krémový papír, inkoustová modrá, rezavé akcenty, ručně psaný nadtitulek a fotka jako polaroid.">
   <link rel="stylesheet" href="../v2/assets/flag-icons/flag-icons.css">
   <link rel="stylesheet" href="assets/zaklad.css">
   <style>
-/* Cestovní deník: Zápisník z cest: krémový papír, inkoustová modrá, rezavé razítko a ručně psané poznámky.
-   Písmo: Garamond + Segoe UI + Ink Free. */
+/* Cestovní deník: Zápisník z cest: krémový papír, inkoustová modrá, rezavé akcenty, ručně psaný nadtitulek a fotka jako polaroid.
+   Písmo: Palatino + Segoe UI + Ink Free. */
 :root {
   --paper: #F2EADB;
   --card: #FBF6EB;
@@ -27,30 +27,30 @@
   --q3: #6288AE;
   --q4: #2D5C88;
   --q5: #1B3A57;
-  --q-ink: #0E2235;
+  --q-ink: #08182A;
   --hover: rgba(46, 36, 25, .06);
   --track: #E8DECB;
   --grid: #E2D6C1;
   --grid-base: #BBAA8E;
   --accent: #A5532F;
-  --stamp: #9A4A28;
   --kicker: #9A4A28;
-  --serif: Garamond, "EB Garamond", "Sitka Text", Georgia, serif;
+  --serif: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
-  --brand-font: Garamond, Georgia, serif;
-  --brand-weight: 400;
 }
-.brand b { font-size: 32px; }
-.intro h1 { font-size: 60px; }
-.facts dd { font-size: 30px; }
-.card h3 { font-size: 24px; }
-h2.sec { font-size: 32px; } .panel h2.sec { font-size: 27px; }
+.intro h1 { font-size: 56px; }
 .kicker { font: 19px/1.3 "Ink Free", "Segoe Print", cursive; letter-spacing: 0; text-transform: none; }
-.card .stamp { border: 2px solid var(--stamp); box-shadow: inset 0 0 0 2px var(--card), inset 0 0 0 3px var(--stamp); }
-[data-foto="polaroid"] .foto figcaption { font: 14px/1.15 "Ink Free", "Segoe Print", cursive; }
+/* fotka bez popisku */
+.foto figcaption { display: none; }
+[data-foto="polaroid"] .foto { padding-bottom: 24px; }
+/* vlajky pod fotkou přes celou šířku sloupce */
+.flagrow { clear: both; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; }
+.flagrow button { display: grid; place-items: center; }
+/* karty posledních cest: vlajka vpravo nahoře místo razítka s kódem */
+.card .stamp { display: none; }
+.card .cty .fi { position: absolute; top: 18px; right: 18px; margin: 0; font-size: 26px; }
   </style>
 </head>
-<body data-foto="polaroid" data-obr="1" data-pismo="Garamond + Segoe UI + Ink Free">
+<body data-foto="polaroid" data-obr="1" data-pismo="Palatino + Segoe UI + Ink Free">
   <script src="assets/prehled.js"></script>
 </body>
 </html>

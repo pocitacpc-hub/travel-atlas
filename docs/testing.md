@@ -101,3 +101,9 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - Zkouška migrace měla 3 změny jen v poli `mista` a přísný náhled bez varování u dotčených cest. Po zápisu druhý běh 0 změn. Porovnání se zálohou: u tří cest se místa jen přidala, ostatní soubory beze změny, těla shodná.
 - Export: 78 míst, `cesty.json` se změnil jen v seznamech míst tří cest. `npm run check` prošel (8 souborů, 42 testů).
 - Náhled: `?stat=PL` ukazuje 8 ověřených míst s popisky Toruň, Gdaňsk, Sopoty, Hel, Łeba, Malbork a Jastrzębia Góra. Popisek Gdyně se kvůli překryvu nevykreslí, bod ano. `?stat=ES` má popisky Alicante a Finestrat, `?stat=GB` Londýn a Watford. Konzole bez chyb.
+
+## Vzhled „Cestovní deník“ (10. 11. 2026)
+
+- Kontrola barev: `node docs/design/tools/gen-barvy.mjs x --jen-kontrola`. Text aspoň 4,5 : 1, datové barvy a zvýrazněné číslo aspoň 3 : 1, pár Česko / zahraničí rozlišitelný při protanopii i deuteranopii. Čísla v heatmapě na `q3` mají 4,8 : 1.
+- Ve stylech stránek nesmí zůstat barva napevno: `grep -rnE "#[0-9a-fA-F]{3,6}\b|rgba?\(" src/styles src/lib src/pages` najde jen stín polaroidu.
+- Ověření při předání (lokálně): `npm run check` prošel (8 souborů, 42 testů). V náhledu sestavení měly Přehled, Kronika, Statistiky (Měsíce i Celé roky) a detail cesty na 1440 i 390 px `scrollWidth` rovný šířce okna a žádné chyby JavaScriptu. Na snímcích sedí barvy, Palatino, ručně psaný nadtitulek, polaroid, vlajky v 8 sloupcích a vlajka vpravo na kartách cest.

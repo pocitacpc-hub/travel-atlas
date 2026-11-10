@@ -1,24 +1,44 @@
-/* Cestovní atlas – sdílený vzhled „Atlas“ (docs/design/system.md). */
+/* Cestovní atlas – sdílený vzhled „Cestovní deník“ (docs/design/system.md). */
 :root {
-  --paper: #f4efe4;
-  --card: #fbf8f2;
-  --ink: #1e2b33;
-  --ink-2: #44515a;
-  --muted: #5b666e;
-  --line: #dcd3c1;
-  --line-2: #e8e1d3;
-  --land: #e6dfd2;
-  --cz: #00897b;
-  --cz-text: #00766a;
-  --abroad: #c0682a;
-  --q1: #a8d5cb;
-  --q2: #79bfb2;
-  --q3: #3fa393;
-  --q4: #00897b;
-  --q5: #0a5a51;
-  --q-ink: #0b2a26;
-  --serif: Georgia, "Palatino Linotype", "Book Antiqua", serif;
+  /* plochy a text */
+  --paper: #f2eadb;
+  --card: #fbf6eb;
+  --ink: #2e2419;
+  --ink-2: #4e4133;
+  --muted: #6b5d4c;
+  --line: #dccdb4;
+  --line-2: #e9dfcb;
+  --land: #e7dcc6;
+  /* data: Česko inkoustová modrá, zahraničí rez */
+  --cz: #2d5c88;
+  --cz-text: #2a5781;
+  --abroad: #b5613a;
+  --q1: #c9d5e2;
+  --q2: #9ab2cb;
+  --q3: #6288ae;
+  --q4: #2d5c88;
+  --q5: #1b3a57;
+  --q-ink: #08182a;
+  --q5-ink: #fff;
+  /* akcenty */
+  --accent: #a5532f;
+  --kicker: #9a4a28;
+  --photo-frame: #fffdf8;
+  /* jemné plochy a čáry */
+  --hover: rgba(46, 36, 25, .06);
+  --shade: rgba(46, 36, 25, .12);
+  --shade-2: rgba(46, 36, 25, .18);
+  --stripe: rgba(46, 36, 25, .035);
+  --cz-tint: rgba(45, 92, 136, .07);
+  --track: #e8decb;
+  --grid: #e2d6c1;
+  --grid-base: #bbaa8e;
+  --flag-ring: rgba(46, 36, 25, .18);
+  --tip-shadow: 0 6px 20px rgba(0, 0, 0, .18);
+  /* písmo */
+  --serif: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --hand: "Ink Free", "Segoe Print", "Bradley Hand", cursive;
 }
 
 * { box-sizing: border-box; }
@@ -36,7 +56,7 @@ a { color: inherit; }
 .brand span { color: var(--muted); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
 .top nav { display: flex; gap: 4px; }
 .top nav a { display: inline-flex; align-items: center; padding: 10px 16px; border-radius: 999px; color: var(--ink-2); font-weight: 500; text-decoration: none; }
-.top nav a:hover { background: rgba(30, 43, 51, .06); }
+.top nav a:hover { background: var(--hover); }
 .top nav a[aria-current="page"] { background: var(--ink); color: var(--paper); }
 .foot { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 40px; padding: 18px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 
@@ -44,7 +64,7 @@ a { color: inherit; }
 .page-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px; padding: 30px 0 18px; }
 .page-head h1 { margin: 0; font: 400 46px/1.05 var(--serif); letter-spacing: -.4px; }
 .page-head p { max-width: 40em; margin: 8px 0 0; color: var(--ink-2); font-size: 17px; }
-.kicker { margin: 0; color: var(--muted); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+.kicker { margin: 0; color: var(--kicker); font: 19px/1.3 var(--hand); }
 .crumbs { margin: 22px 0 0; color: var(--muted); font-size: 13px; }
 .crumbs a { color: var(--ink-2); }
 
@@ -73,12 +93,12 @@ select, input[type="search"] { min-height: 38px; padding: 7px 14px; border: 1px 
 
 /* legenda */
 .legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; color: var(--ink-2); font-size: 13px; }
-.legend i { display: inline-block; width: 14px; height: 14px; margin-right: 6px; border: 1px solid rgba(30, 43, 51, .12); border-radius: 4px; vertical-align: -2px; }
+.legend i { display: inline-block; width: 14px; height: 14px; margin-right: 6px; border: 1px solid var(--shade); border-radius: 4px; vertical-align: -2px; }
 .legend i.bar { width: 26px; height: 9px; border: 0; border-radius: 2px; vertical-align: 0; }
-.legend i.band { width: 26px; height: 9px; border: 1px dashed var(--ink-2); border-radius: 2px; background: rgba(30, 43, 51, .12); vertical-align: 0; }
+.legend i.band { width: 26px; height: 9px; border: 1px dashed var(--ink-2); border-radius: 2px; background: var(--shade); vertical-align: 0; }
 .legend i.dot { width: 9px; height: 9px; border: 0; border-radius: 50%; vertical-align: 0; }
 .legend i.pin { width: 10px; height: 10px; border: 0; border-radius: 50%; background: var(--ink); }
-.legend i.ring { width: 12px; height: 12px; border: 1px dashed var(--ink); border-radius: 50%; background: rgba(30, 43, 51, .18); }
+.legend i.ring { width: 12px; height: 12px; border: 1px dashed var(--ink); border-radius: 50%; background: var(--shade-2); }
 .sw-cz { background: var(--cz); }
 .sw-abroad { background: var(--abroad); }
 
@@ -90,22 +110,22 @@ select, input[type="search"] { min-height: 38px; padding: 7px 14px; border: 1px 
 .vz-visited[role="button"]:hover, .vz-visited:focus-visible { outline: none; stroke: var(--ink); stroke-width: 1.6; }
 .vz-visited.is-selected { stroke: var(--ink); stroke-width: 2.2; }
 .vz-place { fill: var(--ink); stroke: var(--card); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
-.vz-place.is-region { fill: rgba(30, 43, 51, .18); stroke: var(--ink); stroke-dasharray: 3 2; }
+.vz-place.is-region { fill: var(--shade-2); stroke: var(--ink); stroke-dasharray: 3 2; }
 .vz-labels { fill: var(--ink); font-family: var(--sans); font-weight: 600; paint-order: stroke; stroke: var(--card); stroke-linejoin: round; pointer-events: none; transition: opacity .2s; }
 .is-zooming .vz-labels { opacity: 0; }
 
 /* grafy */
 .vz-chart { display: block; }
-.vz-grid { stroke: #e4dccb; stroke-width: 1; }
-.vz-grid.is-base { stroke: #bfb4a0; }
+.vz-grid { stroke: var(--grid); stroke-width: 1; }
+.vz-grid.is-base { stroke: var(--grid-base); }
 .vz-tick { fill: var(--muted); font: 11px var(--sans); font-variant-numeric: tabular-nums; }
 .vz-hit { fill: transparent; }
-.vz-hit:hover { fill: rgba(30, 43, 51, .05); }
+.vz-hit:hover { fill: var(--hover); }
 .vz-bar.is-cz, .yr-bar.is-cz, .yr-dot.is-cz { fill: var(--cz); }
 .vz-bar.is-abroad, .yr-bar.is-abroad, .yr-dot.is-abroad { fill: var(--abroad); }
 .yr-band.is-cz { fill: var(--cz); stroke: var(--cz); }
 .yr-band.is-abroad { fill: var(--abroad); stroke: var(--abroad); }
-.vz-tip { position: fixed; z-index: 20; display: none; max-width: 280px; padding: 8px 10px; border-radius: 8px; background: var(--ink); box-shadow: 0 6px 20px rgba(0, 0, 0, .18); color: var(--paper); font: 13px/1.45 var(--sans); pointer-events: none; }
+.vz-tip { position: fixed; z-index: 20; display: none; max-width: 280px; padding: 8px 10px; border-radius: 8px; background: var(--ink); box-shadow: var(--tip-shadow); color: var(--paper); font: 13px/1.45 var(--sans); pointer-events: none; }
 .vz-tip i { opacity: .75; }
 
 @media (max-width: 760px) {

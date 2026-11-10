@@ -5,17 +5,20 @@
 .map-card .legend { padding: 6px 4px 2px; }
 .zoom-out { min-height: 36px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--ink); font: 600 14px var(--sans); cursor: pointer; }
 .zoom-out:hover { border-color: var(--ink-2); }
-.intro h1 { margin: 6px 0 18px; font: 400 52px/1.05 var(--serif); letter-spacing: -.5px; }
-.intro h1 em { color: var(--cz); font-style: italic; }
+.intro h1 { margin: 6px 0 18px; font: 400 56px/1.05 var(--serif); letter-spacing: -.5px; }
+.intro h1 em { color: var(--accent); font-style: italic; }
 .facts { display: grid; grid-template-columns: 1fr 1fr; margin: 0 0 20px; border-top: 1px solid var(--line); }
 .facts div { padding: 12px 0; border-bottom: 1px solid var(--line); }
 .facts div:nth-child(odd) { padding-right: 12px; }
 .facts dt { color: var(--muted); font-size: 13px; }
 .facts dd { margin: 0; font: 400 26px/1.2 var(--serif); }
 .facts dd small { display: block; color: var(--muted); font: 13px var(--sans); }
-.flagrow { display: flex; flex-wrap: wrap; gap: 4px; margin: -4px 0 18px; }
-.flagrow button { padding: 7px; border: 0; border-radius: 8px; background: transparent; font-size: 21px; line-height: 0; cursor: pointer; }
-.flagrow button:hover { background: rgba(30, 43, 51, .07); }
+/* fotka jako polaroid vedle nadpisu, vlajky pod ní přes celou šířku sloupce */
+.polaroid { float: right; width: 170px; margin: 2px 4px 14px 18px; padding: 8px 8px 24px; background: var(--photo-frame); box-shadow: 0 6px 18px rgba(40, 30, 20, .18); transform: rotate(3deg); }
+.polaroid img { display: block; width: 100%; height: 118px; object-fit: cover; }
+.flagrow { clear: both; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; margin: -4px 0 18px; }
+.flagrow button { display: grid; place-items: center; padding: 7px; border: 0; border-radius: 8px; background: transparent; font-size: 21px; line-height: 0; cursor: pointer; }
+.flagrow button:hover { background: var(--hover); }
 .flagrow button[aria-pressed="true"] { background: var(--card); box-shadow: inset 0 0 0 2px var(--ink); }
 .country { padding: 18px 18px 10px; }
 .country header { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
@@ -34,15 +37,14 @@
 .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
 .card { position: relative; display: block; min-height: 160px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); text-decoration: none; }
 .card:hover { border-color: var(--ink-2); }
-.card .stamp { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 46px; height: 46px; border: 1.5px dashed var(--ink-2); border-radius: 50%; color: var(--ink-2); font: 600 13px var(--sans); letter-spacing: .06em; transform: rotate(-8deg); }
-.card .cty { color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
-.card .cty .fi { margin-right: 6px; font-size: 13px; }
+.card > .fi { position: absolute; top: 18px; right: 18px; font-size: 26px; }
+.card .cty { display: block; margin-right: 48px; color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
 .card h3 { margin: 6px 56px 14px 0; font: 400 21px/1.2 var(--serif); }
 .card .when { margin-bottom: 8px; color: var(--ink-2); font-size: 14px; }
 .two { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 28px; padding: 30px 0 0; }
 .returns { margin: 8px 0 0; padding: 0; list-style: none; }
 .returns li { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 10px 0; border-top: 1px solid var(--line); }
-.returns .bar { grid-column: 1 / -1; height: 6px; overflow: hidden; border-radius: 3px; background: #efe8da; }
+.returns .bar { grid-column: 1 / -1; height: 6px; overflow: hidden; border-radius: 3px; background: var(--track); }
 .returns .bar span { display: block; height: 100%; border-radius: 0 3px 3px 0; background: var(--cz); }
 .returns b { font-weight: 600; }
 .returns small { color: var(--muted); font-size: 13px; }
@@ -53,6 +55,9 @@
 }
 @media (max-width: 640px) {
   .intro h1 { font-size: 38px; }
+  .polaroid { width: 128px; margin-left: 12px; }
+  .polaroid img { height: 88px; }
+  .flagrow button { padding: 6px 2px; }
   .cards { grid-template-columns: none; grid-auto-columns: 78%; grid-auto-flow: column; padding-bottom: 6px; overflow-x: auto; scroll-snap-type: x mandatory; }
   .card { scroll-snap-align: start; }
   .map-card { padding: 8px; }

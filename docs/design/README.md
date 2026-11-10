@@ -37,19 +37,24 @@ Složka `barvy/`: 10 variant vzhledu úvodní stránky + výchozí stav pro srov
 | 03 | Terakota | pálená hlína, krém, petrolej | Palatino + Segoe UI | kruhový výřez |
 | 04 | Námořní mapa | modrobílé moře, okrová pevnina, signální oranžová, síť poledníků | Bahnschrift + Segoe UI Variable | úzký pruh |
 | 05 | Noční oceán | tmavý vzhled, tyrkys, písek | Cambria + Segoe UI | pozadí hlavičky |
-| 06 | Cestovní deník | krém, inkoustová modrá, rezavé razítko | Garamond + Segoe UI + Ink Free | polaroid |
+| 06 | **Cestovní deník (vybraný)** | krém, inkoustová modrá, rezavé akcenty | Palatino + Segoe UI + Ink Free | polaroid bez popisku |
 | 07 | Cestovní plakát | navy, plakátová modrá, oranžová, žlutá, tlusté obrysy | Gill Sans MT (verzálky) | pruh s konturou |
 | 08 | Čistý minimal | bílá, kobalt, oranžová, jemné stíny | Segoe UI Variable | nad nadpisem |
 | 09 | Azulejo | kobalt na bílé, dlaždicový vzor | Century + Candara | pruh v dlaždicovém rámu |
 | 10 | Mlha nad útesy | tlumená šedomodrá, mořská zeleň, hlína | Candara Light + Segoe UI Variable | nad nadpisem s přechodem |
 
+- **Vybraný směr:** Martin vybral návrh 06 a upravil ho takto:
+  - písmo nadpisů je Palatino z návrhu 03 (místo Garamondu), nadtitulek zůstává ručně psaný (Ink Free),
+  - fotka jako polaroid je bez popisku,
+  - vlajky pod nadpisem jdou přes celou šířku pravého sloupce (mřížka 8 sloupců), fotka je nezužuje,
+  - karty Posledních cest mají místo kroužku s kódem státu vlajku vpravo nahoře a vlevo u názvu státu už vlajka není.
 - **Zdroj:** `tools/gen-barvy.mjs` (definice všech návrhů a kontrola barev). Stránky a `barvy/assets/prehled.js` jsou vygenerované, ručně se neupravují. `barvy/assets/zaklad.css` je kopie `src/atlas.css` + `src/styles/prehled.css`, ve které jsou i dříve napevno zapsané barvy (hover, mřížka grafu, podklad pruhů, obrys vlajek) převedené na proměnné.
 - **Kontrola barev:** `node docs/design/tools/gen-barvy.mjs x --jen-kontrola`. Všechny návrhy mají text aspoň 4,5 : 1, datové barvy a zvýrazněné číslo aspoň 3 : 1 a pár Česko / zahraničí rozlišitelný při protanopii i deuteranopii.
 - **Obnovení obsahu:** `npm run build`, `vite preview` a `node docs/design/tools/dump-dom.mjs <chrome.exe> <profil> http://127.0.0.1:4173/travel-atlas/ <soubor>`, potom `gen-barvy.mjs <soubor>`.
 - **Fotky:** `barvy/img/` jsou zmenšené kopie (1600 a 800 px) bez metadat. Popisek „Portugalsko · Atlantské pobřeží“ je pracovní.
 - **Písma jsou systémová písma Windows** a všechna mají české znaky (Calisto MT a Rockwell je nemají, proto nejsou použité). Na Androidu a macOS nejsou, takže pro stejný vzhled všude by vybrané písmo bylo potřeba hostovat lokálně (otevřené rozhodnutí 1 v `system.md`).
 - **Ověřeno:** desktop 1440 px a mobil 390 px, bez přetečení do šířky a bez chyb JavaScriptu.
-- **Další krok:** po výběru převést tokeny vítěze do `src/atlas.css`, nahradit napevno zapsané barvy v `src/styles/*.css` proměnnými a zkontrolovat Kroniku, Statistiky a detail cesty.
+- **Převedeno do webu (10. 11. 2026):** tokeny návrhu 06 jsou v `src/atlas.css` a barvy napevno ve stylech stránek nahradily proměnné. Vlajka na kartě cesty je změna značek v `src/pages/prehled.ts`. Fotka je `src/img/pobrezi.jpg`. Barva čísel v heatmapě je tmavší (`#08182A`), aby měla na `q3` kontrast 4,8 : 1. Popis vzhledu: [`system.md`](system.md).
 
 ## Původních 5 maket
 

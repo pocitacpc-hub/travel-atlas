@@ -1,7 +1,7 @@
 # Vzhled a komponenty – Cestovní stopa
 
-**Stav:** 8. 11. 2026 · popis vybraného vzhledu „Atlas“ podle prototypu v2.
-**Zdroj pravdy:** `docs/design/v2/` – `assets/atlas.css` (tokeny a základní komponenty), `assets/app.js` (sdílené komponenty), stránky `index.html`, `kronika.html`, `statistiky.html`, `cesta.html`. Výpočty a formátování: `docs/design/assets/viz.js`.
+**Stav:** 10. 11. 2026 · barvy a písmo podle vybraného návrhu **„Cestovní deník“** (návrh 06 v `docs/design/barvy/`, upravený Martinem), rozložení a komponenty podle prototypu „Atlas“ v2.
+**Zdroj pravdy:** barvy a písma `src/atlas.css` (`:root`). Rozložení, komponenty a chování: `docs/design/v2/` – `assets/app.js` (sdílené komponenty), stránky `index.html`, `kronika.html`, `statistiky.html`, `cesta.html`. Výpočty a formátování: `docs/design/assets/viz.js`. Prototyp v2 má ještě původní barvy „Atlas“.
 **Účel:** podklad pro implementaci MVP. Když se dokument a prototyp rozejdou, platí prototyp a dokument se opraví.
 **Implementace (fáze D):** web v `src/` (`src/atlas.css`, `src/lib/`, `src/pages/`, `src/styles/`) převzal tokeny, komponenty, texty a URL parametry prototypu. Rozdíly proti prototypu jsou v kapitole 10. Název webu je **Cestovní atlas**.
 
@@ -9,7 +9,7 @@
 
 ## 1. Principy
 
-1. **Atlas, ne dashboard.** Klidný „tištěný“ vzhled: teplý papír, serifové nadpisy, mapa jako hlavní vizuál. Hustota informací je střední, nikoli interní nástroj.
+1. **Atlas, ne dashboard.** Klidný „tištěný“ vzhled cestovního deníku: krémový papír, inkoustová modrá, rezavé akcenty, serifové nadpisy a ručně psaný nadtitulek, mapa jako hlavní vizuál. Hustota informací je střední, nikoli interní nástroj.
 2. **Poctivost dat je vidět.** Neznámá hodnota se nikdy nezobrazí jako 0. Každé číslo z neúplných dat má pokrytí („známo u 79 z 96 cest“) a přesnost termínu je vždy čitelná.
 3. **Vše se počítá z jednotlivých cest.** V HTML ani v kódu nejsou napsané žádné souhrny natvrdo.
 4. **Mobil je plnohodnotný.** Každá stránka funguje na šířce 390 px bez vodorovného posouvání celé stránky. Posouvat se smí jen uvnitř boxu, například u heatmapy.
@@ -26,27 +26,31 @@ Všechny barvy jsou CSS proměnné v `:root`. Kód používá role, nikdy přím
 
 | Token | Hodnota | Použití | Kontrast na papír / kartu |
 |---|---|---|---|
-| `--paper` | `#F4EFE4` | pozadí stránky | – |
-| `--card` | `#FBF8F2` | panely, karty, povrch grafů | – |
-| `--ink` | `#1E2B33` | hlavní text, aktivní stav, tooltip | 12,6 / 13,7 |
-| `--ink-2` | `#44515A` | sekundární text, ikony | 7,1 / 7,7 |
-| `--muted` | `#5B666E` | popisky, poznámky, osy | 5,1 / 5,6 |
-| `--line` | `#DCD3C1` | okraje panelů, oddělovače | – |
-| `--line-2` | `#E8E1D3` | jemné obrysy (prázdné buňky heatmapy) | – |
-| `--land` | `#E6DFD2` | nenavštívené státy na mapě | – |
+| `--paper` | `#F2EADB` | pozadí stránky (krémový papír) | – |
+| `--card` | `#FBF6EB` | panely, karty, povrch grafů | – |
+| `--ink` | `#2E2419` | hlavní text, aktivní stav, tooltip (sépiová čerň) | 12,7 / 14,1 |
+| `--ink-2` | `#4E4133` | sekundární text, ikony | 8,3 / 9,2 |
+| `--muted` | `#6B5D4C` | popisky, poznámky, osy | 5,3 / 5,9 |
+| `--line` | `#DCCDB4` | okraje panelů, oddělovače | – |
+| `--line-2` | `#E9DFCB` | jemné obrysy (prázdné buňky heatmapy) | – |
+| `--land` | `#E7DCC6` | nenavštívené státy na mapě | – |
 
-### 2.2 Datové barvy
+### 2.2 Datové barvy a akcenty
 
 | Token | Hodnota | Význam |
 |---|---|---|
-| `--cz` | `#00897B` | Česko (tyrkys) |
-| `--abroad` | `#C0682A` | zahraničí (okr) |
-| `--cz-text` | `#00766A` | text odkazů v tyrkysové (4,8 / 5,2 : 1) |
-| `--q1` … `--q5` | `#A8D5CB`, `#79BFB2`, `#3FA393`, `#00897B`, `#0A5A51` | sekvenční škála (počet cest), světlá → tmavá |
+| `--cz` | `#2D5C88` | Česko (inkoustová modrá) |
+| `--abroad` | `#B5613A` | zahraničí (rez) |
+| `--cz-text` | `#2A5781` | text odkazů v modré (6,3 / 7,0 : 1) |
+| `--q1` … `--q5` | `#C9D5E2`, `#9AB2CB`, `#6288AE`, `#2D5C88`, `#1B3A57` | sekvenční škála (počet cest), světlá → tmavá |
+| `--accent` | `#A5532F` | zvýrazněné číslo v hlavním nadpisu (4,5 : 1 na papíře) |
+| `--kicker` | `#9A4A28` | ručně psaný nadtitulek (5,2 : 1 na papíře) |
+| `--photo-frame` | `#FFFDF8` | rámeček fotky (polaroid) |
 
-- **Pár Česko / zahraničí** prošel validátorem palety na povrchu `#FBF8F2`: rozlišitelnost pro barvoslepé ΔE 10,3, při běžném vidění ΔE 21,8, kontrast obou barev vůči povrchu je aspoň 3 : 1.
-- **Text nikdy ve `--cz` ani `--abroad`.** Pro odkazy je `--cz-text`. Datové barvy jsou jen pro značky (pruhy, plochy, body). Výjimkou je velký text nad 24 px, například zvýrazněné číslo v hlavním nadpisu.
-- **Sekvenční škála:** choropleth státu má třídy 1 (`q1`), 2–5 (`q2`), 6–10 (`q3`), 11–20 (`q4`) a 21+ (`q5`). Heatmapa rok × měsíc používá 1, 2, 3 a 4+ jako `q1`, `q2`, `q3` a `q5`. Čísla v buňkách jsou na `q1`–`q3` v barvě `#0B2A26` (5,0–9,5 : 1) a na `q5` bílá (8,1 : 1).
+- **Pár Česko / zahraničí:** kontrast vůči kartě 6,5 a 4,1 : 1. Rozlišitelnost ΔE v Lab (CIE76) po simulaci podle Machada 2009: běžně 74, protanopie 59, deuteranopie 73, tritanopie 77. Ověřuje `node docs/design/tools/gen-barvy.mjs x --jen-kontrola`.
+- **Text nikdy ve `--cz` ani `--abroad`.** Pro odkazy je `--cz-text`. Datové barvy jsou jen pro značky (pruhy, plochy, body). Výjimkou je velký text nad 24 px, například zvýrazněné číslo v hlavním nadpisu (`--accent`).
+- **Sekvenční škála:** choropleth státu má třídy 1 (`q1`), 2–5 (`q2`), 6–10 (`q3`), 11–20 (`q4`) a 21+ (`q5`). Heatmapa rok × měsíc používá 1, 2, 3 a 4+ jako `q1`, `q2`, `q3` a `q5`. Čísla v buňkách jsou na `q1`–`q3` v barvě `--q-ink` `#08182A` (4,8–12,0 : 1) a na `q5` v `--q5-ink` bílé (11,7 : 1).
+- **Pomocné tokeny** (dřív napevno v CSS): `--hover` (podklad při najetí), `--shade` a `--shade-2` (průsvitné výplně legendy a oblastí), `--stripe` (střídavé řádky Celých roků), `--cz-tint` (zvýrazněný stát ve Statistikách), `--track` (podklad pruhů Návratů), `--grid` a `--grid-base` (mřížka a základna grafů, šrafování neznámé délky), `--flag-ring` (obrys vlajek, používá ho i generovaný `vlajky.css`) a `--tip-shadow`. Styly stránek nemají žádnou barvu napevno kromě stínu polaroidu.
 - **Upozornění (kontrola dat):** pozadí `#FBF1E6`, okraj `#E8C9A9`, text `#6B3A10` (8,4 : 1). Používá se jen v prototypu, viz kapitola 10.
 - **Tmavý režim** zatím není. Až přibude, dostane vlastní stupně stejných rolí ověřené proti tmavému povrchu a zapne se automaticky přes `prefers-color-scheme`. Nebude to jen převrácení barev.
 
@@ -56,12 +60,13 @@ Všechny barvy jsou CSS proměnné v `:root`. Kód používá role, nikdy přím
 
 | Role | Písmo |
 |---|---|
-| `--serif` | `Georgia, "Palatino Linotype", "Book Antiqua", serif` – nadpisy, velká čísla, roky |
+| `--serif` | `"Palatino Linotype", "Book Antiqua", Palatino, serif` – logo, nadpisy, velká čísla, roky |
 | `--sans` | `"Segoe UI", system-ui, -apple-system, sans-serif` – text, ovládání, popisky, tabulky |
+| `--hand` | `"Ink Free", "Segoe Print", "Bradley Hand", cursive` – jen nadtitulek (`.kicker`) |
 
 | Prvek | Velikost (desktop / mobil) | Písmo |
 |---|---|---|
-| Hlavní nadpis Přehledu („15 států, 96 cest“) | 52 / 38 px | serif 400 |
+| Hlavní nadpis Přehledu („15 států, 96 cest“) | 56 / 38 px | serif 400, číslo kurzívou v `--accent` |
 | Nadpis detailu cesty | 50 / 34 px | serif 400 |
 | Nadpis stránky (`.page-head h1`) | 46 / 36 px | serif 400 |
 | Rok v Kronice | 44 / 32 px | serif 400 |
@@ -70,11 +75,11 @@ Všechny barvy jsou CSS proměnné v `:root`. Kód používá role, nikdy přím
 | Název na kartě cesty | 21 px | serif 400 |
 | Základní text | 15 px / 1,5 | sans |
 | Poznámka, popisek, sekundární údaj | 13 px | sans |
-| Nadtitulek (`.kicker`) | 13 px, verzálky, prostrkání 0,12 em | sans |
+| Nadtitulek (`.kicker`) | 19 px / 1,3, bez verzálek, v `--kicker` | hand |
 | Popisky os grafů | 11–12 px | sans, `tabular-nums` |
 
-- Georgia má „starodávné“ číslice (s dotahy pod linku). Hodí se k velkým číslům a rokům. V tabulkách, na osách a všude, kde se čísla zarovnávají pod sebe, se používá sans s `font-variant-numeric: tabular-nums`.
-- Písma jsou systémová. Na Androidu Georgia není a nahradí ji výchozí serif. Rozhodnutí, zda vlastní serif hostovat lokálně, je v kapitole 11.
+- V tabulkách, na osách a všude, kde se čísla zarovnávají pod sebe, se používá sans s `font-variant-numeric: tabular-nums`.
+- Písma jsou systémová a mají české znaky. Palatino Linotype a Ink Free jsou ve Windows. macOS má Palatino a místo Ink Free použije Bradley Hand. Na Androidu nahradí Palatino výchozí serif a Ink Free výchozí ručně psané písmo. Rozhodnutí, zda písma hostovat lokálně, je v kapitole 11.
 
 ---
 
@@ -119,7 +124,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 
 **Kostra**
 
-- **Hlavička** (`APP.shell`): logotyp „Cestovní stopa“ serifovou kurzívou s podtitulkem „osobní atlas cest“ (na mobilu skrytý) a navigace jako kulatá tlačítka. Aktivní položka je tmavá (`aria-current="page"`).
+- **Hlavička** (`APP.shell`): logotyp „Cestovní atlas“ serifovou kurzívou s podtitulkem „osobní atlas cest“ (na mobilu skrytý) a navigace jako kulatá tlačítka. Aktivní položka je tmavá (`aria-current="page"`).
 - **Patička** (`APP.shell`): „Data k 8. 11. 2026“, „Neznámé údaje se nepočítají jako nula.“ a odkaz „Jak číst data“.
 - **Záhlaví stránky** (`.page-head`): nadtitulek (rozsah let), H1, úvodní věta spočítaná z dat, volitelně legenda vpravo.
 - **Panel** (`.panel`): karta na `--card` s okrajem `--line`. Záhlaví panelu (`.ph`) má nadpis a ovládání nebo legendu.
@@ -139,7 +144,8 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 
 **Cesty**
 
-- **Karta cesty** (Přehled, Poslední cesty): stát verzálkami, název serifem, termín, chipy (noci, km aktivit) a „razítko“ s kódem státu (čárkovaný kruh pootočený o −8°). Celá karta je odkaz.
+- **Karta cesty** (Přehled, Poslední cesty): stát verzálkami (bez vlajky), název serifem, termín, chipy (noci, km aktivit) a vlajka státu vpravo nahoře (26 px). Kroužek s kódem státu na kartě není. Celá karta je odkaz.
+- **Fotka** (Přehled): polaroid vpravo vedle nadtitulku a nadpisu, rámeček `--photo-frame`, pootočený o 3°, bez popisku. Soubor `src/img/pobrezi.jpg` (480 × 270 px, bez metadat) zpracuje Vite při sestavení. Řada vlajek pod fotkou začíná až pod ní.
 - **Řádek cesty v Kronice** (`.trip`): měsíc, pruh ve stopě o pevné šířce 13 nocí × jednotka (15 px, mobil 9 px), název, metadata a případně odznak „nová země“.
   - Pruh: Česko tyrkys, zahraničí okr, cesta se známým jen měsícem s průhledností 55 %, neznámá délka jako čárkovaný obrys.
 - **Rok v Kronice** (`.year`): rok serifem, souhrn („9 cest · 5 do zahraničí, 38 nocí“) a seznam cest. Prázdný rok je zúžený řádek „bez záznamu v archivu“ (jen bez filtru). Cesty bez roku mají vlastní skupinu „?“.
@@ -182,7 +188,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 
   | Stránka | Místa s vlajkou |
   |---|---|
-  | Přehled | řada vlajek pod hlavním nadpisem (15 tlačítek podle první návštěvy, klik vybere stát, `aria-pressed`), karta státu, karty posledních cest, tooltip mapy |
+  | Přehled | řada vlajek pod hlavním nadpisem (15 tlačítek podle první návštěvy v mřížce 8 sloupců přes celou šířku sloupce, klik vybere stát, `aria-pressed`), karta státu, karty posledních cest (vpravo nahoře), tooltip mapy |
   | Kronika | metadata cesty |
   | Statistiky | seznam států (místo kódu, kód je malý vedle názvu), tooltipy heatmapy a Celých roků |
   | Detail cesty | nadtitulek, fakt „Stát“, nadpis „Další cesty“ |
@@ -287,7 +293,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 
 | # | Rozhodnutí | Doporučení |
 |---|---|---|
-| 1 | Hostovat vlastní serif (stejný vzhled na Androidu), nebo zůstat u systémových písem | zatím systémová písma, rozhodnout podle vzhledu na telefonu |
+| 1 | Hostovat vlastní serif a ručně psané písmo (stejný vzhled na Androidu), nebo zůstat u systémových písem | zatím systémová písma (Palatino, Ink Free), rozhodnout podle vzhledu na telefonu |
 | 2 | Barvy tmavého režimu | odvodit z návrhu 5 a ověřit validátorem, zapínat automaticky |
 | 3 | Zobrazení míst s přesností jen „oblast“ | ponechat čárkovaný kroužek |
-| 4 | Ikona a favicon | jednoduché razítko s „CS“ v barvách Atlasu |
+| 4 | Ikona a favicon | `src/favicon.svg`: čárkované razítko s „CA“ v barvách deníku (rez na krémové) |
