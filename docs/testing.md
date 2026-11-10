@@ -120,3 +120,4 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - Písma: na Windows se žádný soubor `.woff2` nestáhne (Atlas Serif = Palatino, Atlas Hand = Ink Free). Lokální soubory načtené přes `FontFace`: Pagella má všechny české znaky, Patrick Hand nemá „ď“.
 - `dist/*.html` mají absolutní `og:image` a `og:url` na GitHub Pages.
 - `npm run check` prošel (9 souborů, 44 testů). Všechny stránky, okno a stránka „Cesta nenalezena“ na 1440 i 390 px bez vodorovného posouvání a bez chyb JavaScriptu.
+- Po pushnutí do `main` prošly [kontrola i nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42759562130). Na veřejné adrese vrátily všechny čtyři stránky HTTP 200. `og:image` je absolutní a obrázek (1200 × 630, 159 kB) i pět souborů písem vrací HTTP 200. V Chrome na 1440 i 390 px byly Přehled, Kronika, Statistiky, detail cesty a plovoucí okno (`?cesta=`) bez vodorovného posouvání a bez chyb JavaScriptu.

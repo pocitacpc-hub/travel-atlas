@@ -66,7 +66,7 @@ Podle Martinových připomínek z 10. 11. 2026:
 - Patička zmizela ze všech stránek a ze Statistik i box „Jak číst data“. Datum dat se na webu teď nikde nezobrazuje.
 - Obsah je na desktopu široký až 1480 px místo 1320 px.
 
-Ověřeno lokálně v sestavení. Na Pages se změny dostanou až po pushnutí do `main`.
+Pushnuto do `main` 10. 11. 2026 (barevné návrhy, přemalování, úpravy Přehledu a Statistik, plovoucí okno, písma a sdílení). [Kontrola a nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42759562130) prošly a web je na Pages ověřený.
 
 Další úpravy z 10. 11. 2026:
 
