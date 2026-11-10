@@ -78,4 +78,4 @@ Další úpravy z 10. 11. 2026:
 
 ## Instalace jako aplikace (PWA)
 
-10. 11. 2026: Atlas jde nainstalovat na Android (Chrome) i iPhone (Safari → Sdílet → Přidat na plochu). Má manifest, ikony a service worker, takže se otevírá bez lišty prohlížeče a archiv funguje i bez připojení. Podrobnosti jsou v [popisu vzhledu](design/system.md) a v `tools/pwa.ts`. Na telefonu instalaci ručně ověří Martin.
+10. 11. 2026: Atlas jde nainstalovat na Android (Chrome) i iPhone (Safari → Sdílet → Přidat na plochu). Má manifest, ikony a service worker, takže se otevírá bez lišty prohlížeče a archiv funguje i bez připojení. Podrobnosti jsou v [popisu vzhledu](design/system.md) a v `tools/pwa.ts`. [Kontrola a nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42760617693) prošly a na Pages je PWA ověřená v Chrome (instalovatelná, service worker aktivní). Na telefonu instalaci ručně ověří Martin.
