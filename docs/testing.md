@@ -129,3 +129,10 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - Offline: po načtení webu se zastavil server náhledu. Kronika s oknem cesty (`?cesta=`) a mapou, Statistiky (Měsíce, Celé roky, grafy po letech), samostatná stránka cesty a Přehled s `?stat=HR` se načetly ze service workeru i se styly. První pokus odhalil neshodu kvůli hlavičce `Vary`, opraveno přes `ignoreVary`.
 - Neověřeno automaticky: instalace na skutečném telefonu (Android, iPhone). Postup je v `docs/design/system.md`, kapitola 5.
 - Po pushnutí do `main` prošly [kontrola i nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42760617693). Na Pages vrací `manifest.webmanifest`, `sw.js` a všechny čtyři ikony HTTP 200 se správným typem a stránky mají odkazy na manifest a `apple-touch-icon`. Chrome nad veřejnou adresou hlásí 0 chyb manifestu a 0 překážek instalace. Service worker je aktivní s 28 uloženými soubory, bez chyb JavaScriptu.
+
+## Grafické úpravy (10. 11. 2026)
+
+- `npm run check` prošel (10 souborů, 47 testů). Test webu čte text aktivní položky menu i s ikonou.
+- Chrome v náhledu sestavení: klik na Německo a „← Celá Evropa“ nechá fokus na stránce a kolem státu není obdélník (`outline: none`). Výchozí vybraný stát je Španělsko (poslední cesta Alicante).
+- Spodní lišta: headless Chrome emulaci `display-mode: standalone` nepodporuje. Pravidlo jsem proto v prohlížeči zapnul ručně při šířce 375 px: lišta je dole, má ikony a aktivní Kroniku. Ve skutečné aplikaci na telefonu ji ověří Martin.
+- Snímky na 1440 a 390 px: mapa s mořem a pobřežím, okno cesty (širší, jen křížek, mapa s popisky Porto a Sintra), Kronika s vlajkou před názvem a ikonami, kompaktní Poslední cesty na mobilu a rekordy jako razítka. Všechny stránky i okno jsou bez vodorovného posouvání a bez chyb JavaScriptu.

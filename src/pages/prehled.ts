@@ -5,6 +5,7 @@ import { stats as s, visits } from "../lib/data";
 import { $, flag, param, tripName, tripUrl } from "../lib/dom";
 import { cesty, esc, noci, num, pct, plural, termin, zN } from "../lib/format";
 import { cropFor, MAP_ASPECT, renderMap, toMapPlace, type MapPlace } from "../lib/map";
+import { icon } from "../lib/icons";
 import type { CountryStat } from "../lib/stats";
 import { initTripDialog } from "../lib/tripDialog";
 import { emptyArchive, focusChips, nightsCoverage, tripListItem, yearsSpan } from "../lib/ui";
@@ -26,7 +27,7 @@ if (!s.total) {
   const requested = param("stat");
   let selected: string = requested && byCode.has(requested)
     ? requested
-    : (visited.find((c) => c.code !== "CZ") ?? visited[0]!).code;
+    : (s.recent[0] && byCode.has(s.recent[0].zeme) ? s.recent[0].zeme : visited[0]!.code);
   let layer: "countries" | "places" = "countries";
   // Přiblížený stát: klik na stát v mapě nebo na vlajku. Odkaz ?stat=XX otevře rovnou přiblížení.
   let zoom: string | null = requested && byCode.has(requested) ? requested : null;
@@ -42,7 +43,7 @@ if (!s.total) {
   $("facts").innerHTML = [
     ["Do zahraničí", cesty(s.abroad), abroadStates],
     ["Po Česku", cesty(s.cz), `${pct(s.cz, s.total)} všech cest`],
-    ["Nocí celkem", num(s.nightsSum), `známo u ${s.nightsKnown} ${zN(s.total)} cest`]
+    [`${icon("noc")}Nocí celkem`, num(s.nightsSum), `známo u ${s.nightsKnown} ${zN(s.total)} cest`]
   ].map(([dt, dd, small]) => `<div><dt>${dt}</dt><dd>${dd}<small>${small}</small></dd></div>`).join("");
 
   const select = (code: string) => {
@@ -54,16 +55,17 @@ if (!s.total) {
     history.replaceState(null, "", `?stat=${encodeURIComponent(code)}`);
   };
 
-  const zoomOut = () => {
+  const zoomOut = (fromKeyboard: boolean) => {
     if (!zoom) return;
     zoom = null;
     drawMap();
     history.replaceState(null, "", location.pathname);
-    $("map").querySelector<SVGElement>(`[data-code="${selected}"]`)?.focus({ preventScroll: true });
+    if (fromKeyboard) $("map").querySelector<SVGElement>(`[data-code="${selected}"]`)?.focus({ preventScroll: true });
   };
-  $("zoomOut").addEventListener("click", zoomOut);
+  // detail === 0: tlačítko aktivované klávesou Enter nebo mezerníkem
+  $("zoomOut").addEventListener("click", (e) => zoomOut(e.detail === 0));
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && zoom) zoomOut();
+    if (e.key === "Escape" && zoom && !document.querySelector("dialog[open]")) zoomOut(true);
   });
 
   function drawMap(): void {
@@ -123,7 +125,7 @@ if (!s.total) {
   function drawCountry(): void {
     const c = byCode.get(selected)!;
     $("country").innerHTML =
-      `<header><h2>${flag(c.code)}${esc(c.name)}</h2><span class="code">${esc(c.code)}</span></header>` +
+      `<header><h2>${flag(c.code)}${esc(c.name)}</h2></header>` +
       `<p class="meta">${cesty(c.count)} · ${yearsSpan(c)} · ${nightsCoverage(c)}</p>` +
       `<ul>${c.trips.map((t) => tripListItem(t)).join("")}${c.also.map((t) => tripListItem(t, "další stát")).join("")}</ul>` +
       `<p class="more"><a class="link" href="kronika.html?stat=${c.code}">V kronice</a> · <a class="link" href="statistiky.html#stat-${c.code}">Ve statistikách</a></p>`;
@@ -145,9 +147,9 @@ if (!s.total) {
   $("recent").innerHTML = s.recent.slice(0, 4).map((t) =>
     `<a class="card" href="${tripUrl(t)}">${flag(t.zeme)}` +
     `<span class="cty">${esc(byCode.get(t.zeme)?.name ?? t.zeme)}</span><h3>${esc(tripName(t))}</h3>` +
-    `<div class="when">${termin(t)}</div><span class="chip">${noci(t.pocetNoci)}</span>` +
-    (t.sport ? ` <span class="chip">${num(t.sport.km)} km aktivit</span>` : "") +
-    (t.zamereni.length ? ` ${focusChips(t)}` : "") + "</a>").join("");
+    `<div class="card-foot"><span class="when">${termin(t)}</span><span class="chip">${icon("noc")}${noci(t.pocetNoci)}</span>` +
+    (t.sport ? ` <span class="chip">${icon("trasa")}${num(t.sport.km)} km aktivit</span>` : "") +
+    (t.zamereni.length ? ` ${focusChips(t)}` : "") + "</div></a>").join("");
 
 
   drawMap();

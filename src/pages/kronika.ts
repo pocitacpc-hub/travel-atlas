@@ -6,6 +6,7 @@ import { $, flag, param, sideClass, tripName, tripUrl } from "../lib/dom";
 import { cesty, esc, MONTHS, MONTHS_SHORT, noci, num, plural, searchable, termin, zN } from "../lib/format";
 import type { Trip } from "../lib/model";
 import { computeStats, type YearStat } from "../lib/stats";
+import { icon } from "../lib/icons";
 import { popisPerex } from "../lib/text";
 import { initTripDialog } from "../lib/tripDialog";
 import { emptyArchive, focusChips } from "../lib/ui";
@@ -44,9 +45,9 @@ if (!base.total) {
     const month = t.mesic !== null ? MONTHS_SHORT[t.mesic - 1] : "?";
     return `<li class="trip"><a href="${tripUrl(t)}"><span class="m" title="${t.mesic !== null ? MONTHS[t.mesic - 1] : "měsíc neznámý"}">${month}</span>` +
       `<span class="bar ${sideClass(t)}${bar}" style="--n:${units}" aria-hidden="true"></span>` +
-      `<span class="txt"><span class="t">${esc(tripName(t))}</span>` +
-      `<span class="meta">${flag(t.zeme)}${esc(countryName(t.zeme))} · ${t.presnostTerminu === "den" ? `${termin(t)} · ` : ""}${noci(t.pocetNoci)}` +
-      `${t.sport ? ` · ${num(t.sport.km)} km aktivit` : ""}</span>` +
+      `<span class="txt"><span class="t">${flag(t.zeme)}${esc(tripName(t))}</span>` +
+      `<span class="meta">${esc(countryName(t.zeme))} · ${t.presnostTerminu === "den" ? `${termin(t)} · ` : ""}${icon("noc")}${noci(t.pocetNoci)}` +
+      `${t.sport ? ` · ${icon("trasa")}${num(t.sport.km)} km aktivit` : ""}</span>` +
       (t.zamereni.length ? `<span class="focus">${focusChips(t)}</span>` : "") +
       (t.popis ? `<span class="perex">${esc(popisPerex(t.popis))}</span>` : "") +
       (isNew ? isNew.map((code) => `<span class="new">${STAR}nová země: ${esc(countryName(code))}</span>`).join("") : "") +

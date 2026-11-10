@@ -1,5 +1,14 @@
 # Změny
 
+## 10. 11. 2026 – grafické úpravy
+
+- Mapa s mořem a pobřežím, bez obdélníku kolem státu po návratu na celou Evropu. Výchozí je vybraný stát poslední cesty.
+- Okno cesty je o 20 % širší a má jen křížek. Mapa v okně má popisky míst a vyplní celou šířku.
+- Kódy států jsou pryč z celého webu. V Kronice je vlajka před názvem cesty.
+- Ikony u nocí, km, převýšení, míst a termínu. Animace grafů, karet a okna (respektují omezený pohyb).
+- Textura papíru, páska na fotce, razítko „CA“ jako logo, rekordy jako razítka.
+- Telefon: Poslední cesty jako kompaktní seznam, v nainstalované aplikaci navigace dole.
+
 ## 10. 11. 2026 – instalace jako aplikace (PWA)
 
 - Manifest, ikony pro Android a iPhone a service worker. Atlas jde přidat na plochu a otevírá se jako aplikace.

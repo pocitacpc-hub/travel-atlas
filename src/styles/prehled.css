@@ -12,9 +12,10 @@
 /* Nadpis a fotka se zmenšují se šířkou sloupce, aby se nadpis vešel vedle fotky. */
 .intro h1 { margin: 6px 0 18px; font: 400 clamp(36px, 11.5cqi, 56px)/1.05 var(--serif); letter-spacing: -.5px; }
 .intro h1 em { color: var(--accent); font-style: italic; }
-/* fotka vedle nadpisu, bez rámečku */
-.foto { float: right; width: min(210px, 40%); margin: 4px 4px 14px 18px; overflow: hidden; border-radius: 4px; box-shadow: 0 6px 18px rgba(40, 30, 20, .18); transform: rotate(3deg); }
-.foto img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+/* fotka vedle nadpisu, bez rámečku, přes roh přelepená páskou */
+.foto { position: relative; float: right; width: min(210px, 40%); margin: 10px 4px 14px 18px; transform: rotate(3deg); }
+.foto img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; border-radius: 4px; box-shadow: 0 6px 18px rgba(40, 30, 20, .18); object-fit: cover; }
+.foto::before { content: ""; position: absolute; z-index: 1; top: -9px; left: 50%; width: 38%; height: 20px; border-left: 1px dashed rgba(120, 100, 70, .25); border-right: 1px dashed rgba(120, 100, 70, .25); background: rgba(246, 236, 210, .78); box-shadow: 0 1px 2px rgba(46, 36, 25, .12); transform: translateX(-50%) rotate(-5deg); }
 .flagrow { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; margin: -4px 0 18px; }
 .flagrow button { display: grid; place-items: center; padding: 7px; border: 0; border-radius: 8px; background: transparent; font-size: 21px; line-height: 0; cursor: pointer; }
 .flagrow button:hover { background: var(--hover); }
@@ -42,10 +43,15 @@
 .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
 .card { position: relative; display: block; min-height: 160px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); text-decoration: none; }
 .card:hover { border-color: var(--ink-2); }
+@media (prefers-reduced-motion: no-preference) {
+  .card { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(46, 36, 25, .08); }
+}
 .card > .fi { position: absolute; top: 18px; right: 18px; font-size: 26px; }
 .card .cty { display: block; margin-right: 48px; color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
 .card h3 { margin: 6px 56px 14px 0; font: 400 21px/1.2 var(--serif); }
-.card .when { margin-bottom: 8px; color: var(--ink-2); font-size: 14px; }
+.card-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.card .when { flex-basis: 100%; margin-bottom: 2px; color: var(--ink-2); font-size: 14px; }
 
 
 @media (max-width: 1100px) {
@@ -59,8 +65,15 @@
   .flagrow button { padding: 6px 2px; }
   .facts dd { font-size: 22px; }
   .facts dd small { font-size: 12px; }
-  .cards { grid-template-columns: none; grid-auto-columns: 78%; grid-auto-flow: column; padding-bottom: 6px; overflow-x: auto; scroll-snap-type: x mandatory; }
-  .card { scroll-snap-align: start; }
+  /* Poslední cesty na telefonu jako kompaktní seznam: vlajka, název, termín a noci */
+  .cards { grid-template-columns: 1fr; gap: 8px; }
+  .card { display: grid; grid-template-columns: 26px minmax(0, 1fr); grid-template-areas: "f h" "f m"; column-gap: 12px; align-items: center; min-height: 0; padding: 11px 14px; border-radius: 12px; }
+  .card > .fi { grid-area: f; position: static; font-size: 20px; }
+  .card .cty { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .card h3 { grid-area: h; margin: 0 0 3px; font-size: 17px; }
+  .card-foot { grid-area: m; gap: 4px 8px; }
+  .card .when { flex-basis: auto; margin: 0; font-size: 13px; }
+  .card .chip { padding: 1px 7px; font-size: 11.5px; }
   .map-card { padding: 8px; }
   .zoom-out { min-height: 44px; }
 }

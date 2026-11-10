@@ -109,7 +109,10 @@ function animateViewBox(svg: SVGSVGElement, from: number[], to: number[], ms = 4
 export function renderMap(el: HTMLElement, opts: MapOptions): void {
   const crop = opts.crop ?? [0, 0, MAP.width, MAP.height];
   const previous = el.querySelector("svg")?.getAttribute("viewBox");
-  const out = [`<svg class="vz-map" viewBox="${crop.join(" ")}" role="group" aria-label="${esc(opts.label)}">`, `<path class="vz-land" d="${MAP.land}"/>`];
+  const out = [`<svg class="vz-map" viewBox="${crop.join(" ")}" role="group" aria-label="${esc(opts.label)}">`,
+    // Pobřeží: obrys celé pevniny pod státy. Na hranicích mezi státy ho překryjí jejich výplně, zůstane jen u moře.
+    `<path class="vz-coast" d="${MAP.land}${Object.values(MAP.countries).join("")}" aria-hidden="true"/>`,
+    `<path class="vz-land" d="${MAP.land}"/>`];
   const visited: string[] = [];
   for (const [code, d] of Object.entries(MAP.countries)) {
     if (opts.fill(code)) visited.push(code);

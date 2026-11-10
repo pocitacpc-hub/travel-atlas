@@ -16,7 +16,7 @@ describe("Stránky webu", () => {
       const html = read(page.file);
       expect(html).toContain('<html lang="cs">');
       expect(html).toContain(`<script type="module" src="/src/pages/${page.module}.ts"></script>`);
-      const current = [...html.matchAll(/<a href="[^"]+" aria-current="page">([^<]+)<\/a>/gu)].map((m) => m[1]);
+      const current = [...html.matchAll(/<a href="[^"]+" aria-current="page">([\s\S]*?)<\/a>/gu)].map((m) => m[1]!.replace(/<[^>]+>/gu, "").trim());
       expect(current).toEqual([page.nav]);
       // Bez CDN a cizích zdrojů.
       expect(html).not.toMatch(/(?:src|href)="https?:/u);

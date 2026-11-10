@@ -64,7 +64,7 @@ if (!s.total) {
   const max = Math.max(1, ...s.countries.map((c) => c.count));
   $("states").innerHTML = `<ul class="states">${s.countries.map((c) => {
     const rows = [...c.trips.map((t) => ({ t, also: false })), ...c.also.map((t) => ({ t, also: true }))];
-    return `<li id="stat-${c.code}"><details><summary>${flag(c.code)}<span class="nm">${esc(c.name)} <span class="cc">${c.code}</span></span>` +
+    return `<li id="stat-${c.code}"><details><summary>${flag(c.code)}<span class="nm">${esc(c.name)}</span>` +
       `<span class="sbar" aria-hidden="true"><i class="${c.code === "CZ" ? "sw-cz" : "sw-abroad"}" style="width:${((c.count / max) * 100).toFixed(1)}%"></i></span>` +
       `<span class="cnt">${c.count}<span class="sr"> ${plural(c.count, "cesta", "cesty", "cest")}</span></span>` +
       `<span class="sub">${nightsCoverage(c)} · ${yearsSpan(c)}${c.also.length ? ` · další stát na ${cesty(c.also.length)}` : ""}</span></summary>` +

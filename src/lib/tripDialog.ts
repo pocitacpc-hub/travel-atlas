@@ -1,6 +1,6 @@
 // Detail cesty v plovoucím okně (Přehled, Kronika, Statistiky).
 // Odkazy cesta.html?id=… se otevřou v okně nad stránkou. Adresa dostane ?cesta=ID, takže jde sdílet
-// a tlačítko Zpět v prohlížeči nebo telefonu okno zavře. Okno zavře i „← Zpět“, křížek, Esc a klik mimo okno.
+// a tlačítko Zpět v prohlížeči nebo telefonu okno zavře. Okno zavře i křížek, Esc a klik mimo okno.
 // Samostatná stránka cesta.html zůstává pro přímé odkazy.
 import "../styles/trip.css";
 import { tripById } from "./data";
@@ -18,8 +18,7 @@ export function initTripDialog(): void {
   dialog.className = "trip-dialog";
   dialog.setAttribute("aria-labelledby", "td-title");
   dialog.innerHTML =
-    '<div class="td-bar"><button type="button" class="td-back" data-close>← Zpět</button>' +
-    '<button type="button" class="td-close" data-close aria-label="Zavřít" title="Zavřít">×</button></div>' +
+    '<button type="button" class="td-close" data-close aria-label="Zavřít" title="Zavřít">×</button>' +
     '<div class="td-scroll"><article class="td-content"></article></div>';
   document.body.appendChild(dialog);
   const scroll = dialog.querySelector<HTMLElement>(".td-scroll")!;

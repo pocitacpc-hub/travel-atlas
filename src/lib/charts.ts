@@ -42,6 +42,7 @@ export function yearTotals(s: Stats, metric: YearMetric): YearRow[] {
 
 export function yearsChart(el: HTMLElement, s: Stats, metric: YearMetric = "trips", height = 220): void {
   const rows = yearTotals(s, metric);
+  let first = true; // animace jen při prvním vykreslení, ne při změně šířky
   const draw = () => {
     // Pod 560 px se graf posouvá uvnitř boxu, aby se čísla nad sloupci nepřekrývala.
     const W = Math.max(560, el.clientWidth);
@@ -55,7 +56,8 @@ export function yearsChart(el: HTMLElement, s: Stats, metric: YearMetric = "trip
     const y0 = H - m.b;
     const scale = (H - m.t - m.b) / max;
     const what = metric === "trips" ? "cest" : "nocí";
-    const out = [`<svg class="vz-chart" width="${W}" height="${H}" role="img" aria-label="Počet ${what} po letech, Česko a zahraničí">`];
+    const out = [`<svg class="vz-chart${first ? " vz-anim" : ""}" width="${W}" height="${H}" role="img" aria-label="Počet ${what} po letech, Česko a zahraničí">`];
+    first = false;
     for (const v of [0, max / 2, max]) {
       const y = y0 - v * scale;
       out.push(`<line class="vz-grid${v === 0 ? " is-base" : ""}" x1="${m.l}" x2="${W - m.r}" y1="${y}" y2="${y}"/>`,
@@ -69,12 +71,12 @@ export function yearsChart(el: HTMLElement, s: Stats, metric: YearMetric = "trip
       const ha = r.abroad * scale;
       if (r.cz) {
         out.push(r.abroad
-          ? `<rect class="vz-bar is-cz" x="${x}" y="${y0 - hc}" width="${bw}" height="${hc}"/>`
-          : `<path class="vz-bar is-cz" d="${roundTop(x, y0 - hc, bw, hc, 4)}"/>`);
+          ? `<rect class="vz-bar is-cz" style="--i:${i}" x="${x}" y="${y0 - hc}" width="${bw}" height="${hc}"/>`
+          : `<path class="vz-bar is-cz" style="--i:${i}" d="${roundTop(x, y0 - hc, bw, hc, 4)}"/>`);
       }
       // 2px mezera v barvě povrchu mezi segmenty.
       const top = y0 - hc - ha - (r.cz && r.abroad ? 2 : 0);
-      if (r.abroad) out.push(`<path class="vz-bar is-abroad" d="${roundTop(x, top, bw, ha, 4)}"/>`);
+      if (r.abroad) out.push(`<path class="vz-bar is-abroad" style="--i:${i}" d="${roundTop(x, top, bw, ha, 4)}"/>`);
       // Součet nad sloupcem. Rok s cestami, ale bez známých nocí, má „?“, ne nulu.
       const value = r.total ? String(r.total) : r.trips && metric === "nights" ? (r.nightsKnown ? "0" : "?") : "";
       if (value) out.push(`<text class="vz-val${value === "?" ? " is-unknown" : ""}" x="${x + bw / 2}" y="${(r.total ? top : y0) - 4}" text-anchor="middle">${value}</text>`);

@@ -23,20 +23,27 @@
 .td-sport div { padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
 .td-sport b { display: block; font: 400 26px/1.1 var(--serif); }
 .td-sport span { color: var(--muted); font-size: 13px; }
-.map.td-map svg { height: 340px; }
+/* výška vychází z poměru stran výřezu (src/lib/trip.ts) */
 .td-body .legend { margin-top: 8px; }
 
 /* Plovoucí okno */
 .has-dialog { overflow: hidden; }
-.trip-dialog { width: min(880px, calc(100vw - 48px)); max-width: none; max-height: calc(100dvh - 48px); padding: 0; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); color: var(--ink); box-shadow: 0 24px 60px rgba(0, 0, 0, .28); }
+.trip-dialog { width: min(1060px, calc(100vw - 48px)); max-width: none; max-height: calc(100dvh - 48px); padding: 0; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); color: var(--ink); box-shadow: 0 24px 60px rgba(0, 0, 0, .28); }
 .trip-dialog[open] { display: flex; flex-direction: column; }
 .trip-dialog::backdrop { background: rgba(30, 22, 14, .5); }
-.td-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--card); }
+@media (prefers-reduced-motion: no-preference) {
+  .trip-dialog[open] { animation: td-in .24s cubic-bezier(.2, .7, .2, 1); }
+  .trip-dialog[open]::backdrop { animation: td-fade .24s ease-out; }
+}
+@keyframes td-in { from { opacity: 0; transform: translateY(16px) scale(.985); } }
+@keyframes td-fade { from { opacity: 0; } }
 .td-back, .td-close { min-height: 40px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; }
 .td-back { padding: 8px 18px; border-radius: 999px; font: 600 15px var(--sans); }
-.td-close { width: 40px; border-radius: 50%; font: 400 26px/1 var(--sans); }
+/* křížek v rohu okna, při posouvání obsahu zůstává na místě */
+.td-close { position: absolute; z-index: 2; top: 14px; right: 14px; width: 40px; border-radius: 50%; box-shadow: 0 2px 8px rgba(46, 36, 25, .12); font: 400 26px/1 var(--sans); }
+.trip-dialog .td-head { padding-right: 52px; }
 .td-back:hover, .td-close:hover { border-color: var(--ink-2); background: var(--card); }
-.td-scroll { flex: 1 1 auto; min-height: 0; padding: 18px 24px 24px; overflow: auto; overscroll-behavior: contain; }
+.td-scroll { flex: 1 1 auto; min-height: 0; padding: 22px 28px 28px; overflow: auto; overscroll-behavior: contain; }
 
 /* Samostatná stránka */
 .td-page { max-width: 880px; margin: 0 auto; padding-top: 18px; }
@@ -44,13 +51,11 @@
 
 @media (max-width: 760px) {
   .trip-dialog { width: 100vw; height: 100dvh; max-height: none; margin: 0; border: 0; border-radius: 0; }
-  .td-bar { padding: 8px 12px; }
   .td-back, .td-close { min-height: 44px; }
-  .td-close { width: 44px; }
-  .td-scroll { padding: 14px 16px 24px; }
+  .td-close { top: max(10px, env(safe-area-inset-top)); right: max(10px, env(safe-area-inset-right)); width: 44px; }
+  .td-scroll { padding: max(14px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
   .td-head h1 { font-size: 32px; }
   .td-flag { font-size: 30px; }
   .td-facts dd { font-size: 19px; }
   .td-sport b { font-size: 21px; }
-  .map.td-map svg { height: 260px; }
 }

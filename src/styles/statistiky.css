@@ -44,7 +44,6 @@
 .states details[open] summary::after { margin-top: 4px; transform: rotate(-135deg); }
 .states summary:hover { background: var(--hover); }
 .states summary > .fi { grid-area: c; justify-self: start; font-size: 20px; }
-.states .cc { margin-left: 4px; color: var(--muted); font: 600 11px var(--sans); letter-spacing: .08em; }
 .states .nm { grid-area: n; font-weight: 600; }
 .states .sbar { grid-area: b; height: 8px; }
 .states .sbar i { display: block; min-width: 3px; height: 100%; border-radius: 0 4px 4px 0; }
@@ -60,16 +59,22 @@
 /* Délka pobytu a rekordy */
 .hist { display: grid; align-items: end; gap: 8px; height: 170px; margin-top: 8px; }
 .hist div { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  .hist .b { transform-origin: 50% 100%; animation: vz-grow .6s cubic-bezier(.2, .7, .2, 1) both; }
+}
 .hist .b { width: 72%; min-height: 2px; border-radius: 4px 4px 0 0; background: var(--cz); }
 .hist .b.unk { background: repeating-linear-gradient(135deg, var(--grid-base) 0 3px, transparent 3px 6px); box-shadow: inset 0 0 0 1px var(--grid-base); }
 .hist b { font: 18px var(--serif); }
 .hist small { color: var(--muted); font-size: 12px; }
-.records { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 8px; }
-.rec { display: block; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); text-decoration: none; }
-a.rec:hover { border-color: var(--ink-2); }
+/* Rekordy jako razítka v deníku: dvojitý rezavý rámeček, mírně pootočené */
+.records { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 14px; margin-top: 12px; padding: 4px; }
+.rec { display: block; padding: 12px 14px; border: 2px solid var(--kicker); border-radius: 10px; background: var(--card); box-shadow: inset 0 0 0 3px var(--card), inset 0 0 0 4px var(--kicker); color: var(--kicker); text-decoration: none; transform: rotate(-1.4deg); transition: transform .15s; }
+.rec:nth-child(even) { transform: rotate(1.1deg); }
+.rec:nth-child(3n) { transform: rotate(-.6deg); }
+a.rec:hover { transform: rotate(0) scale(1.02); }
 .rec b { display: block; font: 400 28px/1.1 var(--serif); }
-.rec span { display: block; color: var(--ink-2); font-size: 13px; font-weight: 600; }
-.rec small { display: block; margin-top: 2px; color: var(--muted); font-size: 12px; }
+.rec span { display: block; color: var(--kicker); font-size: 13px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; }
+.rec small { display: block; margin-top: 3px; color: var(--ink-2); font-size: 12px; }
 .method ul { margin: 6px 0 0; padding-left: 20px; color: var(--ink-2); }
 .method li { margin: 4px 0; }
 

@@ -35,7 +35,7 @@
 .trip .txt { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; min-width: 0; }
 .trip .t { font-weight: 600; }
 .trip .meta { color: var(--muted); font-size: 13px; }
-.trip .meta .fi { margin-right: 4px; font-size: 12px; }
+.trip .t .fi { margin-right: 8px; font-size: 14px; vertical-align: -.08em; }
 /* první věta popisu, jeden řádek */
 .trip .perex { flex-basis: 100%; min-width: 0; overflow: hidden; color: var(--ink-2); font: italic 14px/1.4 var(--serif); white-space: nowrap; text-overflow: ellipsis; }
 
