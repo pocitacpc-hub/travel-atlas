@@ -6,7 +6,10 @@ import { $, flag, param, tripName, tripUrl } from "../lib/dom";
 import { cesty, esc, noci, num, pct, plural, termin, zN } from "../lib/format";
 import { cropFor, MAP_ASPECT, renderMap, toMapPlace, type MapPlace } from "../lib/map";
 import type { CountryStat } from "../lib/stats";
+import { initTripDialog } from "../lib/tripDialog";
 import { emptyArchive, focusChips, nightsCoverage, tripListItem, yearsSpan } from "../lib/ui";
+
+initTripDialog();
 
 if (!s.total) {
   emptyArchive($("main"));
@@ -75,7 +78,7 @@ if (!s.total) {
         const c = byCode.get(code);
         if (!c || (!c.count && !c.also.length)) return null;
         if (zoomed) return code === zoom ? "--q2" : "--q1";
-        return onPlaces ? "--q1" : qvar(c.count);
+        return qvar(c.count);
       },
       countryLabel: (code) => `${byCode.get(code)!.name}, ${cesty(byCode.get(code)!.count)}`,
       countryTip: (code) => countryTip(byCode.get(code)!),
@@ -94,10 +97,9 @@ if (!s.total) {
     $("zoomOut").hidden = !zoomed;
     $("legend").innerHTML = zoomed
       ? `<span><i style="background:var(--q2)"></i>${esc(byCode.get(zoom!)!.name)}</span><span><i class="pin"></i>místo (velikost = počet cest)</span><span><i class="ring"></i>jen oblast</span>`
-      : onPlaces
-      ? '<span><i class="pin"></i>místo (velikost = počet cest)</span><span><i class="ring"></i>jen oblast</span><span>Na mapě jsou jen místa s ověřenou polohou.</span>'
       : "<span>Počet cest:</span>" + Q.slice().reverse().map(([, label, v]) => `<span><i style="background:var(${v})"></i>${label}</span>`).join("") +
-        '<span><i style="background:var(--land)"></i>nenavštíveno</span>';
+        '<span><i style="background:var(--land)"></i>nenavštíveno</span>' +
+        (onPlaces ? '<span><i class="pin"></i>místo (velikost = počet cest)</span><span><i class="ring"></i>jen oblast</span>' : "");
     $("mapNote").textContent = zoomed
       ? (inCountry.length ? `Ověřená místa: ${inCountry.length}` : "Ve státě zatím nejsou ověřená místa")
       : onPlaces ? `Ověřená místa: ${places.length}` : "";

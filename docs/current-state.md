@@ -67,3 +67,11 @@ Podle Martinových připomínek z 10. 11. 2026:
 - Obsah je na desktopu široký až 1480 px místo 1320 px.
 
 Ověřeno lokálně v sestavení. Na Pages se změny dostanou až po pushnutí do `main`.
+
+Další úpravy z 10. 11. 2026:
+
+- Detail cesty se na Přehledu, v Kronice a Statistikách otevírá v plovoucím okně s tlačítkem „← Zpět“ a křížkem. Zavře ho i Esc, klik mimo okno a tlačítko Zpět v prohlížeči či telefonu. Adresa dostane `?cesta=ID`, takže jde sdílet. Na telefonu je okno přes celou obrazovku. Detail ukazuje jen cestu (popis, fakta, mapa, sport) a vlajku místo kroužku s kódem. Další cesty do státu a předchozí / další jsou pryč. `cesta.html?id=` zůstává pro přímé odkazy.
+- Ve vrstvě Místa na mapě zůstávají státy obarvené podle počtu cest. Body míst jsou rezavé.
+- Kronika ukazuje u 35 cest s popisem jeho první větu a má přepínač „Jen s popisem“.
+- Písma: nejdřív systémové Palatino a Ink Free, jinde lokální podmnožiny TeX Gyre Pagella a Patrick Hand (`src/fonts/`).
+- Odkaz sdílený na sociálních sítích má náhled s fotkou (Open Graph). Hlavička nemá podtitulek „Osobní atlas cest“.

@@ -14,6 +14,14 @@ export const tripUrl = (t: Trip) => `cesta.html?id=${encodeURIComponent(t.id)}`;
 export const tripName = (t: Trip) => shortName(t.nazev, countryName(t.zeme));
 export const sideClass = (t: Trip) => (t.zeme === "CZ" ? "is-cz" : "is-abroad");
 
+// Otevření cesty: stránky s plovoucím oknem (tripDialog.ts) si zaregistrují vlastní funkci, jinak běžný přechod.
+let tripOpener: ((t: Trip) => void) | null = null;
+export const setTripOpener = (open: (t: Trip) => void) => { tripOpener = open; };
+export function goToTrip(t: Trip): void {
+  if (tripOpener) tripOpener(t);
+  else location.href = tripUrl(t);
+}
+
 /** Vlajka je dekorace vedle názvu státu, proto aria-hidden. Kód je ověřené ISO alfa-2. */
 export const flag = (code: string) => `<span class="fi fi-${esc(code.toLowerCase())}" aria-hidden="true"></span>`;
 
@@ -21,13 +29,15 @@ export const flag = (code: string) => `<span class="fi fi-${esc(code.toLowerCase
 // ---------- tooltip ----------
 let tipEl: HTMLDivElement | null = null;
 
-function showTip(html: string, x: number, y: number): void {
+function showTip(html: string, x: number, y: number, host: Element): void {
   if (!tipEl) {
     tipEl = document.createElement("div");
     tipEl.className = "vz-tip";
     tipEl.setAttribute("role", "status");
-    document.body.appendChild(tipEl);
   }
+  // V otevřeném plovoucím okně musí být tooltip uvnitř něj, jinak by zůstal pod oknem.
+  const parent = host.closest("dialog") ?? document.body;
+  if (tipEl.parentElement !== parent) parent.appendChild(tipEl);
   tipEl.innerHTML = html;
   tipEl.style.display = "block";
   const r = tipEl.getBoundingClientRect();
@@ -51,7 +61,7 @@ export function bindTips(root: HTMLElement, html: (target: HTMLElement) => strin
   };
   root.addEventListener("pointermove", (e) => {
     const t = target(e);
-    if (t) showTip(html(t), e.clientX, e.clientY);
+    if (t) showTip(html(t), e.clientX, e.clientY, root);
     else hideTip();
   });
   root.addEventListener("pointerleave", hideTip);
@@ -59,7 +69,7 @@ export function bindTips(root: HTMLElement, html: (target: HTMLElement) => strin
     const t = target(e);
     if (!t) return;
     const r = t.getBoundingClientRect();
-    showTip(html(t), r.left + r.width / 2, r.top + r.height / 2);
+    showTip(html(t), r.left + r.width / 2, r.top + r.height / 2, root);
   });
   root.addEventListener("focusout", hideTip);
   window.addEventListener("scroll", hideTip, { passive: true });

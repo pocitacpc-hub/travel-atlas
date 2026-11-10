@@ -1,6 +1,6 @@
 // Grafy: cesty po letech, heatmapa rok × měsíc, Celé roky a délka pobytu.
 // Barvy jsou CSS role (is-cz / is-abroad / q1–q5), ne přímé hodnoty.
-import { bindTips, flag, mountChart, sideClass, tripUrl } from "./dom";
+import { bindTips, flag, goToTrip, mountChart, sideClass } from "./dom";
 import { cesty, esc, MONTHS, MONTHS_SHORT, noci, presnost, termin, zN } from "./format";
 import type { Trip } from "./model";
 import type { Stats, YearStat } from "./stats";
@@ -216,7 +216,7 @@ export function yearRows(el: HTMLElement, s: Stats, countryName: (code: string) 
   el.addEventListener("click", (e) => {
     const t = (e.target as Element).closest<SVGElement>("[data-id]");
     const trip = t?.dataset.id ? byId.get(t.dataset.id) : undefined;
-    if (trip) location.href = tripUrl(trip);
+    if (trip) goToTrip(trip);
   });
 }
 

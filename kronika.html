@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kronika · Cestovní atlas</title>
   <meta name="description" content="Kronika cest po letech s filtrem podle státu a hledáním.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:site_name" content="Cestovní atlas">
+  <meta property="og:title" content="Kronika · Cestovní atlas">
+  <meta property="og:description" content="Kronika cest po letech s filtrem podle státu a hledáním.">
+  <meta property="og:image" content="/src/img/sdileni.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Skalnaté útesy nad oceánem s malou písečnou pláží">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/src/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/src/atlas.css">
   <script type="module" src="/src/pages/kronika.ts"></script>
@@ -12,7 +22,7 @@
 <body>
   <div class="wrap">
     <header class="top">
-      <a class="brand" href="./"><b>Cestovní atlas</b><span>Osobní atlas cest</span></a>
+      <a class="brand" href="./"><b>Cestovní atlas</b></a>
       <nav aria-label="Hlavní navigace">
         <a href="./">Přehled</a>
         <a href="kronika.html" aria-current="page">Kronika</a>
@@ -42,6 +52,7 @@
             <button type="button" data-scope="abroad" aria-pressed="false">Zahraničí</button>
           </div>
           <label>Stát <select id="stat"></select></label>
+          <div class="seg"><button type="button" id="onlyText" aria-pressed="false">Jen s popisem</button></div>
           <input type="search" id="q" placeholder="Hledat cestu…" aria-label="Hledat cestu">
         </div>
         <span class="note" id="count" aria-live="polite"></span>

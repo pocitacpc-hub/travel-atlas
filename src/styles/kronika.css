@@ -36,6 +36,8 @@
 .trip .t { font-weight: 600; }
 .trip .meta { color: var(--muted); font-size: 13px; }
 .trip .meta .fi { margin-right: 4px; font-size: 12px; }
+/* první věta popisu, jeden řádek */
+.trip .perex { flex-basis: 100%; min-width: 0; overflow: hidden; color: var(--ink-2); font: italic 14px/1.4 var(--serif); white-space: nowrap; text-overflow: ellipsis; }
 
 @media (max-width: 820px) {
   :root { --unit: 9px; }

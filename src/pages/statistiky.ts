@@ -6,8 +6,11 @@ import { countryName, stats as s } from "../lib/data";
 import { $, flag, param, tripName, tripUrl } from "../lib/dom";
 import { cesty, esc, noci, num, plural, termin, zN } from "../lib/format";
 import { longestRun } from "../lib/stats";
+import { initTripDialog } from "../lib/tripDialog";
 import { emptyArchive, nightsCell, nightsCoverage, staty, yearsSpan } from "../lib/ui";
 
+
+initTripDialog();
 
 if (!s.total) {
   emptyArchive($("main"));

@@ -112,3 +112,11 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 
 - `tests/stats.test.ts` ověřuje součty grafů po letech: cesty dají 96, noci 349 ze 79 cest se známým počtem nocí, neznámé noci se nepočítají jako nula.
 - Ověření při předání (lokálně): `npm run check` prošel (8 souborů, 43 testů). Přehled na 1920, 1440, 1280, 1200, 1120 a 390 px a Kronika, Statistiky a detail na 1440 a 390 px bez vodorovného posouvání a bez chyb JavaScriptu. Po přesunu grafů po letech do Statistik znovu ověřen Přehled a Statistiky (Měsíce i Celé roky) na 1440 a 390 px. Na snímcích končí mapa a karta státu na stejné výšce (1440 a 1920 px) a nadpis se vejde vedle fotky na všech šířkách.
+
+## Plovoucí okno cesty, písma a sdílení (10. 11. 2026)
+
+- `tests/trip.test.ts` ověřuje obsah detailu: popis, fakta, mapa pod termínem a sport za ní, vlajka, žádné další cesty ani stránkování.
+- Ruční kontrola v sestavení (Chrome, 1440 px): karta cesty otevře okno a adresa dostane `?cesta=`. Okno zavře křížek, „← Zpět“, Esc, klik mimo okno i Zpět v prohlížeči, adresa se vrátí. Přímý odkaz `kronika.html?cesta=…` okno otevře a po zavření zůstane na Kronice. Pruh v Celých rocích otevře okno a ponechá `?pohled=roky`. Filtr „Jen s popisem“ ukáže 35 cest. Vrstva Místa má státy podle počtu cest a 78 bodů.
+- Písma: na Windows se žádný soubor `.woff2` nestáhne (Atlas Serif = Palatino, Atlas Hand = Ink Free). Lokální soubory načtené přes `FontFace`: Pagella má všechny české znaky, Patrick Hand nemá „ď“.
+- `dist/*.html` mají absolutní `og:image` a `og:url` na GitHub Pages.
+- `npm run check` prošel (9 souborů, 44 testů). Všechny stránky, okno a stránka „Cesta nenalezena“ na 1440 i 390 px bez vodorovného posouvání a bez chyb JavaScriptu.

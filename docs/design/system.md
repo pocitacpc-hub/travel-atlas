@@ -59,9 +59,9 @@ Všechny barvy jsou CSS proměnné v `:root`. Kód používá role, nikdy přím
 
 | Role | Písmo |
 |---|---|
-| `--serif` | `"Palatino Linotype", "Book Antiqua", Palatino, serif` – logo, nadpisy, velká čísla, roky |
+| `--serif` | `"Atlas Serif"` (= systémové Palatino, jinak lokální TeX Gyre Pagella) – logo, nadpisy, velká čísla, roky |
 | `--sans` | `"Segoe UI", system-ui, -apple-system, sans-serif` – text, ovládání, popisky, tabulky |
-| `--hand` | `"Ink Free", "Segoe Print", "Bradley Hand", cursive` – jen nadtitulek (`.kicker`) |
+| `--hand` | `"Atlas Hand"` (= systémové Ink Free, jinak lokální Patrick Hand) – jen nadtitulek (`.kicker`) |
 
 | Prvek | Velikost (desktop / mobil) | Písmo |
 |---|---|---|
@@ -78,7 +78,7 @@ Všechny barvy jsou CSS proměnné v `:root`. Kód používá role, nikdy přím
 | Popisky os grafů | 11–12 px | sans, `tabular-nums` |
 
 - V tabulkách, na osách a všude, kde se čísla zarovnávají pod sebe, se používá sans s `font-variant-numeric: tabular-nums`.
-- Písma jsou systémová a mají české znaky. Palatino Linotype a Ink Free jsou ve Windows. macOS má Palatino a místo Ink Free použije Bradley Hand. Na Androidu nahradí Palatino výchozí serif a Ink Free výchozí ručně psané písmo. Rozhodnutí, zda písma hostovat lokálně, je v kapitole 11.
+- **Písma** (od 10. 11. 2026): `@font-face` „Atlas Serif“ a „Atlas Hand“ v `src/atlas.css` použijí nejdřív systémové Palatino (Windows, macOS) a Ink Free (Windows). Zařízení bez nich (Android, Linux, Ink Free na macOS) stáhne lokální podmnožiny z `src/fonts/`: TeX Gyre Pagella (3 řezy po asi 40 kB) a Patrick Hand (23 + 14 kB). Nic se nenačítá z cizího serveru. Původ, licence a rozsah znaků jsou v `src/fonts/README.md`. Patrick Hand nemá „ď“, to prohlížeč vykreslí záložním písmem (nadtitulky „ď“ zatím neobsahují).
 
 ---
 
@@ -110,10 +110,12 @@ Hlavní navigace má 3 položky: **Přehled · Kronika · Statistiky**. Detail c
 | Přehled | `index.html` | `?stat=HR` vybraný a přiblížený stát |
 | Kronika | `kronika.html` | `?stat=IT` filtr státu · `#y2023` rok · `#yunk` cesty bez roku |
 | Statistiky | `statistiky.html` | `?pohled=mesice` nebo `?pohled=roky` · `#po-letech` · `#kdy` · `#staty` · `#stat-HR` (otevře stát) |
-| Detail cesty | `cesta.html?id=c038` | `id` = stabilní ID cesty |
+| Detail cesty | `cesta.html?id=t-xxxxxx` | `id` = stabilní ID cesty. Samostatná stránka pro přímé odkazy. |
+| Plovoucí okno cesty | `?cesta=t-xxxxxx` na Přehledu, v Kronice a Statistikách | otevře detail cesty v okně nad stránkou, ostatní parametry zůstávají |
 
 - Výběr státu a pohledu se zapisuje do URL (`history.replaceState`), takže odkaz jde sdílet.
 - Na GitHub Pages fungují samostatné HTML stránky s parametry bez potíží s chybou 404. ID v adrese musí být stabilní ID ze zdroje (viz revize, Z1), ne pořadí ani název souboru.
+- **Náhled při sdílení** (Open Graph, od 10. 11. 2026): každá stránka má `og:title`, `og:description`, `og:image` (`src/img/sdileni.jpg`, 1200 × 630 px, bez metadat) a `twitter:card`. Při sestavení plugin ve `vite.config.ts` doplní `og:url` a z adresy obrázku udělá absolutní adresu na GitHub Pages, protože sociální sítě relativní adresy neberou.
 
 ---
 
@@ -123,7 +125,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 
 **Kostra**
 
-- **Hlavička** (`APP.shell`): logotyp „Cestovní atlas“ serifovou kurzívou s podtitulkem „osobní atlas cest“ (na mobilu skrytý) a navigace jako kulatá tlačítka. Aktivní položka je tmavá (`aria-current="page"`).
+- **Hlavička** (`APP.shell`): logotyp „Cestovní atlas“ serifovou kurzívou (bez podtitulku) a navigace jako kulatá tlačítka. Aktivní položka je tmavá (`aria-current="page"`).
 - **Patička** není (Martin, 10. 11. 2026). Datum dat, věta o neznámých údajích a box „Jak číst data“ ve Statistikách se nezobrazují. Pokrytí neznámých hodnot zůstává u jednotlivých čísel („známo u 80 z 96 cest“).
 - **Záhlaví stránky** (`.page-head`): nadtitulek (rozsah let), H1, úvodní věta spočítaná z dat, volitelně legenda vpravo.
 - **Panel** (`.panel`): karta na `--card` s okrajem `--line`. Záhlaví panelu (`.ph`) má nadpis a ovládání nebo legendu.
@@ -131,12 +133,12 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 **Ovládání**
 
 - **Přepínač** (`.seg`): skupina `<button aria-pressed>` v kulatém rámečku, aktivní je tmavý. Používá se pro Státy / Místa, Měsíce / Celé roky a Vše / Česko / Zahraničí.
-- **Filtry** (`.filters`): přepínač rozsahu, výběr státu (`<select>` s počty) a hledání (`<input type="search">`). Počet výsledků je napsaný vpravo („Zobrazeno 11 cest z 96“, `aria-live`).
+- **Filtry** (`.filters`): přepínač rozsahu, výběr státu (`<select>` s počty), v Kronice přepínač „Jen s popisem“ a hledání (`<input type="search">`). Počet výsledků je napsaný vpravo („Zobrazeno 11 cest z 96“, `aria-live`).
 - **Drobné prvky:** chip (`.chip`) pro noci, km a přesnost; kód státu (`.code`) jako orámované ISO; odkaz (`.link`) tučně v `--cz-text`; legenda (`.legend`) se vzorky ploch, pruhů, pásů, teček a kroužků.
 
 **Mapa a státy**
 
-- **Mapa států** (`VZ.renderMap`): SVG ze statických hranic. Navštívené státy jsou zbarvené podle počtu cest, nenavštívené mají `--land`. Najetí nebo fokus ukáže tooltip a obrys v `--ink`, vybraný stát má obrys 2,2 px. Klik nebo Enter vybere stát.
+- **Mapa států** (`VZ.renderMap`): SVG ze statických hranic. Navštívené státy jsou zbarvené podle počtu cest, nenavštívené mají `--land`. Ve vrstvě Místa zůstávají barvy podle počtu cest, přibudou jen body. Body míst jsou v `--accent` (rez) s obrysem v barvě karty, aby byly vidět i na tmavě modrých státech. Najetí nebo fokus ukáže tooltip a obrys v `--ink`, vybraný stát má obrys 2,2 px. Klik nebo Enter vybere stát.
 - **Přiblížení státu** (Přehled): klik na stát v mapě nebo na jeho vlajku mapu plynule (0,45 s, bez animace při `prefers-reduced-motion`) přiblíží na stát. Výřez drží poměr stran celé mapy. Stát má výplň `--q2`, ostatní navštívené `--q1`, zobrazí se všechna ověřená místa s popisky (bez překryvu, důležitější místo má přednost). Body i písmo mají v přiblížení stálou velikost na obrazovce. Tlačítko „← Celá Evropa“ nebo klávesa Esc vrátí celou mapu. Klik na jiný stát v přiblížení přepne na něj.
 - **Karta státu** (Přehled): název, kód, „11 cest · 1996–2026 · 82 nocí (známo u 9 z 11)“, posuvný seznam cest s odkazy na detail a odkazy „V kronice“ a „Ve statistikách“. Pravý sloupec má na desktopu výšku mapy: karta se natáhne a seznam se posouvá uvnitř (aspoň 140 px, vpravo 12 px od posuvníku). Pod 1100 px má seznam nejvýš 232 px.
 - **Seznam států** (`APP.statesList`): `<details>` pro každý stát. Řádek má kód, název, pruh (Česko tyrkys, ostatní okr), počet a podřádek s nocemi a pokrytím a rozsahem let. Po rozbalení se ukážou cesty a odkazy „Na mapě“ a „V kronice“.
@@ -147,7 +149,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 - **Fotka** (Přehled): vpravo vedle nadtitulku a nadpisu, bez rámečku a bez popisku, poměr 16 : 10, šířka `min(210px, 40 %)` sloupce, rádius 4 px, stín, pootočená o 3°. Soubor `src/img/pobrezi.jpg` (480 × 270 px, bez metadat) zpracuje Vite při sestavení. Řada vlajek začíná až pod fotkou.
 - **Fakta** (Přehled): tři údaje v jednom řádku – Do zahraničí („14 zahr. států“), Po Česku (podíl všech cest) a Nocí celkem (pokrytí).
 - **Cesty po letech a Noci po letech** (Statistiky, první blok nad „Kdy cestuji“, kotva `#po-letech`): dva stejně široké panely vedle sebe, pod 1100 px pod sebou. Skládané sloupce Česko / zahraničí, nad sloupcem součet. Noci se sčítají jen z cest se známým počtem nocí, rok s cestami bez známých nocí má nad osou „?“. Cesty bez roku jsou v posledním sloupci „?“. Pod 560 px se graf posouvá uvnitř panelu. Přehled končí Posledními cestami, grafy po letech ani panel Návraty na něm nejsou.
-- **Řádek cesty v Kronice** (`.trip`): měsíc, pruh ve stopě o pevné šířce 13 nocí × jednotka (15 px, mobil 9 px), název, metadata a případně odznak „nová země“.
+- **Řádek cesty v Kronice** (`.trip`): měsíc, pruh ve stopě o pevné šířce 13 nocí × jednotka (15 px, mobil 9 px), název, metadata, první věta popisu (kurzívou serifem, jeden řádek s výpustkou, jen u cest s popisem) a případně odznak „nová země“.
   - Pruh: Česko tyrkys, zahraničí okr, cesta se známým jen měsícem s průhledností 55 %, neznámá délka jako čárkovaný obrys.
 - **Rok v Kronice** (`.year`): rok serifem, souhrn („9 cest · 5 do zahraničí, 38 nocí“) a seznam cest. Prázdný rok je zúžený řádek „bez záznamu v archivu“ (jen bez filtru). Cesty bez roku mají vlastní skupinu „?“.
 - **Lišta let** (Kronika): na desktopu svislý seznam let s mini pruhy Česko / zahraničí a zvýrazněným aktuálním rokem, na mobilu vodorovný pás tlačítek.
@@ -167,12 +169,12 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 
 **Detail cesty**
 
-- **Hlavička:** drobečková navigace „Kronika › rok › název“, nadtitulek se státem, H1, termín, chip přesnosti (když termín není přesný) a razítko s kódem a rokem.
-- **Výřez mapy** (`APP.cropFor`): výřez kolem státu a míst v poměru 4 : 3, minimálně 240 × 180 jednotek. Vybraný stát je ve `--q3`, místa jsou tečky.
+- **Plovoucí okno** (`src/lib/tripDialog.ts`, od 10. 11. 2026): na Přehledu, v Kronice a Statistikách se každý odkaz na cestu (karty, seznamy, rekordy, pruhy Celých roků) otevře v `<dialog>` nad stránkou. Nahoře je lišta s tlačítkem „← Zpět“ a křížkem. Okno zavře i Esc, klik mimo okno a tlačítko Zpět prohlížeče či telefonu (adresa dostane `?cesta=ID`). Na desktopu má šířku nejvýš 880 px, pod 760 px je přes celou obrazovku. Obsah s mapou se stáhne až při prvním otevření.
+- **Samostatná stránka** `cesta.html?id=` zůstává pro přímé odkazy. Místo drobečkové navigace má tlačítko „← Zpět“ (předchozí stránka atlasu, jinak Kronika).
+- **Obsah** (`src/lib/trip.ts`, stejný v okně i na stránce), v tomto pořadí: hlavička (nadtitulek se státem, H1, termín, chip přesnosti, vlajka vpravo místo razítka s kódem), „O cestě“, fakta (termín, noci, stát, místa), výřez mapy, sport na cestě.
+- **Výřez mapy** (`cropFor`): výřez kolem státu a míst v poměru 4 : 3, minimálně 240 × 180 jednotek, výška 340 px (mobil 260 px). Vybraný stát je ve `--q3`, místa jsou tečky.
 - **Sport na cestě:** tři hodnoty (aktivit, km, m převýšení) a věta, že jde o výběr Strava 2023–2026.
-- **Další cesty do státu:** nejvýš 8 a odkaz „Všech N v kronice“.
-- **Prázdný stav** (`.empty`): čárkovaný rámeček „Popis, vzpomínky a fotky zatím nejsou.“
-- **Stránkování** (`.pager`): předchozí / další cesta. Datované cesty jdou chronologicky, cesty bez roku jen mezi sebou.
+- Další cesty do státu a stránkování předchozí / další v detailu nejsou (Martin, 10. 11. 2026).
 
 **Tooltip** (`.vz-tip`): tmavý (`--ink`) s papírovým textem, max. 280 px, u kurzoru a při fokusu u prvku. Nesmí nést informaci, která není jinde dostupná.
 
@@ -294,7 +296,7 @@ U každé komponenty je uvedeno, kde ji v prototypu najdete.
 
 | # | Rozhodnutí | Doporučení |
 |---|---|---|
-| 1 | Hostovat vlastní serif a ručně psané písmo (stejný vzhled na Androidu), nebo zůstat u systémových písem | zatím systémová písma (Palatino, Ink Free), rozhodnout podle vzhledu na telefonu |
+| 1 | Hostovat vlastní serif a ručně psané písmo (stejný vzhled na Androidu), nebo zůstat u systémových písem | rozhodnuto 10. 11. 2026: nejdřív systémová, jinak lokální podmnožiny (`src/fonts/`) |
 | 2 | Barvy tmavého režimu | odvodit z návrhu 5 a ověřit validátorem, zapínat automaticky |
 | 3 | Zobrazení míst s přesností jen „oblast“ | ponechat čárkovaný kroužek |
 | 4 | Ikona a favicon | `src/favicon.svg`: čárkované razítko s „CA“ v barvách deníku (rez na krémové) |

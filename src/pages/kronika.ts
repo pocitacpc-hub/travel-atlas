@@ -1,4 +1,4 @@
-// Kronika: cesty po letech s filtrem rozsahu, státu a hledáním. Lišta let skáče na rok.
+// Kronika: cesty po letech s filtrem rozsahu, státu, popisu a hledáním. Lišta let skáče na rok. Cesta se otevře v plovoucím okně.
 import "../generated/vlajky.css";
 import "../styles/kronika.css";
 import { countryName, dataAsOf, stats as base, trips as all } from "../lib/data";
@@ -6,11 +6,15 @@ import { $, flag, param, sideClass, tripName, tripUrl } from "../lib/dom";
 import { cesty, esc, MONTHS, MONTHS_SHORT, noci, num, plural, searchable, termin, zN } from "../lib/format";
 import type { Trip } from "../lib/model";
 import { computeStats, type YearStat } from "../lib/stats";
+import { popisPerex } from "../lib/text";
+import { initTripDialog } from "../lib/tripDialog";
 import { emptyArchive, focusChips } from "../lib/ui";
 
 
 const STAR = '<svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.8-6.3 3.8 1.7-7L2 9.2l7.1-.6z"/></svg>';
 const MAX_UNITS = 13;
+
+initTripDialog();
 
 if (!base.total) {
   emptyArchive($("main"));
@@ -19,7 +23,8 @@ if (!base.total) {
   const st = {
     scope: "all" as "all" | "cz" | "abroad",
     stat: requested && base.countries.some((c) => c.code === requested) ? requested : "",
-    q: ""
+    q: "",
+    text: false
   };
   const index = new Map(all.map((t) => [t.id, searchable(`${t.nazev} ${countryName(t.zeme)}`)]));
 
@@ -40,6 +45,7 @@ if (!base.total) {
       `<span class="meta">${flag(t.zeme)}${esc(countryName(t.zeme))} · ${t.presnostTerminu === "den" ? `${termin(t)} · ` : ""}${noci(t.pocetNoci)}` +
       `${t.sport ? ` · ${num(t.sport.km)} km aktivit` : ""}</span>` +
       (t.zamereni.length ? `<span class="focus">${focusChips(t)}</span>` : "") +
+      (t.popis ? `<span class="perex">${esc(popisPerex(t.popis))}</span>` : "") +
       (isNew ? isNew.map((code) => `<span class="new">${STAR}nová země: ${esc(countryName(code))}</span>`).join("") : "") +
       "</span></a></li>";
   };
@@ -62,8 +68,9 @@ if (!base.total) {
       (st.scope !== "cz" || t.zeme === "CZ") &&
       (st.scope !== "abroad" || t.zeme !== "CZ") &&
       (!st.stat || t.zeme === st.stat || t.dalsiZeme.includes(st.stat)) &&
+      (!st.text || t.popis !== null) &&
       (!q || index.get(t.id)!.includes(q)));
-    const filtered = st.scope !== "all" || Boolean(st.stat) || Boolean(q);
+    const filtered = st.scope !== "all" || Boolean(st.stat) || Boolean(q) || st.text;
     $("count").textContent = filtered
       ? `${plural(trips.length, "Zobrazena", "Zobrazeny", "Zobrazeno")} ${cesty(trips.length)} ${zN(base.total)}`
       : `${cesty(base.total)} v archivu`;
@@ -121,6 +128,12 @@ if (!base.total) {
       render();
     });
   }
+  const onlyText = $<HTMLButtonElement>("onlyText");
+  onlyText.addEventListener("click", () => {
+    st.text = !st.text;
+    onlyText.setAttribute("aria-pressed", String(st.text));
+    render();
+  });
   select.addEventListener("change", () => {
     st.stat = select.value;
     history.replaceState(null, "", st.stat ? `?stat=${encodeURIComponent(st.stat)}` : location.pathname);

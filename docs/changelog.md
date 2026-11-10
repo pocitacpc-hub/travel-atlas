@@ -1,5 +1,12 @@
 # Změny
 
+## 10. 11. 2026 – plovoucí okno cesty, písma a sdílení
+
+- Detail cesty se otevírá v plovoucím okně s „← Zpět“ a křížkem, zavírá se i Esc, klikem mimo okno a tlačítkem Zpět. Detail je zkrácený jen na cestu (bez dalších cest a předchozí / další) a má vlajku místo kroužku s kódem. Samostatná stránka má tlačítko „← Zpět“.
+- Vrstva Místa nechává státy obarvené podle počtu cest, body míst jsou rezavé.
+- Kronika: první věta popisu u cest a přepínač „Jen s popisem“.
+- Lokální písma pro zařízení bez Palatina a Ink Free (TeX Gyre Pagella, Patrick Hand). Náhled odkazu při sdílení (Open Graph). Hlavička bez podtitulku.
+
 ## 10. 11. 2026 – úpravy Přehledu podle připomínek
 
 - Přehled: bez textu „Klikněte na stát“, fotka bez rámečku a větší, vlajky podle počtu cest, tři fakta v jednom řádku (bez „Rok 2026“), pravý sloupec zarovnaný s mapou, seznam v kartě státu odsazený od posuvníku.
