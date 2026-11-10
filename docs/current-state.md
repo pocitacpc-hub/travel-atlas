@@ -89,3 +89,9 @@ Další úpravy z 10. 11. 2026:
 - **Deníkové detaily:** textura papíru, páska na fotce, razítko „CA“ jako logo, rekordy jako razítka a jemné animace.
 
 [Kontrola a nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42765924293) prošly a úpravy jsou na Pages ověřené. Spodní lištu v nainstalované aplikaci ověří Martin na telefonu.
+
+## Doladění 10. 11. 2026 (večer)
+
+- Hlavička je bez loga „CA“ a fotka na Přehledu bez pásky.
+- Vlajky států přímo na mapě jsme vyzkoušeli a Martin je nechtěl, mapa je bez nich.
+- V detailu cesty jsou nahoře údaje v jednom řádku: termín, noci a místa. Stát je jen v záhlaví, i s dalšími státy pobytu. Pod nimi je „O cestě“.

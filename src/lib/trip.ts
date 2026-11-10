@@ -1,13 +1,13 @@
 // Detail cesty: obsah sdílený samostatnou stránkou cesta.html a plovoucím oknem (tripDialog.ts).
-// Jen to podstatné o cestě: stát, název, termín, popis, fakta, sport a mapa.
+// Jen to podstatné o cestě: stát, název, termín, údaje v jednom řádku, popis, mapa a sport.
 import { countryName, placeById, stats as s } from "./data";
 import { flag, tripName } from "./dom";
-import { cesty, esc, noci, num, presnost, termin } from "./format";
+import { esc, noci, num, presnost, termin } from "./format";
 import { cropFor, hasMapShape, renderMap, toMapPlace, type MapPlace } from "./map";
 import type { Trip } from "./model";
 import { icon } from "./icons";
 import { popisHtml } from "./text";
-import { focusChips, yearsSpan } from "./ui";
+import { focusChips } from "./ui";
 
 const tripPlaces = (t: Trip): MapPlace[] => t.mista.flatMap((pid) => {
   const place = placeById.get(pid);
@@ -17,28 +17,28 @@ const tripPlaces = (t: Trip): MapPlace[] => t.mista.flatMap((pid) => {
 /** HTML detailu cesty. Mapu doplní drawTripMap po vložení do stránky. */
 export function tripDetailHtml(t: Trip): string {
   const name = tripName(t);
-  const c = s.countries.find((x) => x.code === t.zeme)!;
   const places = tripPlaces(t);
   const firstFor = s.firstTripOfCountry.get(t.id) ?? [];
   const states = [t.zeme, ...t.dalsiZeme];
   const precisionChip = t.presnostTerminu === "den" ? "" : ` <span class="chip">${presnost(t.presnostTerminu)}</span>`;
-  const statesFact = states.map((code) => `${flag(code)}<a href="./?stat=${code}">${esc(countryName(code))}</a>`).join(", ");
+  // Stát je v záhlaví (i další státy pobytu), proto ho fakta neopakují.
+  const kicker = states.map((code) => `${flag(code)}${esc(countryName(code))}`).join(" · ") +
+    (firstFor.includes(t.zeme) ? " · první známá cesta do státu" : "");
   const placeFact = places.length
     ? `<span class="td-places">${places.map((p) => `<span class="chip">${esc(p.place.nazev)}${p.place.presnost === "oblast" ? " (oblast)" : ""}</span>`).join("")}</span>`
     : "—<small>místo zatím nemá ověřenou polohu</small>";
 
-  return `<header class="td-head"><div><p class="kicker">${flag(t.zeme)}${esc(countryName(t.zeme))}` +
-      `${firstFor.includes(t.zeme) ? " · první známá cesta do státu" : ""}</p>` +
+  return `<header class="td-head"><div><p class="kicker">${kicker}</p>` +
       `<h1 id="td-title">${esc(name)}</h1><div class="td-when">${termin(t)}${precisionChip}${t.zamereni.length ? ` ${focusChips(t)}` : ""}</div></div>` +
       `<span class="td-flag">${flag(t.zeme)}</span></header>` +
     '<div class="td-body">' +
-      (t.popis ? `<section class="panel td-popis"><h2 class="sec">O cestě</h2>${popisHtml(t.popis)}</section>` : "") +
-      '<section class="panel"><dl class="td-facts">' +
+      // Údaje v jednom řádku nahoře: termín, noci, místa.
+      '<section class="panel td-facts-panel"><dl class="td-facts">' +
         `<div><dt>${icon("termin")}Termín</dt><dd>${termin(t)}<small>${presnost(t.presnostTerminu)}</small></dd></div>` +
         `<div><dt>${icon("noc")}Nocí</dt><dd>${t.pocetNoci === null ? "neznámo" : t.pocetNoci}<small>${t.pocetNoci === null ? "délka pobytu není doložená" : noci(t.pocetNoci)}</small></dd></div>` +
-        `<div><dt>${states.length > 1 ? "Státy" : "Stát"}</dt><dd>${statesFact}<small>${esc(countryName(t.zeme))}: ${cesty(c.count)} celkem · ${yearsSpan(c)}</small></dd></div>` +
-        `<div><dt>${icon("misto")}Místa</dt><dd>${placeFact}</dd></div>` +
+        `<div class="td-fact-places"><dt>${icon("misto")}Místa</dt><dd>${placeFact}</dd></div>` +
       "</dl></section>" +
+      (t.popis ? `<section class="panel td-popis"><h2 class="sec">O cestě</h2>${popisHtml(t.popis)}</section>` : "") +
       (states.some(hasMapShape)
         ? '<section class="panel"><div class="map td-map" data-trip-map></div><p class="legend">' +
           `<span><i style="background:var(--q3)"></i>${esc(countryName(t.zeme))}</span>` +

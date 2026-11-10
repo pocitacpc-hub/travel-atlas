@@ -137,3 +137,8 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 - Spodní lišta: headless Chrome emulaci `display-mode: standalone` nepodporuje. Pravidlo jsem proto v prohlížeči zapnul ručně při šířce 375 px: lišta je dole, má ikony a aktivní Kroniku. Ve skutečné aplikaci na telefonu ji ověří Martin.
 - Snímky na 1440 a 390 px: mapa s mořem a pobřežím, okno cesty (širší, jen křížek, mapa s popisky Porto a Sintra), Kronika s vlajkou před názvem a ikonami, kompaktní Poslední cesty na mobilu a rekordy jako razítka. Všechny stránky i okno jsou bez vodorovného posouvání a bez chyb JavaScriptu.
 - Po pushnutí do `main` prošly [kontrola i nasazení](https://github.com/pocitacpc-hub/travel-atlas/actions/runs/42765924293). Na veřejné adrese vrátily čtyři stránky, `manifest.webmanifest` i `sw.js` HTTP 200 a stránka obsahuje logo s razítkem. V Chrome na 1440 i 390 px byly Přehled, Kronika, Statistiky, detail cesty i okno cesty bez vodorovného posouvání a bez chyb JavaScriptu.
+
+## Údaje cesty v jednom řádku (10. 11. 2026)
+
+- `tests/trip.test.ts` hlídá tři údaje (bez Státu) a pořadí: údaje, O cestě, mapa, sport.
+- `npm run check` prošel (10 souborů, 47 testů). V náhledu sestavení na 1440 a 390 px je hlavička bez loga, fotka bez pásky a mapa bez vlajek. Okno cesty má údaje v jednom řádku (na telefonu ve dvou) a pod nimi „O cestě“. Všechny stránky bez vodorovného posouvání a bez chyb JavaScriptu.

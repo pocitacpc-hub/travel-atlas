@@ -1,5 +1,10 @@
 # Změny
 
+## 10. 11. 2026 – údaje cesty v jednom řádku
+
+- Pryč je logo „CA“ v hlavičce a páska na fotce.
+- Detail cesty: nahoře údaje v jednom řádku (termín, noci, místa, bez řádku Stát), pod nimi „O cestě“. Další státy pobytu jsou v záhlaví.
+
 ## 10. 11. 2026 – grafické úpravy
 
 - Mapa s mořem a pobřežím, bez obdélníku kolem státu po návratu na celou Evropu. Výchozí je vybraný stát poslední cesty.
