@@ -10,3 +10,7 @@ Rozsah a podmínky přechodu stanovuje [zadání dalších fází](changes/2026-
 | D – Web MVP | Hotovo | Čtyři stránky běží na Pages, kontrolní hodnoty sedí a stránky jsou ověřené na 1440 i 390 px. |
 | E – Místa | Hotovo | Číselník ověřený, místa zapsaná na Drive, exportovaná a ověřená na Pages. |
 | F – Sport | Nezačato | Samostatný export aktivit bez soukromých údajů. |
+
+## Aktualizace dat 15. 11. 2026
+
+- Hotovo: potvrzené cesty na Drivu, osm ověřených podkladů pro mapu, přísný export a kontrola veřejných dat. [Zápis změny](changes/2026-11-15-doplneni-cest.md)

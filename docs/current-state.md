@@ -95,3 +95,7 @@ Další úpravy z 10. 11. 2026:
 - Hlavička je bez loga „CA“ a fotka na Přehledu bez pásky.
 - Vlajky států přímo na mapě jsme vyzkoušeli a Martin je nechtěl, mapa je bez nich.
 - V detailu cesty jsou nahoře údaje v jednom řádku: termín, noci a místa. Stát je jen v záhlaví, i s dalšími státy pobytu. Pod nimi je „O cestě“.
+
+## Doplnění historických cest a Bulharska (15. 11. 2026)
+
+Přísný export obsahuje 109 cest (60 po Česku, 49 v zahraničí), 15 států a 85 míst. U 80 cest je známých 359 nocí. Nejstarší doložená cesta je Zemplínská Šírava 1991 a jediná cesta bez roku je Warnemünde. Podklady pro místa, kontrolní hodnoty a otevřený rozdíl u počtu nocí na Korčule jsou v [zápisu změny](changes/2026-11-15-doplneni-cest.md).

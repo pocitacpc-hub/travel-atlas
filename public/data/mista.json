@@ -1,8 +1,17 @@
 {
   "schemaVersion": 1,
   "generated": true,
-  "dataAsOf": "2026-11-09",
+  "dataAsOf": "2026-11-15",
   "mista": [
+    {
+      "id": "acharavi",
+      "nazev": "Acharavi",
+      "zeme": "GR",
+      "oblast": "Korfu",
+      "lat": 39.796799,
+      "lon": 19.811096,
+      "presnost": "obec"
+    },
     {
       "id": "alba",
       "nazev": "Alba Adriatica",
@@ -103,6 +112,15 @@
       "presnost": "obec"
     },
     {
+      "id": "capri",
+      "nazev": "Capri",
+      "zeme": "IT",
+      "oblast": null,
+      "lat": 40.55,
+      "lon": 14.233333,
+      "presnost": "oblast"
+    },
+    {
       "id": "chalkidiki",
       "nazev": "Chalkidiki",
       "zeme": "GR",
@@ -154,6 +172,15 @@
       "oblast": null,
       "lat": 38.567,
       "lon": -0.213,
+      "presnost": "obec"
+    },
+    {
+      "id": "florencie",
+      "nazev": "Florencie",
+      "zeme": "IT",
+      "oblast": "Toskánsko",
+      "lat": 43.771389,
+      "lon": 11.254167,
       "presnost": "obec"
     },
     {
@@ -235,15 +262,6 @@
       "oblast": null,
       "lat": 50.83,
       "lon": 15.25,
-      "presnost": "oblast"
-    },
-    {
-      "id": "korfu",
-      "nazev": "Korfu",
-      "zeme": "GR",
-      "oblast": null,
-      "lat": 39.6,
-      "lon": 19.87,
       "presnost": "oblast"
     },
     {
@@ -346,6 +364,15 @@
       "presnost": "obec"
     },
     {
+      "id": "malenovice",
+      "nazev": "Malenovice",
+      "zeme": "CZ",
+      "oblast": "Beskydy",
+      "lat": 49.579568,
+      "lon": 18.410336,
+      "presnost": "obec"
+    },
+    {
       "id": "martinsicuro",
       "nazev": "Martinsicuro",
       "zeme": "IT",
@@ -379,6 +406,24 @@
       "oblast": null,
       "lat": 48.854,
       "lon": 19.633,
+      "presnost": "obec"
+    },
+    {
+      "id": "nea-iraklia",
+      "nazev": "Nea Iraklia",
+      "zeme": "GR",
+      "oblast": "Chalkidiki",
+      "lat": 40.346194,
+      "lon": 23.015083,
+      "presnost": "obec"
+    },
+    {
+      "id": "neapol",
+      "nazev": "Neapol",
+      "zeme": "IT",
+      "oblast": "Kampánie",
+      "lat": 40.835833,
+      "lon": 14.248611,
       "presnost": "obec"
     },
     {
@@ -472,6 +517,15 @@
       "presnost": "obec"
     },
     {
+      "id": "pompeje",
+      "nazev": "Pompeje",
+      "zeme": "IT",
+      "oblast": "Kampánie",
+      "lat": 40.75,
+      "lon": 14.5,
+      "presnost": "obec"
+    },
+    {
       "id": "porec",
       "nazev": "Poreč",
       "zeme": "HR",
@@ -496,6 +550,15 @@
       "oblast": null,
       "lat": 50.087,
       "lon": 14.421,
+      "presnost": "obec"
+    },
+    {
+      "id": "primorsko",
+      "nazev": "Primorsko",
+      "zeme": "BG",
+      "oblast": null,
+      "lat": 42.266841,
+      "lon": 27.757533,
       "presnost": "obec"
     },
     {

@@ -63,15 +63,29 @@
     zacatek: 2025-09-13
     konec: 2025-09-14
 
-# Termín upřesněný Martinem 9. 11. 2026
-- nazev: Chorvatsko – ostrov Korčula, Vela Luka (hotel Adria)
+# Přesný termín podle rodinných poznámek zpracovaných 15. 11. 2026
+- nazev: Chorvatsko – Korčula, Vela Luka
   rok: 1994
   potvrzeno: true
   zmeny:
-    rok: 1994
-    mesic: 7
-    presnost_terminu: mesic
-    pocet_noci: 10
+    zacatek: 1994-07-19
+    konec: 1994-07-30
+# Místa doplněná k potvrzeným cestám 15. 11. 2026.
+- nazev: Bulharsko – Primorsko
+  rok: 2024
+  potvrzeno: true
+  zmeny:
+    mista:
+      - Primorsko
+- nazev: Itálie – Neapol, Pompeje, Capri a Florencie
+  rok: 2000
+  potvrzeno: true
+  zmeny:
+    mista:
+      - Neapol
+      - Pompeje
+      - Capri
+      - Florencie
 # Místa z názvů cest. Přiřazení i souřadnice schválil Martin 9. 11. 2026.
 - nazev: Alicante a Costa Blanca
   rok: 2026
@@ -87,37 +101,37 @@
   zmeny:
     mista:
       - Rožnov pod Radhoštěm
-- nazev: Beskydy – Penzion Visalaje
+- nazev: Beskydy – Visalaje
   rok: 1996
   potvrzeno: true
   zmeny:
     mista:
       - Visalaje (Beskydy)
-- nazev: Beskydy – Penzion Visalaje
+- nazev: Beskydy – Visalaje
   rok: 1998
   potvrzeno: true
   zmeny:
     mista:
       - Visalaje (Beskydy)
-- nazev: Beskydy – Penzion Visalaje
+- nazev: Beskydy – Visalaje
   rok: 1999
   potvrzeno: true
   zmeny:
     mista:
       - Visalaje (Beskydy)
-- nazev: Beskydy – Penzion Visalaje
+- nazev: Beskydy – Visalaje
   rok: 2002
   potvrzeno: true
   zmeny:
     mista:
       - Visalaje (Beskydy)
-- nazev: Beskydy – Penzion Visalaje
+- nazev: Beskydy – Visalaje
   rok: 2003
   potvrzeno: true
   zmeny:
     mista:
       - Visalaje (Beskydy)
-- nazev: Beskydy – Penzion Visalaje
+- nazev: Beskydy – Visalaje
   rok: 2004
   potvrzeno: true
   zmeny:
@@ -159,7 +173,7 @@
   zmeny:
     mista:
       - Murter
-- nazev: Chorvatsko – ostrov Korčula, Vela Luka (hotel Adria)
+- nazev: Chorvatsko – Korčula, Vela Luka
   rok: 1994
   potvrzeno: true
   zmeny:
@@ -232,18 +246,18 @@
     mista:
       - Vieste
 - nazev: Itálie – Lido di Jesolo
-  rok: null
+  rok: 1993
   potvrzeno: true
   zmeny:
     mista:
       - Lido di Jesolo
-- nazev: Itálie – Martinsicuro, Camping Riva Nuova
+- nazev: Itálie – Palmová riviéra, Martinsicuro
   rok: 2003
   potvrzeno: true
   zmeny:
     mista:
       - Martinsicuro
-- nazev: Itálie – Paestum, komplex La Giara
+- nazev: Itálie – Kampánie, Paestum
   rok: 2004
   potvrzeno: true
   zmeny:
@@ -494,12 +508,12 @@
   zmeny:
     mista:
       - Vápenná
-- nazev: Řecko – Chalkidiki
+- nazev: Řecko – Chalkidiki, Nea Iraklia
   rok: 1998
   potvrzeno: true
   zmeny:
     mista:
-      - Chalkidiki
+      - Nea Iraklia
 - nazev: Řecko – Chalkidiki, Sarti
   rok: 2009
   potvrzeno: true
@@ -507,12 +521,12 @@
     mista:
       - Chalkidiki
       - Sarti
-- nazev: Řecko – Korfu
+- nazev: Řecko – Korfu, Acharavi
   rok: 2000
   potvrzeno: true
   zmeny:
     mista:
-      - Korfu
+      - Acharavi
 - nazev: Slovensko – Babia hora
   rok: 2023
   potvrzeno: true
@@ -557,13 +571,13 @@
       - Bled
       - Izola
       - Piran
-- nazev: Španělsko – Alcossebre, Camping Playa Tropicana
+- nazev: Španělsko – Alcossebre
   rok: 2001
   potvrzeno: true
   zmeny:
     mista:
       - Alcossebre
-- nazev: Španělsko – Costa Brava, Palamós (Camp King)
+- nazev: Španělsko – Costa Brava, Palamós
   rok: 1997
   potvrzeno: true
   zmeny:
@@ -620,8 +634,8 @@
   zmeny:
     mista:
       - Velká Kraš
-- nazev: Slovensko – Širava
-  rok: null
+- nazev: Slovensko – Zemplínská Šírava
+  rok: 1991
   potvrzeno: true
   zmeny:
     mista:
@@ -897,7 +911,7 @@
   potvrzeno: true
   zmeny:
     verejny_popis: Letní **tábor** v Pule na Istrii.
-- nazev: Španělsko – Costa Brava, Palamós (Camp King)
+- nazev: Španělsko – Costa Brava, Palamós
   rok: 1997
   potvrzeno: true
   zmeny:

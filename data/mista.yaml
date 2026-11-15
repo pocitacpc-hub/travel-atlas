@@ -1,6 +1,17 @@
 # Číselník míst. Souřadnice a identifikátor jsou z Wikidat, přesnost nejvýš na úroveň obce nebo její části.
 # Ověřeno a schváleno Martinem 9. 11. 2026, podklad: docs/analysis/2026-11-09-overeni-mist.md.
 # Deset míst z potvrzených shrnutí (Polsko, Alicante, Londýn) doplněno 9. 11. 2026 stejným ověřením.
+# Osm míst z historických cest a Bulharska doplněno 15. 11. 2026. Podklady jsou v docs/changes/2026-11-15-doplneni-cest.md.
+- id: acharavi
+  nazev: Acharavi
+  aliasy: []
+  zeme: GR
+  oblast: Korfu
+  lat: 39.796799
+  lon: 19.811096
+  presnost: obec
+  overeno: true
+  wikidata: Q992317
 - id: alba
   nazev: Alba Adriatica
   aliasy: []
@@ -113,6 +124,16 @@
   presnost: obec
   overeno: true
   wikidata: Q18503017
+- id: capri
+  nazev: Capri
+  aliasy: []
+  zeme: IT
+  oblast: null
+  lat: 40.55
+  lon: 14.233333
+  presnost: oblast
+  overeno: true
+  wikidata: Q173292
 - id: cavallino
   nazev: Cavallino-Treporti
   aliasy: []
@@ -173,6 +194,16 @@
   presnost: obec
   overeno: true
   wikidata: Q1646107
+- id: florencie
+  nazev: Florencie
+  aliasy: []
+  zeme: IT
+  oblast: Toskánsko
+  lat: 43.771389
+  lon: 11.254167
+  presnost: obec
+  overeno: true
+  wikidata: Q2044
 - id: gdansk
   nazev: Gdaňsk
   aliasy:
@@ -417,6 +448,16 @@
   presnost: obec
   overeno: true
   wikidata: Q146820
+- id: malenovice
+  nazev: Malenovice
+  aliasy: []
+  zeme: CZ
+  oblast: Beskydy
+  lat: 49.579568
+  lon: 18.410336
+  presnost: obec
+  overeno: true
+  wikidata: Q1887182
 - id: martinsicuro
   nazev: Martinsicuro
   aliasy: []
@@ -457,6 +498,28 @@
   presnost: obec
   overeno: true
   wikidata: Q1074354
+- id: nea-iraklia
+  nazev: Nea Iraklia
+  aliasy:
+    - Nea Irakleia
+  zeme: GR
+  oblast: Chalkidiki
+  lat: 40.346194
+  lon: 23.015083
+  presnost: obec
+  overeno: true
+  wikidata: Q14656052
+- id: neapol
+  nazev: Neapol
+  aliasy:
+    - Napoli
+  zeme: IT
+  oblast: Kampánie
+  lat: 40.835833
+  lon: 14.248611
+  presnost: obec
+  overeno: true
+  wikidata: Q2634
 - id: nitra
   nazev: Nitra
   aliasy: []
@@ -567,6 +630,17 @@
   presnost: obec
   overeno: true
   wikidata: Q1382
+- id: pompeje
+  nazev: Pompeje
+  aliasy:
+    - Pompei
+  zeme: IT
+  oblast: Kampánie
+  lat: 40.75
+  lon: 14.5
+  presnost: obec
+  overeno: true
+  wikidata: Q12558973
 - id: porec
   nazev: Poreč
   aliasy: []
@@ -597,6 +671,16 @@
   presnost: obec
   overeno: true
   wikidata: Q1085
+- id: primorsko
+  nazev: Primorsko
+  aliasy: []
+  zeme: BG
+  oblast: null
+  lat: 42.266841
+  lon: 27.757533
+  presnost: obec
+  overeno: true
+  wikidata: Q405153
 - id: pula
   nazev: Pula
   aliasy: []

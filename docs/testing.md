@@ -142,3 +142,8 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 
 - `tests/trip.test.ts` hlídá tři údaje (bez Státu) a pořadí: údaje, O cestě, mapa, sport.
 - `npm run check` prošel (10 souborů, 47 testů). V náhledu sestavení na 1440 a 390 px je hlavička bez loga, fotka bez pásky a mapa bez vlajek. Okno cesty má údaje v jednom řádku (na telefonu ve dvou) a pod nimi „O cestě“. Všechny stránky bez vodorovného posouvání a bez chyb JavaScriptu.
+
+## Historické cesty a Bulharsko (15. 11. 2026)
+
+- Přísný export bez chyb, 109 cest a 85 míst. `npm run check` prošel včetně 47 testů, validace schématu a kontroly soukromí. Data v testech jsou historický snímek z 8. 11. a aktuální data se ověřují v přísném exportu.
+- Na Pages po nasazení ověřit Šíravu v letech 1991 a 1995, Prahu v roce 2001 a [detail Primorska](https://pocitacpc-hub.github.io/travel-atlas/cesta.html?id=t-qraayo) s termínem 5.–12. 8. 2024 a bodem v mapě.

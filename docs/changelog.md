@@ -1,5 +1,10 @@
 # Změny
 
+## 15. 11. 2026 – doplnění historických cest
+
+- Kronika začíná rokem 1991. Přibylo 13 cest a přesné termíny řady dříve evidovaných cest.
+- Bulharsko má potvrzený termín a bod v Primorsku. Mapa obsahuje 85 míst. [Zápis změny](changes/2026-11-15-doplneni-cest.md)
+
 ## 10. 11. 2026 – údaje cesty v jednom řádku
 
 - Pryč je logo „CA“ v hlavičce a páska na fotce.

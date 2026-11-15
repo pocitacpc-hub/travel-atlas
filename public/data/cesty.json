@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generated": true,
-  "dataAsOf": "2026-11-09",
+  "dataAsOf": "2026-11-15",
   "cesty": [
     {
       "id": "t-026h7h",
@@ -19,6 +19,24 @@
       ],
       "zamereni": [],
       "popis": null,
+      "sport": null
+    },
+    {
+      "id": "t-07fb77",
+      "nazev": "Beskydy – Malenovice",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": "1996-12-27",
+      "konec": "1996-12-29",
+      "rok": 1996,
+      "mesic": 12,
+      "presnostTerminu": "den",
+      "pocetNoci": null,
+      "mista": [
+        "malenovice"
+      ],
+      "zamereni": [],
+      "popis": "Víkendový pobyt v Malenovicích v Beskydech.",
       "sport": null
     },
     {
@@ -51,11 +69,11 @@
       "nazev": "Španělsko – Santa Susanna",
       "zeme": "ES",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "2005-07-31",
+      "konec": "2005-08-13",
       "rok": 2005,
       "mesic": 7,
-      "presnostTerminu": "mesic",
+      "presnostTerminu": "den",
       "pocetNoci": null,
       "mista": [
         "santa-susanna"
@@ -144,17 +162,71 @@
       "nazev": "Itálie – Lido di Jesolo",
       "zeme": "IT",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
-      "rok": null,
-      "mesic": null,
-      "presnostTerminu": "neznamy",
+      "zacatek": "1993-07-02",
+      "konec": "1993-07-11",
+      "rok": 1993,
+      "mesic": 7,
+      "presnostTerminu": "den",
       "pocetNoci": null,
       "mista": [
         "jesolo"
       ],
       "zamereni": [],
       "popis": null,
+      "sport": null
+    },
+    {
+      "id": "t-1bb839",
+      "nazev": "Beskydy – Malenovice",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": "1996-10-24",
+      "konec": "1996-10-27",
+      "rok": 1996,
+      "mesic": 10,
+      "presnostTerminu": "den",
+      "pocetNoci": null,
+      "mista": [
+        "malenovice"
+      ],
+      "zamereni": [],
+      "popis": "Víkendový pobyt v Malenovicích v Beskydech.",
+      "sport": null
+    },
+    {
+      "id": "t-230377",
+      "nazev": "Pasohlávky",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": null,
+      "konec": null,
+      "rok": 1992,
+      "mesic": null,
+      "presnostTerminu": "rok",
+      "pocetNoci": null,
+      "mista": [
+        "pasohlavky"
+      ],
+      "zamereni": [],
+      "popis": null,
+      "sport": null
+    },
+    {
+      "id": "t-28349e",
+      "nazev": "Beskydy – Visalaje",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": "1994-08-20",
+      "konec": "1994-08-26",
+      "rok": 1994,
+      "mesic": 8,
+      "presnostTerminu": "den",
+      "pocetNoci": null,
+      "mista": [
+        "visalaje"
+      ],
+      "zamereni": [],
+      "popis": "Pobyt na Visalajích v Moravskoslezských Beskydech.",
       "sport": null
     },
     {
@@ -200,6 +272,24 @@
       }
     },
     {
+      "id": "t-394026",
+      "nazev": "Beskydy – Malenovice",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": "1996-02-24",
+      "konec": "1996-02-25",
+      "rok": 1996,
+      "mesic": 2,
+      "presnostTerminu": "den",
+      "pocetNoci": null,
+      "mista": [
+        "malenovice"
+      ],
+      "zamereni": [],
+      "popis": "Víkendový pobyt v Malenovicích v Beskydech.",
+      "sport": null
+    },
+    {
       "id": "t-3jxdxo",
       "nazev": "Rožnov – Apalucha",
       "zeme": "CZ",
@@ -236,6 +326,24 @@
       "sport": null
     },
     {
+      "id": "t-425409",
+      "nazev": "Beskydy – Malenovice",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": "1996-04-13",
+      "konec": "1996-04-14",
+      "rok": 1996,
+      "mesic": 4,
+      "presnostTerminu": "den",
+      "pocetNoci": null,
+      "mista": [
+        "malenovice"
+      ],
+      "zamereni": [],
+      "popis": "Víkendový pobyt v Malenovicích v Beskydech.",
+      "sport": null
+    },
+    {
       "id": "t-49bctv",
       "nazev": "Mallorca – Palma a okolí",
       "zeme": "ES",
@@ -259,6 +367,27 @@
       }
     },
     {
+      "id": "t-49dac4",
+      "nazev": "Itálie – Neapol, Pompeje, Capri a Florencie",
+      "zeme": "IT",
+      "dalsiZeme": [],
+      "zacatek": "2000-05-06",
+      "konec": "2000-05-12",
+      "rok": 2000,
+      "mesic": 5,
+      "presnostTerminu": "den",
+      "pocetNoci": null,
+      "mista": [
+        "capri",
+        "florencie",
+        "neapol",
+        "pompeje"
+      ],
+      "zamereni": [],
+      "popis": "Květnová cesta do Itálie zahrnovala Neapol, Pompeje, ostrov Capri a Florencii.",
+      "sport": null
+    },
+    {
       "id": "t-49lzzz",
       "nazev": "Itálie – Řím",
       "zeme": "IT",
@@ -271,6 +400,24 @@
       "pocetNoci": 4,
       "mista": [
         "rim"
+      ],
+      "zamereni": [],
+      "popis": null,
+      "sport": null
+    },
+    {
+      "id": "t-4e241d",
+      "nazev": "Slovensko – Zemplínská Šírava",
+      "zeme": "SK",
+      "dalsiZeme": [],
+      "zacatek": "1995-07-15",
+      "konec": "1995-07-22",
+      "rok": 1995,
+      "mesic": 7,
+      "presnostTerminu": "den",
+      "pocetNoci": null,
+      "mista": [
+        "sirava"
       ],
       "zamereni": [],
       "popis": null,
@@ -359,6 +506,42 @@
       "sport": null
     },
     {
+      "id": "t-5c57bf",
+      "nazev": "Beskydy – Visalaje",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": "2000-08-19",
+      "konec": "2000-08-26",
+      "rok": 2000,
+      "mesic": 8,
+      "presnostTerminu": "den",
+      "pocetNoci": null,
+      "mista": [
+        "visalaje"
+      ],
+      "zamereni": [],
+      "popis": "Pobyt na Visalajích v Moravskoslezských Beskydech.",
+      "sport": null
+    },
+    {
+      "id": "t-5c904c",
+      "nazev": "Beskydy – Visalaje",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": "1995-08-19",
+      "konec": "1995-08-26",
+      "rok": 1995,
+      "mesic": 8,
+      "presnostTerminu": "den",
+      "pocetNoci": null,
+      "mista": [
+        "visalaje"
+      ],
+      "zamereni": [],
+      "popis": "Pobyt na Visalajích v Moravskoslezských Beskydech.",
+      "sport": null
+    },
+    {
       "id": "t-63fpu6",
       "nazev": "Řecko – Chalkidiki, Sarti",
       "zeme": "GR",
@@ -414,6 +597,24 @@
       "sport": null
     },
     {
+      "id": "t-796809",
+      "nazev": "Beskydy – Malenovice",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": "1997-04-19",
+      "konec": "1997-04-20",
+      "rok": 1997,
+      "mesic": 4,
+      "presnostTerminu": "den",
+      "pocetNoci": null,
+      "mista": [
+        "malenovice"
+      ],
+      "zamereni": [],
+      "popis": "Víkendový pobyt v Malenovicích v Beskydech.",
+      "sport": null
+    },
+    {
       "id": "t-7quazb",
       "nazev": "Norsko – Oslo",
       "zeme": "NO",
@@ -444,6 +645,24 @@
       "pocetNoci": 3,
       "mista": [
         "myto-pod-dumbierom"
+      ],
+      "zamereni": [],
+      "popis": null,
+      "sport": null
+    },
+    {
+      "id": "t-88d755",
+      "nazev": "Pasohlávky",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": "1993-07-17",
+      "konec": "1993-07-24",
+      "rok": 1993,
+      "mesic": 7,
+      "presnostTerminu": "den",
+      "pocetNoci": null,
+      "mista": [
+        "pasohlavky"
       ],
       "zamereni": [],
       "popis": null,
@@ -546,56 +765,56 @@
     },
     {
       "id": "t-bazu6s",
-      "nazev": "Řecko – Chalkidiki",
+      "nazev": "Řecko – Chalkidiki, Nea Iraklia",
       "zeme": "GR",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "1998-07-08",
+      "konec": "1998-07-26",
       "rok": 1998,
-      "mesic": null,
-      "presnostTerminu": "rok",
+      "mesic": 7,
+      "presnostTerminu": "den",
       "pocetNoci": null,
       "mista": [
-        "chalkidiki"
+        "nea-iraklia"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Letní pobyt v Nea Iraklia na Chalkidiki.",
       "sport": null
     },
     {
       "id": "t-bbyom0",
-      "nazev": "Řecko – Korfu",
+      "nazev": "Řecko – Korfu, Acharavi",
       "zeme": "GR",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "2000-07-18",
+      "konec": "2000-07-30",
       "rok": 2000,
-      "mesic": null,
-      "presnostTerminu": "rok",
+      "mesic": 7,
+      "presnostTerminu": "den",
       "pocetNoci": null,
       "mista": [
-        "korfu"
+        "acharavi"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Letní pobyt v Acharavi na ostrově Korfu.",
       "sport": null
     },
     {
       "id": "t-bquh7a",
-      "nazev": "Beskydy – Penzion Visalaje",
+      "nazev": "Beskydy – Visalaje",
       "zeme": "CZ",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "1996-08-17",
+      "konec": "1996-08-24",
       "rok": 1996,
-      "mesic": null,
-      "presnostTerminu": "rok",
+      "mesic": 8,
+      "presnostTerminu": "den",
       "pocetNoci": null,
       "mista": [
         "visalaje"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Pobyt na Visalajích v Moravskoslezských Beskydech.",
       "sport": null
     },
     {
@@ -621,11 +840,11 @@
       "nazev": "Chorvatsko – Pula",
       "zeme": "HR",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "1997-07-25",
+      "konec": "1997-08-03",
       "rok": 1997,
-      "mesic": null,
-      "presnostTerminu": "rok",
+      "mesic": 7,
+      "presnostTerminu": "den",
       "pocetNoci": null,
       "mista": [
         "pula"
@@ -636,7 +855,7 @@
     },
     {
       "id": "t-cudljj",
-      "nazev": "Beskydy – Penzion Visalaje",
+      "nazev": "Beskydy – Visalaje",
       "zeme": "CZ",
       "dalsiZeme": [],
       "zacatek": "2004-07-10",
@@ -649,7 +868,7 @@
         "visalaje"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Pobyt na Visalajích v Moravskoslezských Beskydech.",
       "sport": null
     },
     {
@@ -708,20 +927,20 @@
     },
     {
       "id": "t-dx3sbs",
-      "nazev": "Beskydy – Penzion Visalaje",
+      "nazev": "Beskydy – Visalaje",
       "zeme": "CZ",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "1999-08-14",
+      "konec": "1999-08-21",
       "rok": 1999,
-      "mesic": null,
-      "presnostTerminu": "rok",
+      "mesic": 8,
+      "presnostTerminu": "den",
       "pocetNoci": null,
       "mista": [
         "visalaje"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Pobyt na Visalajích v Moravskoslezských Beskydech.",
       "sport": null
     },
     {
@@ -800,6 +1019,24 @@
         "prevyseniM": 2881,
         "zdroj": "strava-vyber-2023-2026"
       }
+    },
+    {
+      "id": "t-f8a5df",
+      "nazev": "Beskydy – Malenovice",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": "1997-03-28",
+      "konec": "1997-03-30",
+      "rok": 1997,
+      "mesic": 3,
+      "presnostTerminu": "den",
+      "pocetNoci": null,
+      "mista": [
+        "malenovice"
+      ],
+      "zamereni": [],
+      "popis": "Víkendový pobyt v Malenovicích v Beskydech.",
+      "sport": null
     },
     {
       "id": "t-f953ex",
@@ -1060,7 +1297,7 @@
     },
     {
       "id": "t-ip8b9v",
-      "nazev": "Beskydy – Penzion Visalaje",
+      "nazev": "Beskydy – Visalaje",
       "zeme": "CZ",
       "dalsiZeme": [],
       "zacatek": "2003-07-12",
@@ -1073,7 +1310,7 @@
         "visalaje"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Pobyt na Visalajích v Moravskoslezských Beskydech.",
       "sport": null
     },
     {
@@ -1210,7 +1447,7 @@
     },
     {
       "id": "t-lyn0a3",
-      "nazev": "Beskydy – Penzion Visalaje",
+      "nazev": "Beskydy – Visalaje",
       "zeme": "CZ",
       "dalsiZeme": [],
       "zacatek": "2002-06-29",
@@ -1223,7 +1460,7 @@
         "visalaje"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Pobyt na Visalajích v Moravskoslezských Beskydech.",
       "sport": null
     },
     {
@@ -1251,7 +1488,7 @@
     },
     {
       "id": "t-nuxi1t",
-      "nazev": "Itálie – Paestum, komplex La Giara",
+      "nazev": "Itálie – Kampánie, Paestum",
       "zeme": "IT",
       "dalsiZeme": [],
       "zacatek": "2004-08-06",
@@ -1264,7 +1501,7 @@
         "paestum"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Letní pobyt v Paestu v jihoitalské Kampánii.",
       "sport": null
     },
     {
@@ -1328,20 +1565,20 @@
     },
     {
       "id": "t-ofpvge",
-      "nazev": "Beskydy – Penzion Visalaje",
+      "nazev": "Beskydy – Visalaje",
       "zeme": "CZ",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "1998-08-15",
+      "konec": "1998-08-22",
       "rok": 1998,
-      "mesic": null,
-      "presnostTerminu": "rok",
+      "mesic": 8,
+      "presnostTerminu": "den",
       "pocetNoci": null,
       "mista": [
         "visalaje"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Pobyt na Visalajích v Moravskoslezských Beskydech.",
       "sport": null
     },
     {
@@ -1436,14 +1673,14 @@
     },
     {
       "id": "t-qfxg2c",
-      "nazev": "Španělsko – Costa Brava, Palamós (Camp King)",
+      "nazev": "Španělsko – Costa Brava, Palamós",
       "zeme": "ES",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "1997-08-07",
+      "konec": "1997-08-18",
       "rok": 1997,
-      "mesic": null,
-      "presnostTerminu": "rok",
+      "mesic": 8,
+      "presnostTerminu": "den",
       "pocetNoci": null,
       "mista": [
         "palamos"
@@ -1454,18 +1691,20 @@
     },
     {
       "id": "t-qraayo",
-      "nazev": "Bulharsko – letní dovolená",
+      "nazev": "Bulharsko – Primorsko",
       "zeme": "BG",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "2024-08-05",
+      "konec": "2024-08-12",
       "rok": 2024,
       "mesic": 8,
-      "presnostTerminu": "mesic",
+      "presnostTerminu": "den",
       "pocetNoci": 7,
-      "mista": [],
+      "mista": [
+        "primorsko"
+      ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Srpnová dovolená v Primorsku na bulharském pobřeží Černého moře.",
       "sport": null
     },
     {
@@ -1473,11 +1712,11 @@
       "nazev": "Itálie – Gargano, Vieste",
       "zeme": "IT",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "1996-06-14",
+      "konec": "1996-06-30",
       "rok": 1996,
-      "mesic": null,
-      "presnostTerminu": "rok",
+      "mesic": 6,
+      "presnostTerminu": "den",
       "pocetNoci": null,
       "mista": [
         "vieste"
@@ -1488,7 +1727,7 @@
     },
     {
       "id": "t-t9nzca",
-      "nazev": "Itálie – Martinsicuro, Camping Riva Nuova",
+      "nazev": "Itálie – Palmová riviéra, Martinsicuro",
       "zeme": "IT",
       "dalsiZeme": [],
       "zacatek": "2003-08-11",
@@ -1501,7 +1740,7 @@
         "martinsicuro"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Letní pobyt v Martinsicuru na Palmové riviéře.",
       "sport": null
     },
     {
@@ -1524,7 +1763,7 @@
     },
     {
       "id": "t-tryqf8",
-      "nazev": "Itálie – Camping Delle Rose, Riviera Adriatica",
+      "nazev": "Itálie – Jadranské pobřeží",
       "zeme": "IT",
       "dalsiZeme": [],
       "zacatek": "2002-08-15",
@@ -1535,19 +1774,19 @@
       "pocetNoci": 9,
       "mista": [],
       "zamereni": [],
-      "popis": null,
+      "popis": "Srpnový pobyt na italském pobřeží Jadranu.",
       "sport": null
     },
     {
       "id": "t-upj9rl",
-      "nazev": "Chorvatsko – ostrov Korčula, Vela Luka (hotel Adria)",
+      "nazev": "Chorvatsko – Korčula, Vela Luka",
       "zeme": "HR",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "1994-07-19",
+      "konec": "1994-07-30",
       "rok": 1994,
       "mesic": 7,
-      "presnostTerminu": "mesic",
+      "presnostTerminu": "den",
       "pocetNoci": 10,
       "mista": [
         "vela-luka"
@@ -1685,11 +1924,11 @@
       "nazev": "Chorvatsko – Fažana",
       "zeme": "HR",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "1999-07-19",
+      "konec": "1999-07-24",
       "rok": 1999,
-      "mesic": null,
-      "presnostTerminu": "rok",
+      "mesic": 7,
+      "presnostTerminu": "den",
       "pocetNoci": null,
       "mista": [
         "fazana"
@@ -1700,7 +1939,7 @@
     },
     {
       "id": "t-ygiof4",
-      "nazev": "Španělsko – Alcossebre, Camping Playa Tropicana",
+      "nazev": "Španělsko – Alcossebre",
       "zeme": "ES",
       "dalsiZeme": [],
       "zacatek": "2001-08-09",
@@ -1771,20 +2010,20 @@
     },
     {
       "id": "t-z1j6sw",
-      "nazev": "Slovensko – Širava",
+      "nazev": "Slovensko – Zemplínská Šírava",
       "zeme": "SK",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
-      "rok": null,
-      "mesic": null,
-      "presnostTerminu": "neznamy",
+      "zacatek": "1991-07-13",
+      "konec": "1991-07-27",
+      "rok": 1991,
+      "mesic": 7,
+      "presnostTerminu": "den",
       "pocetNoci": null,
       "mista": [
         "sirava"
       ],
       "zamereni": [],
-      "popis": null,
+      "popis": "Letní pobyt u Zemplínské Šíravy v oblasti Medvedia hora.",
       "sport": null
     },
     {
