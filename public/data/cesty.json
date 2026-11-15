@@ -31,7 +31,7 @@
       "rok": 1996,
       "mesic": 12,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 2,
       "mista": [
         "malenovice"
       ],
@@ -74,7 +74,7 @@
       "rok": 2005,
       "mesic": 7,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 11,
       "mista": [
         "santa-susanna"
       ],
@@ -167,7 +167,7 @@
       "rok": 1993,
       "mesic": 7,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 7,
       "mista": [
         "jesolo"
       ],
@@ -185,7 +185,7 @@
       "rok": 1996,
       "mesic": 10,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 3,
       "mista": [
         "malenovice"
       ],
@@ -244,7 +244,7 @@
       "rok": 1994,
       "mesic": 8,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 6,
       "mista": [
         "visalaje"
       ],
@@ -304,7 +304,7 @@
       "rok": 1996,
       "mesic": 2,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 1,
       "mista": [
         "malenovice"
       ],
@@ -358,7 +358,7 @@
       "rok": 1996,
       "mesic": 4,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 1,
       "mista": [
         "malenovice"
       ],
@@ -390,27 +390,6 @@
       }
     },
     {
-      "id": "t-49dac4",
-      "nazev": "Itálie – Neapol, Pompeje, Capri a Florencie",
-      "zeme": "IT",
-      "dalsiZeme": [],
-      "zacatek": "2000-05-06",
-      "konec": "2000-05-12",
-      "rok": 2000,
-      "mesic": 5,
-      "presnostTerminu": "den",
-      "pocetNoci": null,
-      "mista": [
-        "capri",
-        "florencie",
-        "neapol",
-        "pompeje"
-      ],
-      "zamereni": [],
-      "popis": "Květnová cesta do Itálie zahrnovala Neapol, Pompeje, ostrov Capri a Florencii.",
-      "sport": null
-    },
-    {
       "id": "t-49lzzz",
       "nazev": "Itálie – Řím",
       "zeme": "IT",
@@ -438,7 +417,7 @@
       "rok": 1995,
       "mesic": 7,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 8,
       "mista": [
         "sirava"
       ],
@@ -556,7 +535,7 @@
       "rok": 2000,
       "mesic": 8,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 7,
       "mista": [
         "visalaje"
       ],
@@ -574,7 +553,7 @@
       "rok": 1995,
       "mesic": 8,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 7,
       "mista": [
         "visalaje"
       ],
@@ -647,7 +626,7 @@
       "rok": 1997,
       "mesic": 4,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 1,
       "mista": [
         "malenovice"
       ],
@@ -717,7 +696,7 @@
       "rok": 1993,
       "mesic": 7,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 7,
       "mista": [
         "pasohlavky"
       ],
@@ -830,7 +809,7 @@
       "rok": 1998,
       "mesic": 7,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 14,
       "mista": [
         "nea-iraklia"
       ],
@@ -848,7 +827,7 @@
       "rok": 2000,
       "mesic": 7,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 11,
       "mista": [
         "acharavi"
       ],
@@ -866,7 +845,7 @@
       "rok": 1996,
       "mesic": 8,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 7,
       "mista": [
         "visalaje"
       ],
@@ -902,7 +881,7 @@
       "rok": 1997,
       "mesic": 7,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 7,
       "mista": [
         "pula"
       ],
@@ -974,7 +953,7 @@
       "rok": 2001,
       "mesic": 8,
       "presnostTerminu": "mesic",
-      "pocetNoci": null,
+      "pocetNoci": 2,
       "mista": [
         "praha"
       ],
@@ -992,7 +971,7 @@
       "rok": 1999,
       "mesic": 8,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 7,
       "mista": [
         "visalaje"
       ],
@@ -1087,7 +1066,7 @@
       "rok": 1997,
       "mesic": 3,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 2,
       "mista": [
         "malenovice"
       ],
@@ -1633,7 +1612,7 @@
       "rok": 1998,
       "mesic": 8,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 7,
       "mista": [
         "visalaje"
       ],
@@ -1741,7 +1720,7 @@
       "rok": 1997,
       "mesic": 8,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 10,
       "mista": [
         "palamos"
       ],
@@ -1777,7 +1756,7 @@
       "rok": 1996,
       "mesic": 6,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 14,
       "mista": [
         "vieste"
       ],
@@ -1986,7 +1965,7 @@
       "rok": 1999,
       "mesic": 7,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 7,
       "mista": [
         "fazana"
       ],
@@ -2075,7 +2054,7 @@
       "rok": 1991,
       "mesic": 7,
       "presnostTerminu": "den",
-      "pocetNoci": null,
+      "pocetNoci": 15,
       "mista": [
         "sirava"
       ],

@@ -15,3 +15,4 @@ Rozsah a podmínky přechodu stanovuje [zadání dalších fází](changes/2026-
 
 - Hotovo: potvrzené cesty na Drivu, osm ověřených podkladů pro mapu, přísný export a kontrola veřejných dat. [Zápis změny](changes/2026-11-15-doplneni-cest.md)
 - Hotovo: výpočty a filtry podle délky, kontrola statistik a přísný export potvrzených oprav.
+- Hotovo: potvrzené počty nocí a vyřazení chybně přiřazené cesty z přísného exportu.

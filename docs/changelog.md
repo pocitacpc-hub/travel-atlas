@@ -1,5 +1,10 @@
 # Změny
 
+## 15. 11. 2026 – potvrzené noci historických cest
+
+- Doplněn počet nocí u 24 cest. Jeden chybně přiřazený záznam je vyřazen z Kroniky, mapy i statistik.
+- Export má 111 cest, 84 míst a 536 nocí. U Warnemünde zůstává délka neznámá.
+
 ## 15. 11. 2026 – délka cest a opravy termínů
 
 - Statistiky ukazují počet cest a součet nocí v Česku a zahraničí zvlášť podle délky. Přehled a Statistiky odkazují do délkového filtru Kroniky.

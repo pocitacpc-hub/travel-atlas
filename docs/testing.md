@@ -152,3 +152,7 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 
 - `tests/stats.test.ts` ověřuje hranici 2/3 nocí, nulu, neznámou délku a zařazení podle hlavního státu. `npm run check` prošel včetně 48 testů.
 - V místním sestavení Chrome ověřil oba údaje ve Statistikách, šest krátkých zahraničních cest po otevření odkazu do Kroniky a 26 cest v kategorii neznámé délky s modrým nebo oranžovým obrysem. Ověřeny také odkazy z Přehledu a štítek v detailu Malé Morávky.
+
+## Potvrzené noci (15. 11. 2026)
+
+- Přísný export má 111 cest, 84 míst a 536 nocí známých u 110 cest. Ověřeno 24 změn výhradně v počtu nocí a jeden vyřazený záznam. Stávající termíny zůstaly. `npm run check` prošel včetně 48 testů.

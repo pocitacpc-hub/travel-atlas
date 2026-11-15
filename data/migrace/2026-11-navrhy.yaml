@@ -77,15 +77,6 @@
   zmeny:
     mista:
       - Primorsko
-- nazev: Itálie – Neapol, Pompeje, Capri a Florencie
-  rok: 2000
-  potvrzeno: true
-  zmeny:
-    mista:
-      - Neapol
-      - Pompeje
-      - Capri
-      - Florencie
 # Místa z názvů cest. Přiřazení i souřadnice schválil Martin 9. 11. 2026.
 - nazev: Alicante a Costa Blanca
   rok: 2026

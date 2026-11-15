@@ -112,15 +112,6 @@
       "presnost": "obec"
     },
     {
-      "id": "capri",
-      "nazev": "Capri",
-      "zeme": "IT",
-      "oblast": null,
-      "lat": 40.55,
-      "lon": 14.233333,
-      "presnost": "oblast"
-    },
-    {
       "id": "chalkidiki",
       "nazev": "Chalkidiki",
       "zeme": "GR",
@@ -172,15 +163,6 @@
       "oblast": null,
       "lat": 38.567,
       "lon": -0.213,
-      "presnost": "obec"
-    },
-    {
-      "id": "florencie",
-      "nazev": "Florencie",
-      "zeme": "IT",
-      "oblast": "Toskánsko",
-      "lat": 43.771389,
-      "lon": 11.254167,
       "presnost": "obec"
     },
     {
@@ -436,15 +418,6 @@
       "presnost": "obec"
     },
     {
-      "id": "neapol",
-      "nazev": "Neapol",
-      "zeme": "IT",
-      "oblast": "Kampánie",
-      "lat": 40.835833,
-      "lon": 14.248611,
-      "presnost": "obec"
-    },
-    {
       "id": "nitra",
       "nazev": "Nitra",
       "zeme": "SK",
@@ -532,15 +505,6 @@
       "oblast": null,
       "lat": 45.527,
       "lon": 13.569,
-      "presnost": "obec"
-    },
-    {
-      "id": "pompeje",
-      "nazev": "Pompeje",
-      "zeme": "IT",
-      "oblast": "Kampánie",
-      "lat": 40.75,
-      "lon": 14.5,
       "presnost": "obec"
     },
     {

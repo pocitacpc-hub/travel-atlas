@@ -6,20 +6,16 @@ Kronika začíná v roce 1991. Zahrnuje dva pobyty u Zemplínské Šíravy (1991
 
 ## Mapa
 
-Souřadnice pocházejí z Wikidat. Capri je potvrzený ostrov. Pro Pompeje používáme bod obce Pompei.
+Souřadnice pocházejí z Wikidat. Tabulka uvádí místa využívaná po následné kontrole evidence.
 
 | Místo | Podklad | Použití |
 | --- | --- | --- |
 | Acharavi | [Wikidata](https://www.wikidata.org/wiki/Q992317) | Pobyt na Korfu 2000 |
-| Capri | [Wikidata](https://www.wikidata.org/wiki/Q173292) | Itálie 2000 |
-| Florencie | [Wikidata](https://www.wikidata.org/wiki/Q2044) | Itálie 2000 |
 | Malenovice | [Wikidata](https://www.wikidata.org/wiki/Q1887182) | Šest víkendů v letech 1996 a 1997 |
 | Nea Iraklia | [Wikidata](https://www.wikidata.org/wiki/Q14656052) | Chalkidiki 1998 |
-| Neapol | [Wikidata](https://www.wikidata.org/wiki/Q2634) | Itálie 2000 |
-| Pompeje | [Wikidata](https://www.wikidata.org/wiki/Q12558973) | Itálie 2000 |
 | Primorsko | [Wikidata](https://www.wikidata.org/wiki/Q405153) | Bulharsko 2024 |
 
-Přibylo osm bodů. Acharavi nahradilo obecný bod ostrova Korfu. Nea Iraklia zpřesnila jeden pobyt na Chalkidiki. Chalkidiki zůstává v mapě u další cesty. Export obsahuje 85 míst. Přiřazení se zapsalo do deseti YAML hlaviček na Drivu s ověřenou zálohou a kontrolou shody původních těl souborů.
+Acharavi nahradilo obecný bod ostrova Korfu. Nea Iraklia zpřesnila jeden pobyt na Chalkidiki. Chalkidiki zůstává v mapě u další cesty. Přiřazení se zapsalo do deseti YAML hlaviček na Drivu s ověřenou zálohou a kontrolou shody původních těl souborů. Pozdější kontrola účasti vyřadila chybný záznam i čtyři body z jeho mapy.
 
 ## Ověření
 
