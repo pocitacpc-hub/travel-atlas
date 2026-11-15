@@ -5,7 +5,7 @@ import { heatmap, lengthHist, yearRows, yearsChart } from "../lib/charts";
 import { countryName, stats as s } from "../lib/data";
 import { $, flag, param, tripName, tripUrl } from "../lib/dom";
 import { cesty, esc, noci, num, plural, termin, zN } from "../lib/format";
-import { longestRun } from "../lib/stats";
+import { durationLabels, longestRun, type Duration } from "../lib/stats";
 import { initTripDialog } from "../lib/tripDialog";
 import { emptyArchive, nightsCell, nightsCoverage, staty, yearsSpan } from "../lib/ui";
 import { registerServiceWorker } from "../lib/pwa";
@@ -87,6 +87,16 @@ if (!s.total) {
   window.addEventListener("hashchange", openFromHash);
 
   // ---------- Délka pobytu ----------
+  const durationKeys = Object.keys(durationLabels) as Duration[];
+  const durationRows = [["cz", "Česko", "sw-cz"], ["abroad", "Zahraničí", "sw-abroad"]] as const;
+  $("durations").innerHTML = `<table class="duration-table" aria-label="Cesty a noci podle délky pobytu">` +
+    `<thead><tr><td></td><th scope="col">Krátké<br><small>0–2 noci</small></th><th scope="col">Delší<br><small>3 a více nocí</small></th><th scope="col">Neznámá<br><small>délka</small></th></tr></thead>` +
+    `<tbody>${durationRows.map(([scope, label, color]) => `<tr><th scope="row"><i class="${color}" aria-hidden="true"></i>${label}</th>` +
+      durationKeys.map((key) => {
+        const value = s.durations[scope][key];
+        const summary = `<strong>${cesty(value.trips)}</strong><small>${key === "neznama" ? "noci neznámé" : noci(value.nights)}</small>`;
+        return `<td>${value.trips ? `<a href="kronika.html?rozsah=${scope}&amp;delka=${key}">${summary}</a>` : summary}</td>`;
+      }).join("") + "</tr>").join("")}</tbody></table>`;
   $("lenNote").textContent = s.median === null || s.mean === null
     ? "Délka pobytu zatím není známá u žádné cesty."
     : `Počet nocí · medián ${noci(s.median)}, průměr ${num(s.mean, 1)} noci (z délek známých u ${s.nightsKnown} ${zN(s.total)} cest)`;

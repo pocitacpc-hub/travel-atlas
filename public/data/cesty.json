@@ -203,13 +203,36 @@
       "rok": 1992,
       "mesic": null,
       "presnostTerminu": "rok",
-      "pocetNoci": null,
+      "pocetNoci": 7,
       "mista": [
         "pasohlavky"
       ],
       "zamereni": [],
       "popis": null,
       "sport": null
+    },
+    {
+      "id": "t-24f5da",
+      "nazev": "Hustopeče",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": "2025-09-04",
+      "konec": "2025-09-05",
+      "rok": 2025,
+      "mesic": 9,
+      "presnostTerminu": "den",
+      "pocetNoci": 1,
+      "mista": [
+        "hustopece"
+      ],
+      "zamereni": [],
+      "popis": "Firemní akce. Dvě vyjížďky na gravelu z **Hustopečí**.\n\nCelkem **96 km** a **1 425 m** stoupání za 4 h 38 min jízdy, průměrně 20,8 km/h, tep 139.\n\n- **1. den – Čejkovice a rozhledna na Kraví hoře:** 62,8 km, 1 024 m stoupání, 20,2 km/h, tep 141\n- **2. den – Nové Mlýny:** 33,3 km, 401 m stoupání, 21,9 km/h, tep 134",
+      "sport": {
+        "aktivit": 2,
+        "km": 96.2,
+        "prevyseniM": 1425,
+        "zdroj": "strava-vyber-2023-2026"
+      }
     },
     {
       "id": "t-28349e",
@@ -253,12 +276,12 @@
       "nazev": "Jeseníky – Malá Morávka (záznamy Strava)",
       "zeme": "CZ",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "2023-11-17",
+      "konec": "2023-11-18",
       "rok": 2023,
       "mesic": 11,
-      "presnostTerminu": "mesic",
-      "pocetNoci": null,
+      "presnostTerminu": "den",
+      "pocetNoci": 1,
       "mista": [
         "mala-moravka"
       ],
@@ -465,15 +488,33 @@
       }
     },
     {
-      "id": "t-57asmx",
-      "nazev": "Horní Bečva – U Juráša",
+      "id": "t-553fb1",
+      "nazev": "Praha – rodinný výlet",
       "zeme": "CZ",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "2020-08-25",
+      "konec": "2020-08-27",
+      "rok": 2020,
+      "mesic": 8,
+      "presnostTerminu": "den",
+      "pocetNoci": 2,
+      "mista": [
+        "praha"
+      ],
+      "zamereni": [],
+      "popis": null,
+      "sport": null
+    },
+    {
+      "id": "t-57asmx",
+      "nazev": "Horní Bečva – březnový víkend",
+      "zeme": "CZ",
+      "dalsiZeme": [],
+      "zacatek": "2023-03-10",
+      "konec": "2023-03-12",
       "rok": 2023,
       "mesic": 3,
-      "presnostTerminu": "mesic",
+      "presnostTerminu": "den",
       "pocetNoci": 2,
       "mista": [
         "horni-becva"
@@ -615,6 +656,22 @@
       "sport": null
     },
     {
+      "id": "t-7a97b2",
+      "nazev": "Slovensko – Orava, rafting",
+      "zeme": "SK",
+      "dalsiZeme": [],
+      "zacatek": "2023-06-21",
+      "konec": "2023-06-22",
+      "rok": 2023,
+      "mesic": 6,
+      "presnostTerminu": "den",
+      "pocetNoci": 1,
+      "mista": [],
+      "zamereni": [],
+      "popis": "Sjíždění řeky Oravy na raftu v okrese Dolný Kubín.",
+      "sport": null
+    },
+    {
       "id": "t-7quazb",
       "nazev": "Norsko – Oslo",
       "zeme": "NO",
@@ -724,15 +781,15 @@
     },
     {
       "id": "t-a17jh2",
-      "nazev": "Beskydy – Trojanovice (cyklistika, Strava)",
+      "nazev": "Giro 2024 – Trojanovice",
       "zeme": "CZ",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "2024-09-06",
+      "konec": "2024-09-08",
       "rok": 2024,
       "mesic": 9,
-      "presnostTerminu": "mesic",
-      "pocetNoci": null,
+      "presnostTerminu": "den",
+      "pocetNoci": 2,
       "mista": [
         "trojanovice"
       ],
@@ -750,10 +807,10 @@
       "nazev": "Rychlebské hory – cyklovýlet s přáteli",
       "zeme": "CZ",
       "dalsiZeme": [],
-      "zacatek": "2022-05-26",
-      "konec": "2022-05-30",
+      "zacatek": "2022-04-26",
+      "konec": "2022-04-30",
       "rok": 2022,
-      "mesic": 5,
+      "mesic": 4,
       "presnostTerminu": "den",
       "pocetNoci": 4,
       "mista": [
@@ -915,8 +972,8 @@
       "zacatek": null,
       "konec": null,
       "rok": 2001,
-      "mesic": null,
-      "presnostTerminu": "rok",
+      "mesic": 8,
+      "presnostTerminu": "mesic",
       "pocetNoci": null,
       "mista": [
         "praha"
@@ -1078,15 +1135,18 @@
       "id": "t-fw8edp",
       "nazev": "Slovensko – Babia hora",
       "zeme": "SK",
-      "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "dalsiZeme": [
+        "PL"
+      ],
+      "zacatek": "2023-06-02",
+      "konec": "2023-06-04",
       "rok": 2023,
       "mesic": 6,
-      "presnostTerminu": "mesic",
+      "presnostTerminu": "den",
       "pocetNoci": 2,
       "mista": [
-        "babia-hora"
+        "babia-hora",
+        "korbielow"
       ],
       "zamereni": [],
       "popis": "Výstup na **Babí horu** z polské strany: 4,6 km a 845 m stoupání. Odpoledne ještě 15,4 km pěšky na slovenské **Oravě**.",
@@ -1468,11 +1528,11 @@
       "nazev": "Itálie – Bormio a Alpy na kole",
       "zeme": "IT",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "2026-08-14",
+      "konec": "2026-08-21",
       "rok": 2026,
       "mesic": 8,
-      "presnostTerminu": "mesic",
+      "presnostTerminu": "den",
       "pocetNoci": 7,
       "mista": [
         "bormio"
@@ -1753,7 +1813,7 @@
       "rok": 2021,
       "mesic": 8,
       "presnostTerminu": "mesic",
-      "pocetNoci": 3,
+      "pocetNoci": 2,
       "mista": [
         "praha"
       ],
@@ -1833,24 +1893,21 @@
     },
     {
       "id": "t-vsxxj3",
-      "nazev": "Jižní Morava – víkend",
+      "nazev": "Valtice",
       "zeme": "CZ",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "2025-09-13",
+      "konec": "2025-09-14",
       "rok": 2025,
       "mesic": 9,
-      "presnostTerminu": "mesic",
+      "presnostTerminu": "den",
       "pocetNoci": 1,
-      "mista": [],
+      "mista": [
+        "valtice"
+      ],
       "zamereni": [],
-      "popis": "Gravelový víkend na jižní Moravě se dvěma okruhy z **Hustopečí**.\n\nCelkem **96 km** a **1 425 m** stoupání za 4 h 38 min jízdy, průměrně 20,8 km/h, tep 139.\n\n- **1. den – Čejkovice a rozhledna na Kraví hoře:** 62,8 km, 1 024 m stoupání, 20,2 km/h, tep 141\n- **2. den – Nové Mlýny:** 33,3 km, 401 m stoupání, 21,9 km/h, tep 134",
-      "sport": {
-        "aktivit": 2,
-        "km": 96.2,
-        "prevyseniM": 1425,
-        "zdroj": "strava-vyber-2023-2026"
-      }
+      "popis": null,
+      "sport": null
     },
     {
       "id": "t-vv6f9s",
@@ -1882,11 +1939,11 @@
       "nazev": "Jižní Morava – Brno a Břeclav",
       "zeme": "CZ",
       "dalsiZeme": [],
-      "zacatek": null,
-      "konec": null,
+      "zacatek": "2021-05-29",
+      "konec": "2021-05-30",
       "rok": 2021,
       "mesic": 5,
-      "presnostTerminu": "mesic",
+      "presnostTerminu": "den",
       "pocetNoci": 1,
       "mista": [
         "breclav",

@@ -32,6 +32,8 @@
 .trip .bar.is-abroad { background: var(--abroad); }
 .trip .bar.month { opacity: .55; }
 .trip .bar.unk { width: 46px; border: 1.5px dashed var(--muted); background: transparent; }
+.trip .bar.unk.is-cz { border-color: var(--cz); }
+.trip .bar.unk.is-abroad { border-color: var(--abroad); }
 .trip .txt { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; min-width: 0; }
 .trip .t { font-weight: 600; }
 .trip .meta { color: var(--muted); font-size: 13px; }

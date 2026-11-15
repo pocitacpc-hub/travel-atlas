@@ -256,6 +256,16 @@
   presnost: oblast
   overeno: true
   wikidata: Q204728
+- id: hustopece
+  nazev: Hustopeče
+  aliasy: []
+  zeme: CZ
+  oblast: Jižní Morava
+  lat: 48.940872
+  lon: 16.737622
+  presnost: obec
+  overeno: true
+  wikidata: Q1023875
 - id: izola
   nazev: Izola
   aliasy: []
@@ -316,6 +326,17 @@
   presnost: oblast
   overeno: true
   wikidata: Q1345416
+- id: korbielow
+  nazev: Korbielów
+  aliasy:
+    - Korbielow
+  zeme: PL
+  oblast: null
+  lat: 49.56667
+  lon: 19.33333
+  presnost: obec
+  overeno: true
+  wikidata: Q2024269
 - id: korcula
   nazev: Korčula
   aliasy: []
@@ -824,6 +845,16 @@
   presnost: obec
   overeno: true
   wikidata: Q2353719
+- id: valtice
+  nazev: Valtice
+  aliasy: []
+  zeme: CZ
+  oblast: Jižní Morava
+  lat: 48.740717
+  lon: 16.754981
+  presnost: obec
+  overeno: true
+  wikidata: Q782147
 - id: vapenna
   nazev: Vápenná
   aliasy: []

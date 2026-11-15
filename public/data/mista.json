@@ -220,6 +220,15 @@
       "presnost": "obec"
     },
     {
+      "id": "hustopece",
+      "nazev": "Hustopeče",
+      "zeme": "CZ",
+      "oblast": "Jižní Morava",
+      "lat": 48.940872,
+      "lon": 16.737622,
+      "presnost": "obec"
+    },
+    {
       "id": "izola",
       "nazev": "Izola",
       "zeme": "SI",
@@ -263,6 +272,15 @@
       "lat": 50.83,
       "lon": 15.25,
       "presnost": "oblast"
+    },
+    {
+      "id": "korbielow",
+      "nazev": "Korbielów",
+      "zeme": "PL",
+      "oblast": null,
+      "lat": 49.56667,
+      "lon": 19.33333,
+      "presnost": "obec"
     },
     {
       "id": "kouty-nad-desnou",
@@ -676,6 +694,15 @@
       "oblast": null,
       "lat": 49.975,
       "lon": 17.376,
+      "presnost": "obec"
+    },
+    {
+      "id": "valtice",
+      "nazev": "Valtice",
+      "zeme": "CZ",
+      "oblast": "Jižní Morava",
+      "lat": 48.740717,
+      "lon": 16.754981,
       "presnost": "obec"
     },
     {

@@ -4,7 +4,7 @@
 # Přesné termíny z Časové osy
 - nazev: Itálie – Bormio a Alpy na kole
   rok: 2026
-  potvrzeno: false
+  potvrzeno: true
   zmeny:
     zacatek: 2026-08-14
     konec: 2026-08-21
@@ -56,9 +56,9 @@
   zmeny:
     zacatek: 2025-08-15
     konec: 2025-08-17
-- nazev: Jižní Morava – víkend
+- nazev: Valtice
   rok: 2025
-  potvrzeno: false
+  potvrzeno: true
   zmeny:
     zacatek: 2025-09-13
     konec: 2025-09-14
@@ -137,7 +137,7 @@
   zmeny:
     mista:
       - Visalaje (Beskydy)
-- nazev: Beskydy – Trojanovice (cyklistika, Strava)
+- nazev: Giro 2024 – Trojanovice
   rok: 2024
   potvrzeno: true
   zmeny:
@@ -149,7 +149,7 @@
   zmeny:
     mista:
       - Domažlice
-- nazev: Horní Bečva – U Juráša
+- nazev: Horní Bečva – březnový víkend
   rok: 2023
   potvrzeno: true
   zmeny:
@@ -653,7 +653,7 @@
   zmeny:
     zamereni:
       - kolo
-- nazev: Beskydy – Trojanovice (cyklistika, Strava)
+- nazev: Giro 2024 – Trojanovice
   rok: 2024
   potvrzeno: false
   zmeny:
@@ -1107,7 +1107,7 @@
       - **4. den – návrat na kole:** 41,9 km, 114 m stoupání, 26,1 km/h, tep 119
 
       Nejtěžší byl výjezd na **Lysou horu** (12,7 km a 599 m v kuse) a druhý den na **Radhošť**.
-- nazev: Beskydy – Trojanovice (cyklistika, Strava)
+- nazev: Giro 2024 – Trojanovice
   rok: 2024
   potvrzeno: true
   nahrazuje: Dvě vyjížďky na horském kole v **Beskydech** z **Trojanovic**, 52 a 71 km.
@@ -1159,12 +1159,12 @@
   potvrzeno: true
   zmeny:
     verejny_popis: "Celodenní vyjížďka na kole z **Vendryně** přes **Javorový** do **Rožnova pod Radhoštěm**: 67,1 km, 1 340 m stoupání, průměrně 16,6 km/h, tep 141."
-- nazev: Jižní Morava – víkend
+- nazev: Hustopeče
   rok: 2025
   potvrzeno: true
   zmeny:
     verejny_popis: |-
-      Gravelový víkend na jižní Moravě se dvěma okruhy z **Hustopečí**.
+      Firemní akce. Dvě vyjížďky na gravelu z **Hustopečí**.
 
       Celkem **96 km** a **1 425 m** stoupání za 4 h 38 min jízdy, průměrně 20,8 km/h, tep 139.
 
@@ -1190,7 +1190,7 @@
   potvrzeno: true
   zmeny:
     verejny_popis: "Výstup na **Babí horu** z polské strany: 4,6 km a 845 m stoupání. Odpoledne ještě 15,4 km pěšky na slovenské **Oravě**."
-- nazev: Horní Bečva – U Juráša
+- nazev: Horní Bečva – březnový víkend
   rok: 2023
   potvrzeno: true
   zmeny:

@@ -1,5 +1,11 @@
 # Změny
 
+## 15. 11. 2026 – délka cest a opravy termínů
+
+- Statistiky ukazují počet cest a součet nocí v Česku a zahraničí zvlášť podle délky. Přehled a Statistiky odkazují do délkového filtru Kroniky.
+- Kronika ukazuje barvu hlavního státu také u cest s neznámým počtem nocí. Upřesněno pět záznamů cest a přejmenováno Giro 2024.
+- Přesunuty Rychlebské hory z května do dubna 2022, upřesněny termíny u dalších cest a odděleny Valtice a Hustopeče. Nové záznamy jsou Praha 2020, Orava 2023 a Hustopeče 2025. Export má 112 cest.
+
 ## 15. 11. 2026 – doplnění historických cest
 
 - Kronika začíná rokem 1991. Přibylo 13 cest a přesné termíny řady dříve evidovaných cest.

@@ -147,3 +147,8 @@ Zkušební export ze synchronizované složky na Drivu měl 0 chyb, 169 varován
 
 - Přísný export bez chyb, 109 cest a 85 míst. `npm run check` prošel včetně 47 testů, validace schématu a kontroly soukromí. Data v testech jsou historický snímek z 8. 11. a aktuální data se ověřují v přísném exportu.
 - Na Pages po nasazení ověřit Šíravu v letech 1991 a 1995, Prahu v roce 2001 a [detail Primorska](https://pocitacpc-hub.github.io/travel-atlas/cesta.html?id=t-qraayo) s termínem 5.–12. 8. 2024 a bodem v mapě.
+
+## Krátké a delší cesty (15. 11. 2026)
+
+- `tests/stats.test.ts` ověřuje hranici 2/3 nocí, nulu, neznámou délku a zařazení podle hlavního státu. `npm run check` prošel včetně 48 testů.
+- V místním sestavení Chrome ověřil oba údaje ve Statistikách, šest krátkých zahraničních cest po otevření odkazu do Kroniky a 26 cest v kategorii neznámé délky s modrým nebo oranžovým obrysem. Ověřeny také odkazy z Přehledu a štítek v detailu Malé Morávky.

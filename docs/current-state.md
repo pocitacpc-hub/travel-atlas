@@ -99,3 +99,11 @@ Další úpravy z 10. 11. 2026:
 ## Doplnění historických cest a Bulharska (15. 11. 2026)
 
 Přísný export obsahuje 109 cest (60 po Česku, 49 v zahraničí), 15 států a 85 míst. U 80 cest je známých 359 nocí. Nejstarší doložená cesta je Zemplínská Šírava 1991 a jediná cesta bez roku je Warnemünde. Podklady pro místa, kontrolní hodnoty a otevřený rozdíl u počtu nocí na Korčule jsou v [zápisu změny](changes/2026-11-15-doplneni-cest.md).
+
+## Délka cest a upřesnění termínů (15. 11. 2026)
+
+Ve Statistikách je srovnání počtu cest a nocí podle hlavního státu a délky pobytu. Krátké cesty mají 0–2 noci, delší od 3 nocí. Neznámá délka se počítá jako samostatná skupina cest. Odkazy ze Statistik a Přehledu otevřou filtr v Kronice. V Kronice označuje barva čárkovaného obrysu Česko nebo zahraničí i u neznámých nocí. Detail ukazuje skupinu u počtu nocí.
+
+Na Drivu byly upřesněny Praha 2021, Pasohlávky 1992, Horní Bečva 2023, Malá Morávka 2023 a Giro 2024. Veřejný název Horní Bečvy uvádí obec, název ubytování je v soukromém názvu souboru. Návrhy odvozených nocí a další možná Giro čekají na potvrzení. Přehled k dohledání je v místním `out/`.
+
+Další potvrzené termíny z Bookingu a poznámek upřesnily Brno a Břeclav, Babí horu, Bormio, Rychlebské hory a obě Prahy. Valtice a Hustopeče jsou samostatné cesty. Aktivity ze 4.–5. 9. 2025 patří k firemní akci v Hustopečích. Přibyly Praha 2020, Hustopeče 2025 a rafting na Oravě 2023. Číselník má ověřené obce [Valtice](https://www.wikidata.org/wiki/Q782147), [Hustopeče](https://www.wikidata.org/wiki/Q1023875) a [Korbielów](https://www.wikidata.org/wiki/Q2024269). U Oravy je potvrzený okres, obec pro bod zůstává otevřená. Aktuální export má 112 cest, 88 míst a 372 nocí známých u 86 cest.

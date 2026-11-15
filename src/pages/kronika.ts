@@ -5,7 +5,7 @@ import { countryName, dataAsOf, stats as base, trips as all } from "../lib/data"
 import { $, flag, param, sideClass, tripName, tripUrl } from "../lib/dom";
 import { cesty, esc, MONTHS, MONTHS_SHORT, noci, num, plural, searchable, termin, zN } from "../lib/format";
 import type { Trip } from "../lib/model";
-import { computeStats, type YearStat } from "../lib/stats";
+import { computeStats, tripDuration, type YearStat } from "../lib/stats";
 import { icon } from "../lib/icons";
 import { popisPerex } from "../lib/text";
 import { initTripDialog } from "../lib/tripDialog";
@@ -24,8 +24,12 @@ if (!base.total) {
   emptyArchive($("main"));
 } else {
   const requested = param("stat");
+  const scope = param("rozsah");
+  const lengthFilter = $<HTMLSelectElement>("delka");
+  lengthFilter.value = param("delka") ?? "";
+  if (lengthFilter.selectedIndex < 0) lengthFilter.value = "";
   const st = {
-    scope: "all" as "all" | "cz" | "abroad",
+    scope: scope === "cz" || scope === "abroad" ? scope : "all",
     stat: requested && base.countries.some((c) => c.code === requested) ? requested : "",
     q: "",
     text: false
@@ -72,9 +76,10 @@ if (!base.total) {
       (st.scope !== "cz" || t.zeme === "CZ") &&
       (st.scope !== "abroad" || t.zeme !== "CZ") &&
       (!st.stat || t.zeme === st.stat || t.dalsiZeme.includes(st.stat)) &&
+      (!lengthFilter.value || tripDuration(t.pocetNoci) === lengthFilter.value) &&
       (!st.text || t.popis !== null) &&
       (!q || index.get(t.id)!.includes(q)));
-    const filtered = st.scope !== "all" || Boolean(st.stat) || Boolean(q) || st.text;
+    const filtered = st.scope !== "all" || Boolean(st.stat) || Boolean(lengthFilter.value) || Boolean(q) || st.text;
     $("count").textContent = filtered
       ? `${plural(trips.length, "Zobrazena", "Zobrazeny", "Zobrazeno")} ${cesty(trips.length)} ${zN(base.total)}`
       : `${cesty(base.total)} v archivu`;
@@ -125,10 +130,23 @@ if (!base.total) {
     for (const sec of document.querySelectorAll(".year")) observer.observe(sec);
   };
 
-  for (const b of document.querySelectorAll<HTMLButtonElement>("[data-scope]")) {
+  function updateUrl() {
+    const url = new URL(location.href);
+    const params = { rozsah: st.scope === "all" ? "" : st.scope, stat: st.stat, delka: lengthFilter.value };
+    for (const [key, value] of Object.entries(params)) {
+      if (value) url.searchParams.set(key, value);
+      else url.searchParams.delete(key);
+    }
+    history.replaceState(history.state, "", url);
+  }
+
+  const scopeButtons = document.querySelectorAll<HTMLButtonElement>("[data-scope]");
+  for (const b of scopeButtons) {
+    b.setAttribute("aria-pressed", String(b.dataset.scope === st.scope));
     b.addEventListener("click", () => {
       st.scope = b.dataset.scope === "cz" ? "cz" : b.dataset.scope === "abroad" ? "abroad" : "all";
-      for (const x of document.querySelectorAll("[data-scope]")) x.setAttribute("aria-pressed", String(x === b));
+      for (const x of scopeButtons) x.setAttribute("aria-pressed", String(x === b));
+      updateUrl();
       render();
     });
   }
@@ -140,7 +158,11 @@ if (!base.total) {
   });
   select.addEventListener("change", () => {
     st.stat = select.value;
-    history.replaceState(null, "", st.stat ? `?stat=${encodeURIComponent(st.stat)}` : location.pathname);
+    updateUrl();
+    render();
+  });
+  lengthFilter.addEventListener("change", () => {
+    updateUrl();
     render();
   });
   $<HTMLInputElement>("q").addEventListener("input", (e) => {

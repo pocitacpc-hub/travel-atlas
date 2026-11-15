@@ -6,7 +6,7 @@ import { $, flag, param, tripName, tripUrl } from "../lib/dom";
 import { cesty, esc, noci, num, pct, plural, termin, zN } from "../lib/format";
 import { cropFor, MAP_ASPECT, renderMap, toMapPlace, type MapPlace } from "../lib/map";
 import { icon } from "../lib/icons";
-import type { CountryStat } from "../lib/stats";
+import { durationLabels, type CountryStat, type Duration } from "../lib/stats";
 import { initTripDialog } from "../lib/tripDialog";
 import { emptyArchive, focusChips, nightsCoverage, tripListItem, yearsSpan } from "../lib/ui";
 import { registerServiceWorker } from "../lib/pwa";
@@ -45,6 +45,11 @@ if (!s.total) {
     ["Po Česku", cesty(s.cz), `${pct(s.cz, s.total)} všech cest`],
     [`${icon("noc")}Nocí celkem`, num(s.nightsSum), `známo u ${s.nightsKnown} ${zN(s.total)} cest`]
   ].map(([dt, dd, small]) => `<div><dt>${dt}</dt><dd>${dd}<small>${small}</small></dd></div>`).join("");
+  const lengths = Object.keys(durationLabels) as Duration[];
+  $("durationLinks").innerHTML = lengths.map((key) => {
+    const count = s.durations.cz[key].trips + s.durations.abroad[key].trips;
+    return count ? `<a class="link" href="kronika.html?delka=${key}">${durationLabels[key]} · ${cesty(count)}</a>` : "";
+  }).join("");
 
   const select = (code: string) => {
     selected = code;

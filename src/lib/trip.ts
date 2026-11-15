@@ -2,11 +2,12 @@
 // Jen to podstatné o cestě: stát, název, termín, údaje v jednom řádku, popis, mapa a sport.
 import { countryName, placeById, stats as s } from "./data";
 import { flag, tripName } from "./dom";
-import { esc, noci, num, presnost, termin } from "./format";
+import { esc, num, presnost, termin } from "./format";
 import { cropFor, hasMapShape, renderMap, toMapPlace, type MapPlace } from "./map";
 import type { Trip } from "./model";
 import { icon } from "./icons";
 import { popisHtml } from "./text";
+import { tripDuration } from "./stats";
 import { focusChips } from "./ui";
 
 const tripPlaces = (t: Trip): MapPlace[] => t.mista.flatMap((pid) => {
@@ -35,7 +36,7 @@ export function tripDetailHtml(t: Trip): string {
       // Údaje v jednom řádku nahoře: termín, noci, místa.
       '<section class="panel td-facts-panel"><dl class="td-facts">' +
         `<div><dt>${icon("termin")}Termín</dt><dd>${termin(t)}<small>${presnost(t.presnostTerminu)}</small></dd></div>` +
-        `<div><dt>${icon("noc")}Nocí</dt><dd>${t.pocetNoci === null ? "neznámo" : t.pocetNoci}<small>${t.pocetNoci === null ? "délka pobytu není doložená" : noci(t.pocetNoci)}</small></dd></div>` +
+        `<div><dt>${icon("noc")}Nocí</dt><dd>${t.pocetNoci ?? "neznámo"}<small>${{ kratke: "krátká cesta", delsi: "delší cesta", neznama: "délka pobytu není doložená" }[tripDuration(t.pocetNoci)]}</small></dd></div>` +
         `<div class="td-fact-places"><dt>${icon("misto")}Místa</dt><dd>${placeFact}</dd></div>` +
       "</dl></section>" +
       (t.popis ? `<section class="panel td-popis"><h2 class="sec">O cestě</h2>${popisHtml(t.popis)}</section>` : "") +

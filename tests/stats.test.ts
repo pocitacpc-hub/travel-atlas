@@ -15,6 +15,20 @@ const trip = (id: string, over: Partial<Trip> = {}): Trip => ({
   presnostTerminu: "mesic", pocetNoci: null, mista: [], zamereni: [], popis: null, sport: null, ...over
 });
 
+it("rozlišuje Česko a zahraničí, hranici 2/3 nocí i neznámou délku", () => {
+  const result = computeStats([
+    trip("cz-zero", { pocetNoci: 0 }), trip("cz-short", { pocetNoci: 2 }),
+    trip("cz-long", { pocetNoci: 3, dalsiZeme: ["SK"] }), trip("cz-unknown"),
+    trip("sk-short", { zeme: "SK", pocetNoci: 1 }),
+    trip("sk-long", { zeme: "SK", pocetNoci: 7 }), trip("it-unknown", { zeme: "IT" })
+  ], name, fixture.dataAsOf);
+  expect(result.durations).toEqual({
+    cz: { kratke: { trips: 2, nights: 2 }, delsi: { trips: 1, nights: 3 }, neznama: { trips: 1, nights: 0 } },
+    abroad: { kratke: { trips: 1, nights: 1 }, delsi: { trips: 1, nights: 7 }, neznama: { trips: 1, nights: 0 } }
+  });
+  expect(result.nightsSum).toBe(13);
+});
+
 describe("Statistiky nad kontrolním exportem z 8. 11. 2026", () => {
   it("odpovídají kontrolním hodnotám", () => {
     expect([s.total, s.cz, s.abroad]).toEqual([96, 49, 47]);

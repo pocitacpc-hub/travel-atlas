@@ -24,6 +24,7 @@
 .facts dt { color: var(--muted); font-size: 13px; }
 .facts dd { margin: 0; font: 400 26px/1.2 var(--serif); }
 .facts dd small { display: block; color: var(--muted); font: 13px var(--sans); }
+.duration-links { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: -10px 0 16px; font-size: 13px; }
 .country { display: flex; flex: 1 1 auto; flex-direction: column; min-height: 0; padding: 18px 18px 10px; }
 .country header { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
 .country h2 { margin: 0; font: 400 28px/1.1 var(--serif); }

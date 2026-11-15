@@ -1,4 +1,10 @@
 /* Statistiky */
+.duration-table { border-collapse: collapse; width: 100%; margin: 10px 0 16px; font-size: 13px; text-align: left; }
+.duration-table th, .duration-table td { padding: 6px 4px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.duration-table th i { display: inline-block; width: 8px; height: 8px; margin-right: 5px; border-radius: 50%; }
+.duration-table td small { display: block; }
+.duration-table small { color: var(--muted); font-weight: normal; }
+.duration-table a { display: inline-block; color: inherit; text-underline-offset: 2px; }
 /* Cesty a noci po letech vedle sebe, nad Kdy cestuji */
 .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .chart-scroll { overflow-x: auto; }

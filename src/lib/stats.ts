@@ -31,6 +31,20 @@ export interface YearStat {
 
 export interface Bucket { label: string; count: number }
 
+export const durationLabels = {
+  kratke: "Krátké (0–2 noci)",
+  delsi: "Delší (3 a více nocí)",
+  neznama: "Délka neznámá"
+} as const;
+export type Duration = keyof typeof durationLabels;
+export const tripDuration = (nights: Trip["pocetNoci"]): Duration =>
+  nights === null ? "neznama" : nights <= 2 ? "kratke" : "delsi";
+
+interface DurationTotal { trips: number; nights: number }
+const durationTotals = (): Record<Duration, DurationTotal> => ({
+  kratke: { trips: 0, nights: 0 }, delsi: { trips: 0, nights: 0 }, neznama: { trips: 0, nights: 0 }
+});
+
 export interface Stats {
   total: number;
   cz: number;
@@ -38,6 +52,7 @@ export interface Stats {
   nightsSum: number;
   nightsKnown: number;
   nightsUnknown: number;
+  durations: { cz: Record<Duration, DurationTotal>; abroad: Record<Duration, DurationTotal> };
   undated: number;
   undatedTrips: Trip[];
   dayKnown: number;
@@ -92,12 +107,16 @@ export function computeStats(trips: readonly Trip[], countryName: (code: string)
   const byYear = new Map<number, YearStat>();
   const months = Array.from({ length: 12 }, () => 0);
   const nights: number[] = [];
+  const durations = { cz: durationTotals(), abroad: durationTotals() };
   let cz = 0;
   let monthsKnown = 0;
   let dayKnown = 0;
 
   for (const t of trips) {
     if (isHome(t)) cz++;
+    const duration = durations[isHome(t) ? "cz" : "abroad"][tripDuration(t.pocetNoci)];
+    duration.trips++;
+    if (t.pocetNoci !== null) duration.nights += t.pocetNoci;
     if (t.pocetNoci !== null) nights.push(t.pocetNoci);
     if (t.presnostTerminu === "den") dayKnown++;
     if (t.rok !== null && t.mesic !== null) {
@@ -187,6 +206,7 @@ export function computeStats(trips: readonly Trip[], countryName: (code: string)
     nightsSum,
     nightsKnown: n,
     nightsUnknown: trips.length - n,
+    durations,
     undated: trips.filter((t) => t.rok === null).length,
     undatedTrips: trips.filter((t) => t.rok === null).sort(tieBreak),
     dayKnown,
